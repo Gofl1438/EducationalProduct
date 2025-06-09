@@ -73,9 +73,39 @@ namespace EducationalProduct.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BackgroundCatchBones {
+            get {
+                object obj = ResourceManager.GetObject("BackgroundCatchBones", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnBackArrow {
+            get {
+                object obj = ResourceManager.GetObject("btnBackArrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnClosedOpening {
             get {
                 object obj = ResourceManager.GetObject("btnClosedOpening", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnPlayStartRuleScene {
+            get {
+                object obj = ResourceManager.GetObject("btnPlayStartRuleScene", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +133,9 @@ namespace EducationalProduct.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DoodleUp {
+        internal static System.Drawing.Bitmap CharacterCatchBones {
             get {
-                object obj = ResourceManager.GetObject("DoodleUp", resourceCulture);
+                object obj = ResourceManager.GetObject("CharacterCatchBones", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +163,29 @@ namespace EducationalProduct.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap RedMonster {
+        internal static System.Drawing.Bitmap OrangeBone {
             get {
-                object obj = ResourceManager.GetObject("RedMonster", resourceCulture);
+                object obj = ResourceManager.GetObject("OrangeBone", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RedBone {
+            get {
+                object obj = ResourceManager.GetObject("RedBone", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap СharacterRuleScene {
+            get {
+                object obj = ResourceManager.GetObject("СharacterRuleScene", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -15,11 +15,13 @@ namespace EducationalProduct
     {
         System.Windows.Forms.Timer timer;
         Rectangle workingArea;
+        private bool _isUIDrawn = false;
         public CatchBones()
         {
             InitializeComponent();
             СalibrationSize();
             ManagerBone.AddDefaultQuantityBones();
+            ManagerUI.AddCatchBonesElements();
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 14;
             timer.Tick += Update;
@@ -30,7 +32,7 @@ namespace EducationalProduct
         {
             ManagerBone.ApplyPhysicsBone();
             ManagerBone.DeleteTouchBones();
-            catchBonesCanvas.Invalidate();
+            CanvasCatchBones.Invalidate();
         }
 
         private void СalibrationSize()
@@ -39,13 +41,18 @@ namespace EducationalProduct
             this.Height = workingArea.Height;
             this.Width = workingArea.Width;
             this.MinimumSize = new Size(workingArea.Width, workingArea.Height);
-            GameConfig.Initialize(new Size(catchBonesCanvas.Size.Width, catchBonesCanvas.Size.Height));
+            GameConfigUI.Initialize(new Size(CanvasCatchBones.Size.Width, CanvasCatchBones.Size.Height));
+            GameConfig.Initialize(new Size(CanvasCatchBones.Size.Width, CanvasCatchBones.Size.Height));
         }
 
         private void OnRepaint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-
+            for (int i = 0; i < ManagerUI.CatchBonesElements.Count; i++)
+            {
+                ManagerUI.CatchBonesElements[i].DrawSprite(g);
+            }
+            _isUIDrawn = true;
             for (int i = 0; i < ManagerBone.Bones.Count; i++)
             {
                 ManagerBone.Bones[i].DrawSprite(g);

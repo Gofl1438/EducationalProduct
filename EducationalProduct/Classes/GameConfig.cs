@@ -9,7 +9,7 @@ namespace EducationalProduct.Classes
 {
     public class GameConfig
     {
-        public enum BonesType { Yellow, White }
+        public enum BonesType { Red, Orange }
         public static class CanvasPlayBones
         {
             public static int Height { get; set; }
@@ -32,12 +32,12 @@ namespace EducationalProduct.Classes
         {
             public static readonly int DefaultQuantityBone = 8;
             public static readonly float Speed = 3f;
-            public static readonly Bitmap WhiteSprite = Properties.Resources.DoodleUp;
-            public static readonly Bitmap YellowSprite = Properties.Resources.RedMonster;
-            public static readonly int Width = 90;
-            public static readonly int Height = 90;
+            public static readonly Bitmap RedSprite = Properties.Resources.RedBone;
+            public static readonly Bitmap OrangeSprite = Properties.Resources.OrangeBone;
+            public static readonly int Width = 130;
+            public static readonly int Height = 130;
             public static readonly float MinSpeed = 2.0f;
-            public static readonly float MaxSpeed = 7.0f;
+            public static readonly float MaxSpeed = 8.0f;
         }
     }
 }

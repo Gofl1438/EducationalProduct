@@ -11,15 +11,15 @@ using System.Windows.Forms;
 
 namespace EducationalProduct
 {
-    public partial class OpeningScene : Form
+    public partial class RuleScene : Form
     {
         Rectangle workingArea;
-        public OpeningScene()
+        public RuleScene()
         {
             InitializeComponent();
             СalibrationSize();
             ManagerUI.AddOpeningElements();
-            ManagerUI.AddTotalElements();
+            ManagerUI.AddRuleElements();
             this.Invalidate();
         }
 
@@ -29,22 +29,27 @@ namespace EducationalProduct
             this.Height = workingArea.Height;
             this.Width = workingArea.Width;
             this.MinimumSize = new Size(workingArea.Width, workingArea.Height);
-            GameConfigUI.Initialize(new Size(CanvasOpeningScene.Size.Width, CanvasOpeningScene.Size.Height));
+            GameConfigUI.Initialize(new Size(CanvasRuleScene.Size.Width, CanvasRuleScene.Size.Height));
         }
 
-        private void OpeningScene_Paint(object sender, PaintEventArgs e)
+        private void RuleScene_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            for (int i = 0; i < ManagerUI.OpeningElements.Count; i++)
+
+            for (int i = 0; i < ManagerUI.TotalElements.Count; i++)
             {
-                ManagerUI.OpeningElements[i].DrawSprite(g);
+                ManagerUI.TotalElements[i].DrawSprite(g);
+            }
+            for (int i = 0; i < ManagerUI.RuleElements.Count; i++)
+            {
+                ManagerUI.RuleElements[i].DrawSprite(g);
             }
         }
 
-        private void OpeningScene_MouseDown(object sender, MouseEventArgs e)
+        private void RuleScene_MouseDown(object sender, MouseEventArgs e)
         {
-            if (new RectangleF(new PointF(GameConfigUI.OpeningScene.BtnStartPlay.PositionOx, GameConfigUI.OpeningScene.BtnStartPlay.PositionOy),
-                new Size(GameConfigUI.OpeningScene.BtnStartPlay.Width, GameConfigUI.OpeningScene.BtnStartPlay.Height)).Contains(e.Location))
+            if (new RectangleF(new PointF(GameConfigUI.RuleScene.BtnStartPlay.PositionOx, GameConfigUI.RuleScene.BtnStartPlay.PositionOy),
+                new Size(GameConfigUI.RuleScene.BtnStartPlay.Width, GameConfigUI.RuleScene.BtnStartPlay.Height)).Contains(e.Location))
             {
                 RuleScene ruleScene = new RuleScene();
                 ruleScene.Opacity = 0;
@@ -56,7 +61,7 @@ namespace EducationalProduct
                     System.Threading.Thread.Sleep(16);
                 }
                 this.Hide();
-                ruleScene.FormClosed += (s, args) => {this.Close();};
+                ruleScene.FormClosed += (s, args) => { this.Close(); };
             }
         }
     }

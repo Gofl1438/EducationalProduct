@@ -14,19 +14,19 @@ namespace EducationalProduct.Classes
 
         public static void AddDefaultQuantityBones()
         {
-            int quantityWhiteBone = 0;
-            int quantityYellowBone = 0;
+            int quantityOrangeBone = 0;
+            int quantityRedBone = 0;
             float posOx = 0;
             float posOy = GameConfig.CanvasPlayBones.HeightBlockBone;
 
             for (int i = 0; i < GameConfig.Bone.DefaultQuantityBone * 2; i++)
             {
                 int typeBone;
-                if (quantityWhiteBone >= GameConfig.Bone.DefaultQuantityBone)
+                if (quantityOrangeBone >= GameConfig.Bone.DefaultQuantityBone)
                 {
                     typeBone = 1;
                 }
-                else if (quantityYellowBone >= GameConfig.Bone.DefaultQuantityBone)
+                else if (quantityRedBone >= GameConfig.Bone.DefaultQuantityBone)
                 {
                     typeBone = 0;
                 }
@@ -42,20 +42,20 @@ namespace EducationalProduct.Classes
                     posOy += GameConfig.CanvasPlayBones.HeightBlockBone;
                 }
 
-                PointF position = GetRandomPosition(posOx, posOy);
-                Transform transform = new Transform(position, new Size(GameConfig.Bone.Width, GameConfig.Bone.Height));
+                PointF position = GetRandomPosition(posOx + 20, posOy + 20);
+                Transform transform = new Transform(position, new Size(GameConfig.Bone.Width - 20, GameConfig.Bone.Height- 20));
                 if (typeBone == 0)
                 {
-                    Bones.Add(new Bone(transform, GameConfig.BonesType.White));
-                    quantityWhiteBone++;
+                    Bones.Add(new Bone(transform, GameConfig.BonesType.Orange));
+                    quantityOrangeBone++;
                 }
                 else
                 {
-                    Bones.Add(new Bone(transform, GameConfig.BonesType.Yellow));
-                    quantityYellowBone++;
+                    Bones.Add(new Bone(transform, GameConfig.BonesType.Red));
+                    quantityRedBone++;
                 }
             }
-            Debug.WriteLine($"Создано: {quantityWhiteBone} белых, {quantityYellowBone} жёлтых");
+            Debug.WriteLine($"Создано: {quantityOrangeBone} оранжевых, {quantityRedBone} красных");
         }
 
         public static void ApplyPhysicsBone()

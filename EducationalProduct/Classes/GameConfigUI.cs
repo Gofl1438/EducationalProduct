@@ -22,6 +22,14 @@ namespace EducationalProduct.Classes
             TotalElement.BtnClosed.PositionOx = Width - TotalElement.BtnClosed.Width - TotalElement.BtnClosed.Height;
             RuleScene.Character.PositionOy = Height - RuleScene.Character.Height;
             CatchBones.Character.PositionOy = Height - CatchBones.Character.Height;
+            CatchBones.Background.Height = Height;
+            CatchBones.Background.Width = Width;
+            RepeatAction.Background.Width = Width;
+            RepeatAction.Background.Height = Height;
+            DodgeMeteorites.Background.Width = Width;
+            DodgeMeteorites.Background.Height = Height;
+            ColleсtPuzzle.Background.Height = Height;
+            ColleсtPuzzle.Background.Width = Width;
         }
 
 
@@ -138,6 +146,58 @@ namespace EducationalProduct.Classes
                 public static int Height { get; set; } = 537;
                 public static int Width { get; set; } = 633;
                 public static float PositionOx = 0;
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Background
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.BackgroundCatchBones;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx;
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+        }
+
+        public static class ColleсtPuzzle
+        {
+            public static class Background
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.BackgroundColleсtPuzzle;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx;
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+        }
+
+        public static class DodgeMeteorites
+        {
+            public static class Background
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.BackgroundDodgeMeteorites;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx;
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+        }
+
+        public static class RepeatAction
+        {
+            public static class Background
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.BackgroundRepeatAction;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx;
                 public static float PositionOy;
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);

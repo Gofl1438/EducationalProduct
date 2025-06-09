@@ -124,6 +124,21 @@
   <data name="BackgroundCatchBones" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BackgroundCatchBones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BackgroundColleсtPuzzle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BackgroundColleсtPuzzle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BackgroundDodgeMeteorites" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BackgroundDodgeMeteorites.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BackgroundRepeatAction" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BackgroundRepeatAction.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BlueButtonGray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlueButtonGray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BlueButtonLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlueButtonLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="btnBackArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnBackArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,6 +157,18 @@
   <data name="CharacterCatchBones" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CharacterCatchBones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="GreenButtonGray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GreenButtonGray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GreenButtonLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GreenButtonLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LeftButtonDodge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LeftButtonDodge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Meteorite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Meteorite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="OpeningRocket" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OpeningRocket.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -151,8 +178,41 @@
   <data name="OrangeBone" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OrangeBone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PuzzleBottomLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PuzzleBottomLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PuzzleBottomRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PuzzleBottomRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PuzzleTopLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PuzzleTopLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PuzzleTopRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PuzzleTopRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="RedBone" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RedBone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RedButtonGray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RedButtonGray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RedButtonLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RedButtonLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RightButtonDodge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RightButtonDodge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RocketDodge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RocketDodge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ShadowPuzzle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ShadowPuzzle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="YellowButtonGray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\YellowButtonGray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="YellowButtonLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\YellowButtonLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="СharacterRuleScene" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\СharacterRuleScene.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

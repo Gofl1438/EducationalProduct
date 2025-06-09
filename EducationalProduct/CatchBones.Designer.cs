@@ -34,7 +34,6 @@
             // 
             // CanvasCatchBones
             // 
-            CanvasCatchBones.BackgroundImage = Properties.Resources.BackgroundCatchBones;
             CanvasCatchBones.Dock = DockStyle.Fill;
             CanvasCatchBones.Location = new Point(0, 0);
             CanvasCatchBones.Margin = new Padding(0);

@@ -15,6 +15,9 @@ namespace EducationalProduct.Classes
         public static List<ElementUI> OpeningElements { get; } = new List<ElementUI>();
         public static List<ElementUI> RuleElements { get; } = new List<ElementUI>();
         public static List<ElementUI> CatchBonesElements { get; } = new List<ElementUI>();
+        public static List<ElementUI> ColleсtPuzzleElements { get; } = new List<ElementUI>();
+        public static List<ElementUI> RepeatActionElements { get; } = new List<ElementUI>();
+        public static List<ElementUI> DodgeMeteoritesElements { get; } = new List<ElementUI>();
 
         public static void AddTotalElements()
         {
@@ -77,9 +80,41 @@ namespace EducationalProduct.Classes
         {
             ElementUI character = new ElementUI(GameConfigUI.CatchBones.Character.Sprite,
                 GameConfigUI.CatchBones.Character.Size,
-                GameConfigUI.CatchBones.Character.Point
+                GameConfigUI.CatchBones.Character.Point 
                 );
+            ElementUI background = new ElementUI(GameConfigUI.CatchBones.Background.Sprite,
+                GameConfigUI.CatchBones.Background.Size,
+                GameConfigUI.CatchBones.Background.Point
+                );
+            CatchBonesElements.Add(background);
             CatchBonesElements.Add(character);
+        }
+
+        public static void AddDodgeMeteoritesElements()
+        {
+            ElementUI background = new ElementUI(GameConfigUI.DodgeMeteorites.Background.Sprite,
+                GameConfigUI.DodgeMeteorites.Background.Size,
+                GameConfigUI.DodgeMeteorites.Background.Point
+                );
+            DodgeMeteoritesElements.Add(background);
+        }
+
+        public static void AddRepeatActionElements()
+        {
+            ElementUI background = new ElementUI(GameConfigUI.RepeatAction.Background.Sprite,
+                GameConfigUI.RepeatAction.Background.Size,
+                GameConfigUI.RepeatAction.Background.Point
+                );
+            RepeatActionElements.Add(background);
+        }
+
+        public static void AddColleсtPuzzleElements()
+        {
+            ElementUI background = new ElementUI(GameConfigUI.ColleсtPuzzle.Background.Sprite,
+                GameConfigUI.ColleсtPuzzle.Background.Size,
+                GameConfigUI.ColleсtPuzzle.Background.Point
+                );
+            ColleсtPuzzleElements.Add(background);
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 
 namespace EducationalProduct.Classes
 {
@@ -24,6 +25,8 @@ namespace EducationalProduct.Classes
             CanvasPlayBones.WidthBlockBone = (float)CanvasPlayBones.Width / Bone.DefaultQuantityBone;
             CanvasPlayBones.HeightBlockBone = (float)CanvasPlayBones.Height / 2;
         }
+
+
 
         public static class Bone
         {

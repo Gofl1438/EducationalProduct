@@ -11,7 +11,7 @@ namespace EducationalProduct.Classes
         public Transform Transform { get; set; }
         public Bitmap Sprite { get; set; }
 
-        public void DrawSprite(Graphics g)
+        public virtual void DrawSprite(Graphics g)
         {
             if (Sprite == null)
                 throw new InvalidOperationException("Спрайт не задан.");

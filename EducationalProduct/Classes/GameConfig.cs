@@ -280,10 +280,11 @@ namespace EducationalProduct.Classes
             public static class Rocket
             {
                 public static readonly Bitmap Sprite = Properties.Resources.RocketDodge;
-                public static int Height { get; set; } = 300;
-                public static int Width { get; set; } = 500;
+                public static int Height { get; set; } = 350;
+                public static int Width { get; set; } = 250;
                 public static float PositionOx { get; set; } = 102;
                 public static float PositionOy { get; set; } = 400;
+                public static float SpeedOx = 35f;
                 public static Size Size = new Size(Width, Height);
                 public static PointF Point = new PointF(PositionOx, PositionOy);
             }
@@ -291,6 +292,9 @@ namespace EducationalProduct.Classes
             public static class Meteorite
             {
                 public static readonly Bitmap Sprite = Properties.Resources.Meteorite;
+                public static readonly float MinSpeedOy = 3.0f;
+                public static readonly float MaxSpeedOy = 7.0f;
+                public static readonly int normalQuantity = 5;
                 public static int Height { get; set; } = 300;
                 public static int Width { get; set; } = 300;
 
@@ -300,20 +304,20 @@ namespace EducationalProduct.Classes
             public static class ButtonLeft
             {
                 public static readonly Bitmap Sprite = Properties.Resources.LeftButtonDodge;
-                public static int Height { get; set; } = 300;
-                public static int Width { get; set; } = 500;
-                public static float PositionOx { get; set; } = 102;
-                public static float PositionOy { get; set; } = 400;
+                public static int Height { get; set; } = 200;
+                public static int Width { get; set; } = 350;
+                public static float PositionOx { get; set; } = 60;
+                public static float PositionOy { get; set; } = 750;
                 public static Size Size = new Size(Width, Height);
                 public static PointF Point = new PointF(PositionOx, PositionOy);
             }
             public static class ButtonRight
             {
                 public static readonly Bitmap Sprite = Properties.Resources.RightButtonDodge;
-                public static int Height { get; set; } = 300;
-                public static int Width { get; set; } = 500;
-                public static float PositionOx { get; set; } = 102;
-                public static float PositionOy { get; set; } = 400;
+                public static int Height { get; set; } = 200;
+                public static int Width { get; set; } = 350;
+                public static float PositionOx { get; set; } = 1500;
+                public static float PositionOy { get; set; } = 750;
                 public static Size Size = new Size(Width, Height);
                 public static PointF Point = new PointF(PositionOx, PositionOy);
             }

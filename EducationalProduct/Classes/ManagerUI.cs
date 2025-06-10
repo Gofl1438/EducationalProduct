@@ -96,7 +96,17 @@ namespace EducationalProduct.Classes
                 GameConfig.DodgeMeteorites.Background.Size,
                 GameConfig.DodgeMeteorites.Background.Point
                 );
+            ElementUI buttonLeft = new ElementUI(GameConfig.DodgeMeteorites.ButtonLeft.Sprite,
+                GameConfig.DodgeMeteorites.ButtonLeft.Size,
+                GameConfig.DodgeMeteorites.ButtonLeft.Point
+                );
+            ElementUI buttonRight = new ElementUI(GameConfig.DodgeMeteorites.ButtonRight.Sprite,
+                GameConfig.DodgeMeteorites.ButtonRight.Size,
+                GameConfig.DodgeMeteorites.ButtonRight.Point
+                );
             DodgeMeteoritesElements.Add(background);
+            DodgeMeteoritesElements.Add(buttonLeft);
+            DodgeMeteoritesElements.Add(buttonRight);
         }
 
         public static void AddRepeatActionElements()

@@ -12,6 +12,7 @@ namespace EducationalProduct.Classes
 
         public enum BonesType { Red, Orange }
         public enum PuzzlesType { BottomLeft, BottomRight, TopLeft, TopRight }
+        public enum ButtonRepeatType { Red, Blue, Yellow, Green }
         public static class CanvasProduct
         {
             public static int Height { get; set; }
@@ -320,6 +321,8 @@ namespace EducationalProduct.Classes
 
         public static class RepeatAction
         {
+            public static readonly int FrequencyGameOver = 5;
+            public static readonly int MaxQuntitySequence = 6;
             public static class Background
             {
                 public static readonly Bitmap Sprite = Properties.Resources.BackgroundRepeatAction;
@@ -332,78 +335,42 @@ namespace EducationalProduct.Classes
             }
             public static class Button
             {
-                public static int Height { get; set; }
-                public static int Width { get; set; }
+                public static int Height = 300;
+                public static int Width = 300;
 
-                public static class RedLight
+                public static class Red
                 {
-                    public static readonly Bitmap Sprite = Properties.Resources.RedButtonLight;
-
-                    public static float PositionOx;
-                    public static float PositionOy;
+                    public static readonly Bitmap SpriteLight = Properties.Resources.RedButtonLight;
+                    public static readonly Bitmap SpriteGray = Properties.Resources.RedButtonGray;
+                    public static float PositionOx = 400;
+                    public static float PositionOy = 150;
                     public static Size Size => new Size(Width, Height);
                     public static PointF Point => new PointF(PositionOx, PositionOy);
                 }
-                public static class BlueLight
+                public static class Blue
                 {
-                    public static readonly Bitmap Sprite = Properties.Resources.BlueButtonLight;
-
-                    public static float PositionOx;
-                    public static float PositionOy;
+                    public static readonly Bitmap SpriteLight = Properties.Resources.BlueButtonLight;
+                    public static readonly Bitmap SpriteGray = Properties.Resources.BlueButtonGray;
+                    public static float PositionOx = 1200;
+                    public static float PositionOy = 150;
                     public static Size Size => new Size(Width, Height);
                     public static PointF Point => new PointF(PositionOx, PositionOy);
                 }
-                public static class GreenLight
+                public static class Yellow
                 {
-                    public static readonly Bitmap Sprite = Properties.Resources.GreenButtonLight;
-
-                    public static float PositionOx;
-                    public static float PositionOy;
+                    public static readonly Bitmap SpriteLight = Properties.Resources.YellowButtonLight;
+                    public static readonly Bitmap SpriteGray = Properties.Resources.YellowButtonGray;
+                    public static float PositionOx = 400;
+                    public static float PositionOy = 550;
                     public static Size Size => new Size(Width, Height);
                     public static PointF Point => new PointF(PositionOx, PositionOy);
                 }
-                public static class YellowLight
+                public static class Green
                 {
-                    public static readonly Bitmap Sprite = Properties.Resources.YellowButtonLight;
-
-                    public static float PositionOx;
-                    public static float PositionOy;
-                    public static Size Size => new Size(Width, Height);
-                    public static PointF Point => new PointF(PositionOx, PositionOy);
-                }
-                public static class RedGray
-                {
-                    public static readonly Bitmap Sprite = Properties.Resources.RedButtonGray;
-
-                    public static float PositionOx;
-                    public static float PositionOy;
-                    public static Size Size => new Size(Width, Height);
-                    public static PointF Point => new PointF(PositionOx, PositionOy);
-                }
-                public static class BlueGray
-                {
-                    public static readonly Bitmap Sprite = Properties.Resources.BlueButtonGray;
-
-                    public static float PositionOx;
-                    public static float PositionOy;
-                    public static Size Size => new Size(Width, Height);
-                    public static PointF Point => new PointF(PositionOx, PositionOy);
-                }
-                public static class GreenGray
-                {
-                    public static readonly Bitmap Sprite = Properties.Resources.GreenButtonGray;
-
-                    public static float PositionOx;
-                    public static float PositionOy;
-                    public static Size Size => new Size(Width, Height);
-                    public static PointF Point => new PointF(PositionOx, PositionOy);
-                }
-                public static class YellowGray
-                {
-                    public static readonly Bitmap Sprite = Properties.Resources.YellowButtonGray;
-
-                    public static float PositionOx;
-                    public static float PositionOy;
+                    public static readonly Bitmap SpriteLight = Properties.Resources.GreenButtonLight;
+                    public static readonly Bitmap SpriteGray = Properties.Resources.GreenButtonGray;
+                    public static float PositionOx = 1200;
+                    public static float PositionOy = 550;
                     public static Size Size => new Size(Width, Height);
                     public static PointF Point => new PointF(PositionOx, PositionOy);
                 }

@@ -42,6 +42,7 @@
             CanvasRepeatAction.TabIndex = 0;
             CanvasRepeatAction.TabStop = false;
             CanvasRepeatAction.Paint += OnRepaint;
+            CanvasRepeatAction.MouseDown += CanvasRepeatAction_MouseDown;
             // 
             // RepeatAction
             // 

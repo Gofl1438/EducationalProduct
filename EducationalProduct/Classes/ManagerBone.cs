@@ -17,16 +17,16 @@ namespace EducationalProduct.Classes
             int quantityOrangeBone = 0;
             int quantityRedBone = 0;
             float posOx = 0;
-            float posOy = GameConfig.CanvasPlayBones.HeightBlockBone;
+            float posOy = GameConfig.CanvasProduct.HeightBlockBone;
 
-            for (int i = 0; i < GameConfig.Bone.DefaultQuantityBone * 2; i++)
+            for (int i = 0; i < GameConfig.CatchBones.Bone.DefaultQuantityBone * 2; i++)
             {
                 int typeBone;
-                if (quantityOrangeBone >= GameConfig.Bone.DefaultQuantityBone)
+                if (quantityOrangeBone >= GameConfig.CatchBones.Bone.DefaultQuantityBone)
                 {
                     typeBone = 1;
                 }
-                else if (quantityRedBone >= GameConfig.Bone.DefaultQuantityBone)
+                else if (quantityRedBone >= GameConfig.CatchBones.Bone.DefaultQuantityBone)
                 {
                     typeBone = 0;
                 }
@@ -35,15 +35,15 @@ namespace EducationalProduct.Classes
                     typeBone = rand.Next(0, 2);
                 }
 
-                posOx += GameConfig.CanvasPlayBones.WidthBlockBone;
-                if (posOx > GameConfig.CanvasPlayBones.Width)
+                posOx += GameConfig.CanvasProduct.WidthBlockBone;
+                if (posOx > GameConfig.CanvasProduct.Width)
                 {
-                    posOx = GameConfig.CanvasPlayBones.WidthBlockBone;
-                    posOy += GameConfig.CanvasPlayBones.HeightBlockBone;
+                    posOx = GameConfig.CanvasProduct.WidthBlockBone;
+                    posOy += GameConfig.CanvasProduct.HeightBlockBone;
                 }
 
                 PointF position = GetRandomPosition(posOx + 20, posOy + 20);
-                Transform transform = new Transform(position, new Size(GameConfig.Bone.Width - 20, GameConfig.Bone.Height- 20));
+                Transform transform = new Transform(position, new Size(GameConfig.CatchBones.Bone.Width - 20, GameConfig.CatchBones.Bone.Height- 20));
                 if (typeBone == 0)
                 {
                     Bones.Add(new Bone(transform, GameConfig.BonesType.Orange));
@@ -81,10 +81,10 @@ namespace EducationalProduct.Classes
 
         private static PointF GetRandomPosition(float posOx, float posOy)
         {
-            float startPosOx = posOx - GameConfig.CanvasPlayBones.WidthBlockBone;
-            float endPosOx = posOx - GameConfig.Bone.Width;
-            float startPosOy = posOy - GameConfig.CanvasPlayBones.HeightBlockBone;
-            float endPosOy = posOy - GameConfig.Bone.Height;
+            float startPosOx = posOx - GameConfig.CanvasProduct.WidthBlockBone;
+            float endPosOx = posOx - GameConfig.CatchBones.Bone.Width;
+            float startPosOy = posOy - GameConfig.CanvasProduct.HeightBlockBone;
+            float endPosOy = posOy - GameConfig.CatchBones.Bone.Height;
 
             float newPosOx = startPosOx + rand.NextSingle() * (endPosOx - startPosOx);
             float newPosOy = startPosOy + rand.NextSingle() * (endPosOy - startPosOy);

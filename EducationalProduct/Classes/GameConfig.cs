@@ -1,43 +1,414 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 
 namespace EducationalProduct.Classes
 {
-    public class GameConfig
+    public static class GameConfig
     {
+
         public enum BonesType { Red, Orange }
-        public static class CanvasPlayBones
+        public enum PuzzlesType { BottomLeft, BottomRight, TopLeft, TopRight }
+        public static class CanvasProduct
         {
             public static int Height { get; set; }
             public static int Width { get; set; }
             public static float WidthBlockBone { get; set; }
             public static float HeightBlockBone { get; set; }
         }
-
         public static void Initialize(Size sizeCanvas)
         {
-            CanvasPlayBones.Height = sizeCanvas.Height;
-            CanvasPlayBones.Width = sizeCanvas.Width;
-            CanvasPlayBones.WidthBlockBone = (float)CanvasPlayBones.Width / Bone.DefaultQuantityBone;
-            CanvasPlayBones.HeightBlockBone = (float)CanvasPlayBones.Height / 2;
+            CanvasProduct.Height = sizeCanvas.Height;
+            CanvasProduct.Width = sizeCanvas.Width;
+            TotalElement.Background.Width = CanvasProduct.Width;
+            TotalElement.Background.Height = CanvasProduct.Height;
+            TotalElement.BtnClosed.PositionOx = CanvasProduct.Width - TotalElement.BtnClosed.Width - TotalElement.BtnClosed.Height;
+            RuleScene.Character.PositionOy = CanvasProduct.Height - RuleScene.Character.Height;
+            CatchBones.Character.PositionOy = CanvasProduct.Height - CatchBones.Character.Height;
+            CatchBones.Background.Height = CanvasProduct.Height;
+            CatchBones.Background.Width = CanvasProduct.Width;
+            RepeatAction.Background.Width = CanvasProduct.Width;
+            RepeatAction.Background.Height = CanvasProduct.Height;
+            DodgeMeteorites.Background.Width = CanvasProduct.Width;
+            DodgeMeteorites.Background.Height = CanvasProduct.Height;
+            ColleсtPuzzle.Background.Height = CanvasProduct.Height;
+            ColleсtPuzzle.Background.Width = CanvasProduct.Width;
+            CanvasProduct.WidthBlockBone = (float)CanvasProduct.Width / CatchBones.Bone.DefaultQuantityBone;
+            CanvasProduct.HeightBlockBone = (float)CanvasProduct.Height / 2;
+            InitializeColleсtPuzzle();
         }
 
 
-
-        public static class Bone
+        public static void InitializeColleсtPuzzle()
         {
-            public static readonly int DefaultQuantityBone = 8;
-            public static readonly float Speed = 3f;
-            public static readonly Bitmap RedSprite = Properties.Resources.RedBone;
-            public static readonly Bitmap OrangeSprite = Properties.Resources.OrangeBone;
-            public static readonly int Width = 130;
-            public static readonly int Height = 130;
-            public static readonly float MinSpeed = 2.0f;
-            public static readonly float MaxSpeed = 8.0f;
+            ColleсtPuzzle.Puzzle.Shadow.PositionOy = (CanvasProduct.Height - ColleсtPuzzle.Puzzle.Shadow.Height) / 2;
+            ColleсtPuzzle.Puzzle.Shadow.PositionOx = (CanvasProduct.Width - ColleсtPuzzle.Puzzle.Shadow.Width) / 2;
+
+        }
+
+        public static class TotalElement
+        {
+            public static class Background
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.Background;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx => 0;
+                public static float PositionOy => 0;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class BtnClosed
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.btnClosedOpening;
+                public static int Height { get; set; } = 100;
+                public static int Width { get; set; } = 100;
+                public static float PositionOx;
+                public static float PositionOy = 50;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class BtnBackArrow
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.btnBackArrow;
+                public static int Height { get; set; } = 100;
+                public static int Width { get; set; } = 100;
+                public static float PositionOx = 50;
+                public static float PositionOy = 50;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+        }
+
+        public static class OpeningScene
+        {
+            public static class Rocket
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.OpeningRocket;
+                public static int Height { get; set; } = 600;
+                public static int Width { get; set; } = 920;
+                public static float PositionOx { get; set; } = 1020;
+                public static float PositionOy { get; set; } = 340;
+                public static readonly float RotationAngle = -20f;
+                public static Size Size = new Size(Width, Height);
+                public static PointF Point = new PointF(PositionOx, PositionOy);
+            }
+
+            public static class BtnQuestion
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.btnQuestion;
+                public static int Height { get; set; } = 100;
+                public static int Width { get; set; } = 100;
+                public static float PositionOx = 50;
+                public static float PositionOy = 50;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Title
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.OpeningTitle;
+                public static int Height { get; set; } = 168;
+                public static int Width { get; set; } = 1021;
+                public static float PositionOx = 450;
+                public static float PositionOy = 131;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class BtnStartPlay
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.btnStartPlayOpening;
+                public static int Height { get; set; } = 183;
+                public static int Width { get; set; } = 463;
+                public static float PositionOx = 729;
+                public static float PositionOy = 449;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+        }
+
+
+        public static class RuleScene
+        {
+            public static class Character
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.СharacterRuleScene;
+                public static int Height { get; set; } = 847;
+                public static int Width { get; set; } = 847;
+                public static float PositionOx = 0;
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class BtnStartPlay
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.btnPlayStartRuleScene;
+                public static int Height { get; set; } = 188;
+                public static int Width { get; set; } = 530;
+                public static float PositionOx = 1200;
+                public static float PositionOy = 700;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+        }
+
+        public static class CatchBones
+        {
+            public static class Character
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.CharacterCatchBones;
+                public static int Height { get; set; } = 537;
+                public static int Width { get; set; } = 633;
+                public static float PositionOx = 0;
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Background
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.BackgroundCatchBones;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx;
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Bone
+            {
+                public static readonly int DefaultQuantityBone = 8;
+                public static readonly float Speed = 3f;
+                public static readonly Bitmap RedSprite = Properties.Resources.RedBone;
+                public static readonly Bitmap OrangeSprite = Properties.Resources.OrangeBone;
+                public static readonly int Width = 130;
+                public static readonly int Height = 130;
+                public static readonly float MinSpeed = 2.0f;
+                public static readonly float MaxSpeed = 8.0f;
+            }
+        }
+
+        public static class ColleсtPuzzle
+        {
+            public static class Background
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.BackgroundColleсtPuzzle;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx;
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+
+
+            public static class Puzzle
+            {
+                public static int HeightDetail = 370;
+                public static int WidthDetail = 592;
+                public static class Shadow
+                {
+                    public static readonly Bitmap Sprite = Properties.Resources.ShadowPuzzle;
+                    public static int Height = 740;
+                    public static int Width = 1184;
+                    public static float PositionOx;
+                    public static float PositionOy;
+                    public static Size Size => new Size(Width, Height);
+                    public static PointF Point => new PointF(PositionOx, PositionOy);
+                }
+                public static class BottomLeft
+                {
+                    public static readonly Bitmap Sprite = Properties.Resources.PuzzleBottomLeft;
+                    public static float PositionOx = 1150;
+                    public static float PositionOy = 50;
+                    public static float CorrectlyPosOx = Shadow.PositionOx;
+                    public static float CorrectlyPosOy = Shadow.PositionOy;
+                    public static Size Size => new Size(WidthDetail, HeightDetail);
+                    public static PointF Point => new PointF(PositionOx, PositionOy);
+                }
+
+                public static class BottomRight
+                {
+                    public static readonly Bitmap Sprite = Properties.Resources.PuzzleBottomRight;
+                    public static float PositionOx = 30;
+                    public static float PositionOy = 700;
+                    public static float CorrectlyPosOx = Shadow.PositionOx;
+                    public static float CorrectlyPosOy = Shadow.PositionOy + HeightDetail;
+                    public static Size Size => new Size(WidthDetail, HeightDetail);
+                    public static PointF Point => new PointF(PositionOx, PositionOy);
+                }
+
+                public static class TopLeft
+                {
+                    public static readonly Bitmap Sprite = Properties.Resources.PuzzleTopLeft;
+                    public static float PositionOx = 1150;
+                    public static float PositionOy = 550;
+                    public static float CorrectlyPosOx = Shadow.PositionOx + WidthDetail;
+                    public static float CorrectlyPosOy = Shadow.PositionOy;
+                    public static Size Size => new Size(WidthDetail, HeightDetail);
+                    public static PointF Point => new PointF(PositionOx, PositionOy);
+                }
+
+                public static class TopRight
+                {
+                    public static readonly Bitmap Sprite = Properties.Resources.PuzzleTopRight;
+                    public static float PositionOx = 400;
+                    public static float PositionOy = 100;
+                    public static float CorrectlyPosOx = Shadow.PositionOx + WidthDetail;
+                    public static float CorrectlyPosOy = Shadow.PositionOy + HeightDetail;
+                    public static Size Size => new Size(WidthDetail, HeightDetail);
+                    public static PointF Point => new PointF(PositionOx, PositionOy);
+                }
+            }
+        }
+
+        public static class DodgeMeteorites
+        {
+            public static class Background
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.BackgroundDodgeMeteorites;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx;
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+
+            public static class Rocket
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.RocketDodge;
+                public static int Height { get; set; } = 300;
+                public static int Width { get; set; } = 500;
+                public static float PositionOx { get; set; } = 102;
+                public static float PositionOy { get; set; } = 400;
+                public static Size Size = new Size(Width, Height);
+                public static PointF Point = new PointF(PositionOx, PositionOy);
+            }
+
+            public static class Meteorite
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.Meteorite;
+                public static int Height { get; set; } = 300;
+                public static int Width { get; set; } = 300;
+
+                public static Size Size = new Size(Width, Height);
+            }
+
+            public static class ButtonLeft
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.LeftButtonDodge;
+                public static int Height { get; set; } = 300;
+                public static int Width { get; set; } = 500;
+                public static float PositionOx { get; set; } = 102;
+                public static float PositionOy { get; set; } = 400;
+                public static Size Size = new Size(Width, Height);
+                public static PointF Point = new PointF(PositionOx, PositionOy);
+            }
+            public static class ButtonRight
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.RightButtonDodge;
+                public static int Height { get; set; } = 300;
+                public static int Width { get; set; } = 500;
+                public static float PositionOx { get; set; } = 102;
+                public static float PositionOy { get; set; } = 400;
+                public static Size Size = new Size(Width, Height);
+                public static PointF Point = new PointF(PositionOx, PositionOy);
+            }
+        }
+
+        public static class RepeatAction
+        {
+            public static class Background
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.BackgroundRepeatAction;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx;
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Button
+            {
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+
+                public static class RedLight
+                {
+                    public static readonly Bitmap Sprite = Properties.Resources.RedButtonLight;
+
+                    public static float PositionOx;
+                    public static float PositionOy;
+                    public static Size Size => new Size(Width, Height);
+                    public static PointF Point => new PointF(PositionOx, PositionOy);
+                }
+                public static class BlueLight
+                {
+                    public static readonly Bitmap Sprite = Properties.Resources.BlueButtonLight;
+
+                    public static float PositionOx;
+                    public static float PositionOy;
+                    public static Size Size => new Size(Width, Height);
+                    public static PointF Point => new PointF(PositionOx, PositionOy);
+                }
+                public static class GreenLight
+                {
+                    public static readonly Bitmap Sprite = Properties.Resources.GreenButtonLight;
+
+                    public static float PositionOx;
+                    public static float PositionOy;
+                    public static Size Size => new Size(Width, Height);
+                    public static PointF Point => new PointF(PositionOx, PositionOy);
+                }
+                public static class YellowLight
+                {
+                    public static readonly Bitmap Sprite = Properties.Resources.YellowButtonLight;
+
+                    public static float PositionOx;
+                    public static float PositionOy;
+                    public static Size Size => new Size(Width, Height);
+                    public static PointF Point => new PointF(PositionOx, PositionOy);
+                }
+                public static class RedGray
+                {
+                    public static readonly Bitmap Sprite = Properties.Resources.RedButtonGray;
+
+                    public static float PositionOx;
+                    public static float PositionOy;
+                    public static Size Size => new Size(Width, Height);
+                    public static PointF Point => new PointF(PositionOx, PositionOy);
+                }
+                public static class BlueGray
+                {
+                    public static readonly Bitmap Sprite = Properties.Resources.BlueButtonGray;
+
+                    public static float PositionOx;
+                    public static float PositionOy;
+                    public static Size Size => new Size(Width, Height);
+                    public static PointF Point => new PointF(PositionOx, PositionOy);
+                }
+                public static class GreenGray
+                {
+                    public static readonly Bitmap Sprite = Properties.Resources.GreenButtonGray;
+
+                    public static float PositionOx;
+                    public static float PositionOy;
+                    public static Size Size => new Size(Width, Height);
+                    public static PointF Point => new PointF(PositionOx, PositionOy);
+                }
+                public static class YellowGray
+                {
+                    public static readonly Bitmap Sprite = Properties.Resources.YellowButtonGray;
+
+                    public static float PositionOx;
+                    public static float PositionOy;
+                    public static Size Size => new Size(Width, Height);
+                    public static PointF Point => new PointF(PositionOx, PositionOy);
+                }
+            }
         }
     }
+
 }

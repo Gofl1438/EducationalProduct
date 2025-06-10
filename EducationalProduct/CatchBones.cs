@@ -41,7 +41,6 @@ namespace EducationalProduct
             this.Height = workingArea.Height;
             this.Width = workingArea.Width;
             this.MinimumSize = new Size(workingArea.Width, workingArea.Height);
-            GameConfigUI.Initialize(new Size(CanvasCatchBones.Size.Width, CanvasCatchBones.Size.Height));
             GameConfig.Initialize(new Size(CanvasCatchBones.Size.Width, CanvasCatchBones.Size.Height));
         }
 
@@ -65,7 +64,7 @@ namespace EducationalProduct
             {
                 var bone = ManagerBone.Bones[i];
                 if (new RectangleF(new PointF(bone.Transform.Position.X, bone.Transform.Position.Y), 
-                    new Size(GameConfig.Bone.Width, GameConfig.Bone.Height)).Contains(e.Location))
+                    new Size(GameConfig.CatchBones.Bone.Width, GameConfig.CatchBones.Bone.Height)).Contains(e.Location))
                 {
                     ManagerBone.Bones[i].IsTouchedUser = true;
                 }

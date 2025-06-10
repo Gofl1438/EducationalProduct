@@ -26,10 +26,10 @@ namespace EducationalProduct.Classes
             switch (Type)
             {
                 case GameConfig.BonesType.Red:
-                    Sprite = GameConfig.Bone.RedSprite;
+                    Sprite = GameConfig.CatchBones.Bone.RedSprite;
                     break;
                 case GameConfig.BonesType.Orange:
-                    Sprite = GameConfig.Bone.OrangeSprite;
+                    Sprite = GameConfig.CatchBones.Bone.OrangeSprite;
                     break;
             }
         }

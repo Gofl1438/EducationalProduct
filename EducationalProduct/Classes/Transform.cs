@@ -15,5 +15,11 @@ namespace EducationalProduct.Classes
             Position = position;
             Size = size;
         }
+        public Transform Clone()
+        {
+            Position = new PointF(Position.X, Position.Y);
+            Size = new Size(Size.Width, Size.Height);
+            return new Transform(Position, Size);
+        }
     }
 }

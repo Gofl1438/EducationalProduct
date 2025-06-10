@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static EducationalProduct.Classes.GameConfig;
-using static EducationalProduct.Classes.GameConfigUI;
-using static EducationalProduct.Classes.GameConfigUI.OpeningScene;
+using static EducationalProduct.Classes.GameConfig;
+using static EducationalProduct.Classes.GameConfig.OpeningScene;
 
 namespace EducationalProduct.Classes
 {
@@ -21,13 +21,13 @@ namespace EducationalProduct.Classes
 
         public static void AddTotalElements()
         {
-            ElementUI btnClosed = new ElementUI(GameConfigUI.TotalElement.BtnClosed.Sprite,
-                GameConfigUI.TotalElement.BtnClosed.Size,
-                GameConfigUI.TotalElement.BtnClosed.Point
+            ElementUI btnClosed = new ElementUI(GameConfig.TotalElement.BtnClosed.Sprite,
+                GameConfig.TotalElement.BtnClosed.Size,
+                GameConfig.TotalElement.BtnClosed.Point
                 );
-            ElementUI btnBackArrow = new ElementUI(GameConfigUI.TotalElement.BtnBackArrow.Sprite,
-                GameConfigUI.TotalElement.BtnBackArrow.Size,
-                GameConfigUI.TotalElement.BtnBackArrow.Point
+            ElementUI btnBackArrow = new ElementUI(GameConfig.TotalElement.BtnBackArrow.Sprite,
+                GameConfig.TotalElement.BtnBackArrow.Size,
+                GameConfig.TotalElement.BtnBackArrow.Point
                 );
             TotalElements.Add(btnClosed);
             TotalElements.Add(btnBackArrow);
@@ -35,26 +35,26 @@ namespace EducationalProduct.Classes
 
         public static void AddOpeningElements()
         {
-            ElementUI rocket = new ElementUI(GameConfigUI.OpeningScene.Rocket.Sprite,
-                GameConfigUI.OpeningScene.Rocket.Size,
-                GameConfigUI.OpeningScene.Rocket.Point,
-                GameConfigUI.OpeningScene.Rocket.RotationAngle
+            ElementUI rocket = new ElementUI(GameConfig.OpeningScene.Rocket.Sprite,
+                GameConfig.OpeningScene.Rocket.Size,
+                GameConfig.OpeningScene.Rocket.Point,
+                GameConfig.OpeningScene.Rocket.RotationAngle
                 );
-            ElementUI btnQuestion = new ElementUI(GameConfigUI.OpeningScene.BtnQuestion.Sprite,
-                GameConfigUI.OpeningScene.BtnQuestion.Size,
-                GameConfigUI.OpeningScene.BtnQuestion.Point
+            ElementUI btnQuestion = new ElementUI(GameConfig.OpeningScene.BtnQuestion.Sprite,
+                GameConfig.OpeningScene.BtnQuestion.Size,
+                GameConfig.OpeningScene.BtnQuestion.Point
                 );
-            ElementUI title = new ElementUI(GameConfigUI.OpeningScene.Title.Sprite,
-                GameConfigUI.OpeningScene.Title.Size,
-                GameConfigUI.OpeningScene.Title.Point
+            ElementUI title = new ElementUI(GameConfig.OpeningScene.Title.Sprite,
+                GameConfig.OpeningScene.Title.Size,
+                GameConfig.OpeningScene.Title.Point
                 );
-            ElementUI btnStartPlay = new ElementUI(GameConfigUI.OpeningScene.BtnStartPlay.Sprite,
-                GameConfigUI.OpeningScene.BtnStartPlay.Size,
-                GameConfigUI.OpeningScene.BtnStartPlay.Point
+            ElementUI btnStartPlay = new ElementUI(GameConfig.OpeningScene.BtnStartPlay.Sprite,
+                GameConfig.OpeningScene.BtnStartPlay.Size,
+                GameConfig.OpeningScene.BtnStartPlay.Point
                 );
-            ElementUI btnClosed = new ElementUI(GameConfigUI.TotalElement.BtnClosed.Sprite,
-                GameConfigUI.TotalElement.BtnClosed.Size,
-                GameConfigUI.TotalElement.BtnClosed.Point
+            ElementUI btnClosed = new ElementUI(GameConfig.TotalElement.BtnClosed.Sprite,
+                GameConfig.TotalElement.BtnClosed.Size,
+                GameConfig.TotalElement.BtnClosed.Point
                 );
             OpeningElements.Add(rocket);
             OpeningElements.Add(btnQuestion);
@@ -65,26 +65,26 @@ namespace EducationalProduct.Classes
 
         public static void AddRuleElements()
         {
-            ElementUI character = new ElementUI(GameConfigUI.RuleScene.Character.Sprite,
-                GameConfigUI.RuleScene.Character.Size,
-                GameConfigUI.RuleScene.Character.Point
+            ElementUI character = new ElementUI(GameConfig.RuleScene.Character.Sprite,
+                GameConfig.RuleScene.Character.Size,
+                GameConfig.RuleScene.Character.Point
                 );
-            ElementUI btnStartPlay = new ElementUI(GameConfigUI.RuleScene.BtnStartPlay.Sprite,
-                GameConfigUI.RuleScene.BtnStartPlay.Size,
-                GameConfigUI.RuleScene.BtnStartPlay.Point
+            ElementUI btnStartPlay = new ElementUI(GameConfig.RuleScene.BtnStartPlay.Sprite,
+                GameConfig.RuleScene.BtnStartPlay.Size,
+                GameConfig.RuleScene.BtnStartPlay.Point
                 );
             RuleElements.Add(character);
             RuleElements.Add(btnStartPlay);
         }
         public static void AddCatchBonesElements()
         {
-            ElementUI character = new ElementUI(GameConfigUI.CatchBones.Character.Sprite,
-                GameConfigUI.CatchBones.Character.Size,
-                GameConfigUI.CatchBones.Character.Point 
+            ElementUI character = new ElementUI(GameConfig.CatchBones.Character.Sprite,
+                GameConfig.CatchBones.Character.Size,
+                GameConfig.CatchBones.Character.Point 
                 );
-            ElementUI background = new ElementUI(GameConfigUI.CatchBones.Background.Sprite,
-                GameConfigUI.CatchBones.Background.Size,
-                GameConfigUI.CatchBones.Background.Point
+            ElementUI background = new ElementUI(GameConfig.CatchBones.Background.Sprite,
+                GameConfig.CatchBones.Background.Size,
+                GameConfig.CatchBones.Background.Point
                 );
             CatchBonesElements.Add(background);
             CatchBonesElements.Add(character);
@@ -92,29 +92,34 @@ namespace EducationalProduct.Classes
 
         public static void AddDodgeMeteoritesElements()
         {
-            ElementUI background = new ElementUI(GameConfigUI.DodgeMeteorites.Background.Sprite,
-                GameConfigUI.DodgeMeteorites.Background.Size,
-                GameConfigUI.DodgeMeteorites.Background.Point
+            ElementUI background = new ElementUI(GameConfig.DodgeMeteorites.Background.Sprite,
+                GameConfig.DodgeMeteorites.Background.Size,
+                GameConfig.DodgeMeteorites.Background.Point
                 );
             DodgeMeteoritesElements.Add(background);
         }
 
         public static void AddRepeatActionElements()
         {
-            ElementUI background = new ElementUI(GameConfigUI.RepeatAction.Background.Sprite,
-                GameConfigUI.RepeatAction.Background.Size,
-                GameConfigUI.RepeatAction.Background.Point
+            ElementUI background = new ElementUI(GameConfig.RepeatAction.Background.Sprite,
+                GameConfig.RepeatAction.Background.Size,
+                GameConfig.RepeatAction.Background.Point
                 );
             RepeatActionElements.Add(background);
         }
 
         public static void AddColleсtPuzzleElements()
         {
-            ElementUI background = new ElementUI(GameConfigUI.ColleсtPuzzle.Background.Sprite,
-                GameConfigUI.ColleсtPuzzle.Background.Size,
-                GameConfigUI.ColleсtPuzzle.Background.Point
+            ElementUI background = new ElementUI(GameConfig.ColleсtPuzzle.Background.Sprite,
+                GameConfig.ColleсtPuzzle.Background.Size,
+                GameConfig.ColleсtPuzzle.Background.Point
+                );
+            ElementUI shadow = new ElementUI(GameConfig.ColleсtPuzzle.Puzzle.Shadow.Sprite,
+                GameConfig.ColleсtPuzzle.Puzzle.Shadow.Size,
+                GameConfig.ColleсtPuzzle.Puzzle.Shadow.Point
                 );
             ColleсtPuzzleElements.Add(background);
+            ColleсtPuzzleElements.Add(shadow);
         }
     }
 }

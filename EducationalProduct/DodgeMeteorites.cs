@@ -26,7 +26,7 @@ namespace EducationalProduct
             this.Height = workingArea.Height;
             this.Width = workingArea.Width;
             this.MinimumSize = new Size(workingArea.Width, workingArea.Height);
-            GameConfigUI.Initialize(new Size(CanvasDodgeMeteorites.Size.Width, CanvasDodgeMeteorites.Size.Height));
+            GameConfig.Initialize(new Size(CanvasDodgeMeteorites.Size.Width, CanvasDodgeMeteorites.Size.Height));
         }
 
         private void OnRepaint(object sender, PaintEventArgs e)

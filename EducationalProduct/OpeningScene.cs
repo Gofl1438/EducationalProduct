@@ -29,7 +29,7 @@ namespace EducationalProduct
             this.Height = workingArea.Height;
             this.Width = workingArea.Width;
             this.MinimumSize = new Size(workingArea.Width, workingArea.Height);
-            GameConfigUI.Initialize(new Size(CanvasOpeningScene.Size.Width, CanvasOpeningScene.Size.Height));
+            GameConfig.Initialize(new Size(CanvasOpeningScene.Size.Width, CanvasOpeningScene.Size.Height));
         }
 
         private void OpeningScene_Paint(object sender, PaintEventArgs e)
@@ -43,8 +43,8 @@ namespace EducationalProduct
 
         private void OpeningScene_MouseDown(object sender, MouseEventArgs e)
         {
-            if (new RectangleF(new PointF(GameConfigUI.OpeningScene.BtnStartPlay.PositionOx, GameConfigUI.OpeningScene.BtnStartPlay.PositionOy),
-                new Size(GameConfigUI.OpeningScene.BtnStartPlay.Width, GameConfigUI.OpeningScene.BtnStartPlay.Height)).Contains(e.Location))
+            if (new RectangleF(new PointF(GameConfig.OpeningScene.BtnStartPlay.PositionOx, GameConfig.OpeningScene.BtnStartPlay.PositionOy),
+                new Size(GameConfig.OpeningScene.BtnStartPlay.Width, GameConfig.OpeningScene.BtnStartPlay.Height)).Contains(e.Location))
             {
                 RuleScene ruleScene = new RuleScene();
                 ruleScene.Opacity = 0;

@@ -22,8 +22,8 @@ namespace EducationalProduct.Classes
         public PhysicsBone(Transform transform)
         {
             Transform = transform;
-            float MinSpeed = GameConfig.Bone.MinSpeed;
-            float MaxSpeed = GameConfig.Bone.MaxSpeed;
+            float MinSpeed = GameConfig.CatchBones.Bone.MinSpeed;
+            float MaxSpeed = GameConfig.CatchBones.Bone.MaxSpeed;
 
             int directionX = random.Next(0, 2) == 0 ? 1 : -1;
             int directionY = random.Next(0, 2) == 0 ? 1 : -1;
@@ -42,10 +42,10 @@ namespace EducationalProduct.Classes
 
         public void CollideBonesWithBorderCanvas()
         {
-            float boneWidth = GameConfig.Bone.Width;
-            float boneHeight = GameConfig.Bone.Height;
-            float canvasWidth = GameConfig.CanvasPlayBones.Width;
-            float canvasHeight = GameConfig.CanvasPlayBones.Height;
+            float boneWidth = GameConfig.CatchBones.Bone.Width;
+            float boneHeight = GameConfig.CatchBones.Bone.Height;
+            float canvasWidth = GameConfig.CanvasProduct.Width;
+            float canvasHeight = GameConfig.CanvasProduct.Height;
 
             if (Transform.Position.X < 0)
             {
@@ -71,8 +71,8 @@ namespace EducationalProduct.Classes
 
         public void CollideBonesWithOtherBones()
         {
-            float boneWidth = GameConfig.Bone.Width;
-            float boneHeight = GameConfig.Bone.Height;
+            float boneWidth = GameConfig.CatchBones.Bone.Width;
+            float boneHeight = GameConfig.CatchBones.Bone.Height;
 
             for (int i = 0; i < ManagerBone.Bones.Count; i++)
             {

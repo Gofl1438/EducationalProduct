@@ -42,6 +42,9 @@
             CanvasColleсtPuzzle.TabIndex = 0;
             CanvasColleсtPuzzle.TabStop = false;
             CanvasColleсtPuzzle.Paint += OnRepaint;
+            CanvasColleсtPuzzle.MouseDown += CanvasColleсtPuzzle_MouseDown;
+            CanvasColleсtPuzzle.MouseMove += CanvasColleсtPuzzle_MouseMove;
+            CanvasColleсtPuzzle.MouseUp += CanvasColleсtPuzzle_MouseUp;
             // 
             // ColleсtPuzzle
             // 

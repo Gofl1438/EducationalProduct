@@ -52,6 +52,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(CanvasColleсtPuzzle);
+            DoubleBuffered = true;
             Name = "ColleсtPuzzle";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ColleсtPuzzle";

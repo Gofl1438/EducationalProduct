@@ -363,6 +363,16 @@ namespace EducationalProduct.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SolidRocket {
+            get {
+                object obj = ResourceManager.GetObject("SolidRocket", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap YellowButtonGray {
             get {
                 object obj = ResourceManager.GetObject("YellowButtonGray", resourceCulture);

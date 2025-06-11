@@ -13,8 +13,10 @@ namespace EducationalProduct
 {
     public partial class ColleсtPuzzle : Form
     {
+        private Puzzle currentlyDraggedPuzzle;
         System.Windows.Forms.Timer timer;
         Rectangle workingArea;
+
         public ColleсtPuzzle()
         {
             InitializeComponent();
@@ -38,22 +40,6 @@ namespace EducationalProduct
         private void Update(object sender, EventArgs e)
         {
             ManagerPuzzle.ApplyPhysics();
-            if (!ManagerPuzzle.CheckCorrectPoisiton())
-            {
-                /*
-                RuleScene ruleScene = new RuleScene();
-                ruleScene.Opacity = 0;
-                ruleScene.Show();
-                ruleScene.Refresh();
-                for (double opacity = 0; opacity <= 1; opacity += 0.1)
-                {
-                    ruleScene.Opacity = opacity;
-                    System.Threading.Thread.Sleep(16);
-                }
-                this.Hide();
-                ruleScene.FormClosed += (s, args) => { this.Close(); };
-                */
-            }
             CanvasColleсtPuzzle.Invalidate();
         }
         private void OnRepaint(object sender, PaintEventArgs e)
@@ -67,8 +53,11 @@ namespace EducationalProduct
             {
                 ManagerPuzzle.Puzzles[i].DrawSprite(g);
             }
+            for (int i = 0; i < ManagerPuzzle.SolidRocketPuzzles.Count; i++)
+            {
+                ManagerPuzzle.SolidRocketPuzzles[i].DrawSprite(g);
+            }
         }
-        private Puzzle currentlyDraggedPuzzle;
         private void CanvasColleсtPuzzle_MouseDown(object sender, MouseEventArgs e)
         {
             foreach (var puzzle in ManagerPuzzle.Puzzles)
@@ -84,7 +73,6 @@ namespace EducationalProduct
                 }
             }
         }
-
         private void CanvasColleсtPuzzle_MouseMove(object sender, MouseEventArgs e)
         {
             if (currentlyDraggedPuzzle != null)

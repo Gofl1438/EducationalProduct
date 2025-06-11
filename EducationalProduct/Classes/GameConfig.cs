@@ -40,15 +40,50 @@ namespace EducationalProduct.Classes
             CanvasProduct.WidthBlockBone = (float)CanvasProduct.Width / CatchBones.Bone.DefaultQuantityBone;
             CanvasProduct.HeightBlockBone = (float)CanvasProduct.Height / 2;
             InitializeColleсtPuzzle();
+            InitializeDodgeMeteorites();
+            InitializeCatchBones();
+            InitializeRepeatAction();
         }
 
 
-        public static void InitializeColleсtPuzzle()
+        private static void InitializeColleсtPuzzle()
         {
+            ColleсtPuzzle.Background.Width = CanvasProduct.Width;
+            ColleсtPuzzle.Background.Height = CanvasProduct.Height;
+            ColleсtPuzzle.Puzzle.Shadow.Height = (int)(CanvasProduct.Height * 0.7f);
+            ColleсtPuzzle.Puzzle.Shadow.Width = (int)(CanvasProduct.Width * 0.6f);
             ColleсtPuzzle.Puzzle.Shadow.PositionOy = (CanvasProduct.Height - ColleсtPuzzle.Puzzle.Shadow.Height) / 2;
             ColleсtPuzzle.Puzzle.Shadow.PositionOx = (CanvasProduct.Width - ColleсtPuzzle.Puzzle.Shadow.Width) / 2;
-
+            ColleсtPuzzle.Puzzle.HeightDetail = ColleсtPuzzle.Puzzle.Shadow.Height / 2;
+            ColleсtPuzzle.Puzzle.WidthDetail = ColleсtPuzzle.Puzzle.Shadow.Width / 2;
+            ColleсtPuzzle.Puzzle.BottomLeft.PositionOx = (int)(CanvasProduct.Width * 0.55f);
+            ColleсtPuzzle.Puzzle.BottomLeft.PositionOy = (int)(CanvasProduct.Height * 0.005f);
+            ColleсtPuzzle.Puzzle.BottomRight.PositionOx = (int)(CanvasProduct.Width * 0.025f);
+            ColleсtPuzzle.Puzzle.BottomRight.PositionOy = (int)(CanvasProduct.Height * 0.7f);
+            ColleсtPuzzle.Puzzle.TopLeft.PositionOx = (int)(CanvasProduct.Width * 0.63f);
+            ColleсtPuzzle.Puzzle.TopLeft.PositionOy = (int)(CanvasProduct.Height * 0.53f);
+            ColleсtPuzzle.Puzzle.TopRight.PositionOx = (int)(CanvasProduct.Width * 0.15f);
+            ColleсtPuzzle.Puzzle.TopRight.PositionOy = (int)(CanvasProduct.Height * 0.15f);
         }
+
+        private static void InitializeDodgeMeteorites()
+        {
+            DodgeMeteorites.Background.Width = CanvasProduct.Width;
+            DodgeMeteorites.Background.Height = CanvasProduct.Height;
+        }
+
+        private static void InitializeCatchBones()
+        {
+            CatchBones.Background.Width = CanvasProduct.Width;
+            CatchBones.Background.Height = CanvasProduct.Height;
+        }
+
+        private static void InitializeRepeatAction()
+        {
+            RepeatAction.Background.Width = CanvasProduct.Width;
+            RepeatAction.Background.Height = CanvasProduct.Height;
+        }
+
 
         public static class TotalElement
         {
@@ -202,27 +237,37 @@ namespace EducationalProduct.Classes
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
-
-
             public static class Puzzle
             {
-                public static int HeightDetail = 370;
-                public static int WidthDetail = 592;
+                public static int HeightDetail;
+                public static int WidthDetail;
                 public static class Shadow
                 {
                     public static readonly Bitmap Sprite = Properties.Resources.ShadowPuzzle;
-                    public static int Height = 740;
-                    public static int Width = 1184;
+                    public static int Height;
+                    public static int Width;
                     public static float PositionOx;
                     public static float PositionOy;
+                    public static Size Size => new Size(Width, Height);
+                    public static PointF Point => new PointF(PositionOx, PositionOy);
+                }
+                public static class SolidRocket
+                {
+                    public static readonly Bitmap Sprite = Properties.Resources.SolidRocket;
+                    public static readonly float SpeedOx = 10f;
+                    public static readonly float Acceleration = 3f;
+                    public static int Height = Shadow.Height;
+                    public static int Width = Shadow.Width;
+                    public static float PositionOx = Shadow.PositionOx;
+                    public static float PositionOy = Shadow.PositionOy;
                     public static Size Size => new Size(Width, Height);
                     public static PointF Point => new PointF(PositionOx, PositionOy);
                 }
                 public static class BottomLeft
                 {
                     public static readonly Bitmap Sprite = Properties.Resources.PuzzleBottomLeft;
-                    public static float PositionOx = 1150;
-                    public static float PositionOy = 50;
+                    public static float PositionOx;
+                    public static float PositionOy;
                     public static float CorrectlyPosOx = Shadow.PositionOx;
                     public static float CorrectlyPosOy = Shadow.PositionOy;
                     public static Size Size => new Size(WidthDetail, HeightDetail);
@@ -232,8 +277,8 @@ namespace EducationalProduct.Classes
                 public static class BottomRight
                 {
                     public static readonly Bitmap Sprite = Properties.Resources.PuzzleBottomRight;
-                    public static float PositionOx = 30;
-                    public static float PositionOy = 700;
+                    public static float PositionOx;
+                    public static float PositionOy;
                     public static float CorrectlyPosOx = Shadow.PositionOx;
                     public static float CorrectlyPosOy = Shadow.PositionOy + HeightDetail;
                     public static Size Size => new Size(WidthDetail, HeightDetail);
@@ -243,8 +288,8 @@ namespace EducationalProduct.Classes
                 public static class TopLeft
                 {
                     public static readonly Bitmap Sprite = Properties.Resources.PuzzleTopLeft;
-                    public static float PositionOx = 1150;
-                    public static float PositionOy = 550;
+                    public static float PositionOx;
+                    public static float PositionOy;
                     public static float CorrectlyPosOx = Shadow.PositionOx + WidthDetail;
                     public static float CorrectlyPosOy = Shadow.PositionOy;
                     public static Size Size => new Size(WidthDetail, HeightDetail);
@@ -254,8 +299,8 @@ namespace EducationalProduct.Classes
                 public static class TopRight
                 {
                     public static readonly Bitmap Sprite = Properties.Resources.PuzzleTopRight;
-                    public static float PositionOx = 400;
-                    public static float PositionOy = 100;
+                    public static float PositionOx;
+                    public static float PositionOy;
                     public static float CorrectlyPosOx = Shadow.PositionOx + WidthDetail;
                     public static float CorrectlyPosOy = Shadow.PositionOy + HeightDetail;
                     public static Size Size => new Size(WidthDetail, HeightDetail);

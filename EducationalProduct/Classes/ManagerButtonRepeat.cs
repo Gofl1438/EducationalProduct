@@ -25,6 +25,12 @@ namespace EducationalProduct.Classes
                 ButtonRepeat.Add(buttonRepeat);
             }
         }
+
+        public static void DeleteManagerButtonRepeat()
+        {
+            _currentSequence.Clear();
+            ButtonRepeat.Clear();
+        }
         public static async Task NewSequence()
         {
             var random = new Random();
@@ -32,6 +38,17 @@ namespace EducationalProduct.Classes
             int randomButtonId = random.Next(0, ButtonRepeat.Count);
             _currentSequence.Add(randomButtonId);
             await PlaySequence();
+        }
+
+        public static void ChangeButtonConditionEnd()
+        {
+            if (MaxQuntitySequence == СurrentQuntitySequence)
+            {
+                foreach (var button in ButtonRepeat)
+                {
+                    button.IsActiveInSequence = true;
+                }
+            }
         }
 
         private static async Task PlaySequence()

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static EducationalProduct.Classes.GameConfig.RepeatAction.NumberPoints;
 
 namespace EducationalProduct
 {
@@ -20,6 +21,7 @@ namespace EducationalProduct
         {
             InitializeComponent();
             СalibrationSize();
+            StateRepeatButton.InitStateRepeatButton();
             ManagerUI.AddRepeatActionElements();
             ManagerButtonRepeat.AddDefaultButtonsRepeat();
             timer = new System.Windows.Forms.Timer();
@@ -46,10 +48,11 @@ namespace EducationalProduct
             {
                 ManagerButtonRepeat.ButtonRepeat[i].DrawSprite(g);
             }
+            DrawResult(g);
         }
         private void Update(object sender, EventArgs e)
         {
-            if (StateRepeatButton.СurrentQuntitySequence < StateRepeatButton.MaxQuntitySequence && StateRepeatButton.SequenceСompleted && !StateRepeatButton.IsSceneGameOver)
+            if (StateRepeatButton.СurrentQuntitySequence < StateRepeatButton.MaxQuntitySequence && StateRepeatButton.SequenceСompleted && !StateRepeatButton.IsSceneGameOver && !StateRepeatButton.IsSceneWinGame)
             {
                 StateRepeatButton.SequenceСompleted = false;
                 StateRepeatButton.СurrentQuntitySequence += 1;
@@ -57,14 +60,59 @@ namespace EducationalProduct
             }
             if (StateRepeatButton.СurrentQuntitySequence == StateRepeatButton.MaxQuntitySequence)
             {
-                ManagerButtonRepeat.ButtonRepeat.Clear();
+                StateRepeatButton.IsSceneWinGame = true;
+                ManagerButtonRepeat.ChangeButtonConditionEnd();
+                Await();
+                if (StateTransitonScene.IsTransitonRepeatButtonAwait)
+                {
+                    timer.Stop();
+                    ColleсtPuzzle ColleсtPuzzle = new ColleсtPuzzle(); //указать нужную сцену//
+                    ColleсtPuzzle.Opacity = 0;
+                    ColleсtPuzzle.Show();
+                    ColleсtPuzzle.Refresh();
+                    for (double opacity = 0; opacity <= 1; opacity += 0.1)
+                    {
+                        ColleсtPuzzle.Opacity = opacity;
+                        System.Threading.Thread.Sleep(16);
+                    }
+                    this.Hide();
+                    ManagerButtonRepeat.DeleteManagerButtonRepeat();
+                    ManagerUI.RepeatActionElements.Clear();
+                    ColleсtPuzzle.FormClosed += (s, args) => { this.Close(); };
+                }
             }
             CanvasRepeatAction.Invalidate();
         }
 
+        private async Task Await()
+        {
+            await Task.Delay(1000);
+            StateTransitonScene.IsTransitonRepeatButtonAwait = true;
+        }
+
+        private void DrawResult(Graphics g)
+        {
+            RectangleF rectangleResult = new RectangleF(
+                PointRectangleResult,
+                SizerRectangleResult
+            );
+            StringFormat format = new StringFormat
+            {
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
+            g.DrawString(
+                $"{((StateRepeatButton.СurrentQuntitySequence - 1) < 0 ? 0 : (StateRepeatButton.СurrentQuntitySequence - 1))} / {StateRepeatButton.MaxQuntitySequence - 1}",
+                new Font(FamilyNameScore, SizeResult, (StateRepeatButton.СurrentQuntitySequence == StateRepeatButton.MaxQuntitySequence ? StyleResultEnd : StyleResult)),
+                CustomBrush,
+                rectangleResult,
+                format
+                );
+        }
+
         private void CanvasRepeatAction_MouseDown(object sender, MouseEventArgs e)
         {
-            if (!StateRepeatButton.IsPlayingSequence && !StateRepeatButton.IsSceneGameOver)
+            if (!StateRepeatButton.IsPlayingSequence && !StateRepeatButton.IsSceneGameOver && !StateRepeatButton.IsSceneWinGame)
             {
                 for (int i = 0; i < ManagerButtonRepeat.ButtonRepeat.Count; i++)
                 {

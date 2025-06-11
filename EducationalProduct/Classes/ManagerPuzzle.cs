@@ -59,11 +59,12 @@ namespace EducationalProduct.Classes
                 if (SolidRocketPuzzles[i].Transform.Position.X >= CanvasProduct.Width)
                 {
                     SolidRocketPuzzles.Clear();
+                    StateTransitonScene.IsTransitonColleсtPuzzle = true;
                 }
             }
         }
 
-        private static bool CheckCorrectPoisiton()
+        public static bool CheckCorrectPoisiton()
         {
             bool IsFree = false;
             countFreePuzzles = 0;

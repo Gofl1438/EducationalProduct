@@ -39,9 +39,39 @@ namespace EducationalProduct
         }
         private void Update(object sender, EventArgs e)
         {
-            ManagerPuzzle.ApplyPhysics();
-            CanvasColleсtPuzzle.Invalidate();
+            if (!StateTransitonScene.IsTransitonColleсtPuzzle)
+            {
+                ManagerPuzzle.ApplyPhysics();
+                CanvasColleсtPuzzle.Invalidate();
+            }
+            else
+            {
+                Await();
+                if (StateTransitonScene.IsTransitonColleсtPuzzleAwait)
+                {
+                    timer.Stop();
+                    CatchBones CatchBones = new CatchBones(); //указать нужную сцену//
+                    CatchBones.Opacity = 0;
+                    CatchBones.Show();
+                    CatchBones.Refresh();
+                    for (double opacity = 0; opacity <= 1; opacity += 0.1)
+                    {
+                        CatchBones.Opacity = opacity;
+                        System.Threading.Thread.Sleep(16);
+                    }
+                    this.Hide();
+                    ManagerUI.ColleсtPuzzleElements.Clear();
+                    CatchBones.FormClosed += (s, args) => { this.Close(); };
+                }
+            }
         }
+
+        private async Task Await()
+        {
+            await Task.Delay(1000);
+            StateTransitonScene.IsTransitonColleсtPuzzleAwait = true;
+        }
+
         private void OnRepaint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;

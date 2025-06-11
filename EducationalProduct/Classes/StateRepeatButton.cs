@@ -14,5 +14,17 @@ namespace EducationalProduct.Classes
         public static bool SequenceСompleted = true;
         public static bool IsPlayingSequence = false;
         public static bool IsSceneGameOver = false;
+        public static bool IsSceneWinGame = false;
+
+        public static void InitStateRepeatButton()
+        {
+            СurrentQuntitySequence = 0;
+            MaxQuntitySequence = GameConfig.RepeatAction.MaxQuntitySequence;
+            CurrentStep = 0;
+            SequenceСompleted = true;
+            IsPlayingSequence = false;
+            IsSceneGameOver = false;
+            IsSceneWinGame = false;
+        }
     }
 }

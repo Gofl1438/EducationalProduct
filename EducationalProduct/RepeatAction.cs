@@ -62,7 +62,8 @@ namespace EducationalProduct
             }
             else
             {
-                if (StateRepeatButton.СurrentQuntitySequence < GameConfig.RepeatAction.MaxQuntitySequence && StateRepeatButton.SequenceСompleted && !StateRepeatButton.IsSceneGameOver && !StateRepeatButton.IsSceneWinGame)
+                if (StateRepeatButton.СurrentQuntitySequence < GameConfig.RepeatAction.MaxQuntitySequence && StateRepeatButton.SequenceСompleted && !StateRepeatButton.IsSceneGameOver && !StateRepeatButton.IsSceneWinGame
+                    && !StateRepeatButton.PressButtonAnimation)
                 {
                     StateRepeatButton.SequenceСompleted = false;
                     StateRepeatButton.СurrentQuntitySequence += 1;

@@ -68,20 +68,13 @@ namespace EducationalProduct.Classes
 
         public static async Task PressButton(int buttonId)
         {
-            _buttonDelayCts.Cancel();
-            _buttonDelayCts = new CancellationTokenSource();
-
             if (ButtonRepeat[buttonId].IsActiveInSequence)
             {
-                try
-                {
-                    await Task.Delay(500, _buttonDelayCts.Token);
-                    ButtonRepeat[buttonId].IsActiveInSequence = false;
-                    await Task.Delay(500, _buttonDelayCts.Token);
-                }
-                catch (TaskCanceledException)
-                {
-                }
+                StateRepeatButton.PressButtonAnimation = true;
+                await Task.Delay(500, _buttonDelayCts.Token);
+                ButtonRepeat[buttonId].IsActiveInSequence = false;
+                await Task.Delay(500, _buttonDelayCts.Token);
+                StateRepeatButton.PressButtonAnimation = false;
             }
         }
 

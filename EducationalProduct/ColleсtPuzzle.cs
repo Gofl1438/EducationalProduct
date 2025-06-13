@@ -14,8 +14,9 @@ namespace EducationalProduct
     public partial class ColleсtPuzzle : Form
     {
         private Puzzle currentlyDraggedPuzzle;
-        System.Windows.Forms.Timer timer;
-        Rectangle workingArea;
+        private Bitmap _cachedBackground;
+        private System.Windows.Forms.Timer timer;
+        private Rectangle workingArea;
 
         public ColleсtPuzzle()
         {
@@ -23,6 +24,7 @@ namespace EducationalProduct
             СalibrationSize();
             ManagerUI.AddColleсtPuzzleElements();
             ManagerPuzzle.AddDefaultPuzzles();
+            _cachedBackground = DrawElementsUI();
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 14;
             timer.Tick += Update;
@@ -46,11 +48,15 @@ namespace EducationalProduct
             }
             else
             {
-                Await();
-                if (StateTransitonScene.IsTransitonColleсtPuzzleAwait)
+                if (!StateTransitonScene.IsNotCallColleсtPuzzleAwait)
+                {
+                    Await();
+                    StateTransitonScene.IsNotCallColleсtPuzzleAwait = true;
+                }
+                if (StateTransitonScene.IsTransitonColleсtPuzzleAwait) //указать нужную сцену//
                 {
                     timer.Stop();
-                    CatchBones CatchBones = new CatchBones(); //указать нужную сцену//
+                    CatchBones CatchBones = new CatchBones();
                     CatchBones.Opacity = 0;
                     CatchBones.Show();
                     CatchBones.Refresh();
@@ -75,10 +81,7 @@ namespace EducationalProduct
         private void OnRepaint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            for (int i = 0; i < ManagerUI.ColleсtPuzzleElements.Count; i++)
-            {
-                ManagerUI.ColleсtPuzzleElements[i].DrawSprite(g);
-            }
+            g.DrawImage(_cachedBackground, 0, 0);
             for (int i = 0; i < ManagerPuzzle.Puzzles.Count; i++)
             {
                 ManagerPuzzle.Puzzles[i].DrawSprite(g);
@@ -88,6 +91,21 @@ namespace EducationalProduct
                 ManagerPuzzle.SolidRocketPuzzles[i].DrawSprite(g);
             }
         }
+
+        private Bitmap DrawElementsUI()
+        {
+            Bitmap _cachedBackground;
+            _cachedBackground = new Bitmap(GameConfig.CanvasProduct.Width, GameConfig.CanvasProduct.Height);
+            using (var bgGraphics = Graphics.FromImage(_cachedBackground))
+            {
+                for (int i = 0; i < ManagerUI.ColleсtPuzzleElements.Count; i++)
+                {
+                    ManagerUI.ColleсtPuzzleElements[i].DrawSprite(bgGraphics);
+                }
+            }
+            return _cachedBackground;
+        }
+
         private void CanvasColleсtPuzzle_MouseDown(object sender, MouseEventArgs e)
         {
             foreach (var puzzle in ManagerPuzzle.Puzzles)

@@ -4,12 +4,15 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using static EducationalProduct.Classes.GameConfig;
+using static EducationalProduct.Classes.GameConfig.CatchBones.Bone;
 
 namespace EducationalProduct.Classes
 {
     public class PhysicsBone
     {
         private static Random random = new Random();
+        public readonly Size Size;
         private Transform _transform;
         public Vector2 Velocity { get; set; }
 
@@ -18,10 +21,11 @@ namespace EducationalProduct.Classes
             get => _transform;
             set => _transform = value ?? throw new ArgumentNullException(nameof(value));
         }
-
-        public PhysicsBone(Transform transform)
+         
+        public PhysicsBone(Transform transform, BonesType type)
         {
             Transform = transform;
+            Size = BonesSizeType(type);
             float MinSpeed = GameConfig.CatchBones.Bone.MinSpeed;
             float MaxSpeed = GameConfig.CatchBones.Bone.MaxSpeed;
 
@@ -42,10 +46,10 @@ namespace EducationalProduct.Classes
 
         public void CollideBonesWithBorderCanvas()
         {
-            float boneWidth = GameConfig.CatchBones.Bone.Width;
-            float boneHeight = GameConfig.CatchBones.Bone.Height;
-            float canvasWidth = GameConfig.CanvasProduct.Width;
-            float canvasHeight = GameConfig.CanvasProduct.Height;
+            float boneWidth = Size.Width;
+            float boneHeight = Size.Height;
+            float canvasWidth = CanvasProduct.Width;
+            float canvasHeight = CanvasProduct.Height;
 
             if (Transform.Position.X < 0)
             {
@@ -71,34 +75,51 @@ namespace EducationalProduct.Classes
 
         public void CollideBonesWithOtherBones()
         {
-            float boneWidth = GameConfig.CatchBones.Bone.Width;
-            float boneHeight = GameConfig.CatchBones.Bone.Height;
+            float diamondSize = (Size.Width + Size.Height) / 2f;
 
             for (int i = 0; i < ManagerBone.Bones.Count; i++)
             {
                 var otherBone = ManagerBone.Bones[i];
                 if (otherBone.Physics == this) continue;
 
-                Vector2 pos1 = new Vector2(Transform.Position.X, Transform.Position.Y);
-                Vector2 pos2 = new Vector2(otherBone.Transform.Position.X, otherBone.Transform.Position.Y);
+                PointF pos1 = Transform.Position;
+                PointF pos2 = otherBone.Transform.Position;
 
-                if (Math.Abs(pos1.X - pos2.X) < boneWidth &&
-                    Math.Abs(pos1.Y - pos2.Y) < boneHeight)
+                if (CheckDiamondCollision(pos1, pos2, diamondSize))
                 {
-                    Vector2 collisionNormal = Vector2.Normalize(pos1 - pos2);
+                    Vector2 collisionNormal = Vector2.Normalize(new Vector2(pos1.X - pos2.X, pos1.Y - pos2.Y));
 
                     Vector2 temp = Velocity;
                     Velocity = otherBone.Physics.Velocity;
                     otherBone.Physics.Velocity = temp;
 
-                    float overlap = (boneWidth + boneHeight) / 2 - Vector2.Distance(pos1, pos2);
+                    float overlap = diamondSize - (Math.Abs(pos1.X - pos2.X) + Math.Abs(pos1.Y - pos2.Y));
                     if (overlap > 0)
                     {
                         Vector2 separation = collisionNormal * overlap * 0.5f;
-                        Transform.Position = new PointF(Transform.Position.X + separation.X, Transform.Position.Y + separation.Y);
-                        otherBone.Transform.Position = new PointF(otherBone.Transform.Position.X - separation.X, otherBone.Transform.Position.Y - separation.Y);
+                        Transform.Position = new PointF(pos1.X + separation.X, pos1.Y + separation.Y);
+                        otherBone.Transform.Position = new PointF(pos2.X - separation.X, pos2.Y - separation.Y);
                     }
                 }
+            }
+        }
+
+        public bool CheckDiamondCollision(PointF pos1, PointF pos2, float diamondSize)
+        {
+            float dx = Math.Abs(pos1.X - pos2.X);
+            float dy = Math.Abs(pos1.Y - pos2.Y);
+            return (dx + dy) < diamondSize;
+        }
+
+        private static Size BonesSizeType(BonesType bonesType)
+        {
+            if (bonesType == BonesType.Orange || bonesType == BonesType.Red)
+            {
+                return Big.Size;
+            }
+            else
+            {
+                return Small.Size;
             }
         }
     }

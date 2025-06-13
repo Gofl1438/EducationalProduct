@@ -52,42 +52,63 @@ namespace EducationalProduct
         }
         private void Update(object sender, EventArgs e)
         {
-            if (StateRepeatButton.СurrentQuntitySequence < StateRepeatButton.MaxQuntitySequence && StateRepeatButton.SequenceСompleted && !StateRepeatButton.IsSceneGameOver && !StateRepeatButton.IsSceneWinGame)
+            if (!StateTransitonScene.IsTransitonRepeatActionAwaitOpening)
             {
-                StateRepeatButton.SequenceСompleted = false;
-                StateRepeatButton.СurrentQuntitySequence += 1;
-                ManagerButtonRepeat.NewSequence();
-            }
-            if (StateRepeatButton.СurrentQuntitySequence == StateRepeatButton.MaxQuntitySequence)
-            {
-                StateRepeatButton.IsSceneWinGame = true;
-                ManagerButtonRepeat.ChangeButtonConditionEnd();
-                Await();
-                if (StateTransitonScene.IsTransitonRepeatButtonAwait)
+                if (!StateTransitonScene.IsNotCallRepeatActionAwaitOpening)
                 {
-                    timer.Stop();
-                    ColleсtPuzzle ColleсtPuzzle = new ColleсtPuzzle(); //указать нужную сцену//
-                    ColleсtPuzzle.Opacity = 0;
-                    ColleсtPuzzle.Show();
-                    ColleсtPuzzle.Refresh();
-                    for (double opacity = 0; opacity <= 1; opacity += 0.1)
-                    {
-                        ColleсtPuzzle.Opacity = opacity;
-                        System.Threading.Thread.Sleep(16);
-                    }
-                    this.Hide();
-                    ManagerButtonRepeat.DeleteManagerButtonRepeat();
-                    ManagerUI.RepeatActionElements.Clear();
-                    ColleсtPuzzle.FormClosed += (s, args) => { this.Close(); };
+                    AwaitOpening();
+                    StateTransitonScene.IsNotCallRepeatActionAwaitOpening = true;
                 }
             }
-            CanvasRepeatAction.Invalidate();
+            else
+            {
+                if (StateRepeatButton.СurrentQuntitySequence < StateRepeatButton.MaxQuntitySequence && StateRepeatButton.SequenceСompleted && !StateRepeatButton.IsSceneGameOver && !StateRepeatButton.IsSceneWinGame)
+                {
+                    StateRepeatButton.SequenceСompleted = false;
+                    StateRepeatButton.СurrentQuntitySequence += 1;
+                    ManagerButtonRepeat.NewSequence();
+                }
+                if (StateRepeatButton.СurrentQuntitySequence == StateRepeatButton.MaxQuntitySequence)
+                {
+                    StateRepeatButton.IsSceneWinGame = true;
+                    ManagerButtonRepeat.ChangeButtonConditionEnd();
+                    if (!StateTransitonScene.IsNotCallRepeatActionAwait)
+                    {
+                        AwaitEnd();
+                        StateTransitonScene.IsNotCallRepeatActionAwait = true;
+                    }
+                    if (StateTransitonScene.IsTransitonRepeatButtonAwait)
+                    {
+                        timer.Stop();
+                        ColleсtPuzzle ColleсtPuzzle = new ColleсtPuzzle(); //указать нужную сцену//
+                        ColleсtPuzzle.Opacity = 0;
+                        ColleсtPuzzle.Show();
+                        ColleсtPuzzle.Refresh();
+                        for (double opacity = 0; opacity <= 1; opacity += 0.1)
+                        {
+                            ColleсtPuzzle.Opacity = opacity;
+                            System.Threading.Thread.Sleep(16);
+                        }
+                        this.Hide();
+                        ManagerButtonRepeat.DeleteManagerButtonRepeat();
+                        ManagerUI.RepeatActionElements.Clear();
+                        ColleсtPuzzle.FormClosed += (s, args) => { this.Close(); };
+                    }
+                }
+                CanvasRepeatAction.Invalidate();
+            }
         }
 
-        private async Task Await()
+        private async Task AwaitEnd()
+        {
+            await Task.Delay(2000);
+            StateTransitonScene.IsTransitonRepeatButtonAwait = true;
+        }
+
+        private async Task AwaitOpening()
         {
             await Task.Delay(1000);
-            StateTransitonScene.IsTransitonRepeatButtonAwait = true;
+            StateTransitonScene.IsTransitonRepeatActionAwaitOpening = true;
         }
 
         private void DrawResult(Graphics g)
@@ -101,13 +122,19 @@ namespace EducationalProduct
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center
             };
-            g.DrawString(
-                $"{((StateRepeatButton.СurrentQuntitySequence - 1) < 0 ? 0 : (StateRepeatButton.СurrentQuntitySequence - 1))} / {StateRepeatButton.MaxQuntitySequence - 1}",
-                new Font(FamilyNameScore, SizeResult, (StateRepeatButton.СurrentQuntitySequence == StateRepeatButton.MaxQuntitySequence ? StyleResultEnd : StyleResult)),
-                CustomBrush,
-                rectangleResult,
-                format
-                );
+            string text = $"{((StateRepeatButton.СurrentQuntitySequence - 1) < 0 ? 0 : (StateRepeatButton.СurrentQuntitySequence - 1))} / {StateRepeatButton.MaxQuntitySequence - 1}";
+            Font font = new Font(FamilyNameScore, SizeResult,
+                (StateRepeatButton.СurrentQuntitySequence == StateRepeatButton.MaxQuntitySequence ? StyleResultEnd : StyleResult));
+
+            RectangleF shadowRect = rectangleResult;
+            shadowRect.Offset(3, 3);
+            using (Brush shadowBrush = new SolidBrush(Color.FromArgb(100, 255, 255, 255)))
+            {
+                g.DrawString(text, font, shadowBrush, shadowRect, format);
+            }
+            g.DrawString(text, font, CustomBrush, rectangleResult, format);
+
+            font.Dispose();
         }
 
         private void CanvasRepeatAction_MouseDown(object sender, MouseEventArgs e)

@@ -13,6 +13,7 @@ namespace EducationalProduct.Classes
     public static class ManagerButtonRepeat
     {
         public static List<ButtonRepeat> ButtonRepeat = new List<ButtonRepeat>();
+        private static CancellationTokenSource _buttonDelayCts = new CancellationTokenSource();
         private static List<int> _currentSequence = new List<int>();
 
         public static void AddDefaultButtonsRepeat()
@@ -67,12 +68,20 @@ namespace EducationalProduct.Classes
 
         public static async Task PressButton(int buttonId)
         {
+            _buttonDelayCts.Cancel();
+            _buttonDelayCts = new CancellationTokenSource();
+
             if (ButtonRepeat[buttonId].IsActiveInSequence)
             {
-                await Task.Delay(500);
-
-                ButtonRepeat[buttonId].IsActiveInSequence = false;
-                await Task.Delay(500);
+                try
+                {
+                    await Task.Delay(500, _buttonDelayCts.Token);
+                    ButtonRepeat[buttonId].IsActiveInSequence = false;
+                    await Task.Delay(500, _buttonDelayCts.Token);
+                }
+                catch (TaskCanceledException)
+                {
+                }
             }
         }
 
@@ -94,7 +103,7 @@ namespace EducationalProduct.Classes
             return false;
         }
 
-        public static async Task GameOver()
+        private static async Task GameOver()
         {
             IsSceneGameOver = true;
             for (int i = 0; i < GameConfig.RepeatAction.FrequencyGameOver; i++)

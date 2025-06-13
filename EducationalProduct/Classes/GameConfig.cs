@@ -10,7 +10,7 @@ namespace EducationalProduct.Classes
     public static class GameConfig
     {
 
-        public enum BonesType { Red, Orange }
+        public enum BonesType { Red, Orange, RedSmall, OrangeSmall }
         public enum PuzzlesType { BottomLeft, BottomRight, TopLeft, TopRight }
         public enum ButtonRepeatType { Red, Blue, Yellow, Green }
         public static class CanvasProduct
@@ -91,8 +91,10 @@ namespace EducationalProduct.Classes
             CatchBones.Character.Width = (int)(CanvasProduct.Width * 0.24f);
             CatchBones.Character.Height = (int)(CanvasProduct.Height * 0.4f);
             CatchBones.Character.PositionOy = CanvasProduct.Height - CatchBones.Character.Height;
-            CatchBones.Bone.Width = (int)(CanvasProduct.Width / CatchBones.Bone.DefaultQuantityBone * 0.8f);
-            CatchBones.Bone.Height = (int)(CanvasProduct.Width / CatchBones.Bone.DefaultQuantityBone * 0.8f);
+            CatchBones.Bone.Big.Width = (int)(MinValueCanvas / CatchBones.Bone.DefaultQuantityBone * 0.9f);
+            CatchBones.Bone.Big.Height = (int)(MinValueCanvas / CatchBones.Bone.DefaultQuantityBone * 0.9f);
+            CatchBones.Bone.Small.Width = (int)(MinValueCanvas / CatchBones.Bone.DefaultQuantityBone * 0.7f);
+            CatchBones.Bone.Small.Height = (int)(MinValueCanvas / CatchBones.Bone.DefaultQuantityBone * 0.7f);
         }
 
         private static void InitializeDodgeMeteorites()
@@ -230,7 +232,7 @@ namespace EducationalProduct.Classes
             {
                 public const string FamilyNameScore = "Mistral";
                 public static int SizeResult;
-                public static readonly SolidBrush CustomBrush = new SolidBrush(Color.FromArgb(0, 0, 0));
+                public static readonly SolidBrush CustomBrush = new SolidBrush(Color.FromArgb(255, 255, 255));
                 public static readonly FontStyle StyleResult = FontStyle.Bold;
                 public static readonly FontStyle StyleResultEnd = FontStyle.Strikeout;
                 public static int widthRectangleResult;
@@ -242,14 +244,25 @@ namespace EducationalProduct.Classes
             }
             public static class Bone
             {
-                public static readonly int DefaultQuantityBone = 8;
-                public static readonly float Speed = 3f;
-                public static readonly Bitmap RedSprite = Properties.Resources.RedBone;
-                public static readonly Bitmap OrangeSprite = Properties.Resources.OrangeBone;
-                public static int Width = 130;
-                public static int Height = 130;
+                public static readonly int DefaultQuantityBone = 12;
                 public static readonly float MinSpeed = 2.0f;
                 public static readonly float MaxSpeed = 8.0f;
+                public static class Big
+                {
+                    public static readonly Bitmap RedSprite = Properties.Resources.RedBone;
+                    public static readonly Bitmap OrangeSprite = Properties.Resources.OrangeBone;
+                    public static int Width;
+                    public static int Height;
+                    public static Size Size => new Size(Width, Height);
+                }
+                public static class Small
+                {
+                    public static readonly Bitmap RedSprite = Properties.Resources.RedBoneSmall;
+                    public static readonly Bitmap OrangeSprite = Properties.Resources.OrangeBoneSmall;
+                    public static int Width;
+                    public static int Height;
+                    public static Size Size => new Size(Width, Height);
+                }
             }
         }
         public static class ColleсtPuzzle

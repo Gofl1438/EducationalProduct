@@ -16,12 +16,14 @@ namespace EducationalProduct
     {
         System.Windows.Forms.Timer timer;
         Rectangle workingArea;
+        Bitmap _cachedBackground;
         public CatchBones()
         {
             InitializeComponent();
             СalibrationSize();
             ManagerBone.AddDefaultQuantityBones();
             ManagerUI.AddCatchBonesElements();
+            _cachedBackground = DrawElementsUI();
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 14;
             timer.Tick += Update;
@@ -30,11 +32,20 @@ namespace EducationalProduct
 
         private void Update(object sender, EventArgs e)
         {
-            ManagerBone.ApplyPhysicsBone();
-            ManagerBone.DeleteTouchBones();
-            if(StateCatchBones.СurrentQuntityBones == StateCatchBones.MaxQuntityBones)
+            foreach (Bone bone in ManagerBone.Bones)
             {
-                Await();
+                bone.Physics.MoveBone();
+                CanvasCatchBones.Invalidate();
+            }
+            ManagerBone.ApplyPhysicsCollideMoveBone();
+            ManagerBone.DeleteTouchBones();
+            if (StateCatchBones.СurrentQuntityBones == GameConfig.CatchBones.Bone.DefaultQuantityBone)
+            {
+                if (!StateTransitonScene.IsNotCallCatchBonesAwait)
+                {
+                    Await();
+                    StateTransitonScene.IsNotCallCatchBonesAwait = true;
+                }
                 if (StateTransitonScene.IsTransitonCatchBonesAwait)
                 {
                     timer.Stop();
@@ -52,7 +63,6 @@ namespace EducationalProduct
                     DodgeMeteorites.FormClosed += (s, args) => { this.Close(); };
                 }
             }
-            CanvasCatchBones.Invalidate();
         }
 
         private async Task Await()
@@ -69,14 +79,10 @@ namespace EducationalProduct
             this.MinimumSize = new Size(workingArea.Width, workingArea.Height);
             GameConfig.Initialize(new Size(CanvasCatchBones.Size.Width, CanvasCatchBones.Size.Height));
         }
-
         private void OnRepaint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            for (int i = 0; i < ManagerUI.CatchBonesElements.Count; i++)
-            {
-                ManagerUI.CatchBonesElements[i].DrawSprite(g);
-            }
+            g.DrawImage(_cachedBackground, 0, 0);
             for (int i = 0; i < ManagerBone.Bones.Count; i++)
             {
                 ManagerBone.Bones[i].DrawSprite(g);
@@ -84,24 +90,48 @@ namespace EducationalProduct
             DrawResult(g);
         }
 
+        private Bitmap DrawElementsUI()
+        {
+            Bitmap _cachedBackground;
+            _cachedBackground = new Bitmap(GameConfig.CanvasProduct.Width, GameConfig.CanvasProduct.Height);
+            using (var bgGraphics = Graphics.FromImage(_cachedBackground))
+            {
+                for (int i = 0; i < ManagerUI.CatchBonesElements.Count; i++)
+                {
+                    ManagerUI.CatchBonesElements[i].DrawSprite(bgGraphics);
+                }
+            }
+            return _cachedBackground;
+        }
+
+
         private void DrawResult(Graphics g)
         {
             RectangleF rectangleResult = new RectangleF(
                 PointRectangleResult,
                 SizerRectangleResult
             );
+
             StringFormat format = new StringFormat
             {
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center
             };
-            g.DrawString(
-                $"{StateCatchBones.СurrentQuntityBones} / {StateCatchBones.MaxQuntityBones}",
-                new Font(FamilyNameScore, SizeResult, (StateCatchBones.СurrentQuntityBones == StateCatchBones.MaxQuntityBones ? StyleResultEnd : StyleResult)),
-                CustomBrush,
-                rectangleResult,
-                format
-                );
+
+            string text = $"{StateCatchBones.СurrentQuntityBones} / {GameConfig.CatchBones.Bone.DefaultQuantityBone}";
+            Font font = new Font(FamilyNameScore, SizeResult,
+                (StateCatchBones.СurrentQuntityBones == GameConfig.CatchBones.Bone.DefaultQuantityBone ?
+                 StyleResultEnd : StyleResult));
+
+            RectangleF shadowRect = rectangleResult;
+            shadowRect.Offset(3, 3);
+            using (Brush shadowBrush = new SolidBrush(Color.FromArgb(100, Color.Black)))
+            {
+                g.DrawString(text, font, shadowBrush, shadowRect, format);
+            }
+            g.DrawString(text, font, CustomBrush, rectangleResult, format);
+
+            font.Dispose();
         }
 
         private void CatchBones_MouseDown(object sender, MouseEventArgs e)
@@ -109,8 +139,9 @@ namespace EducationalProduct
             for (int i = 0; i < ManagerBone.Bones.Count; i++)
             {
                 var bone = ManagerBone.Bones[i];
-                if (new RectangleF(new PointF(bone.Transform.Position.X, bone.Transform.Position.Y), 
-                    new Size(GameConfig.CatchBones.Bone.Width, GameConfig.CatchBones.Bone.Height)).Contains(e.Location))
+                Size size = ManagerBone.Bones[i].Physics.Size;
+                if (new RectangleF(new PointF(bone.Transform.Position.X, bone.Transform.Position.Y),
+                    size).Contains(e.Location))
                 {
                     ManagerBone.Bones[i].IsTouchedUser = true;
                     StateCatchBones.СurrentQuntityBones += 1;

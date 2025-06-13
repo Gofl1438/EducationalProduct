@@ -263,6 +263,16 @@ namespace EducationalProduct.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap OrangeBoneSmall {
+            get {
+                object obj = ResourceManager.GetObject("OrangeBoneSmall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PuzzleBottomLeft {
             get {
                 object obj = ResourceManager.GetObject("PuzzleBottomLeft", resourceCulture);
@@ -306,6 +316,16 @@ namespace EducationalProduct.Properties {
         internal static System.Drawing.Bitmap RedBone {
             get {
                 object obj = ResourceManager.GetObject("RedBone", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RedBoneSmall {
+            get {
+                object obj = ResourceManager.GetObject("RedBoneSmall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

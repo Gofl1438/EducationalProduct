@@ -20,6 +20,7 @@ namespace EducationalProduct
         public CatchBones()
         {
             InitializeComponent();
+            StateCatchBones.Init();
             СalibrationSize();
             ManagerBone.AddDefaultQuantityBones();
             ManagerUI.AddCatchBonesElements();

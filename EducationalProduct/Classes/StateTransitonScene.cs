@@ -24,5 +24,8 @@ namespace EducationalProduct.Classes
 
         public static bool IsNotCallRepeatActionAwait = false;
 
+        public static bool IsNotCallDodgeMeteoritesAwait = false;
+        public static bool IsTransitonDodgeMeteoritesAwait = false;
+
     }
 }

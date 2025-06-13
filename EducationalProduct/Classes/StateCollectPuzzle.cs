@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace EducationalProduct.Classes
 {
-    public static class StateCatchBones
+    public static class StateCollectPuzzle
     {
-        public static int СurrentQuntityBones = 0;
+        public static int countFreePuzzles;
+        public static bool rocketLaunch;
+
         public static void Init()
         {
-            СurrentQuntityBones = 0;
+            countFreePuzzles = 0;
+            rocketLaunch = false;
         }
     }
 }

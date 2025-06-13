@@ -21,6 +21,7 @@ namespace EducationalProduct
         public ColleсtPuzzle()
         {
             InitializeComponent();
+            StateCollectPuzzle.Init();
             СalibrationSize();
             ManagerUI.AddColleсtPuzzleElements();
             ManagerPuzzle.AddDefaultPuzzles();
@@ -67,6 +68,7 @@ namespace EducationalProduct
                     }
                     this.Hide();
                     ManagerUI.ColleсtPuzzleElements.Clear();
+                    StateTransitonScene.IsTransitonColleсtPuzzle = false;
                     CatchBones.FormClosed += (s, args) => { this.Close(); };
                 }
             }

@@ -43,7 +43,7 @@ namespace EducationalProduct.Classes
 
         public static void ChangeButtonConditionEnd()
         {
-            if (MaxQuntitySequence == СurrentQuntitySequence)
+            if (GameConfig.RepeatAction.MaxQuntitySequence == СurrentQuntitySequence)
             {
                 foreach (var button in ButtonRepeat)
                 {

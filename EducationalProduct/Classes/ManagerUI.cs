@@ -22,7 +22,8 @@ namespace EducationalProduct.Classes
         public static List<ElementUI> CatchBonesElements { get; } = new List<ElementUI>();
         public static List<ElementUI> ColleсtPuzzleElements { get; } = new List<ElementUI>();
         public static List<ElementUI> RepeatActionElements { get; } = new List<ElementUI>();
-        public static List<ElementUI> DodgeMeteoritesElements { get; } = new List<ElementUI>();
+        public static List<ElementUI> DodgeMeteoritesElementsBd { get; } = new List<ElementUI>();
+        public static List<ElementUI> DodgeMeteoritesElementsBn { get; } = new List<ElementUI>();
 
         public static void AddTotalElements()
         {
@@ -185,17 +186,17 @@ namespace EducationalProduct.Classes
                 GameConfig.DodgeMeteorites.Background.Size,
                 GameConfig.DodgeMeteorites.Background.Point
                 );
-            ElementUI buttonLeft = new ElementUI(GameConfig.DodgeMeteorites.ButtonLeft.Sprite,
-                GameConfig.DodgeMeteorites.ButtonLeft.Size,
-                GameConfig.DodgeMeteorites.ButtonLeft.Point
+            ElementUI buttonLeft = new ElementUI(GameConfig.DodgeMeteorites.ButtonMove.Left.Sprite,
+                GameConfig.DodgeMeteorites.ButtonMove.Left.Size,
+                GameConfig.DodgeMeteorites.ButtonMove.Left.Point
                 );
-            ElementUI buttonRight = new ElementUI(GameConfig.DodgeMeteorites.ButtonRight.Sprite,
-                GameConfig.DodgeMeteorites.ButtonRight.Size,
-                GameConfig.DodgeMeteorites.ButtonRight.Point
+            ElementUI buttonRight = new ElementUI(GameConfig.DodgeMeteorites.ButtonMove.Right.Sprite,
+                GameConfig.DodgeMeteorites.ButtonMove.Right.Size,
+                GameConfig.DodgeMeteorites.ButtonMove.Right.Point
                 );
-            DodgeMeteoritesElements.Add(background);
-            DodgeMeteoritesElements.Add(buttonLeft);
-            DodgeMeteoritesElements.Add(buttonRight);
+            DodgeMeteoritesElementsBd.Add(background);
+            DodgeMeteoritesElementsBn.Add(buttonLeft);
+            DodgeMeteoritesElementsBn.Add(buttonRight);
         }
 
         public static void AddRepeatActionElements()

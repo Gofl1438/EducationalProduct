@@ -8,12 +8,10 @@ using static EducationalProduct.Classes.GameConfig.ColleсtPuzzle;
 
 namespace EducationalProduct.Classes
 {
-    public class ManagerPuzzle
+    public static class ManagerPuzzle
     {
         public static List<Puzzle> Puzzles = new List<Puzzle>();
         public static List<SolidRocketPuzzle> SolidRocketPuzzles = new List<SolidRocketPuzzle>();
-        private static int countFreePuzzles = 0;
-        private static bool rocketLaunch = false;
 
         public static void AddDefaultPuzzles()
         {
@@ -36,9 +34,9 @@ namespace EducationalProduct.Classes
             {
                 puzzle.Physics.UpdatePhysics();
             }
-            if (countFreePuzzles == 0 && !rocketLaunch)
+            if (StateCollectPuzzle.countFreePuzzles == 0 && !StateCollectPuzzle.rocketLaunch)
             {
-                rocketLaunch = true;
+                StateCollectPuzzle.rocketLaunch = true;
                 Puzzles.Clear();
                 SolidRocketPuzzles.Add(new SolidRocketPuzzle());
             }
@@ -67,13 +65,13 @@ namespace EducationalProduct.Classes
         public static bool CheckCorrectPoisiton()
         {
             bool IsFree = false;
-            countFreePuzzles = 0;
+            StateCollectPuzzle.countFreePuzzles = 0;
             foreach (Puzzle puzzle in Puzzles)
             {
                 if (!puzzle.Physics.IsCorrectPosition)
                 {
                     IsFree = true;
-                    countFreePuzzles += 1;
+                    StateCollectPuzzle.countFreePuzzles += 1;
                 }
             }
             return IsFree;

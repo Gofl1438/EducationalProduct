@@ -4,7 +4,6 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
-using static EducationalProduct.Classes.GameConfig.DodgeMeteorites.Meteorite;
 
 namespace EducationalProduct.Classes
 {
@@ -23,7 +22,7 @@ namespace EducationalProduct.Classes
         public PhysicsMeteorite(Transform transform)
         {
             Transform = transform;
-            SpeedOy = MaxSpeedOy - MinSpeedOy;
+            SpeedOy = GameConfig.DodgeMeteorites.Meteorite.SpeedOy;
         }
         public void MoveOyMeteorite()
         {

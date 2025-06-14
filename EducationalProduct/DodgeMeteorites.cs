@@ -9,6 +9,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static EducationalProduct.Classes.GameConfig.DodgeMeteorites.NumberPoints;
 using static EducationalProduct.Classes.GameConfig.DodgeMeteorites;
 
 namespace EducationalProduct
@@ -16,6 +17,8 @@ namespace EducationalProduct
     public partial class DodgeMeteorites : Form
     {
         RocketDodge rocket;
+        Bitmap _cachedBackground;
+        Bitmap _cachedButton;
         System.Windows.Forms.Timer timer;
         Rectangle workingArea;
         private bool IsLeftButtonPressed = false;
@@ -24,8 +27,10 @@ namespace EducationalProduct
         public DodgeMeteorites()
         {
             InitializeComponent();
+            StateDodgeMeteorites.Init();
             СalibrationSize();
             ManagerUI.AddDodgeMeteoritesElements();
+            DrawElementsUI();
             ManagerDodgeMeteorites.AddMeteoritesNormal();
             rocket = new RocketDodge();
             timer = new System.Windows.Forms.Timer();
@@ -45,31 +50,180 @@ namespace EducationalProduct
         private void OnRepaint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            for (int i = 0; i < ManagerUI.DodgeMeteoritesElements.Count; i++)
-            {
-                ManagerUI.DodgeMeteoritesElements[i].DrawSprite(g);
-            }
+            g.DrawImage(_cachedBackground, 0, 0);
             for (int i = 0; i < ManagerDodgeMeteorites.Meteorites.Count; i++)
             {
-                ManagerDodgeMeteorites.Meteorites[i].DrawSprite(g);
+                if (ManagerDodgeMeteorites.Meteorites[i].IsVisible)
+                {
+                    ManagerDodgeMeteorites.Meteorites[i].DrawSprite(g);
+                }
             }
-            rocket.DrawSprite(g);
+            if (rocket.IsVisible)
+            {
+                rocket.DrawSprite(g);
+            }
+            DrawResult(g);
+            g.DrawImage(_cachedButton, 0, 0);
+        }
+
+        private void DrawElementsUI()
+        {
+            Bitmap cachedBackground = new Bitmap(GameConfig.CanvasProduct.Width, GameConfig.CanvasProduct.Height);
+            Bitmap cachedButton = new Bitmap(GameConfig.CanvasProduct.Width, GameConfig.CanvasProduct.Height);
+            using (var bgGraphics = Graphics.FromImage(cachedBackground))
+            {
+                for (int i = 0; i < ManagerUI.DodgeMeteoritesElementsBd.Count; i++)
+                {
+                    ManagerUI.DodgeMeteoritesElementsBd[i].DrawSprite(bgGraphics);
+                }
+            }
+            using (var bgGraphics = Graphics.FromImage(cachedButton))
+            {
+                for (int i = 0; i < ManagerUI.DodgeMeteoritesElementsBn.Count; i++)
+                {
+                    ManagerUI.DodgeMeteoritesElementsBn[i].DrawSprite(bgGraphics);
+                }
+            }
+            _cachedBackground = cachedBackground;
+            _cachedButton = cachedButton;
         }
 
         private void Update(object sender, EventArgs e)
         {
+            rocket.Physics.CheckCollideWithMeteorites();
+            if (rocket.Physics.IsWasHit)
+            {
+                if (!StateDodgeMeteorites.IsNotCallGameOverAwait)
+                {
+                    GameOver();
+                    StateDodgeMeteorites.IsNotCallGameOverAwait = true;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < ManagerDodgeMeteorites.Meteorites.Count; i++)
+                {
+                    ManagerDodgeMeteorites.Meteorites[i].Physics.MoveOyMeteorite();
+                }
+                if (IsLeftButtonPressed)
+                {
+                    if (IsMouseOverLeftButton)
+                        rocket.Physics.MoveOxLeft();
+                    else if (IsMouseOverRightButton)
+                        rocket.Physics.MoveOxRight();
+                }
+                ManagerDodgeMeteorites.DeleteMeteorites();
+                СompletedMeteorites();
+                CanvasDodgeMeteorites.Invalidate();
+                if (StateDodgeMeteorites.CurrentСompletedMeteorites == GameConfig.DodgeMeteorites.Meteorite.DefaultQuantityMeteorites)
+                {
+                    if (!StateDodgeMeteorites.IsRocketDisappear)
+                    {
+                        rocket.Physics.MoveDisappear();
+                        if (rocket.Transform.Position.Y + Rocket.Size.Height < 0)
+                        {
+                            StateDodgeMeteorites.IsRocketDisappear = true;
+                        }
+                    }
+                    else
+                    {
+                        if (!StateTransitonScene.IsNotCallDodgeMeteoritesAwait)
+                        {
+                            Await();
+                            StateTransitonScene.IsNotCallDodgeMeteoritesAwait = true;
+                        }
+                        if (StateTransitonScene.IsTransitonDodgeMeteoritesAwait)
+                        {
+                            timer.Stop();
+                            RepeatAction RepeatAction = new RepeatAction(); //указать нужную сцену//
+                            RepeatAction.Opacity = 0;
+                            RepeatAction.Show();
+                            RepeatAction.Refresh();
+                            for (double opacity = 0; opacity <= 1; opacity += 0.1)
+                            {
+                                RepeatAction.Opacity = opacity;
+                                System.Threading.Thread.Sleep(16);
+                            }
+                            this.Hide();
+                            rocket = null;
+                            ManagerUI.DodgeMeteoritesElementsBd.Clear();
+                            ManagerUI.DodgeMeteoritesElementsBn.Clear();
+                            RepeatAction.FormClosed += (s, args) => { this.Close(); };
+                        }
+                    }
+                }
+            }
+        }
+        private async Task Await()
+        {
+            await Task.Delay(1500);
+            StateTransitonScene.IsTransitonDodgeMeteoritesAwait = true;
+        }
+
+        private async Task GameOver()
+        {
+            int blinkCount = 5;
+            int blinkDelay = 100;
+
+            for (int i = 0; i < blinkCount; i++)
+            {
+                bool visible = (i % 2 == 0);
+
+                for (int j = 0; j < ManagerDodgeMeteorites.Meteorites.Count; j++)
+                {
+                    ManagerDodgeMeteorites.Meteorites[j].IsVisible = visible;
+                }
+                rocket.IsVisible = visible;
+                CanvasDodgeMeteorites.Invalidate();
+                await Task.Delay(blinkDelay);
+            }
+            ManagerDodgeMeteorites.AddMeteoritesNormal();
+            StateDodgeMeteorites.CurrentСompletedMeteorites = 0;
+            rocket = new RocketDodge();
+            StateDodgeMeteorites.IsNotCallGameOverAwait = false;
+        }
+
+        private void DrawResult(Graphics g)
+        {
+            RectangleF rectangleResult = new RectangleF(
+                PointRectangleResult,
+                SizerRectangleResult
+            );
+
+            StringFormat format = new StringFormat
+            {
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
+
+            string text = $"{StateDodgeMeteorites.CurrentСompletedMeteorites} / {GameConfig.DodgeMeteorites.Meteorite.DefaultQuantityMeteorites}";
+            Font font = new Font(FamilyNameScore, SizeResult,
+                (StateDodgeMeteorites.CurrentСompletedMeteorites == GameConfig.DodgeMeteorites.Meteorite.DefaultQuantityMeteorites ?
+                 StyleResultEnd : StyleResult));
+
+            RectangleF shadowRect = rectangleResult;
+            shadowRect.Offset(3, 3);
+            using (Brush shadowBrush = new SolidBrush(Color.FromArgb(100, Color.Black)))
+            {
+                g.DrawString(text, font, shadowBrush, shadowRect, format);
+            }
+            g.DrawString(text, font, CustomBrush, rectangleResult, format);
+
+            font.Dispose();
+        }
+        
+        private void СompletedMeteorites()
+        {
             for (int i = 0; i < ManagerDodgeMeteorites.Meteorites.Count; i++)
             {
-                ManagerDodgeMeteorites.Meteorites[i].Physics.MoveOyMeteorite();
+                var meteorites = ManagerDodgeMeteorites.Meteorites[i];
+                if (meteorites.Transform.Position.Y > rocket.Transform.Position.Y + Rocket.Height
+                    && !meteorites.СompletedMeteorites)
+                {
+                    StateDodgeMeteorites.CurrentСompletedMeteorites++; 
+                    ManagerDodgeMeteorites.Meteorites[i].СompletedMeteorites = true;
+                }
             }
-            if (IsLeftButtonPressed)
-            {
-                if (IsMouseOverLeftButton)
-                    rocket.Physics.MoveOxLeft();
-                else if (IsMouseOverRightButton)
-                    rocket.Physics.MoveOxRight();
-            }
-            CanvasDodgeMeteorites.Invalidate();
         }
 
         private void CanvasDodgeMeteorites_MouseDown(object sender, MouseEventArgs e)
@@ -80,14 +234,12 @@ namespace EducationalProduct
                 CheckMouseOverButtons(e.Location);
             }
         }
-
         private void CanvasDodgeMeteorites_MouseUp(object sender, MouseEventArgs e)
         {
             IsLeftButtonPressed = false;
             IsMouseOverLeftButton = false;
             IsMouseOverRightButton = false;
         }
-
         private void CanvasDodgeMeteorites_MouseMove(object sender, MouseEventArgs e)
         {
             if (!IsLeftButtonPressed) return;
@@ -96,13 +248,13 @@ namespace EducationalProduct
         private void CheckMouseOverButtons(Point mousePos)
         {
             IsMouseOverLeftButton = new RectangleF(
-                new PointF(ButtonLeft.PositionOx, ButtonLeft.PositionOy),
-                new Size(ButtonLeft.Width, ButtonLeft.Height)
+                new PointF(ButtonMove.Left.PositionOx, ButtonMove.Left.PositionOy),
+                new Size(ButtonMove.Width, ButtonMove.Height)
             ).Contains(mousePos);
 
             IsMouseOverRightButton = new RectangleF(
-                new PointF(ButtonRight.PositionOx, ButtonRight.PositionOy),
-                new Size(ButtonRight.Width, ButtonRight.Height)
+                new PointF(ButtonMove.Right.PositionOx, ButtonMove.Right.PositionOy),
+                new Size(ButtonMove.Width, ButtonMove.Height)
             ).Contains(mousePos);
         }
     }

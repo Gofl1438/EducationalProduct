@@ -81,7 +81,7 @@ namespace EducationalProduct.Classes
                 float deltaX = Math.Abs(detailRect.X - correctlyRect.X);
                 float deltaY = Math.Abs(detailRect.Y - correctlyRect.Y);
 
-                const float snapThreshold = 20f;
+                float snapThreshold = GameConfig.ColleсtPuzzle.Puzzle.snapThreshold;
 
                 if (deltaX <= snapThreshold && deltaY <= snapThreshold)
                 {

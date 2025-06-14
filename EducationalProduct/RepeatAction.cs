@@ -20,8 +20,8 @@ namespace EducationalProduct
         public RepeatAction()
         {
             InitializeComponent();
+            StateRepeatButton.Init();
             СalibrationSize();
-            StateRepeatButton.InitStateRepeatButton();
             ManagerUI.AddRepeatActionElements();
             ManagerButtonRepeat.AddDefaultButtonsRepeat();
             timer = new System.Windows.Forms.Timer();
@@ -62,13 +62,14 @@ namespace EducationalProduct
             }
             else
             {
-                if (StateRepeatButton.СurrentQuntitySequence < StateRepeatButton.MaxQuntitySequence && StateRepeatButton.SequenceСompleted && !StateRepeatButton.IsSceneGameOver && !StateRepeatButton.IsSceneWinGame)
+                if (StateRepeatButton.СurrentQuntitySequence < GameConfig.RepeatAction.MaxQuntitySequence && StateRepeatButton.SequenceСompleted && !StateRepeatButton.IsSceneGameOver && !StateRepeatButton.IsSceneWinGame
+                    && !StateRepeatButton.PressButtonAnimation)
                 {
                     StateRepeatButton.SequenceСompleted = false;
                     StateRepeatButton.СurrentQuntitySequence += 1;
                     ManagerButtonRepeat.NewSequence();
                 }
-                if (StateRepeatButton.СurrentQuntitySequence == StateRepeatButton.MaxQuntitySequence)
+                if (StateRepeatButton.СurrentQuntitySequence == GameConfig.RepeatAction.MaxQuntitySequence)
                 {
                     StateRepeatButton.IsSceneWinGame = true;
                     ManagerButtonRepeat.ChangeButtonConditionEnd();
@@ -122,9 +123,9 @@ namespace EducationalProduct
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center
             };
-            string text = $"{((StateRepeatButton.СurrentQuntitySequence - 1) < 0 ? 0 : (StateRepeatButton.СurrentQuntitySequence - 1))} / {StateRepeatButton.MaxQuntitySequence - 1}";
+            string text = $"{((StateRepeatButton.СurrentQuntitySequence - 1) < 0 ? 0 : (StateRepeatButton.СurrentQuntitySequence - 1))} / {GameConfig.RepeatAction.MaxQuntitySequence - 1}";
             Font font = new Font(FamilyNameScore, SizeResult,
-                (StateRepeatButton.СurrentQuntitySequence == StateRepeatButton.MaxQuntitySequence ? StyleResultEnd : StyleResult));
+                (StateRepeatButton.СurrentQuntitySequence == GameConfig.RepeatAction.MaxQuntitySequence ? StyleResultEnd : StyleResult));
 
             RectangleF shadowRect = rectangleResult;
             shadowRect.Offset(3, 3);

@@ -11,14 +11,15 @@ namespace EducationalProduct.Classes
     public class RocketDodge : GameObject
     {
         public PhysicsRocket Physics { get; set; }
+        public bool IsVisible { get; set; }
         public RocketDodge()
         {
-            Transform = new Transform(new PointF((GameConfig.CanvasProduct.Width - Width) / 2, 
-                GameConfig.CanvasProduct.Height - Height * 1.5f), 
+            Transform = new Transform(GameConfig.DodgeMeteorites.Rocket.Point, 
                 new Size(Width, Height)
                 );
             Sprite = GameConfig.DodgeMeteorites.Rocket.Sprite;
             Physics = new PhysicsRocket(Transform);
+            IsVisible = true;
         }
     }
 }

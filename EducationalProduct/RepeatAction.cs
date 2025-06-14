@@ -5,9 +5,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using static EducationalProduct.Classes.GameConfig.RepeatAction.NumberPoints;
 
 namespace EducationalProduct
@@ -23,6 +25,7 @@ namespace EducationalProduct
         {
             InitializeComponent();
             StateRepeatButton.Init();
+            StateTransitonScene.Init();
             СalibrationSize();
             ManagerUI.AddRepeatActionElements();
             ManagerUI.AddTotalElements();
@@ -98,7 +101,6 @@ namespace EducationalProduct
                     && !StateRepeatButton.PressButtonAnimation)
                 {
                     StateRepeatButton.SequenceСompleted = false;
-                    StateRepeatButton.СurrentQuntitySequence += 1;
                     ManagerButtonRepeat.NewSequence();
                 }
                 if (StateRepeatButton.СurrentQuntitySequence == GameConfig.RepeatAction.MaxQuntitySequence)
@@ -125,6 +127,7 @@ namespace EducationalProduct
                         this.Hide();
                         ManagerButtonRepeat.DeleteManagerButtonRepeat();
                         ManagerUI.RepeatActionElements.Clear();
+                        ManagerSound.DeleteActivePlayersRepeatAction();
                         ruleCatchBonesScene.FormClosed += (s, args) => { this.Close(); };
                     }
                 }
@@ -134,13 +137,18 @@ namespace EducationalProduct
 
         private async Task AwaitEnd()
         {
-            await Task.Delay(2000);
+            using (var player = new SoundPlayer(Properties.Resources.RepeatButtonWin))
+            {
+                ManagerSound.activePlayersRepeatAction.Add(player);
+                player.Play();
+                await Task.Delay(3000);
+            }
             StateTransitonScene.IsTransitonRepeatButtonAwait = true;
         }
 
         private async Task AwaitOpening()
         {
-            await Task.Delay(1000);
+            await Task.Delay(500);
             StateTransitonScene.IsTransitonRepeatActionAwaitOpening = true;
         }
 
@@ -155,7 +163,7 @@ namespace EducationalProduct
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center
             };
-            string text = $"{((StateRepeatButton.СurrentQuntitySequence - 1) < 0 ? 0 : (StateRepeatButton.СurrentQuntitySequence - 1))} / {GameConfig.RepeatAction.MaxQuntitySequence - 1}";
+            string text = $"{StateRepeatButton.СurrentQuntitySequence} / {GameConfig.RepeatAction.MaxQuntitySequence }";
             Font font = new Font(FamilyNameScore, SizeResult,
                 (StateRepeatButton.СurrentQuntitySequence == GameConfig.RepeatAction.MaxQuntitySequence ? StyleResultEnd : StyleResult));
 
@@ -176,6 +184,8 @@ namespace EducationalProduct
 
             if (StateExitMenu.СurrentStateMenuExitRepeatAction) return;
 
+            if (!StateTransitonScene.IsTransitonRepeatActionAwaitOpening) return;
+
             if (!StateRepeatButton.IsPlayingSequence && !StateRepeatButton.IsSceneGameOver && !StateRepeatButton.IsSceneWinGame)
             {
                 for (int i = 0; i < ManagerButtonRepeat.ButtonRepeat.Count; i++)
@@ -188,6 +198,9 @@ namespace EducationalProduct
                         {
                             button.IsActiveInSequence = true;
                             ManagerButtonRepeat.PressButton(button.Id);
+                            SoundPlayer player = new SoundPlayer(Properties.Resources.RepeatButtonClick);
+                            ManagerSound.activePlayersRepeatAction.Add(player);
+                            player.Play();
                         }
                         else
                         {
@@ -237,6 +250,7 @@ namespace EducationalProduct
                 ManagerButtonRepeat.DeleteManagerButtonRepeat();
                 ManagerUI.RepeatActionElements.Clear();
                 ManagerUI.TotalElementsMenuExit.Clear();
+                ManagerSound.DeleteActivePlayersRepeatAction();
                 OpeningScene.FormClosed += (s, args) => { this.Close(); };
             }
 

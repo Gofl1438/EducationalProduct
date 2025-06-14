@@ -11,7 +11,7 @@ using static EducationalProduct.Classes.GameConfig.TotalElement;
 
 namespace EducationalProduct.Classes
 {
-    public class ManagerUI
+    public static class ManagerUI
     {
         public static List<ElementUI> TotalElements { get; } = new List<ElementUI>();
         public static List<ElementUI> TotalElementsMenuExit { get; } = new List<ElementUI>();

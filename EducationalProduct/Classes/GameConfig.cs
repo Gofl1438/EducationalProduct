@@ -704,8 +704,8 @@ namespace EducationalProduct.Classes
         }
         public static class RepeatAction
         {
-            public static readonly int FrequencyGameOver = 5;
-            public static readonly int MaxQuntitySequence = 6;
+            public static readonly int FrequencyGameOver = 13;
+            public static readonly int MaxQuntitySequence = 2;
             public static class Background
             {
                 public static readonly Bitmap Sprite = Properties.Resources.BackgroundRepeatAction;

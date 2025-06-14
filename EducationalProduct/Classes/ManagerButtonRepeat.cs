@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Media;
 using System.Text;
+using System.Threading.Tasks;
 using System.Threading.Tasks;
 using static EducationalProduct.Classes.GameConfig;
 using static EducationalProduct.Classes.StateRepeatButton;
-using System.Threading.Tasks;
 
 namespace EducationalProduct.Classes
 {
@@ -59,6 +61,11 @@ namespace EducationalProduct.Classes
             {
                 await Task.Delay(1000);
                 ButtonRepeat[buttonId].IsActiveInSequence = true;
+                using (var player = new SoundPlayer(Properties.Resources.RepeatButtonClick))
+                {
+                    ManagerSound.activePlayersRepeatAction.Add(player);
+                    player.Play();
+                }
                 await Task.Delay(1000);
 
                 ButtonRepeat[buttonId].IsActiveInSequence = false;
@@ -85,6 +92,8 @@ namespace EducationalProduct.Classes
                 CurrentStep++;
                 if (CurrentStep == _currentSequence.Count)
                 {
+                    Debug.WriteLine(CurrentStep);
+                    StateRepeatButton.СurrentQuntitySequence++;
                     SequenceСompleted = true;
                     CurrentStep = 0;
                 }
@@ -99,6 +108,9 @@ namespace EducationalProduct.Classes
         private static async Task GameOver()
         {
             IsSceneGameOver = true;
+            SoundPlayer player = new SoundPlayer(Properties.Resources.RepeatButtonGameOver);
+            ManagerSound.activePlayersRepeatAction.Add(player);
+            player.Play();
             for (int i = 0; i < GameConfig.RepeatAction.FrequencyGameOver; i++)
             {
                 foreach (var button in ButtonRepeat)
@@ -112,6 +124,8 @@ namespace EducationalProduct.Classes
                 }
                 await Task.Delay(100);
             }
+            player.Stop();
+            player.Dispose();
             IsSceneGameOver = false;
         }
     }

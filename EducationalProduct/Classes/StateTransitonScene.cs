@@ -27,5 +27,19 @@ namespace EducationalProduct.Classes
         public static bool IsNotCallDodgeMeteoritesAwait = false;
         public static bool IsTransitonDodgeMeteoritesAwait = false;
 
+        public static void Init()
+        {
+            IsTransitonColleсtPuzzle = false;
+            IsTransitonCatchBonesAwait = false;
+            IsTransitonRepeatButtonAwait = false;
+            IsTransitonColleсtPuzzleAwait = false;
+            IsNotCallColleсtPuzzleAwait = false;
+            IsNotCallCatchBonesAwait = false;
+            IsTransitonRepeatActionAwaitOpening = false;
+            IsNotCallRepeatActionAwaitOpening = false;
+            IsNotCallRepeatActionAwait = false;
+            IsNotCallDodgeMeteoritesAwait = false;
+            IsTransitonDodgeMeteoritesAwait = false;
+    }
     }
 }

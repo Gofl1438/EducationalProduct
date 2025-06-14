@@ -32,6 +32,10 @@ namespace EducationalProduct.Classes
             TotalElement.Background.Height = CanvasProduct.Height;
             TotalElement.BtnClosed.PositionOx = CanvasProduct.Width - TotalElement.BtnClosed.Width - TotalElement.BtnClosed.Height;
             RuleScene.Character.PositionOy = CanvasProduct.Height - RuleScene.Character.Height;
+            RuleRepeatActionScene.Character.PositionOy = CanvasProduct.Height - RuleRepeatActionScene.Character.Height + 100;
+            RuleCatchBonesScene.Character.PositionOy = CanvasProduct.Height - RuleCatchBonesScene.Character.Height + 150;
+            RuleCollectPuzzleScene.Character.PositionOy = CanvasProduct.Height - RuleCollectPuzzleScene.Character.Height;
+            RuleDodgeMeteoritesScene.Character.PositionOy = CanvasProduct.Height - RuleDodgeMeteoritesScene.Character.Height;
             InitializeColleсtPuzzle();
             InitializeRepeatAction();
             InitializeDodgeMeteorites();
@@ -214,10 +218,152 @@ namespace EducationalProduct.Classes
             public static class BtnStartPlay
             {
                 public static readonly Bitmap Sprite = Properties.Resources.btnPlayStartRuleScene;
-                public static int Height { get; set; } = 188;
-                public static int Width { get; set; } = 530;
-                public static float PositionOx = 1200;
-                public static float PositionOy = 700;
+                public static int Height { get; set; } = 168;
+                public static int Width { get; set; } = 510;
+                public static float PositionOx = 1450;
+                public static float PositionOy = 1100;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class TxtRuleScene
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.txtRuleScene;
+                public static int Height { get; set; } = 900;
+                public static int Width { get; set; } = 1400;
+                public static float PositionOx = 1000;
+                public static float PositionOy = 100;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+        }
+        public static class RuleRepeatActionScene
+        {
+            public static class Character
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.CharacterRuleRepeatActionScene;
+                public static int Height { get; set; } = 1163;
+                public static int Width { get; set; } = 916;
+                public static float PositionOx = 0;
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class BtnStartPlay
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.btnPlayStartRuleScene;
+                public static int Height { get; set; } = 168;
+                public static int Width { get; set; } = 510;
+                public static float PositionOx = 1450;
+                public static float PositionOy = 1100;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class TxtRuleRepeatActionScene
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.MT;
+                public static int Height { get; set; } = 900;
+                public static int Width { get; set; } = 1400;
+                public static float PositionOx = 1000;
+                public static float PositionOy = 100;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+        }
+        public static class RuleCatchBonesScene
+        {
+            public static class Character
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.CharacterRuleCatchBonesScene;
+                public static int Height { get; set; } = 782;
+                public static int Width { get; set; } = 1064;
+                public static float PositionOx = 0;
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class BtnStartPlay
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.btnPlayStartRuleScene;
+                public static int Height { get; set; } = 168;
+                public static int Width { get; set; } = 510;
+                public static float PositionOx = 1450;
+                public static float PositionOy = 1100;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class TxtRuleCatchBonesScene
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.BS;
+                public static int Height { get; set; } = 900;
+                public static int Width { get; set; } = 1400;
+                public static float PositionOx = 1000;
+                public static float PositionOy = 100;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+        }
+        public static class RuleCollectPuzzleScene
+        {
+            public static class Character
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.CharacterRuleCollectPuzzleScene;
+                public static int Height { get; set; } = 782;
+                public static int Width { get; set; } = 1000;
+                public static float PositionOx = 0;
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class BtnStartPlay
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.btnPlayStartRuleScene;
+                public static int Height { get; set; } = 168;
+                public static int Width { get; set; } = 510;
+                public static float PositionOx = 1450;
+                public static float PositionOy = 1100;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class TxtRuleCollectPuzzleScene
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.txtKorolev;
+                public static int Height { get; set; } = 900;
+                public static int Width { get; set; } = 1400;
+                public static float PositionOx = 1000;
+                public static float PositionOy = 100;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+        }
+        public static class RuleDodgeMeteoritesScene
+        {
+            public static class Character
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.CharacterRuleDodgeMeteoritesScene;
+                public static int Height { get; set; } = 782;
+                public static int Width { get; set; } = 1000;
+                public static float PositionOx = 0;
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class BtnStartPlay
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.btnPlayStartRuleScene;
+                public static int Height { get; set; } = 168;
+                public static int Width { get; set; } = 510;
+                public static float PositionOx = 1450;
+                public static float PositionOy = 1100;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class TxtRuleDodgeMeteoritesScene
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.txtGagarin;
+                public static int Height { get; set; } = 900;
+                public static int Width { get; set; } = 1400;
+                public static float PositionOx = 1000;
+                public static float PositionOy = 100;
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
@@ -512,5 +658,4 @@ namespace EducationalProduct.Classes
             }
         }
     }
-
 }

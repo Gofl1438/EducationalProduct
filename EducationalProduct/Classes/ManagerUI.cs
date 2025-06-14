@@ -7,12 +7,14 @@ using static EducationalProduct.Classes.GameConfig;
 using static EducationalProduct.Classes.GameConfig.OpeningScene;
 using static EducationalProduct.Classes.GameConfig.RuleRepeatActionScene;
 using static EducationalProduct.Classes.GameConfig.RuleScene;
+using static EducationalProduct.Classes.GameConfig.TotalElement;
 
 namespace EducationalProduct.Classes
 {
     public class ManagerUI
     {
         public static List<ElementUI> TotalElements { get; } = new List<ElementUI>();
+        public static List<ElementUI> TotalElementsMenuExit { get; } = new List<ElementUI>();
         public static List<ElementUI> OpeningElements { get; } = new List<ElementUI>();
         public static List<ElementUI> RuleElements { get; } = new List<ElementUI>();
         public static List<ElementUI> RuleRepeatActionElements { get; } = new List<ElementUI>();
@@ -27,17 +29,39 @@ namespace EducationalProduct.Classes
 
         public static void AddTotalElements()
         {
+            TotalElements.Clear();
             ElementUI btnClosed = new ElementUI(GameConfig.TotalElement.BtnClosed.Sprite,
                 GameConfig.TotalElement.BtnClosed.Size,
                 GameConfig.TotalElement.BtnClosed.Point
                 );
-            ElementUI btnBackArrow = new ElementUI(GameConfig.TotalElement.BtnBackArrow.Sprite,
-                GameConfig.TotalElement.BtnBackArrow.Size,
-                GameConfig.TotalElement.BtnBackArrow.Point
+            ElementUI btnQuestion = new ElementUI(GameConfig.TotalElement.BtnQuestion.Sprite,
+                GameConfig.TotalElement.BtnQuestion.Size,
+                GameConfig.TotalElement.BtnQuestion.Point
                 );
+            TotalElements.Add(btnQuestion);
             TotalElements.Add(btnClosed);
-            TotalElements.Add(btnBackArrow);
         }
+
+        public static void AddTotalElementsMenuExit()
+        {
+            TotalElementsMenuExit.Clear();
+            ElementUI menuExit = new ElementUI(GameConfig.TotalElement.MenuExit.Sprite,
+                GameConfig.TotalElement.MenuExit.Size,
+                GameConfig.TotalElement.MenuExit.Point
+                );
+            ElementUI buttonNo = new ElementUI(GameConfig.TotalElement.ButtonNo.Sprite,
+                GameConfig.TotalElement.ButtonNo.Size,
+                GameConfig.TotalElement.ButtonNo.Point
+                );
+            ElementUI buttonYes = new ElementUI(GameConfig.TotalElement.ButtonYes.Sprite,
+                GameConfig.TotalElement.ButtonYes.Size,
+                GameConfig.TotalElement.ButtonYes.Point
+                );
+            TotalElementsMenuExit.Add(menuExit);
+            TotalElementsMenuExit.Add(buttonNo);
+            TotalElementsMenuExit.Add(buttonYes);
+        }
+
 
         public static void AddOpeningElements()
         {
@@ -45,10 +69,6 @@ namespace EducationalProduct.Classes
                 GameConfig.OpeningScene.Rocket.Size,
                 GameConfig.OpeningScene.Rocket.Point,
                 GameConfig.OpeningScene.Rocket.RotationAngle
-                );
-            ElementUI btnQuestion = new ElementUI(GameConfig.OpeningScene.BtnQuestion.Sprite,
-                GameConfig.OpeningScene.BtnQuestion.Size,
-                GameConfig.OpeningScene.BtnQuestion.Point
                 );
             ElementUI title = new ElementUI(GameConfig.OpeningScene.Title.Sprite,
                 GameConfig.OpeningScene.Title.Size,
@@ -58,15 +78,9 @@ namespace EducationalProduct.Classes
                 GameConfig.OpeningScene.BtnStartPlay.Size,
                 GameConfig.OpeningScene.BtnStartPlay.Point
                 );
-            ElementUI btnClosed = new ElementUI(GameConfig.TotalElement.BtnClosed.Sprite,
-                GameConfig.TotalElement.BtnClosed.Size,
-                GameConfig.TotalElement.BtnClosed.Point
-                );
             OpeningElements.Add(rocket);
-            OpeningElements.Add(btnQuestion);
             OpeningElements.Add(title);
             OpeningElements.Add(btnStartPlay);
-            OpeningElements.Add(btnClosed);
         }
 
 

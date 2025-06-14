@@ -15,6 +15,8 @@ namespace EducationalProduct
     public partial class RepeatAction : Form
     {
         System.Windows.Forms.Timer timer;
+        Bitmap _cachedBackground;
+        Bitmap _cachedButtonUI;
         Rectangle workingArea;
 
         public RepeatAction()
@@ -23,7 +25,9 @@ namespace EducationalProduct
             StateRepeatButton.Init();
             СalibrationSize();
             ManagerUI.AddRepeatActionElements();
+            ManagerUI.AddTotalElements();
             ManagerButtonRepeat.AddDefaultButtonsRepeat();
+            DrawElementsUI();
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 14;
             timer.Tick += Update;
@@ -37,21 +41,49 @@ namespace EducationalProduct
             this.MinimumSize = new Size(workingArea.Width, workingArea.Height);
             GameConfig.Initialize(new Size(CanvasRepeatAction.Size.Width, CanvasRepeatAction.Size.Height));
         }
+
         private void OnRepaint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            for (int i = 0; i < ManagerUI.RepeatActionElements.Count; i++)
-            {
-                ManagerUI.RepeatActionElements[i].DrawSprite(g);
-            }
+            g.DrawImage(_cachedBackground, 0, 0);
             for (int i = 0; i < ManagerButtonRepeat.ButtonRepeat.Count; i++)
             {
                 ManagerButtonRepeat.ButtonRepeat[i].DrawSprite(g);
             }
             DrawResult(g);
+            g.DrawImage(_cachedButtonUI, 0, 0);
+            for (int i = 0; i < ManagerUI.TotalElementsMenuExit.Count; i++)
+            {
+                ManagerUI.TotalElementsMenuExit[i].DrawSprite(g);
+            }
         }
+
+        private void DrawElementsUI()
+        {
+            Bitmap cachedBackground = new Bitmap(GameConfig.CanvasProduct.Width, GameConfig.CanvasProduct.Height);
+            Bitmap cachedButtonUI = new Bitmap(GameConfig.CanvasProduct.Width, GameConfig.CanvasProduct.Height);
+            using (var bgGraphics = Graphics.FromImage(cachedBackground))
+            {
+                for (int i = 0; i < ManagerUI.RepeatActionElements.Count; i++)
+                {
+                    ManagerUI.RepeatActionElements[i].DrawSprite(bgGraphics);
+                }
+            }
+            using (var bgGraphics = Graphics.FromImage(cachedButtonUI))
+            {
+                for (int i = 0; i < ManagerUI.TotalElements.Count; i++)
+                {
+                    ManagerUI.TotalElements[i].DrawSprite(bgGraphics);
+                }
+            }
+            _cachedBackground = cachedBackground;
+            _cachedButtonUI = cachedButtonUI;
+        }
+
         private void Update(object sender, EventArgs e)
         {
+            if (StateExitMenu.СurrentStateMenuExitRepeatAction) return;
+
             if (!StateTransitonScene.IsTransitonRepeatActionAwaitOpening)
             {
                 if (!StateTransitonScene.IsNotCallRepeatActionAwaitOpening)
@@ -140,6 +172,10 @@ namespace EducationalProduct
 
         private void CanvasRepeatAction_MouseDown(object sender, MouseEventArgs e)
         {
+            CheckMouseDownExit(e);
+
+            if (StateExitMenu.СurrentStateMenuExitRepeatAction) return;
+
             if (!StateRepeatButton.IsPlayingSequence && !StateRepeatButton.IsSceneGameOver && !StateRepeatButton.IsSceneWinGame)
             {
                 for (int i = 0; i < ManagerButtonRepeat.ButtonRepeat.Count; i++)
@@ -160,6 +196,55 @@ namespace EducationalProduct
                         }
                     }
                 }
+            }
+        }
+
+        private void CheckMouseDownExit(MouseEventArgs e)
+        {
+            if (new RectangleF(new PointF(GameConfig.TotalElement.BtnClosed.PositionOx, GameConfig.TotalElement.BtnClosed.PositionOy),
+                new Size(GameConfig.TotalElement.BtnClosed.Width, GameConfig.TotalElement.BtnClosed.Height)).Contains(e.Location))
+            {
+                if (StateExitMenu.СurrentStateMenuExitRepeatAction)
+                {
+                    ManagerUI.TotalElementsMenuExit.Clear();
+                    StateExitMenu.СurrentStateMenuExitRepeatAction = false;
+                }
+                else
+                {
+                    ManagerUI.AddTotalElementsMenuExit();
+                    CanvasRepeatAction.Invalidate();
+                    StateExitMenu.СurrentStateMenuExitRepeatAction = true;
+                }
+            }
+
+            if (!StateExitMenu.СurrentStateMenuExitRepeatAction) return;
+
+            if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonYes.PositionOx, GameConfig.TotalElement.ButtonYes.PositionOy),
+                new Size(GameConfig.TotalElement.ButtonYes.Width, GameConfig.TotalElement.ButtonYes.Height)).Contains(e.Location))
+            {
+                StateExitMenu.СurrentStateMenuExitRepeatAction = false;
+                timer.Stop();
+                OpeningScene OpeningScene = new OpeningScene();
+                OpeningScene.Opacity = 0;
+                OpeningScene.Show();
+                OpeningScene.Refresh();
+                for (double opacity = 0; opacity <= 1; opacity += 0.1)
+                {
+                    OpeningScene.Opacity = opacity;
+                    System.Threading.Thread.Sleep(16);
+                }
+                this.Hide();
+                ManagerButtonRepeat.DeleteManagerButtonRepeat();
+                ManagerUI.RepeatActionElements.Clear();
+                ManagerUI.TotalElementsMenuExit.Clear();
+                OpeningScene.FormClosed += (s, args) => { this.Close(); };
+            }
+
+            if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonNo.PositionOx, GameConfig.TotalElement.ButtonNo.PositionOy),
+                new Size(GameConfig.TotalElement.ButtonNo.Width, GameConfig.TotalElement.ButtonNo.Height)).Contains(e.Location))
+            {
+                ManagerUI.TotalElementsMenuExit.Clear();
+                StateExitMenu.СurrentStateMenuExitRepeatAction = false;
             }
         }
     }

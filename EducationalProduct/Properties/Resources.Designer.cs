@@ -273,6 +273,16 @@ namespace EducationalProduct.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MenuExit {
+            get {
+                object obj = ResourceManager.GetObject("MenuExit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Meteorite {
             get {
                 object obj = ResourceManager.GetObject("Meteorite", resourceCulture);
@@ -316,6 +326,16 @@ namespace EducationalProduct.Properties {
         internal static System.Drawing.Bitmap MT3 {
             get {
                 object obj = ResourceManager.GetObject("MT3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NoExit {
+            get {
+                object obj = ResourceManager.GetObject("NoExit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -526,6 +546,16 @@ namespace EducationalProduct.Properties {
         internal static System.Drawing.Bitmap YellowButtonLight {
             get {
                 object obj = ResourceManager.GetObject("YellowButtonLight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap YesExit {
+            get {
+                object obj = ResourceManager.GetObject("YesExit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

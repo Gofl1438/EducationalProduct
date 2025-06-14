@@ -19,6 +19,7 @@ namespace EducationalProduct
         RocketDodge rocket;
         Bitmap _cachedBackground;
         Bitmap _cachedButton;
+        Bitmap _cachedButtonUI;
         System.Windows.Forms.Timer timer;
         Rectangle workingArea;
         private bool IsLeftButtonPressed = false;
@@ -30,6 +31,7 @@ namespace EducationalProduct
             StateDodgeMeteorites.Init();
             СalibrationSize();
             ManagerUI.AddDodgeMeteoritesElements();
+            ManagerUI.AddTotalElements();
             DrawElementsUI();
             ManagerDodgeMeteorites.AddMeteoritesNormal();
             rocket = new RocketDodge();
@@ -64,12 +66,18 @@ namespace EducationalProduct
             }
             DrawResult(g);
             g.DrawImage(_cachedButton, 0, 0);
+            g.DrawImage(_cachedButtonUI, 0, 0);
+            for (int i = 0; i < ManagerUI.TotalElementsMenuExit.Count; i++)
+            {
+                ManagerUI.TotalElementsMenuExit[i].DrawSprite(g);
+            }
         }
 
         private void DrawElementsUI()
         {
             Bitmap cachedBackground = new Bitmap(GameConfig.CanvasProduct.Width, GameConfig.CanvasProduct.Height);
             Bitmap cachedButton = new Bitmap(GameConfig.CanvasProduct.Width, GameConfig.CanvasProduct.Height);
+            Bitmap cachedButtonUI = new Bitmap(GameConfig.CanvasProduct.Width, GameConfig.CanvasProduct.Height);
             using (var bgGraphics = Graphics.FromImage(cachedBackground))
             {
                 for (int i = 0; i < ManagerUI.DodgeMeteoritesElementsBd.Count; i++)
@@ -84,12 +92,22 @@ namespace EducationalProduct
                     ManagerUI.DodgeMeteoritesElementsBn[i].DrawSprite(bgGraphics);
                 }
             }
+            using (var bgGraphics = Graphics.FromImage(cachedButtonUI))
+            {
+                for (int i = 0; i < ManagerUI.TotalElements.Count; i++)
+                {
+                    ManagerUI.TotalElements[i].DrawSprite(bgGraphics);
+                }
+            }
+            _cachedButtonUI = cachedButtonUI;
             _cachedBackground = cachedBackground;
             _cachedButton = cachedButton;
         }
 
         private void Update(object sender, EventArgs e)
         {
+            if (StateExitMenu.СurrentStateMenuExitDodgeMeteorites) return;
+
             rocket.Physics.CheckCollideWithMeteorites();
             if (rocket.Physics.IsWasHit)
             {
@@ -228,20 +246,30 @@ namespace EducationalProduct
 
         private void CanvasDodgeMeteorites_MouseDown(object sender, MouseEventArgs e)
         {
+            CheckMouseDownExit(e);
+
+            if (StateExitMenu.СurrentStateMenuExitDodgeMeteorites) return;
+
             if (e.Button == MouseButtons.Left)
             {
                 IsLeftButtonPressed = true;
                 CheckMouseOverButtons(e.Location);
             }
+
+
         }
         private void CanvasDodgeMeteorites_MouseUp(object sender, MouseEventArgs e)
         {
+            if (StateExitMenu.СurrentStateMenuExitDodgeMeteorites) return;
+
             IsLeftButtonPressed = false;
             IsMouseOverLeftButton = false;
             IsMouseOverRightButton = false;
         }
         private void CanvasDodgeMeteorites_MouseMove(object sender, MouseEventArgs e)
         {
+            if (StateExitMenu.СurrentStateMenuExitDodgeMeteorites) return;
+
             if (!IsLeftButtonPressed) return;
             CheckMouseOverButtons(e.Location);
         }
@@ -256,6 +284,56 @@ namespace EducationalProduct
                 new PointF(ButtonMove.Right.PositionOx, ButtonMove.Right.PositionOy),
                 new Size(ButtonMove.Width, ButtonMove.Height)
             ).Contains(mousePos);
+        }
+
+        private void CheckMouseDownExit(MouseEventArgs e)
+        {
+            if (new RectangleF(new PointF(GameConfig.TotalElement.BtnClosed.PositionOx, GameConfig.TotalElement.BtnClosed.PositionOy),
+                new Size(GameConfig.TotalElement.BtnClosed.Width, GameConfig.TotalElement.BtnClosed.Height)).Contains(e.Location))
+            {
+                if (StateExitMenu.СurrentStateMenuExitDodgeMeteorites)
+                {
+                    ManagerUI.TotalElementsMenuExit.Clear();
+                    StateExitMenu.СurrentStateMenuExitDodgeMeteorites = false;
+                }
+                else
+                {
+                    ManagerUI.AddTotalElementsMenuExit();
+                    CanvasDodgeMeteorites.Invalidate();
+                    StateExitMenu.СurrentStateMenuExitDodgeMeteorites = true;
+                }
+            }
+
+            if (!StateExitMenu.СurrentStateMenuExitDodgeMeteorites) return;
+
+            if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonYes.PositionOx, GameConfig.TotalElement.ButtonYes.PositionOy),
+                new Size(GameConfig.TotalElement.ButtonYes.Width, GameConfig.TotalElement.ButtonYes.Height)).Contains(e.Location))
+            {
+                StateExitMenu.СurrentStateMenuExitDodgeMeteorites = false;
+                timer.Stop();
+                OpeningScene OpeningScene = new OpeningScene();
+                OpeningScene.Opacity = 0;
+                OpeningScene.Show();
+                OpeningScene.Refresh();
+                for (double opacity = 0; opacity <= 1; opacity += 0.1)
+                {
+                    OpeningScene.Opacity = opacity;
+                    System.Threading.Thread.Sleep(16);
+                }
+                this.Hide();
+                rocket = null;
+                ManagerUI.DodgeMeteoritesElementsBd.Clear();
+                ManagerUI.DodgeMeteoritesElementsBn.Clear();
+                ManagerUI.TotalElementsMenuExit.Clear();
+                OpeningScene.FormClosed += (s, args) => { this.Close(); };
+            }
+
+            if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonNo.PositionOx, GameConfig.TotalElement.ButtonNo.PositionOy),
+                new Size(GameConfig.TotalElement.ButtonNo.Width, GameConfig.TotalElement.ButtonNo.Height)).Contains(e.Location))
+            {
+                ManagerUI.TotalElementsMenuExit.Clear();
+                StateExitMenu.СurrentStateMenuExitDodgeMeteorites = false;
+            }
         }
     }
 }

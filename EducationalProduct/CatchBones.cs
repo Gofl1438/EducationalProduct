@@ -17,6 +17,7 @@ namespace EducationalProduct
         System.Windows.Forms.Timer timer;
         Rectangle workingArea;
         Bitmap _cachedBackground;
+        Bitmap _cachedButtonUI;
         public CatchBones()
         {
             InitializeComponent();
@@ -24,7 +25,8 @@ namespace EducationalProduct
             СalibrationSize();
             ManagerBone.AddDefaultQuantityBones();
             ManagerUI.AddCatchBonesElements();
-            _cachedBackground = DrawElementsUI();
+            ManagerUI.AddTotalElements();
+            DrawElementsUI();
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 14;
             timer.Tick += Update;
@@ -33,6 +35,8 @@ namespace EducationalProduct
 
         private void Update(object sender, EventArgs e)
         {
+            if (StateExitMenu.СurrentStateMenuExitCatchBones) return;
+
             foreach (Bone bone in ManagerBone.Bones)
             {
                 bone.Physics.MoveBone();
@@ -89,20 +93,33 @@ namespace EducationalProduct
                 ManagerBone.Bones[i].DrawSprite(g);
             }
             DrawResult(g);
+            g.DrawImage(_cachedButtonUI, 0, 0);
+            for (int i = 0; i < ManagerUI.TotalElementsMenuExit.Count; i++)
+            {
+                ManagerUI.TotalElementsMenuExit[i].DrawSprite(g);
+            }
         }
 
-        private Bitmap DrawElementsUI()
+        private void DrawElementsUI()
         {
-            Bitmap _cachedBackground;
-            _cachedBackground = new Bitmap(GameConfig.CanvasProduct.Width, GameConfig.CanvasProduct.Height);
-            using (var bgGraphics = Graphics.FromImage(_cachedBackground))
+            Bitmap cachedBackground = new Bitmap(GameConfig.CanvasProduct.Width, GameConfig.CanvasProduct.Height);
+            Bitmap cachedButtonUI = new Bitmap(GameConfig.CanvasProduct.Width, GameConfig.CanvasProduct.Height);
+            using (var bgGraphics = Graphics.FromImage(cachedBackground))
             {
                 for (int i = 0; i < ManagerUI.CatchBonesElements.Count; i++)
                 {
                     ManagerUI.CatchBonesElements[i].DrawSprite(bgGraphics);
                 }
             }
-            return _cachedBackground;
+            using (var bgGraphics = Graphics.FromImage(cachedButtonUI))
+            {
+                for (int i = 0; i < ManagerUI.TotalElements.Count; i++)
+                {
+                    ManagerUI.TotalElements[i].DrawSprite(bgGraphics);
+                }
+            }
+            _cachedBackground = cachedBackground;
+            _cachedButtonUI = cachedButtonUI;
         }
 
 
@@ -137,6 +154,10 @@ namespace EducationalProduct
 
         private void CatchBones_MouseDown(object sender, MouseEventArgs e)
         {
+            CheckMouseDownExit(e);
+
+            if (StateExitMenu.СurrentStateMenuExitCatchBones) return;
+
             for (int i = 0; i < ManagerBone.Bones.Count; i++)
             {
                 var bone = ManagerBone.Bones[i];
@@ -149,5 +170,54 @@ namespace EducationalProduct
                 }
             }
         }
+
+        private void CheckMouseDownExit(MouseEventArgs e)
+        {
+            if (new RectangleF(new PointF(GameConfig.TotalElement.BtnClosed.PositionOx, GameConfig.TotalElement.BtnClosed.PositionOy),
+                new Size(GameConfig.TotalElement.BtnClosed.Width, GameConfig.TotalElement.BtnClosed.Height)).Contains(e.Location))
+            {
+                if (StateExitMenu.СurrentStateMenuExitCatchBones)
+                {
+                    ManagerUI.TotalElementsMenuExit.Clear();
+                    StateExitMenu.СurrentStateMenuExitCatchBones = false;
+                }
+                else
+                {
+                    ManagerUI.AddTotalElementsMenuExit();
+                    CanvasCatchBones.Invalidate();
+                    StateExitMenu.СurrentStateMenuExitCatchBones = true;
+                }
+            }
+
+            if (!StateExitMenu.СurrentStateMenuExitCatchBones) return;
+
+            if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonYes.PositionOx, GameConfig.TotalElement.ButtonYes.PositionOy),
+                new Size(GameConfig.TotalElement.ButtonYes.Width, GameConfig.TotalElement.ButtonYes.Height)).Contains(e.Location))
+            {
+                StateExitMenu.СurrentStateMenuExitCatchBones = false;
+                timer.Stop();
+                OpeningScene OpeningScene = new OpeningScene();
+                OpeningScene.Opacity = 0;
+                OpeningScene.Show();
+                OpeningScene.Refresh();
+                for (double opacity = 0; opacity <= 1; opacity += 0.1)
+                {
+                    OpeningScene.Opacity = opacity;
+                    System.Threading.Thread.Sleep(16);
+                }
+                this.Hide();
+                ManagerUI.CatchBonesElements.Clear();
+                ManagerUI.TotalElementsMenuExit.Clear();
+                OpeningScene.FormClosed += (s, args) => { this.Close(); };
+            }
+
+            if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonNo.PositionOx, GameConfig.TotalElement.ButtonNo.PositionOy),
+                new Size(GameConfig.TotalElement.ButtonNo.Width, GameConfig.TotalElement.ButtonNo.Height)).Contains(e.Location))
+            {
+                ManagerUI.TotalElementsMenuExit.Clear();
+                StateExitMenu.СurrentStateMenuExitCatchBones = false;
+            }
+        }
     }
+
 }

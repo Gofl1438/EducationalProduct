@@ -15,6 +15,7 @@ namespace EducationalProduct
     {
         private Puzzle currentlyDraggedPuzzle;
         private Bitmap _cachedBackground;
+        private Bitmap _cachedButtonUI;
         private System.Windows.Forms.Timer timer;
         private Rectangle workingArea;
 
@@ -24,8 +25,9 @@ namespace EducationalProduct
             StateCollectPuzzle.Init();
             СalibrationSize();
             ManagerUI.AddColleсtPuzzleElements();
+            ManagerUI.AddTotalElements();
             ManagerPuzzle.AddDefaultPuzzles();
-            _cachedBackground = DrawElementsUI();
+            DrawElementsUI();
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 14;
             timer.Tick += Update;
@@ -42,6 +44,8 @@ namespace EducationalProduct
         }
         private void Update(object sender, EventArgs e)
         {
+            if (StateExitMenu.СurrentStateMenuExitCollectPuzzle) return;
+
             if (!StateTransitonScene.IsTransitonColleсtPuzzle)
             {
                 ManagerPuzzle.ApplyPhysics();
@@ -92,24 +96,41 @@ namespace EducationalProduct
             {
                 ManagerPuzzle.SolidRocketPuzzles[i].DrawSprite(g);
             }
+            g.DrawImage(_cachedButtonUI, 0, 0);
+            for (int i = 0; i < ManagerUI.TotalElementsMenuExit.Count; i++)
+            {
+                ManagerUI.TotalElementsMenuExit[i].DrawSprite(g);
+            }
         }
 
-        private Bitmap DrawElementsUI()
+        private void DrawElementsUI()
         {
-            Bitmap _cachedBackground;
-            _cachedBackground = new Bitmap(GameConfig.CanvasProduct.Width, GameConfig.CanvasProduct.Height);
-            using (var bgGraphics = Graphics.FromImage(_cachedBackground))
+            Bitmap cachedBackground = new Bitmap(GameConfig.CanvasProduct.Width, GameConfig.CanvasProduct.Height);
+            Bitmap cachedButtonUI = new Bitmap(GameConfig.CanvasProduct.Width, GameConfig.CanvasProduct.Height);
+            using (var bgGraphics = Graphics.FromImage(cachedBackground))
             {
                 for (int i = 0; i < ManagerUI.ColleсtPuzzleElements.Count; i++)
                 {
                     ManagerUI.ColleсtPuzzleElements[i].DrawSprite(bgGraphics);
                 }
             }
-            return _cachedBackground;
+            using (var bgGraphics = Graphics.FromImage(cachedButtonUI))
+            {
+                for (int i = 0; i < ManagerUI.TotalElements.Count; i++)
+                {
+                    ManagerUI.TotalElements[i].DrawSprite(bgGraphics);
+                }
+            }
+            _cachedButtonUI = cachedButtonUI;
+            _cachedBackground = cachedBackground;
         }
 
         private void CanvasColleсtPuzzle_MouseDown(object sender, MouseEventArgs e)
         {
+            CheckMouseDownExit(e);
+
+            if (StateExitMenu.СurrentStateMenuExitCollectPuzzle) return;
+
             foreach (var puzzle in ManagerPuzzle.Puzzles)
             {
                 if (!puzzle.Physics.IsCorrectPosition)
@@ -125,6 +146,8 @@ namespace EducationalProduct
         }
         private void CanvasColleсtPuzzle_MouseMove(object sender, MouseEventArgs e)
         {
+            if (StateExitMenu.СurrentStateMenuExitCollectPuzzle) return;
+
             if (currentlyDraggedPuzzle != null)
             {
                 currentlyDraggedPuzzle.Physics.UpdateDrag(e.Location);
@@ -138,10 +161,61 @@ namespace EducationalProduct
 
         private void CanvasColleсtPuzzle_MouseUp(object sender, MouseEventArgs e)
         {
+            if (StateExitMenu.СurrentStateMenuExitCollectPuzzle) return;
+
             if (currentlyDraggedPuzzle != null)
             {
                 currentlyDraggedPuzzle.Physics.EndDrag();
                 currentlyDraggedPuzzle = null;
+            }
+        }
+
+        private void CheckMouseDownExit(MouseEventArgs e)
+        {
+            if (new RectangleF(new PointF(GameConfig.TotalElement.BtnClosed.PositionOx, GameConfig.TotalElement.BtnClosed.PositionOy),
+                new Size(GameConfig.TotalElement.BtnClosed.Width, GameConfig.TotalElement.BtnClosed.Height)).Contains(e.Location))
+            {
+                if (StateExitMenu.СurrentStateMenuExitCollectPuzzle)
+                {
+                    ManagerUI.TotalElementsMenuExit.Clear();
+                    StateExitMenu.СurrentStateMenuExitCollectPuzzle = false;
+                }
+                else
+                {
+                    ManagerUI.AddTotalElementsMenuExit();
+                    CanvasColleсtPuzzle.Invalidate();
+                    StateExitMenu.СurrentStateMenuExitCollectPuzzle = true;
+                }
+            }
+
+            if (!StateExitMenu.СurrentStateMenuExitCollectPuzzle) return;
+
+            if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonYes.PositionOx, GameConfig.TotalElement.ButtonYes.PositionOy),
+                new Size(GameConfig.TotalElement.ButtonYes.Width, GameConfig.TotalElement.ButtonYes.Height)).Contains(e.Location))
+            {
+                StateExitMenu.СurrentStateMenuExitCollectPuzzle = false;
+                timer.Stop();
+                OpeningScene OpeningScene = new OpeningScene();
+                OpeningScene.Opacity = 0;
+                OpeningScene.Show();
+                OpeningScene.Refresh();
+                for (double opacity = 0; opacity <= 1; opacity += 0.1)
+                {
+                    OpeningScene.Opacity = opacity;
+                    System.Threading.Thread.Sleep(16);
+                }
+                this.Hide();
+                ManagerUI.ColleсtPuzzleElements.Clear();
+                StateTransitonScene.IsTransitonColleсtPuzzle = false;
+                ManagerUI.TotalElementsMenuExit.Clear();
+                OpeningScene.FormClosed += (s, args) => { this.Close(); };
+            }
+
+            if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonNo.PositionOx, GameConfig.TotalElement.ButtonNo.PositionOy),
+                new Size(GameConfig.TotalElement.ButtonNo.Width, GameConfig.TotalElement.ButtonNo.Height)).Contains(e.Location))
+            {
+                ManagerUI.TotalElementsMenuExit.Clear();
+                StateExitMenu.СurrentStateMenuExitCollectPuzzle = false;
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using static EducationalProduct.Classes.GameConfig;
@@ -39,6 +40,11 @@ namespace EducationalProduct.Classes
                 StateCollectPuzzle.rocketLaunch = true;
                 Puzzles.Clear();
                 SolidRocketPuzzles.Add(new SolidRocketPuzzle());
+                using (var player = new SoundPlayer(Properties.Resources.CollectPuzzleSingleRocketTakeoff))
+                {
+                    ManagerSound.activePlayersColleсtPuzzle.Add(player);
+                    player.Play();
+                }
             }
         }
         private static void ApplyPhyscisSolidRocket()

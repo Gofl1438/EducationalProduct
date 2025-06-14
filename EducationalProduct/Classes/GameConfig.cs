@@ -574,8 +574,8 @@ namespace EducationalProduct.Classes
                 public static class SolidRocket
                 {
                     public static readonly Bitmap Sprite = Properties.Resources.SolidRocket;
-                    public static readonly float SpeedOx = 12f;
-                    public static readonly float Acceleration = 3f;
+                    public static readonly float SpeedOx = 0.8f;
+                    public static readonly float Acceleration = 0.3f;
                     public static int Height { get; set; } = Shadow.Height;
                     public static int Width { get; set; } = Shadow.Width;
                     public static float PositionOx { get; set; } = Shadow.PositionOx;
@@ -655,8 +655,8 @@ namespace EducationalProduct.Classes
             {
                 public static readonly Bitmap Sprite = Properties.Resources.RocketDodge;
                 public static readonly float SpeedOx = 35f;
-                public static readonly float SpeedOy = 15f;
-                public static readonly float Acceleration = 0.2f;
+                public static readonly float SpeedOy = 0.1f;
+                public static readonly float Acceleration = 0.05f;
                 public static int Height { get; set; }
                 public static int Width { get; set; }
                 public static int HeightWithoutFuel { get; set; }
@@ -705,7 +705,7 @@ namespace EducationalProduct.Classes
         public static class RepeatAction
         {
             public static readonly int FrequencyGameOver = 13;
-            public static readonly int MaxQuntitySequence = 2;
+            public static readonly int MaxQuntitySequence = 5;
             public static class Background
             {
                 public static readonly Bitmap Sprite = Properties.Resources.BackgroundRepeatAction;

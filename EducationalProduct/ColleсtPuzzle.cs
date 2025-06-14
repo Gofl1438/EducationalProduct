@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -73,6 +74,7 @@ namespace EducationalProduct
                     this.Hide();
                     ManagerUI.ColleсtPuzzleElements.Clear();
                     StateTransitonScene.IsTransitonColleсtPuzzle = false;
+                    ManagerSound.DeleteActivePlayersColleсtPuzzle();
                     ruleDodgeMeteoritesScene.FormClosed += (s, args) => { this.Close(); };
                 }
             }
@@ -80,7 +82,7 @@ namespace EducationalProduct
 
         private async Task Await()
         {
-            await Task.Delay(1000);
+            await Task.Delay(1500);
             StateTransitonScene.IsTransitonColleсtPuzzleAwait = true;
         }
 
@@ -139,6 +141,11 @@ namespace EducationalProduct
                     {
                         currentlyDraggedPuzzle = puzzle;
                         puzzle.Physics.StartDrag(e.Location);
+                        using (var player = new SoundPlayer(Properties.Resources.CollectPuzzleLet))
+                        {
+                            ManagerSound.activePlayersColleсtPuzzle.Add(player);
+                            player.Play();
+                        }
                         break;
                     }
                 }
@@ -165,6 +172,11 @@ namespace EducationalProduct
 
             if (currentlyDraggedPuzzle != null)
             {
+                using (var player = new SoundPlayer(Properties.Resources.CollectPuzzleTake))
+                {
+                    ManagerSound.activePlayersColleсtPuzzle.Add(player);
+                    player.Play();
+                }
                 currentlyDraggedPuzzle.Physics.EndDrag();
                 currentlyDraggedPuzzle = null;
             }
@@ -208,6 +220,7 @@ namespace EducationalProduct
                 ManagerUI.ColleсtPuzzleElements.Clear();
                 StateTransitonScene.IsTransitonColleсtPuzzle = false;
                 ManagerUI.TotalElementsMenuExit.Clear();
+                ManagerSound.DeleteActivePlayersColleсtPuzzle();
                 OpeningScene.FormClosed += (s, args) => { this.Close(); };
             }
 

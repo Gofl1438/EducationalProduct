@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -65,6 +66,7 @@ namespace EducationalProduct
                     }
                     this.Hide();
                     ManagerUI.CatchBonesElements.Clear();
+                    ManagerSound.DeleteActivePlayersCatchBones();
                     ruleCollectPuzzleScene.FormClosed += (s, args) => { this.Close(); };
                 }
             }
@@ -72,7 +74,7 @@ namespace EducationalProduct
 
         private async Task Await()
         {
-            await Task.Delay(1000);
+            await Task.Delay(1200);
             StateTransitonScene.IsTransitonCatchBonesAwait = true;
         }
 
@@ -166,6 +168,11 @@ namespace EducationalProduct
                     size).Contains(e.Location))
                 {
                     ManagerBone.Bones[i].IsTouchedUser = true;
+                    using (var player = new SoundPlayer(Properties.Resources.CatchBonesClickBones))
+                    {
+                        ManagerSound.activePlayersCatchBones.Add(player);
+                        player.Play();
+                    }
                     StateCatchBones.СurrentQuntityBones += 1;
                 }
             }
@@ -208,6 +215,7 @@ namespace EducationalProduct
                 this.Hide();
                 ManagerUI.CatchBonesElements.Clear();
                 ManagerUI.TotalElementsMenuExit.Clear();
+                ManagerSound.DeleteActivePlayersCatchBones();
                 OpeningScene.FormClosed += (s, args) => { this.Close(); };
             }
 

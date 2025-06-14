@@ -53,7 +53,6 @@ namespace EducationalProduct.Classes
             {
                 var meteorite = ManagerDodgeMeteorites.Meteorites[i];
 
-                // Основной корпус ракеты
                 var rocketRect = new RectangleF(
                     Transform.Position.X,
                     Transform.Position.Y + GameConfig.DodgeMeteorites.Rocket.HeightAntenna,
@@ -61,7 +60,6 @@ namespace EducationalProduct.Classes
                     GameConfig.DodgeMeteorites.Rocket.HeightWithoutFuel
                 );
 
-                // Антенна ракеты
                 var antennaRect = new RectangleF(
                     Transform.Position.X + (Transform.Size.Width - GameConfig.DodgeMeteorites.Rocket.WidthAntenna) / 2,
                     Transform.Position.Y,
@@ -69,7 +67,6 @@ namespace EducationalProduct.Classes
                     GameConfig.DodgeMeteorites.Rocket.HeightAntenna
                 );
 
-                // Метеорит
                 var meteoriteRect = new RectangleF(
                     meteorite.Transform.Position.X,
                     meteorite.Transform.Position.Y,
@@ -77,7 +74,6 @@ namespace EducationalProduct.Classes
                     meteorite.Transform.Size.Height
                 );
 
-                // Проверяем столкновение метеорита с корпусом или антенной
                 if (meteoriteRect.IntersectsWith(rocketRect) ||
                     meteoriteRect.IntersectsWith(antennaRect))
                 {

@@ -11,12 +11,14 @@ namespace EducationalProduct.Classes
         public static int CurrentСompletedMeteorites;
         public static bool IsRocketDisappear;
         public static bool IsNotCallGameOverAwait;
+        public static bool RocketSoundPlayer;
 
         public static void Init()
         {
             CurrentСompletedMeteorites = 0;
             IsRocketDisappear = false;
             IsNotCallGameOverAwait = false;
+            RocketSoundPlayer = false;
         }
     }
 

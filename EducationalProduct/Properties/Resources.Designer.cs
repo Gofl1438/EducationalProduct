@@ -191,6 +191,15 @@ namespace EducationalProduct.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream CatchBonesClickBones {
+            get {
+                return ResourceManager.GetStream("CatchBonesClickBones", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap CharacterCatchBones {
@@ -237,6 +246,51 @@ namespace EducationalProduct.Properties {
             get {
                 object obj = ResourceManager.GetObject("CharacterRuleRepeatActionScene", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream CollectPuzzleLet {
+            get {
+                return ResourceManager.GetStream("CollectPuzzleLet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream CollectPuzzleSingleRocketTakeoff {
+            get {
+                return ResourceManager.GetStream("CollectPuzzleSingleRocketTakeoff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream CollectPuzzleTake {
+            get {
+                return ResourceManager.GetStream("CollectPuzzleTake", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream DodgeMeteoriteCrashRocket {
+            get {
+                return ResourceManager.GetStream("DodgeMeteoriteCrashRocket", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream DodgeMeteoriteSoundLight {
+            get {
+                return ResourceManager.GetStream("DodgeMeteoriteSoundLight", resourceCulture);
             }
         }
         

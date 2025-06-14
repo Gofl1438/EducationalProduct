@@ -5,12 +5,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static EducationalProduct.Classes.GameConfig.DodgeMeteorites.NumberPoints;
 using static EducationalProduct.Classes.GameConfig.DodgeMeteorites;
+using static EducationalProduct.Classes.GameConfig.DodgeMeteorites.NumberPoints;
 
 namespace EducationalProduct
 {
@@ -34,6 +35,11 @@ namespace EducationalProduct
             ManagerUI.AddTotalElements();
             DrawElementsUI();
             ManagerDodgeMeteorites.AddMeteoritesNormal();
+            using (var player = new SoundPlayer(Properties.Resources.DodgeMeteoriteSoundLight))
+            {
+                ManagerSound.activePlayersDodgeMeteorite.Add(player);
+                player.PlayLooping();
+            }
             rocket = new RocketDodge();
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 14;
@@ -135,6 +141,15 @@ namespace EducationalProduct
                 CanvasDodgeMeteorites.Invalidate();
                 if (StateDodgeMeteorites.CurrentСompletedMeteorites == GameConfig.DodgeMeteorites.Meteorite.DefaultQuantityMeteorites)
                 {
+                    if (!StateDodgeMeteorites.RocketSoundPlayer)
+                    {
+                        using (var player = new SoundPlayer(Properties.Resources.CollectPuzzleSingleRocketTakeoff))
+                        {
+                            ManagerSound.activePlayersDodgeMeteorite.Add(player);
+                            player.Play();
+                        }
+                        StateDodgeMeteorites.RocketSoundPlayer = true;
+                    }
                     if (!StateDodgeMeteorites.IsRocketDisappear)
                     {
                         rocket.Physics.MoveDisappear();
@@ -166,6 +181,7 @@ namespace EducationalProduct
                             rocket = null;
                             ManagerUI.DodgeMeteoritesElementsBd.Clear();
                             ManagerUI.DodgeMeteoritesElementsBn.Clear();
+                            ManagerSound.DeleteActivePlayersDodgeMeteorite();
                             RepeatAction.FormClosed += (s, args) => { this.Close(); };
                         }
                     }
@@ -182,7 +198,11 @@ namespace EducationalProduct
         {
             int blinkCount = 5;
             int blinkDelay = 100;
-
+            using (var player = new SoundPlayer(Properties.Resources.DodgeMeteoriteCrashRocket))
+            {
+                ManagerSound.activePlayersDodgeMeteorite.Add(player);
+                player.Play();
+            }
             for (int i = 0; i < blinkCount; i++)
             {
                 bool visible = (i % 2 == 0);
@@ -199,6 +219,11 @@ namespace EducationalProduct
             StateDodgeMeteorites.CurrentСompletedMeteorites = 0;
             rocket = new RocketDodge();
             StateDodgeMeteorites.IsNotCallGameOverAwait = false;
+            using (var player = new SoundPlayer(Properties.Resources.DodgeMeteoriteSoundLight))
+            {
+                ManagerSound.activePlayersDodgeMeteorite.Add(player);
+                player.PlayLooping();
+            }
         }
 
         private void DrawResult(Graphics g)
@@ -325,6 +350,7 @@ namespace EducationalProduct
                 ManagerUI.DodgeMeteoritesElementsBd.Clear();
                 ManagerUI.DodgeMeteoritesElementsBn.Clear();
                 ManagerUI.TotalElementsMenuExit.Clear();
+                ManagerSound.DeleteActivePlayersDodgeMeteorite();
                 OpeningScene.FormClosed += (s, args) => { this.Close(); };
             }
 

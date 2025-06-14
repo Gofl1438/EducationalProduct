@@ -9,7 +9,6 @@ namespace EducationalProduct.Classes
 {
     public static class GameConfig
     {
-
         public enum BonesType { Red, Orange, RedSmall, OrangeSmall }
         public enum PuzzlesType { BottomLeft, BottomRight, TopLeft, TopRight }
         public enum ButtonRepeatType { Red, Blue, Yellow, Green }
@@ -28,11 +27,7 @@ namespace EducationalProduct.Classes
             CanvasProduct.Width = sizeCanvas.Width;
             CanvasProduct.WidthBlockBone = (float)CanvasProduct.Width / CatchBones.Bone.DefaultQuantityBone;
             CanvasProduct.HeightBlockBone = (float)CanvasProduct.Height / 2;
-            TotalElement.Background.Width = CanvasProduct.Width;
-            TotalElement.Background.Height = CanvasProduct.Height;
-            TotalElement.BtnClosed.PositionOx = CanvasProduct.Width - TotalElement.BtnClosed.Width - TotalElement.BtnClosed.Height;
-            RuleScene.Character.PositionOy = CanvasProduct.Height - RuleScene.Character.Height;
-            RuleRepeatActionScene.Character.PositionOy = CanvasProduct.Height - RuleRepeatActionScene.Character.Height + 100;
+
             RuleCatchBonesScene.Character.PositionOy = CanvasProduct.Height - RuleCatchBonesScene.Character.Height + 150;
             RuleCollectPuzzleScene.Character.PositionOy = CanvasProduct.Height - RuleCollectPuzzleScene.Character.Height;
             RuleDodgeMeteoritesScene.Character.PositionOy = CanvasProduct.Height - RuleDodgeMeteoritesScene.Character.Height;
@@ -41,10 +36,17 @@ namespace EducationalProduct.Classes
             InitializeRepeatAction();
             InitializeDodgeMeteorites();
             InitializeCatchBones();
+            InitializeOpeningScene();
+            InitializeRuleScene();
+            InitializeRuleRepeatActionScene();
+            InitializeRuleCatchBonesScene();
+            InitializeRuleCollectPuzzleScene();
+            InitializeRuleDodgeMeteoritesScene();
         }
 
         private static void InitializeTotalElement()
         {
+            int MinValueCanvas = Math.Min(CanvasProduct.Height, CanvasProduct.Width);
             TotalElement.MenuExit.Height = (int)(CanvasProduct.Height * 0.1f);
             TotalElement.MenuExit.Width = (int)(CanvasProduct.Height * 0.4f);
             TotalElement.MenuExit.PositionOx = (CanvasProduct.Width - TotalElement.MenuExit.Width) / 2;
@@ -57,6 +59,100 @@ namespace EducationalProduct.Classes
             TotalElement.ButtonYes.PositionOy = TotalElement.MenuExit.PositionOy + TotalElement.MenuExit.Height * 0.7f;
             TotalElement.ButtonYes.Width = (int)(TotalElement.MenuExit.Width * 0.3f);
             TotalElement.ButtonYes.Height = (int)(TotalElement.MenuExit.Height * 0.2f);
+            TotalElement.BtnClosed.Height = (int)(MinValueCanvas * 0.1f);
+            TotalElement.BtnClosed.Width = (int)(MinValueCanvas * 0.1f);
+            TotalElement.BtnQuestion.Height = (int)(MinValueCanvas * 0.1f);
+            TotalElement.BtnQuestion.Width = (int)(MinValueCanvas * 0.1f);
+            TotalElement.BtnClosed.PositionOx = (int)(CanvasProduct.Width - TotalElement.BtnClosed.Width -  CanvasProduct.Width * 0.02f);
+            TotalElement.BtnClosed.PositionOy = (int)(CanvasProduct.Height * 0.02f);
+            TotalElement.BtnQuestion.PositionOx = (int)(CanvasProduct.Width * 0.02f);
+            TotalElement.BtnQuestion.PositionOy = (int)(CanvasProduct.Height * 0.02f);
+        }
+        private static void InitializeOpeningScene()
+        {
+            OpeningScene.Rocket.Height = (int)(CanvasProduct.Height * 0.55f);
+            OpeningScene.Rocket.Width = (int)(CanvasProduct.Width * 0.47f);
+            OpeningScene.Rocket.PositionOx = (int)(CanvasProduct.Width * 0.53f);
+            OpeningScene.Rocket.PositionOy = (int)(CanvasProduct.Height * 0.31f);
+            OpeningScene.Title.Height = (int)(CanvasProduct.Height * 0.15f);
+            OpeningScene.Title.Width = (int)(CanvasProduct.Width * 0.53f);
+            OpeningScene.Title.PositionOx = (CanvasProduct.Width - OpeningScene.Title.Width) / 2;
+            OpeningScene.Title.PositionOy = (int)(CanvasProduct.Height * 0.12f);
+            OpeningScene.BtnStartPlay.Height = (int)(CanvasProduct.Height * 0.169f);
+            OpeningScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.24f);
+            OpeningScene.BtnStartPlay.PositionOx = (CanvasProduct.Width - OpeningScene.BtnStartPlay.Width) / 2;
+            OpeningScene.BtnStartPlay.PositionOy = (int)(CanvasProduct.Height * 0.415f);
+        }
+        private static void InitializeRuleScene()
+        {
+            int MinValueCanvas = Math.Min(CanvasProduct.Height, CanvasProduct.Width);
+            RuleScene.Character.Width = (int)(MinValueCanvas * 0.785f);
+            RuleScene.Character.Height = RuleScene.Character.Width;
+            RuleScene.Character.PositionOy = CanvasProduct.Height - RuleScene.Character.Height;
+            RuleScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.19f);
+            RuleScene.BtnStartPlay.Height = (int)(CanvasProduct.Height * 0.11f);
+            RuleScene.BtnStartPlay.PositionOx = CanvasProduct.Width * 0.56f;
+            RuleScene.BtnStartPlay.PositionOy = CanvasProduct.Height * 0.763f;
+            RuleScene.TxtRuleScene.Width = (int)(CanvasProduct.Width * 0.5468f);
+            RuleScene.TxtRuleScene.Height = (int)(CanvasProduct.Height * 0.625f);
+            RuleScene.TxtRuleScene.PositionOx = CanvasProduct.Width * 0.39f;
+            RuleScene.TxtRuleScene.PositionOy = CanvasProduct.Height * 0.069f;
+        }
+        private static void InitializeRuleRepeatActionScene()
+        {
+            RuleRepeatActionScene.Character.Height = (int)(CanvasProduct.Height * 0.807);
+            RuleRepeatActionScene.Character.Width = (int)(CanvasProduct.Width * 0.357);
+            RuleRepeatActionScene.Character.PositionOy = (int)(CanvasProduct.Height - RuleRepeatActionScene.Character.Height);
+            RuleRepeatActionScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.19f);
+            RuleRepeatActionScene.BtnStartPlay.Height = (int)(CanvasProduct.Height * 0.11f);
+            RuleRepeatActionScene.BtnStartPlay.PositionOx = CanvasProduct.Width * 0.56f;
+            RuleRepeatActionScene.BtnStartPlay.PositionOy = CanvasProduct.Height * 0.763f;
+            RuleRepeatActionScene.TxtRuleRepeatActionScene.Width = (int)(CanvasProduct.Width * 0.5468f);
+            RuleRepeatActionScene.TxtRuleRepeatActionScene.Height = (int)(CanvasProduct.Height * 0.625f);
+            RuleRepeatActionScene.TxtRuleRepeatActionScene.PositionOx = CanvasProduct.Width * 0.39f;
+            RuleRepeatActionScene.TxtRuleRepeatActionScene.PositionOy = CanvasProduct.Height * 0.069f;
+        }
+        private static void InitializeRuleCatchBonesScene()
+        {
+            RuleCatchBonesScene.Character.Height = (int)(CanvasProduct.Height * 0.807);
+            RuleCatchBonesScene.Character.Width = (int)(CanvasProduct.Width * 0.357);
+            RuleCatchBonesScene.Character.PositionOy = (int)(CanvasProduct.Height - RuleCatchBonesScene.Character.Height);
+            RuleCatchBonesScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.19f);
+            RuleCatchBonesScene.BtnStartPlay.Height = (int)(CanvasProduct.Height * 0.11f);
+            RuleCatchBonesScene.BtnStartPlay.PositionOx = CanvasProduct.Width * 0.56f;
+            RuleCatchBonesScene.BtnStartPlay.PositionOy = CanvasProduct.Height * 0.763f;
+            RuleCatchBonesScene.TxtRuleCatchBonesScene.Width = (int)(CanvasProduct.Width * 0.5468f);
+            RuleCatchBonesScene.TxtRuleCatchBonesScene.Height = (int)(CanvasProduct.Height * 0.625f);
+            RuleCatchBonesScene.TxtRuleCatchBonesScene.PositionOx = CanvasProduct.Width * 0.39f;
+            RuleCatchBonesScene.TxtRuleCatchBonesScene.PositionOy = CanvasProduct.Height * 0.069f;
+        }
+        private static void InitializeRuleCollectPuzzleScene()
+        {
+            RuleCollectPuzzleScene.Character.Height = (int)(CanvasProduct.Height * 0.807);
+            RuleCollectPuzzleScene.Character.Width = (int)(CanvasProduct.Width * 0.357);
+            RuleCollectPuzzleScene.Character.PositionOy = (int)(CanvasProduct.Height - RuleCollectPuzzleScene.Character.Height);
+            RuleCollectPuzzleScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.19f);
+            RuleCollectPuzzleScene.BtnStartPlay.Height = (int)(CanvasProduct.Height * 0.11f);
+            RuleCollectPuzzleScene.BtnStartPlay.PositionOx = CanvasProduct.Width * 0.56f;
+            RuleCollectPuzzleScene.BtnStartPlay.PositionOy = CanvasProduct.Height * 0.763f;
+            RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene.Width = (int)(CanvasProduct.Width * 0.5468f);
+            RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene.Height = (int)(CanvasProduct.Height * 0.625f);
+            RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene.PositionOx = CanvasProduct.Width * 0.39f;
+            RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene.PositionOy = CanvasProduct.Height * 0.069f;
+        }
+        private static void InitializeRuleDodgeMeteoritesScene()
+        {
+            RuleDodgeMeteoritesScene.Character.Height = (int)(CanvasProduct.Height * 0.807);
+            RuleDodgeMeteoritesScene.Character.Width = (int)(CanvasProduct.Width * 0.357);
+            RuleDodgeMeteoritesScene.Character.PositionOy = (int)(CanvasProduct.Height - RuleDodgeMeteoritesScene.Character.Height);
+            RuleDodgeMeteoritesScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.19f);
+            RuleDodgeMeteoritesScene.BtnStartPlay.Height = (int)(CanvasProduct.Height * 0.11f);
+            RuleDodgeMeteoritesScene.BtnStartPlay.PositionOx = CanvasProduct.Width * 0.56f;
+            RuleDodgeMeteoritesScene.BtnStartPlay.PositionOy = CanvasProduct.Height * 0.763f;
+            RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene.Width = (int)(CanvasProduct.Width * 0.5468f);
+            RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene.Height = (int)(CanvasProduct.Height * 0.625f);
+            RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene.PositionOx = CanvasProduct.Width * 0.39f;
+            RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene.PositionOy = CanvasProduct.Height * 0.069f;
         }
         private static void InitializeColleсtPuzzle()
         {
@@ -139,63 +235,53 @@ namespace EducationalProduct.Classes
 
         public static class TotalElement
         {
-            public static class Background
-            {
-                public static readonly Bitmap Sprite = Properties.Resources.Background;
-                public static int Height { get; set; }
-                public static int Width { get; set; }
-                public static float PositionOx => 0;
-                public static float PositionOy => 0;
-                public static Size Size => new Size(Width, Height);
-                public static PointF Point => new PointF(PositionOx, PositionOy);
-            }
             public static class BtnClosed
             {
                 public static readonly Bitmap Sprite = Properties.Resources.btnClosedOpening;
-                public static int Height { get; set; } = 100;
-                public static int Width { get; set; } = 100;
-                public static float PositionOx;
-                public static float PositionOy = 50;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
             public static class BtnQuestion
             {
                 public static readonly Bitmap Sprite = Properties.Resources.btnQuestion;
-                public static int Height { get; set; } = 100;
-                public static int Width { get; set; } = 100;
-                public static float PositionOx = 50;
-                public static float PositionOy = 50;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
             public static class MenuExit
             {
                 public static readonly Bitmap Sprite = Properties.Resources.MenuExit;
-                public static int Height { get; set; } = 100;
-                public static int Width { get; set; } = 100;
-                public static float PositionOx = 400;
-                public static float PositionOy = 500;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
             public static class ButtonNo
             {
                 public static readonly Bitmap Sprite = Properties.Resources.NoExit;
-                public static int Height { get; set; } = 500;
-                public static int Width { get; set; } = 100;
-                public static float PositionOx = 400;
-                public static float PositionOy = 500;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
             public static class ButtonYes
             {
                 public static readonly Bitmap Sprite = Properties.Resources.YesExit;
-                public static int Height { get; set; } = 50;
-                public static int Width { get; set; } = 100;
-                public static float PositionOx = 400;
-                public static float PositionOy = 500;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
@@ -205,31 +291,31 @@ namespace EducationalProduct.Classes
             public static class Rocket
             {
                 public static readonly Bitmap Sprite = Properties.Resources.OpeningRocket;
-                public static int Height { get; set; } = 600;
-                public static int Width { get; set; } = 920;
-                public static float PositionOx { get; set; } = 1020;
-                public static float PositionOy { get; set; } = 340;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static readonly float RotationAngle = -20f;
-                public static Size Size = new Size(Width, Height);
-                public static PointF Point = new PointF(PositionOx, PositionOy);
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
             }
             public static class Title
             {
                 public static readonly Bitmap Sprite = Properties.Resources.OpeningTitle;
-                public static int Height { get; set; } = 168;
-                public static int Width { get; set; } = 1021;
-                public static float PositionOx = 450;
-                public static float PositionOy = 131;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
             public static class BtnStartPlay
             {
                 public static readonly Bitmap Sprite = Properties.Resources.btnStartPlayOpening;
-                public static int Height { get; set; } = 183;
-                public static int Width { get; set; } = 463;
-                public static float PositionOx = 729;
-                public static float PositionOy = 449;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
@@ -239,9 +325,9 @@ namespace EducationalProduct.Classes
             public static class Character
             {
                 public static readonly Bitmap Sprite = Properties.Resources.СharacterRuleScene;
-                public static int Height { get; set; } = 847;
-                public static int Width { get; set; } = 847;
-                public static float PositionOx = 0;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
                 public static float PositionOy;
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
@@ -249,20 +335,20 @@ namespace EducationalProduct.Classes
             public static class BtnStartPlay
             {
                 public static readonly Bitmap Sprite = Properties.Resources.btnPlayStartRuleScene;
-                public static int Height { get; set; } = 168;
-                public static int Width { get; set; } = 510;
-                public static float PositionOx = 1450;
-                public static float PositionOy = 1100;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
             public static class TxtRuleScene
             {
                 public static readonly Bitmap Sprite = Properties.Resources.txtRuleScene;
-                public static int Height { get; set; } = 900;
-                public static int Width { get; set; } = 1400;
-                public static float PositionOx = 1000;
-                public static float PositionOy = 100;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
@@ -272,30 +358,30 @@ namespace EducationalProduct.Classes
             public static class Character
             {
                 public static readonly Bitmap Sprite = Properties.Resources.CharacterRuleRepeatActionScene;
-                public static int Height { get; set; } = 1163;
-                public static int Width { get; set; } = 916;
-                public static float PositionOx = 0;
-                public static float PositionOy;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
             public static class BtnStartPlay
             {
                 public static readonly Bitmap Sprite = Properties.Resources.btnPlayStartRuleScene;
-                public static int Height { get; set; } = 168;
-                public static int Width { get; set; } = 510;
-                public static float PositionOx = 1450;
-                public static float PositionOy = 1100;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
             public static class TxtRuleRepeatActionScene
             {
                 public static readonly Bitmap Sprite = Properties.Resources.MT;
-                public static int Height { get; set; } = 900;
-                public static int Width { get; set; } = 1400;
-                public static float PositionOx = 1000;
-                public static float PositionOy = 100;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
@@ -305,30 +391,30 @@ namespace EducationalProduct.Classes
             public static class Character
             {
                 public static readonly Bitmap Sprite = Properties.Resources.CharacterRuleCatchBonesScene;
-                public static int Height { get; set; } = 782;
-                public static int Width { get; set; } = 1064;
-                public static float PositionOx = 0;
-                public static float PositionOy;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
             public static class BtnStartPlay
             {
                 public static readonly Bitmap Sprite = Properties.Resources.btnPlayStartRuleScene;
-                public static int Height { get; set; } = 168;
-                public static int Width { get; set; } = 510;
-                public static float PositionOx = 1450;
-                public static float PositionOy = 1100;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
             public static class TxtRuleCatchBonesScene
             {
                 public static readonly Bitmap Sprite = Properties.Resources.BS;
-                public static int Height { get; set; } = 900;
-                public static int Width { get; set; } = 1400;
-                public static float PositionOx = 1000;
-                public static float PositionOy = 100;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
@@ -338,30 +424,30 @@ namespace EducationalProduct.Classes
             public static class Character
             {
                 public static readonly Bitmap Sprite = Properties.Resources.CharacterRuleCollectPuzzleScene;
-                public static int Height { get; set; } = 782;
-                public static int Width { get; set; } = 1000;
-                public static float PositionOx = 0;
-                public static float PositionOy;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
             public static class BtnStartPlay
             {
                 public static readonly Bitmap Sprite = Properties.Resources.btnPlayStartRuleScene;
-                public static int Height { get; set; } = 168;
-                public static int Width { get; set; } = 510;
-                public static float PositionOx = 1450;
-                public static float PositionOy = 1100;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
             public static class TxtRuleCollectPuzzleScene
             {
                 public static readonly Bitmap Sprite = Properties.Resources.txtKorolev;
-                public static int Height { get; set; } = 900;
-                public static int Width { get; set; } = 1400;
-                public static float PositionOx = 1000;
-                public static float PositionOy = 100;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
@@ -371,30 +457,30 @@ namespace EducationalProduct.Classes
             public static class Character
             {
                 public static readonly Bitmap Sprite = Properties.Resources.CharacterRuleDodgeMeteoritesScene;
-                public static int Height { get; set; } = 782;
-                public static int Width { get; set; } = 1000;
-                public static float PositionOx = 0;
-                public static float PositionOy;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
             public static class BtnStartPlay
             {
                 public static readonly Bitmap Sprite = Properties.Resources.btnPlayStartRuleScene;
-                public static int Height { get; set; } = 168;
-                public static int Width { get; set; } = 510;
-                public static float PositionOx = 1450;
-                public static float PositionOy = 1100;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
             public static class TxtRuleDodgeMeteoritesScene
             {
                 public static readonly Bitmap Sprite = Properties.Resources.txtGagarin;
-                public static int Height { get; set; } = 900;
-                public static int Width { get; set; } = 1400;
-                public static float PositionOx = 1000;
-                public static float PositionOy = 100;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }

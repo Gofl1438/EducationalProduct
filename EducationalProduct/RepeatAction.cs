@@ -80,19 +80,19 @@ namespace EducationalProduct
                     if (StateTransitonScene.IsTransitonRepeatButtonAwait)
                     {
                         timer.Stop();
-                        ColleсtPuzzle ColleсtPuzzle = new ColleсtPuzzle(); //указать нужную сцену//
-                        ColleсtPuzzle.Opacity = 0;
-                        ColleсtPuzzle.Show();
-                        ColleсtPuzzle.Refresh();
+                        RuleCatchBonesScene ruleCatchBonesScene = new RuleCatchBonesScene(); //указать нужную сцену//
+                        ruleCatchBonesScene.Opacity = 0;
+                        ruleCatchBonesScene.Show();
+                        ruleCatchBonesScene.Refresh();
                         for (double opacity = 0; opacity <= 1; opacity += 0.1)
                         {
-                            ColleсtPuzzle.Opacity = opacity;
+                            ruleCatchBonesScene.Opacity = opacity;
                             System.Threading.Thread.Sleep(16);
                         }
                         this.Hide();
                         ManagerButtonRepeat.DeleteManagerButtonRepeat();
                         ManagerUI.RepeatActionElements.Clear();
-                        ColleсtPuzzle.FormClosed += (s, args) => { this.Close(); };
+                        ruleCatchBonesScene.FormClosed += (s, args) => { this.Close(); };
                     }
                 }
                 CanvasRepeatAction.Invalidate();

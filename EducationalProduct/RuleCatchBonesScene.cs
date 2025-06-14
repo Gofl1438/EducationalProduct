@@ -11,15 +11,15 @@ using System.Windows.Forms;
 
 namespace EducationalProduct
 {
-    public partial class RuleScene : Form
+    public partial class RuleCatchBonesScene : Form
     {
         Rectangle workingArea;
-        public RuleScene()
+        public RuleCatchBonesScene()
         {
             InitializeComponent();
             СalibrationSize();
             ManagerUI.AddTotalElements();
-            ManagerUI.AddRuleElements();
+            ManagerUI.AddRuleCatchBonesElements();
             this.Invalidate();
         }
 
@@ -29,10 +29,10 @@ namespace EducationalProduct
             this.Height = workingArea.Height;
             this.Width = workingArea.Width;
             this.MinimumSize = new Size(workingArea.Width, workingArea.Height);
-            GameConfig.Initialize(new Size(CanvasRuleScene.Size.Width, CanvasRuleScene.Size.Height));
+            GameConfig.Initialize(new Size(CanvasRuleCatchBonesScene.Size.Width, CanvasRuleCatchBonesScene.Size.Height));
         }
 
-        private void RuleScene_Paint(object sender, PaintEventArgs e)
+        private void RuleCatchBonesScene_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
 
@@ -40,28 +40,28 @@ namespace EducationalProduct
             {
                 ManagerUI.TotalElements[i].DrawSprite(g);
             }
-            for (int i = 0; i < ManagerUI.RuleElements.Count; i++)
+            for (int i = 0; i < ManagerUI.RuleCatchBonesElements.Count; i++)
             {
-                ManagerUI.RuleElements[i].DrawSprite(g);
+                ManagerUI.RuleCatchBonesElements[i].DrawSprite(g);
             }
         }
 
-        private void RuleScene_MouseDown(object sender, MouseEventArgs e)
+        private void RuleCatchBonesScene_MouseDown(object sender, MouseEventArgs e)
         {
-            if (new RectangleF(new PointF(GameConfig.RuleScene.BtnStartPlay.PositionOx, GameConfig.RuleScene.BtnStartPlay.PositionOy),
-            new Size(GameConfig.RuleScene.BtnStartPlay.Width, GameConfig.RuleScene.BtnStartPlay.Height)).Contains(e.Location))
+            if (new RectangleF(new PointF(GameConfig.RuleCatchBonesScene.BtnStartPlay.PositionOx, GameConfig.RuleCatchBonesScene.BtnStartPlay.PositionOy),
+            new Size(GameConfig.RuleCatchBonesScene.BtnStartPlay.Width, GameConfig.RuleCatchBonesScene.BtnStartPlay.Height)).Contains(e.Location))
             {
-                RuleRepeatActionScene ruleRepeatActionScene = new RuleRepeatActionScene();
-                ruleRepeatActionScene.Opacity = 0;
-                ruleRepeatActionScene.Show();
-                ruleRepeatActionScene.Refresh();
+                CatchBones catchBones = new CatchBones();
+                catchBones.Opacity = 0;
+                catchBones.Show();
+                catchBones.Refresh();
                 for (double opacity = 0; opacity <= 1; opacity += 0.1)
                 {
-                    ruleRepeatActionScene.Opacity = opacity;
+                    catchBones.Opacity = opacity;
                     System.Threading.Thread.Sleep(16);
                 }
                 this.Hide();
-                ruleRepeatActionScene.FormClosed += (s, args) => { this.Close(); };
+                catchBones.FormClosed += (s, args) => { this.Close(); };
             }
         }
     }

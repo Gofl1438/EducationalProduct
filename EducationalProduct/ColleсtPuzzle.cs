@@ -56,18 +56,18 @@ namespace EducationalProduct
                 if (StateTransitonScene.IsTransitonColleсtPuzzleAwait) //указать нужную сцену//
                 {
                     timer.Stop();
-                    CatchBones CatchBones = new CatchBones();
-                    CatchBones.Opacity = 0;
-                    CatchBones.Show();
-                    CatchBones.Refresh();
+                    RuleDodgeMeteoritesScene ruleDodgeMeteoritesScene = new RuleDodgeMeteoritesScene();
+                    ruleDodgeMeteoritesScene.Opacity = 0;
+                    ruleDodgeMeteoritesScene.Show();
+                    ruleDodgeMeteoritesScene.Refresh();
                     for (double opacity = 0; opacity <= 1; opacity += 0.1)
                     {
-                        CatchBones.Opacity = opacity;
+                        ruleDodgeMeteoritesScene.Opacity = opacity;
                         System.Threading.Thread.Sleep(16);
                     }
                     this.Hide();
                     ManagerUI.ColleсtPuzzleElements.Clear();
-                    CatchBones.FormClosed += (s, args) => { this.Close(); };
+                    ruleDodgeMeteoritesScene.FormClosed += (s, args) => { this.Close(); };
                 }
             }
         }

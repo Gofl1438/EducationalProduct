@@ -121,9 +121,6 @@
   <data name="CharacterCatchBones" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CharacterCatchBones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnClosedOpening" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnClosedOpening.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="OrangeBone" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OrangeBone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -220,9 +217,6 @@
   <data name="SolidRocket" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SolidRocket.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnQuestion" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnQuestion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="GreenButtonLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GreenButtonLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -262,15 +256,6 @@
   <data name="txtGagarin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\txtGagarin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MenuExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MenuExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NoExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NoExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="YesExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\YesExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="CatchBonesClickBones" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CatchBonesClickBones.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -297,5 +282,20 @@
   </data>
   <data name="RepeatButtonWin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RepeatButtonWin.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnClosedOpening" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnClosedOpening.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnQuestion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnQuestion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MenuExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NoExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NoExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="YesExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\YesExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

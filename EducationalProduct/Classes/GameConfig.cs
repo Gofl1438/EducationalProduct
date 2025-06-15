@@ -47,18 +47,18 @@ namespace EducationalProduct.Classes
         private static void InitializeTotalElement()
         {
             int MinValueCanvas = Math.Min(CanvasProduct.Height, CanvasProduct.Width);
-            TotalElement.MenuExit.Height = (int)(CanvasProduct.Height * 0.1f);
-            TotalElement.MenuExit.Width = (int)(CanvasProduct.Height * 0.4f);
+            TotalElement.MenuExit.Height = (int)(CanvasProduct.Height * 0.284f);
+            TotalElement.MenuExit.Width = (int)(CanvasProduct.Width * 0.41f);
             TotalElement.MenuExit.PositionOx = (CanvasProduct.Width - TotalElement.MenuExit.Width) / 2;
             TotalElement.MenuExit.PositionOy = (CanvasProduct.Height - TotalElement.MenuExit.Height) / 2;
-            TotalElement.ButtonNo.PositionOx = TotalElement.MenuExit.PositionOx + TotalElement.MenuExit.Width * 0.6f;
-            TotalElement.ButtonNo.PositionOy = TotalElement.MenuExit.PositionOy + TotalElement.MenuExit.Height * 0.7f;
-            TotalElement.ButtonNo.Width = (int)(TotalElement.MenuExit.Width * 0.3f);
-            TotalElement.ButtonNo.Height = (int)(TotalElement.MenuExit.Height * 0.2f);
-            TotalElement.ButtonYes.PositionOx = TotalElement.MenuExit.PositionOx + TotalElement.MenuExit.Width * 0.1f;
-            TotalElement.ButtonYes.PositionOy = TotalElement.MenuExit.PositionOy + TotalElement.MenuExit.Height * 0.7f;
-            TotalElement.ButtonYes.Width = (int)(TotalElement.MenuExit.Width * 0.3f);
-            TotalElement.ButtonYes.Height = (int)(TotalElement.MenuExit.Height * 0.2f);
+            TotalElement.ButtonNo.Width = (int)(TotalElement.MenuExit.Height * 0.58f);
+            TotalElement.ButtonNo.Height = (int)(TotalElement.MenuExit.Height * 0.58f);
+            TotalElement.ButtonNo.PositionOx = TotalElement.MenuExit.PositionOx + TotalElement.MenuExit.Width - TotalElement.MenuExit.Width * 0.17f - TotalElement.ButtonNo.Width;
+            TotalElement.ButtonNo.PositionOy = TotalElement.MenuExit.PositionOy + TotalElement.MenuExit.Height * 0.32f;
+            TotalElement.ButtonYes.Width = (int)(TotalElement.MenuExit.Height * 0.58f);
+            TotalElement.ButtonYes.Height = (int)(TotalElement.MenuExit.Height * 0.58f);
+            TotalElement.ButtonYes.PositionOx = TotalElement.MenuExit.PositionOx + TotalElement.MenuExit.Width * 0.17f;
+            TotalElement.ButtonYes.PositionOy = TotalElement.MenuExit.PositionOy + TotalElement.MenuExit.Height * 0.32f;
             TotalElement.BtnClosed.Height = (int)(MinValueCanvas * 0.1f);
             TotalElement.BtnClosed.Width = (int)(MinValueCanvas * 0.1f);
             TotalElement.BtnQuestion.Height = (int)(MinValueCanvas * 0.1f);

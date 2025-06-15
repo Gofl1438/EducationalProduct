@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Media;
 using System.Numerics;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -77,6 +79,10 @@ namespace EducationalProduct
             {
                 ManagerUI.TotalElementsMenuExit[i].DrawSprite(g);
             }
+            for (int i = 0; i < ManagerUI.RuleElementsDodgeMeteorites.Count; i++)
+            {
+                ManagerUI.RuleElementsDodgeMeteorites[i].DrawSprite(g);
+            }
         }
 
         private void DrawElementsUI()
@@ -113,6 +119,8 @@ namespace EducationalProduct
         private void Update(object sender, EventArgs e)
         {
             if (StateExitMenu.СurrentStateMenuExitDodgeMeteorites) return;
+
+            if (StateRuleMenu.СurrentStateMenuRuleDodgeMeteorites) return;
 
             rocket.Physics.CheckCollideWithMeteorites();
             if (rocket.Physics.IsWasHit)
@@ -181,7 +189,7 @@ namespace EducationalProduct
                             rocket = null;
                             ManagerUI.DodgeMeteoritesElementsBd.Clear();
                             ManagerUI.DodgeMeteoritesElementsBn.Clear();
-                            ManagerSound.DeleteActivePlayersDodgeMeteorite();
+                            ManagerSound.DeleteActivePlayersDodgeMeteorites();
                             RepeatAction.FormClosed += (s, args) => { this.Close(); };
                         }
                     }
@@ -239,10 +247,14 @@ namespace EducationalProduct
                 LineAlignment = StringAlignment.Center
             };
 
-            string text = $"{StateDodgeMeteorites.CurrentСompletedMeteorites} / {GameConfig.DodgeMeteorites.Meteorite.DefaultQuantityMeteorites}";
-            Font font = new Font(FamilyNameScore, SizeResult,
-                (StateDodgeMeteorites.CurrentСompletedMeteorites == GameConfig.DodgeMeteorites.Meteorite.DefaultQuantityMeteorites ?
-                 StyleResultEnd : StyleResult));
+            byte[] fontData = FamilyNameScore;
+            IntPtr fontPtr = Marshal.AllocCoTaskMem(fontData.Length);
+            Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+            PrivateFontCollection pfc = new PrivateFontCollection();
+            pfc.AddMemoryFont(fontPtr, fontData.Length);
+
+            string text = $"{StateDodgeMeteorites.CurrentСompletedMeteorites} из {GameConfig.DodgeMeteorites.Meteorite.DefaultQuantityMeteorites}";
+            Font font = new Font(pfc.Families[0], SizeResult, StyleResult);
 
             RectangleF shadowRect = rectangleResult;
             shadowRect.Offset(3, 3);
@@ -271,9 +283,25 @@ namespace EducationalProduct
 
         private void CanvasDodgeMeteorites_MouseDown(object sender, MouseEventArgs e)
         {
-            CheckMouseDownExit(e);
+            if (!StateExitMenu.СurrentStateMenuExitDodgeMeteorites)
+            {
+                CheckMouseDownRule(e);
+            }
+
+            if (!StateRuleMenu.СurrentStateMenuRuleDodgeMeteorites)
+            {
+                CheckMouseDownExit(e);
+            }
+
+            if (StateRuleMenu.СurrentStateMenuRuleDodgeMeteorites) return;
 
             if (StateExitMenu.СurrentStateMenuExitDodgeMeteorites) return;
+
+            if (StateRepeatButton.СurrentStateMenuClick)
+            {
+                StateRepeatButton.СurrentStateMenuClick = false;
+                return;
+            }
 
             if (e.Button == MouseButtons.Left)
             {
@@ -311,6 +339,37 @@ namespace EducationalProduct
             ).Contains(mousePos);
         }
 
+        private void CheckMouseDownRule(MouseEventArgs e)
+        {
+            if (new RectangleF(new PointF(GameConfig.TotalElement.BtnQuestion.PositionOx, GameConfig.TotalElement.BtnQuestion.PositionOy),
+               new Size(GameConfig.TotalElement.BtnQuestion.Width, GameConfig.TotalElement.BtnQuestion.Height)).Contains(e.Location))
+            {
+                if (!StateRuleMenu.СurrentStateMenuRuleDodgeMeteorites)
+                {
+                    ManagerUI.AddRuleElementsDodgeMeteorites();
+                    ManagerSound.DeleteActivePlayersDodgeMeteorites();
+                    CanvasDodgeMeteorites.Invalidate();
+                    StateRuleMenu.СurrentStateMenuRuleDodgeMeteorites = true;
+                    StateCatchBones.СurrentStateMenuClick = true;
+                }
+            }
+
+            if (!StateRuleMenu.СurrentStateMenuRuleDodgeMeteorites) return;
+
+            if (new RectangleF(new PointF(GameConfig.RuleInfScene.ButtonApply.PositionOx, GameConfig.RuleInfScene.ButtonApply.PositionOy),
+                new Size(GameConfig.RuleInfScene.ButtonApply.Width, GameConfig.RuleInfScene.ButtonApply.Height)).Contains(e.Location))
+            {
+                ManagerUI.RuleElementsDodgeMeteorites.Clear();
+                StateRuleMenu.СurrentStateMenuRuleDodgeMeteorites = false;
+                StateCatchBones.СurrentStateMenuClick = true;
+                using (var player = new SoundPlayer(Properties.Resources.DodgeMeteoriteSoundLight))
+                {
+                    ManagerSound.activePlayersDodgeMeteorite.Add(player);
+                    player.PlayLooping();
+                }
+            }
+        }
+
         private void CheckMouseDownExit(MouseEventArgs e)
         {
             if (new RectangleF(new PointF(GameConfig.TotalElement.BtnClosed.PositionOx, GameConfig.TotalElement.BtnClosed.PositionOy),
@@ -318,9 +377,10 @@ namespace EducationalProduct
             {
                 if (!StateExitMenu.СurrentStateMenuExitDodgeMeteorites)
                 {
-                    ManagerSound.DeleteActivePlayersDodgeMeteorite();
+                    ManagerSound.DeleteActivePlayersDodgeMeteorites();
                     ManagerUI.AddTotalElementsMenuExit();
                     CanvasDodgeMeteorites.Invalidate();
+                    StateCatchBones.СurrentStateMenuClick = true;
                     StateExitMenu.СurrentStateMenuExitDodgeMeteorites = true;
                 }
             }
@@ -330,6 +390,7 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonYes.PositionOx, GameConfig.TotalElement.ButtonYes.PositionOy),
                 new Size(GameConfig.TotalElement.ButtonYes.Width, GameConfig.TotalElement.ButtonYes.Height)).Contains(e.Location))
             {
+                StateCatchBones.СurrentStateMenuClick = true;
                 StateExitMenu.СurrentStateMenuExitDodgeMeteorites = false;
                 timer.Stop();
                 OpeningScene OpeningScene = new OpeningScene();
@@ -346,7 +407,7 @@ namespace EducationalProduct
                 ManagerUI.DodgeMeteoritesElementsBd.Clear();
                 ManagerUI.DodgeMeteoritesElementsBn.Clear();
                 ManagerUI.TotalElementsMenuExit.Clear();
-                ManagerSound.DeleteActivePlayersDodgeMeteorite();
+                ManagerSound.DeleteActivePlayersDodgeMeteorites();
                 OpeningScene.FormClosed += (s, args) => { this.Close(); };
             }
 
@@ -354,6 +415,7 @@ namespace EducationalProduct
                 new Size(GameConfig.TotalElement.ButtonNo.Width, GameConfig.TotalElement.ButtonNo.Height)).Contains(e.Location))
             {
                 ManagerUI.TotalElementsMenuExit.Clear();
+                StateCatchBones.СurrentStateMenuClick = true;
                 StateExitMenu.СurrentStateMenuExitDodgeMeteorites = false;
                 using (var player = new SoundPlayer(Properties.Resources.DodgeMeteoriteSoundLight))
                 {

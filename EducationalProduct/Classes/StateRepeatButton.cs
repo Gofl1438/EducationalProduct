@@ -15,6 +15,8 @@ namespace EducationalProduct.Classes
         public static bool IsSceneGameOver;
         public static bool IsSceneWinGame;
         public static bool PressButtonAnimation;
+        public static bool СurrentStateMenuClick;
+        public static bool ErorClickButton;
 
         public static void Init()
         { 
@@ -25,6 +27,8 @@ namespace EducationalProduct.Classes
             IsSceneGameOver = false;
             IsSceneWinGame = false;
             PressButtonAnimation = false;
+            СurrentStateMenuClick = false;
+            ErorClickButton = false;
         }
     }
 }

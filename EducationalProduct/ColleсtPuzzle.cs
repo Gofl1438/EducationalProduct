@@ -47,6 +47,8 @@ namespace EducationalProduct
         {
             if (StateExitMenu.СurrentStateMenuExitCollectPuzzle) return;
 
+            if (StateRuleMenu.СurrentStateMenuRuleCollectPuzzle) return;
+
             if (!StateTransitonScene.IsTransitonColleсtPuzzle)
             {
                 ManagerPuzzle.ApplyPhysics();
@@ -103,6 +105,10 @@ namespace EducationalProduct
             {
                 ManagerUI.TotalElementsMenuExit[i].DrawSprite(g);
             }
+            for (int i = 0; i < ManagerUI.RuleElementsColleсtPuzzle.Count; i++)
+            {
+                ManagerUI.RuleElementsColleсtPuzzle[i].DrawSprite(g);
+            }
         }
 
         private void DrawElementsUI()
@@ -129,9 +135,25 @@ namespace EducationalProduct
 
         private void CanvasColleсtPuzzle_MouseDown(object sender, MouseEventArgs e)
         {
-            CheckMouseDownExit(e);
+            if (!StateExitMenu.СurrentStateMenuExitCollectPuzzle)
+            {
+                CheckMouseDownRule(e);
+            }
+
+            if (!StateRuleMenu.СurrentStateMenuRuleCollectPuzzle)
+            {
+                CheckMouseDownExit(e);
+            }
 
             if (StateExitMenu.СurrentStateMenuExitCollectPuzzle) return;
+
+            if (StateRuleMenu.СurrentStateMenuRuleCollectPuzzle) return;
+
+            if (StateRepeatButton.СurrentStateMenuClick)
+            {
+                StateRepeatButton.СurrentStateMenuClick = false;
+                return;
+            }
 
             foreach (var puzzle in ManagerPuzzle.Puzzles)
             {
@@ -181,6 +203,31 @@ namespace EducationalProduct
                 currentlyDraggedPuzzle = null;
             }
         }
+        private void CheckMouseDownRule(MouseEventArgs e)
+        {
+            if (new RectangleF(new PointF(GameConfig.TotalElement.BtnQuestion.PositionOx, GameConfig.TotalElement.BtnQuestion.PositionOy),
+               new Size(GameConfig.TotalElement.BtnQuestion.Width, GameConfig.TotalElement.BtnQuestion.Height)).Contains(e.Location))
+            {
+                if (!StateRuleMenu.СurrentStateMenuRuleCollectPuzzle)
+                {
+                    ManagerUI.AddRuleElementsColleсtPuzzle();
+                    ManagerSound.DeleteActivePlayersColleсtPuzzle();
+                    CanvasColleсtPuzzle.Invalidate();
+                    StateRuleMenu.СurrentStateMenuRuleCollectPuzzle = true;
+                    StateCatchBones.СurrentStateMenuClick = true;
+                }
+            }
+
+            if (!StateRuleMenu.СurrentStateMenuRuleCollectPuzzle) return;
+
+            if (new RectangleF(new PointF(GameConfig.RuleInfScene.ButtonApply.PositionOx, GameConfig.RuleInfScene.ButtonApply.PositionOy),
+                new Size(GameConfig.RuleInfScene.ButtonApply.Width, GameConfig.RuleInfScene.ButtonApply.Height)).Contains(e.Location))
+            {
+                ManagerUI.RuleElementsColleсtPuzzle.Clear();
+                StateRuleMenu.СurrentStateMenuRuleCollectPuzzle = false;
+                StateCatchBones.СurrentStateMenuClick = true;
+            }
+        }
 
         private void CheckMouseDownExit(MouseEventArgs e)
         {
@@ -193,6 +240,7 @@ namespace EducationalProduct
                     ManagerUI.AddTotalElementsMenuExit();
                     CanvasColleсtPuzzle.Invalidate();
                     StateExitMenu.СurrentStateMenuExitCollectPuzzle = true;
+                    StateCatchBones.СurrentStateMenuClick = true;
                 }
             }
 
@@ -201,6 +249,7 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonYes.PositionOx, GameConfig.TotalElement.ButtonYes.PositionOy),
                 new Size(GameConfig.TotalElement.ButtonYes.Width, GameConfig.TotalElement.ButtonYes.Height)).Contains(e.Location))
             {
+                StateCatchBones.СurrentStateMenuClick = true;
                 StateExitMenu.СurrentStateMenuExitCollectPuzzle = false;
                 timer.Stop();
                 OpeningScene OpeningScene = new OpeningScene();
@@ -224,6 +273,7 @@ namespace EducationalProduct
                 new Size(GameConfig.TotalElement.ButtonNo.Width, GameConfig.TotalElement.ButtonNo.Height)).Contains(e.Location))
             {
                 ManagerUI.TotalElementsMenuExit.Clear();
+                StateCatchBones.СurrentStateMenuClick = true;
                 StateExitMenu.СurrentStateMenuExitCollectPuzzle = false;
             }
         }

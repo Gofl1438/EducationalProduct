@@ -19,7 +19,6 @@ namespace EducationalProduct
             InitializeComponent();
             СalibrationSize();
             ManagerUI.AddOpeningElements();
-            ManagerUI.AddTotalElements();
             this.Invalidate();
         }
 
@@ -56,6 +55,7 @@ namespace EducationalProduct
                     System.Threading.Thread.Sleep(16);
                 }
                 this.Hide();
+                ManagerUI.OpeningElements.Clear();
                 ruleScene.FormClosed += (s, args) => {this.Close();};
             }
         }

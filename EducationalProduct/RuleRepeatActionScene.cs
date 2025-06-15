@@ -19,7 +19,7 @@ namespace EducationalProduct
         {
             InitializeComponent();
             СalibrationSize();
-            ManagerUI.AddTotalElements();
+            ManagerUI.AddBtnClosedElement();
             ManagerUI.AddRuleRepeatActionElements();
             DrawElementsUI();
             this.Invalidate();
@@ -53,9 +53,9 @@ namespace EducationalProduct
             Bitmap cachedBackground = new Bitmap(GameConfig.CanvasProduct.Width, GameConfig.CanvasProduct.Height);
             using (var bgGraphics = Graphics.FromImage(cachedBackground))
             {
-                for (int i = 0; i < ManagerUI.TotalElements.Count; i++)
+                for (int i = 0; i < ManagerUI.BtnClosedElement.Count; i++)
                 {
-                    ManagerUI.TotalElements[i].DrawSprite(bgGraphics);
+                    ManagerUI.BtnClosedElement[i].DrawSprite(bgGraphics);
                 }
             }
             _cachedBackground = cachedBackground;
@@ -80,6 +80,8 @@ namespace EducationalProduct
                     System.Threading.Thread.Sleep(16);
                 }
                 this.Hide();
+                ManagerUI.BtnClosedElement.Clear();
+                ManagerUI.RuleRepeatActionElements.Clear();
                 repeatAction.FormClosed += (s, args) => { this.Close(); };
             }
         }
@@ -115,6 +117,8 @@ namespace EducationalProduct
                 }
                 this.Hide();
                 ManagerUI.TotalElementsMenuExit.Clear();
+                ManagerUI.BtnClosedElement.Clear();
+                ManagerUI.RuleRepeatActionElements.Clear();
                 OpeningScene.FormClosed += (s, args) => { this.Close(); };
             }
 

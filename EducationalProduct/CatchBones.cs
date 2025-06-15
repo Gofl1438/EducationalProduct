@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Media;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -37,6 +39,8 @@ namespace EducationalProduct
         private void Update(object sender, EventArgs e)
         {
             if (StateExitMenu.СurrentStateMenuExitCatchBones) return;
+
+            if (StateRuleMenu.СurrentStateMenuRuleCatchBones) return;
 
             foreach (Bone bone in ManagerBone.Bones)
             {
@@ -100,6 +104,10 @@ namespace EducationalProduct
             {
                 ManagerUI.TotalElementsMenuExit[i].DrawSprite(g);
             }
+            for (int i = 0; i < ManagerUI.RuleElementsCatchBones.Count; i++)
+            {
+                ManagerUI.RuleElementsCatchBones[i].DrawSprite(g);
+            }
         }
 
         private void DrawElementsUI()
@@ -138,10 +146,15 @@ namespace EducationalProduct
                 LineAlignment = StringAlignment.Center
             };
 
-            string text = $"{StateCatchBones.СurrentQuntityBones} / {GameConfig.CatchBones.Bone.DefaultQuantityBone}";
-            Font font = new Font(FamilyNameScore, SizeResult,
-                (StateCatchBones.СurrentQuntityBones == GameConfig.CatchBones.Bone.DefaultQuantityBone ?
-                 StyleResultEnd : StyleResult));
+
+            byte[] fontData = FamilyNameScore;
+            IntPtr fontPtr = Marshal.AllocCoTaskMem(fontData.Length);
+            Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+            PrivateFontCollection pfc = new PrivateFontCollection();
+            pfc.AddMemoryFont(fontPtr, fontData.Length);
+
+            string text = $"{StateCatchBones.СurrentQuntityBones} из {GameConfig.CatchBones.Bone.DefaultQuantityBone}";
+            Font font = new Font(pfc.Families[0], SizeResult, StyleResult);
 
             RectangleF shadowRect = rectangleResult;
             shadowRect.Offset(3, 3);
@@ -156,9 +169,25 @@ namespace EducationalProduct
 
         private void CatchBones_MouseDown(object sender, MouseEventArgs e)
         {
-            CheckMouseDownExit(e);
+            if (!StateExitMenu.СurrentStateMenuExitCatchBones)
+            {
+                CheckMouseDownRule(e);
+            }
+
+            if (!StateRuleMenu.СurrentStateMenuRuleCatchBones)
+            {
+                CheckMouseDownExit(e);
+            }
 
             if (StateExitMenu.СurrentStateMenuExitCatchBones) return;
+
+            if (StateRuleMenu.СurrentStateMenuRuleCatchBones) return;
+
+            if (StateRepeatButton.СurrentStateMenuClick)
+            {
+                StateRepeatButton.СurrentStateMenuClick = false;
+                return;
+            }
 
             for (int i = 0; i < ManagerBone.Bones.Count; i++)
             {
@@ -177,6 +206,31 @@ namespace EducationalProduct
                 }
             }
         }
+        private void CheckMouseDownRule(MouseEventArgs e)
+        {
+            if (new RectangleF(new PointF(GameConfig.TotalElement.BtnQuestion.PositionOx, GameConfig.TotalElement.BtnQuestion.PositionOy),
+               new Size(GameConfig.TotalElement.BtnQuestion.Width, GameConfig.TotalElement.BtnQuestion.Height)).Contains(e.Location))
+            {
+                if (!StateRuleMenu.СurrentStateMenuRuleCatchBones)
+                {
+                    ManagerUI.AddRuleElementsCatchBones();
+                    ManagerSound.DeleteActivePlayersCatchBones();
+                    CanvasCatchBones.Invalidate();
+                    StateRuleMenu.СurrentStateMenuRuleCatchBones = true;
+                    StateCatchBones.СurrentStateMenuClick = true;
+                }
+            }
+
+            if (!StateRuleMenu.СurrentStateMenuRuleCatchBones) return;
+
+            if (new RectangleF(new PointF(GameConfig.RuleInfScene.ButtonApply.PositionOx, GameConfig.RuleInfScene.ButtonApply.PositionOy),
+                new Size(GameConfig.RuleInfScene.ButtonApply.Width, GameConfig.RuleInfScene.ButtonApply.Height)).Contains(e.Location))
+            {
+                ManagerUI.RuleElementsCatchBones.Clear();
+                StateRuleMenu.СurrentStateMenuRuleCatchBones = false;
+                StateCatchBones.СurrentStateMenuClick = true;
+            }
+        }
 
         private void CheckMouseDownExit(MouseEventArgs e)
         {
@@ -189,6 +243,7 @@ namespace EducationalProduct
                     ManagerUI.AddTotalElementsMenuExit();
                     CanvasCatchBones.Invalidate();
                     StateExitMenu.СurrentStateMenuExitCatchBones = true;
+                    StateCatchBones.СurrentStateMenuClick = true;
                 }
             }
 
@@ -197,6 +252,7 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonYes.PositionOx, GameConfig.TotalElement.ButtonYes.PositionOy),
                 new Size(GameConfig.TotalElement.ButtonYes.Width, GameConfig.TotalElement.ButtonYes.Height)).Contains(e.Location))
             {
+                StateCatchBones.СurrentStateMenuClick = true;
                 StateExitMenu.СurrentStateMenuExitCatchBones = false;
                 timer.Stop();
                 OpeningScene OpeningScene = new OpeningScene();
@@ -220,6 +276,7 @@ namespace EducationalProduct
             {
                 ManagerUI.TotalElementsMenuExit.Clear();
                 StateExitMenu.СurrentStateMenuExitCatchBones = false;
+                StateCatchBones.СurrentStateMenuClick = true;
             }
         }
     }

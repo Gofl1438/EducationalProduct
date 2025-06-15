@@ -8,10 +8,12 @@ namespace EducationalProduct.Classes
 {
     public static class StateCatchBones
     {
-        public static int СurrentQuntityBones = 0;
+        public static int СurrentQuntityBones;
+        public static bool СurrentStateMenuClick;
         public static void Init()
         {
             СurrentQuntityBones = 0;
+            СurrentStateMenuClick = false;
         }
     }
 }

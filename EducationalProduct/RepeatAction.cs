@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Media;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -59,6 +61,10 @@ namespace EducationalProduct
             {
                 ManagerUI.TotalElementsMenuExit[i].DrawSprite(g);
             }
+            for (int i = 0; i < ManagerUI.RuleElementsRepeatAction.Count; i++)
+            {
+                ManagerUI.RuleElementsRepeatAction[i].DrawSprite(g);
+            }
         }
 
         private void DrawElementsUI()
@@ -86,6 +92,8 @@ namespace EducationalProduct
         private void Update(object sender, EventArgs e)
         {
             if (StateExitMenu.СurrentStateMenuExitRepeatAction) return;
+
+            if (StateRuleMenu.СurrentStateMenuRuleRepeatAction) return;
 
             if (!StateTransitonScene.IsTransitonRepeatActionAwaitOpening)
             {
@@ -163,9 +171,16 @@ namespace EducationalProduct
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center
             };
-            string text = $"{StateRepeatButton.СurrentQuntitySequence} / {GameConfig.RepeatAction.MaxQuntitySequence }";
-            Font font = new Font(FamilyNameScore, SizeResult,
-                (StateRepeatButton.СurrentQuntitySequence == GameConfig.RepeatAction.MaxQuntitySequence ? StyleResultEnd : StyleResult));
+
+            byte[] fontData = FamilyNameScore;
+            IntPtr fontPtr = Marshal.AllocCoTaskMem(fontData.Length);
+            Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+            PrivateFontCollection pfc = new PrivateFontCollection();
+            pfc.AddMemoryFont(fontPtr, fontData.Length);
+
+            string text = $"{StateRepeatButton.СurrentQuntitySequence} из {GameConfig.RepeatAction.MaxQuntitySequence }";
+            Font font = new Font(pfc.Families[0], SizeResult, StyleResult);
+
 
             RectangleF shadowRect = rectangleResult;
             shadowRect.Offset(3, 3);
@@ -180,11 +195,25 @@ namespace EducationalProduct
 
         private void CanvasRepeatAction_MouseDown(object sender, MouseEventArgs e)
         {
-            CheckMouseDownExit(e);
-
+            if (!StateExitMenu.СurrentStateMenuExitRepeatAction)
+            {
+                CheckMouseDownRule(e);
+            }
+            if (!StateRuleMenu.СurrentStateMenuRuleRepeatAction)
+            {
+                CheckMouseDownExit(e);
+            }
             if (StateExitMenu.СurrentStateMenuExitRepeatAction) return;
 
+            if (StateRuleMenu.СurrentStateMenuRuleRepeatAction) return;
+
             if (!StateTransitonScene.IsTransitonRepeatActionAwaitOpening) return;
+
+            if (StateRepeatButton.СurrentStateMenuClick)
+            {
+                StateRepeatButton.СurrentStateMenuClick = false;
+                return;
+            }
 
             if (!StateRepeatButton.IsPlayingSequence && !StateRepeatButton.IsSceneGameOver && !StateRepeatButton.IsSceneWinGame)
             {
@@ -212,6 +241,41 @@ namespace EducationalProduct
             }
         }
 
+        private void CheckMouseDownRule(MouseEventArgs e)
+        {
+            if (new RectangleF(new PointF(GameConfig.TotalElement.BtnQuestion.PositionOx, GameConfig.TotalElement.BtnQuestion.PositionOy),
+               new Size(GameConfig.TotalElement.BtnQuestion.Width, GameConfig.TotalElement.BtnQuestion.Height)).Contains(e.Location))
+            {
+                if (!StateRuleMenu.СurrentStateMenuRuleRepeatAction)
+                {
+                    ManagerUI.AddRuleElementsRepeatAction();
+                    ManagerSound.DeleteActivePlayersRepeatAction();
+                    CanvasRepeatAction.Invalidate();
+                    StateRuleMenu.СurrentStateMenuRuleRepeatAction = true;
+                    StateRepeatButton.СurrentStateMenuClick = true;
+                    if (StateRepeatButton.IsPlayingSequence)
+                    {
+                        StateRepeatButton.ErorClickButton = true;
+                    }
+                }
+            }
+
+            if (!StateRuleMenu.СurrentStateMenuRuleRepeatAction) return;
+
+            if (new RectangleF(new PointF(GameConfig.RuleInfScene.ButtonApply.PositionOx, GameConfig.RuleInfScene.ButtonApply.PositionOy),
+                new Size(GameConfig.RuleInfScene.ButtonApply.Width, GameConfig.RuleInfScene.ButtonApply.Height)).Contains(e.Location))
+            {
+                ManagerUI.RuleElementsRepeatAction.Clear();
+                StateRuleMenu.СurrentStateMenuRuleRepeatAction = false;
+                StateRepeatButton.СurrentStateMenuClick = true;
+                if (StateRepeatButton.ErorClickButton)
+                {
+                    StateRepeatButton.ErorClickButton = false;
+                    ManagerButtonRepeat.PlaySequence();
+                }
+            }
+        }
+
         private void CheckMouseDownExit(MouseEventArgs e)
         {
             if (new RectangleF(new PointF(GameConfig.TotalElement.BtnClosed.PositionOx, GameConfig.TotalElement.BtnClosed.PositionOy),
@@ -223,6 +287,11 @@ namespace EducationalProduct
                     ManagerUI.AddTotalElementsMenuExit();
                     CanvasRepeatAction.Invalidate();
                     StateExitMenu.СurrentStateMenuExitRepeatAction = true;
+                    StateRepeatButton.СurrentStateMenuClick = true;
+                    if (StateRepeatButton.IsPlayingSequence)
+                    {
+                        StateRepeatButton.ErorClickButton = true;
+                    }
                 }
             }
 
@@ -231,6 +300,7 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonYes.PositionOx, GameConfig.TotalElement.ButtonYes.PositionOy),
                 new Size(GameConfig.TotalElement.ButtonYes.Width, GameConfig.TotalElement.ButtonYes.Height)).Contains(e.Location))
             {
+                StateRepeatButton.СurrentStateMenuClick = true;
                 StateExitMenu.СurrentStateMenuExitRepeatAction = false;
                 timer.Stop();
                 OpeningScene OpeningScene = new OpeningScene();
@@ -255,6 +325,12 @@ namespace EducationalProduct
             {
                 ManagerUI.TotalElementsMenuExit.Clear();
                 StateExitMenu.СurrentStateMenuExitRepeatAction = false;
+                StateRepeatButton.СurrentStateMenuClick = true;
+                if (StateRepeatButton.ErorClickButton)
+                {
+                    StateRepeatButton.ErorClickButton = false;
+                    ManagerButtonRepeat.PlaySequence();
+                }
             }
         }
     }

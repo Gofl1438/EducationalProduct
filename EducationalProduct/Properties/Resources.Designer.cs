@@ -63,6 +63,16 @@ namespace EducationalProduct.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ApplyButton {
+            get {
+                object obj = ResourceManager.GetObject("ApplyButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Background {
             get {
                 object obj = ResourceManager.GetObject("Background", resourceCulture);
@@ -445,6 +455,16 @@ namespace EducationalProduct.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] PressStart2P_Regular {
+            get {
+                object obj = ResourceManager.GetObject("PressStart2P_Regular", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap PuzzleBottomLeft {
@@ -567,6 +587,46 @@ namespace EducationalProduct.Properties {
         internal static System.Drawing.Bitmap RocketDodge {
             get {
                 object obj = ResourceManager.GetObject("RocketDodge", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RuleCatchBones {
+            get {
+                object obj = ResourceManager.GetObject("RuleCatchBones", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RuleCollectPuzzle {
+            get {
+                object obj = ResourceManager.GetObject("RuleCollectPuzzle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RuleDodgeMeteorite {
+            get {
+                object obj = ResourceManager.GetObject("RuleDodgeMeteorite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RuleRepeatButton {
+            get {
+                object obj = ResourceManager.GetObject("RuleRepeatButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

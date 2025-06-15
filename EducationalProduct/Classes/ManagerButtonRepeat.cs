@@ -54,11 +54,15 @@ namespace EducationalProduct.Classes
             }
         }
 
-        private static async Task PlaySequence()
+        public static async Task PlaySequence()
         {
             IsPlayingSequence = true;
             foreach (var buttonId in _currentSequence)
             {
+                if (StateRepeatButton.ErorClickButton)
+                {
+                    return;
+                }
                 await Task.Delay(1000);
                 ButtonRepeat[buttonId].IsActiveInSequence = true;
                 using (var player = new SoundPlayer(Properties.Resources.RepeatButtonClick))

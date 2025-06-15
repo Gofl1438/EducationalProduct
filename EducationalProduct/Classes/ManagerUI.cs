@@ -14,6 +14,7 @@ namespace EducationalProduct.Classes
     public static class ManagerUI
     {
         public static List<ElementUI> TotalElements { get; } = new List<ElementUI>();
+        public static List<ElementUI> BtnClosedElement { get; } = new List<ElementUI>();
         public static List<ElementUI> TotalElementsMenuExit { get; } = new List<ElementUI>();
         public static List<ElementUI> OpeningElements { get; } = new List<ElementUI>();
         public static List<ElementUI> RuleElements { get; } = new List<ElementUI>();
@@ -26,6 +27,88 @@ namespace EducationalProduct.Classes
         public static List<ElementUI> RepeatActionElements { get; } = new List<ElementUI>();
         public static List<ElementUI> DodgeMeteoritesElementsBd { get; } = new List<ElementUI>();
         public static List<ElementUI> DodgeMeteoritesElementsBn { get; } = new List<ElementUI>();
+        public static List<ElementUI> RuleElementsDodgeMeteorites { get; } = new List<ElementUI>();
+        public static List<ElementUI> RuleElementsRepeatAction { get; } = new List<ElementUI>();
+        public static List<ElementUI> RuleElementsColleсtPuzzle { get; } = new List<ElementUI>();
+        public static List<ElementUI> RuleElementsCatchBones { get; } = new List<ElementUI>();
+
+        public static void AddRuleElementsDodgeMeteorites()
+        {
+            RuleElementsDodgeMeteorites.Clear();
+            ElementUI backgroundMenuExit = new ElementUI(GameConfig.TotalElement.BackgroundMenuExit.Sprite,
+                GameConfig.TotalElement.BackgroundMenuExit.Size,
+                GameConfig.TotalElement.BackgroundMenuExit.Point
+                );
+            ElementUI RuleDodgeMeteorite = new ElementUI(GameConfig.RuleInfScene.RuleDodgeMeteorite.Sprite,
+                GameConfig.RuleInfScene.RuleDodgeMeteorite.Size,
+                GameConfig.RuleInfScene.RuleDodgeMeteorite.Point
+                );
+            ElementUI ButtonApply = new ElementUI(GameConfig.RuleInfScene.ButtonApply.Sprite,
+                GameConfig.RuleInfScene.ButtonApply.Size,
+                GameConfig.RuleInfScene.ButtonApply.Point
+                );
+            RuleElementsDodgeMeteorites.Add(backgroundMenuExit);
+            RuleElementsDodgeMeteorites.Add(RuleDodgeMeteorite);
+            RuleElementsDodgeMeteorites.Add(ButtonApply);
+        }
+        public static void AddRuleElementsRepeatAction()
+        {
+            RuleElementsRepeatAction.Clear();
+            ElementUI backgroundMenuExit = new ElementUI(GameConfig.TotalElement.BackgroundMenuExit.Sprite,
+                GameConfig.TotalElement.BackgroundMenuExit.Size,
+                GameConfig.TotalElement.BackgroundMenuExit.Point
+                );
+            ElementUI RuleRepeatButton = new ElementUI(GameConfig.RuleInfScene.RuleRepeatButton.Sprite,
+                GameConfig.RuleInfScene.RuleRepeatButton.Size,
+                GameConfig.RuleInfScene.RuleRepeatButton.Point
+                );
+            ElementUI ButtonApply = new ElementUI(GameConfig.RuleInfScene.ButtonApply.Sprite,
+                GameConfig.RuleInfScene.ButtonApply.Size,
+                GameConfig.RuleInfScene.ButtonApply.Point
+                );
+            RuleElementsRepeatAction.Add(backgroundMenuExit);
+            RuleElementsRepeatAction.Add(RuleRepeatButton);
+            RuleElementsRepeatAction.Add(ButtonApply);
+        }
+        public static void AddRuleElementsColleсtPuzzle()
+        {
+            RuleElementsColleсtPuzzle.Clear();
+            ElementUI backgroundMenuExit = new ElementUI(GameConfig.TotalElement.BackgroundMenuExit.Sprite,
+                GameConfig.TotalElement.BackgroundMenuExit.Size,
+                GameConfig.TotalElement.BackgroundMenuExit.Point
+                );
+            ElementUI RuleCollectPuzzle = new ElementUI(GameConfig.RuleInfScene.RuleCollectPuzzle.Sprite,
+                GameConfig.RuleInfScene.RuleCollectPuzzle.Size,
+                GameConfig.RuleInfScene.RuleCollectPuzzle.Point
+                );
+            ElementUI ButtonApply = new ElementUI(GameConfig.RuleInfScene.ButtonApply.Sprite,
+                GameConfig.RuleInfScene.ButtonApply.Size,
+                GameConfig.RuleInfScene.ButtonApply.Point
+                );
+            RuleElementsColleсtPuzzle.Add(backgroundMenuExit);
+            RuleElementsColleсtPuzzle.Add(RuleCollectPuzzle);
+            RuleElementsColleсtPuzzle.Add(ButtonApply);
+        }
+        public static void AddRuleElementsCatchBones()
+        {
+            RuleElementsCatchBones.Clear();
+            ElementUI backgroundMenuExit = new ElementUI(GameConfig.TotalElement.BackgroundMenuExit.Sprite,
+                GameConfig.TotalElement.BackgroundMenuExit.Size,
+                GameConfig.TotalElement.BackgroundMenuExit.Point
+                );
+            ElementUI RuleCatchBones = new ElementUI(GameConfig.RuleInfScene.RuleCatchBones.Sprite,
+                GameConfig.RuleInfScene.RuleCatchBones.Size,
+                GameConfig.RuleInfScene.RuleCatchBones.Point
+                );
+            ElementUI ButtonApply = new ElementUI(GameConfig.RuleInfScene.ButtonApply.Sprite,
+                GameConfig.RuleInfScene.ButtonApply.Size,
+                GameConfig.RuleInfScene.ButtonApply.Point
+                );
+            RuleElementsCatchBones.Add(backgroundMenuExit);
+            RuleElementsCatchBones.Add(RuleCatchBones);
+            RuleElementsCatchBones.Add(ButtonApply);
+        }
+
 
         public static void AddTotalElements()
         {
@@ -40,6 +123,16 @@ namespace EducationalProduct.Classes
                 );
             TotalElements.Add(btnQuestion);
             TotalElements.Add(btnClosed);
+        }
+
+        public static void AddBtnClosedElement()
+        {
+            BtnClosedElement.Clear();
+            ElementUI btnClosed = new ElementUI(GameConfig.TotalElement.BtnClosed.Sprite,
+                GameConfig.TotalElement.BtnClosed.Size,
+                GameConfig.TotalElement.BtnClosed.Point
+                );
+            BtnClosedElement.Add(btnClosed);
         }
 
         public static void AddTotalElementsMenuExit()
@@ -70,6 +163,7 @@ namespace EducationalProduct.Classes
 
         public static void AddOpeningElements()
         {
+            OpeningElements.Clear();
             ElementUI rocket = new ElementUI(GameConfig.OpeningScene.Rocket.Sprite,
                 GameConfig.OpeningScene.Rocket.Size,
                 GameConfig.OpeningScene.Rocket.Point,
@@ -91,6 +185,7 @@ namespace EducationalProduct.Classes
 
         public static void AddRuleElements()
         {
+            RuleElements.Clear();
             ElementUI character = new ElementUI(GameConfig.RuleScene.Character.Sprite,
                 GameConfig.RuleScene.Character.Size,
                 GameConfig.RuleScene.Character.Point
@@ -110,6 +205,7 @@ namespace EducationalProduct.Classes
 
         public static void AddRuleRepeatActionElements()
         {
+            RuleRepeatActionElements.Clear();
             ElementUI character = new ElementUI(GameConfig.RuleRepeatActionScene.Character.Sprite,
                 GameConfig.RuleRepeatActionScene.Character.Size,
                 GameConfig.RuleRepeatActionScene.Character.Point
@@ -129,6 +225,7 @@ namespace EducationalProduct.Classes
 
         public static void AddRuleCatchBonesElements()
         {
+            RuleCatchBonesElements.Clear();
             ElementUI character = new ElementUI(GameConfig.RuleCatchBonesScene.Character.Sprite,
                 GameConfig.RuleCatchBonesScene.Character.Size,
                 GameConfig.RuleCatchBonesScene.Character.Point
@@ -148,6 +245,7 @@ namespace EducationalProduct.Classes
 
         public static void AddRuleCollectPuzzleElements()
         {
+            RuleCollectPuzzleElements.Clear();
             ElementUI character = new ElementUI(GameConfig.RuleCollectPuzzleScene.Character.Sprite,
                 GameConfig.RuleCollectPuzzleScene.Character.Size,
                 GameConfig.RuleCollectPuzzleScene.Character.Point
@@ -167,6 +265,7 @@ namespace EducationalProduct.Classes
 
         public static void AddRuleDodgeMeteoritesElements()
         {
+            RuleDodgeMeteoritesElements.Clear();
             ElementUI character = new ElementUI(GameConfig.RuleDodgeMeteoritesScene.Character.Sprite,
                 GameConfig.RuleDodgeMeteoritesScene.Character.Size,
                 GameConfig.RuleDodgeMeteoritesScene.Character.Point
@@ -187,6 +286,7 @@ namespace EducationalProduct.Classes
 
         public static void AddCatchBonesElements()
         {
+            CatchBonesElements.Clear();
             ElementUI character = new ElementUI(GameConfig.CatchBones.Character.Sprite,
                 GameConfig.CatchBones.Character.Size,
                 GameConfig.CatchBones.Character.Point 
@@ -201,6 +301,8 @@ namespace EducationalProduct.Classes
 
         public static void AddDodgeMeteoritesElements()
         {
+            DodgeMeteoritesElementsBd.Clear();
+            DodgeMeteoritesElementsBn.Clear();
             ElementUI background = new ElementUI(GameConfig.DodgeMeteorites.Background.Sprite,
                 GameConfig.DodgeMeteorites.Background.Size,
                 GameConfig.DodgeMeteorites.Background.Point
@@ -220,6 +322,7 @@ namespace EducationalProduct.Classes
 
         public static void AddRepeatActionElements()
         {
+            RepeatActionElements.Clear();
             ElementUI background = new ElementUI(GameConfig.RepeatAction.Background.Sprite,
                 GameConfig.RepeatAction.Background.Size,
                 GameConfig.RepeatAction.Background.Point
@@ -229,6 +332,7 @@ namespace EducationalProduct.Classes
 
         public static void AddColleсtPuzzleElements()
         {
+            ColleсtPuzzleElements.Clear();
             ElementUI background = new ElementUI(GameConfig.ColleсtPuzzle.Background.Sprite,
                 GameConfig.ColleсtPuzzle.Background.Size,
                 GameConfig.ColleсtPuzzle.Background.Point

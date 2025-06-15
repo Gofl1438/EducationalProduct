@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static EducationalProduct.Classes.GameConfig;
 
 namespace EducationalProduct.Classes
 {
@@ -42,6 +43,7 @@ namespace EducationalProduct.Classes
             InitializeRuleCatchBonesScene();
             InitializeRuleCollectPuzzleScene();
             InitializeRuleDodgeMeteoritesScene();
+            InitializeRuleInfScene();
         }
 
         private static void InitializeTotalElement()
@@ -192,7 +194,7 @@ namespace EducationalProduct.Classes
             RepeatAction.Button.Green.PositionOy = CanvasProduct.Height / 2 + MinValueCanvas * 0.05f;
             RepeatAction.NumberPoints.WidthRectangleResult = CanvasProduct.Width;
             RepeatAction.NumberPoints.HeightRectangleResult = (int)(CanvasProduct.Height * 0.25f);
-            RepeatAction.NumberPoints.SizeResult = (int)(MinValueCanvas * 0.04f);
+            RepeatAction.NumberPoints.SizeResult = (int)(MinValueCanvas * 0.03f);
         }
         private static void InitializeCatchBones()
         {
@@ -201,7 +203,7 @@ namespace EducationalProduct.Classes
             CatchBones.Background.Height = CanvasProduct.Height;
             CatchBones.NumberPoints.WidthRectangleResult = CanvasProduct.Width;
             CatchBones.NumberPoints.HeightRectangleResult = (int)(CanvasProduct.Height * 0.1f);
-            CatchBones.NumberPoints.SizeResult = (int)(MinValueCanvas * 0.04f);
+            CatchBones.NumberPoints.SizeResult = (int)(MinValueCanvas * 0.03f);
             CatchBones.Character.Width = (int)(CanvasProduct.Width * 0.24f);
             CatchBones.Character.Height = (int)(CanvasProduct.Height * 0.4f);
             CatchBones.Character.PositionOy = CanvasProduct.Height - CatchBones.Character.Height;
@@ -232,7 +234,86 @@ namespace EducationalProduct.Classes
             DodgeMeteorites.Meteorite.Width = DodgeMeteorites.Meteorite.Height;
             DodgeMeteorites.NumberPoints.widthRectangleResult = CanvasProduct.Width;
             DodgeMeteorites.NumberPoints.heightRectangleResult = (int)(CanvasProduct.Height * 0.10f);
-            DodgeMeteorites.NumberPoints.SizeResult = (int)(MinValueCanvas * 0.04f);
+            DodgeMeteorites.NumberPoints.SizeResult = (int)(MinValueCanvas * 0.03f);
+        }
+
+        private static void InitializeRuleInfScene()
+        {
+            RuleInfScene.RuleRepeatButton.Width = (int)(CanvasProduct.Width * 0.77f);
+            RuleInfScene.RuleRepeatButton.Height = (int)(CanvasProduct.Height * 0.34f);
+            RuleInfScene.RuleRepeatButton.PositionOx = (CanvasProduct.Width - RuleInfScene.RuleRepeatButton.Width) / 2;
+            RuleInfScene.RuleRepeatButton.PositionOy = (int)(CanvasProduct.Height * 0.2f);
+            RuleInfScene.ButtonApply.Width = (int)(CanvasProduct.Width * 0.257f);
+            RuleInfScene.ButtonApply.Height = (int)(CanvasProduct.Height * 0.169f);
+            RuleInfScene.ButtonApply.PositionOx = (CanvasProduct.Width - RuleInfScene.ButtonApply.Width) / 2;
+            RuleInfScene.ButtonApply.PositionOy = RuleInfScene.RuleRepeatButton.PositionOy + RuleInfScene.RuleRepeatButton.Height + (int)(RuleInfScene.RuleRepeatButton.Height * 0.05f); ;
+            RuleInfScene.RuleCatchBones.Width = (int)(CanvasProduct.Width * 0.778f);
+            RuleInfScene.RuleCatchBones.Height = (int)(CanvasProduct.Height * 0.203f);
+            RuleInfScene.RuleCatchBones.PositionOx = (CanvasProduct.Width - RuleInfScene.RuleCatchBones.Width) / 2;
+            RuleInfScene.RuleCatchBones.PositionOy = (int)(CanvasProduct.Height * 0.2f);
+            RuleInfScene.RuleCollectPuzzle.Width = (int)(CanvasProduct.Width * 0.778f);
+            RuleInfScene.RuleCollectPuzzle.Height = (int)(CanvasProduct.Height * 0.298f);
+            RuleInfScene.RuleCollectPuzzle.PositionOx = (CanvasProduct.Width - RuleInfScene.RuleCollectPuzzle.Width) / 2;
+            RuleInfScene.RuleCollectPuzzle.PositionOy = (int)(CanvasProduct.Height * 0.2f);
+            RuleInfScene.RuleDodgeMeteorite.Width = (int)(CanvasProduct.Width * 0.778f);
+            RuleInfScene.RuleDodgeMeteorite.Height = (int)(CanvasProduct.Height * 0.34f);
+            RuleInfScene.RuleDodgeMeteorite.PositionOx = (CanvasProduct.Width - RuleInfScene.RuleDodgeMeteorite.Width) / 2;
+            RuleInfScene.RuleDodgeMeteorite.PositionOy = (int)(CanvasProduct.Height * 0.2f);
+
+        }
+
+        public static class RuleInfScene
+        {
+            public static class ButtonApply
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.ApplyButton;
+                public static int Height { get; set; } = 300;
+                public static int Width { get; set; } = 300;
+                public static float PositionOx { get; set; } = 700;
+                public static float PositionOy { get; set; } = 700;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class RuleDodgeMeteorite
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.RuleDodgeMeteorite;
+                public static int Height { get; set; } = 300;
+                public static int Width { get; set; } = 300;
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class RuleCatchBones
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.RuleCatchBones;
+                public static int Height { get; set; } = 300;
+                public static int Width { get; set; } = 300;
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class RuleCollectPuzzle
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.RuleCollectPuzzle;
+                public static int Height { get; set; } = 300;
+                public static int Width { get; set; } = 300;
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class RuleRepeatButton
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.RuleRepeatButton;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
         }
         public static class TotalElement
         {
@@ -520,7 +601,7 @@ namespace EducationalProduct.Classes
             }
             public static class NumberPoints
             {
-                public const string FamilyNameScore = "Mistral";
+                public static byte[] FamilyNameScore = Properties.Resources.PressStart2P_Regular;
                 public static int SizeResult { get; set; }
                 public static readonly SolidBrush CustomBrush = new SolidBrush(Color.FromArgb(255, 255, 255));
                 public static readonly FontStyle StyleResult = FontStyle.Bold;
@@ -650,7 +731,7 @@ namespace EducationalProduct.Classes
             }
             public static class NumberPoints
             {
-                public const string FamilyNameScore = "Mistral";
+                public static byte[] FamilyNameScore = Properties.Resources.PressStart2P_Regular;
                 public static int SizeResult { get; set; }
                 public static readonly SolidBrush CustomBrush = new SolidBrush(Color.FromArgb(255, 255, 255));
                 public static readonly FontStyle StyleResult = FontStyle.Bold;
@@ -683,7 +764,7 @@ namespace EducationalProduct.Classes
             {
                 public static readonly Bitmap Sprite = Properties.Resources.Meteorite;
                 public static readonly float SpeedOy = 8.0f;
-                public static readonly int DefaultQuantityMeteorites = 20;
+                public static readonly int DefaultQuantityMeteorites = 2;
                 public static int Height { get; set; }
                 public static int Width { get; set; }
 
@@ -716,7 +797,7 @@ namespace EducationalProduct.Classes
         public static class RepeatAction
         {
             public static readonly int FrequencyGameOver = 13;
-            public static readonly int MaxQuntitySequence = 1;
+            public static readonly int MaxQuntitySequence = 5;
             public static class Background
             {
                 public static readonly Bitmap Sprite = Properties.Resources.BackgroundRepeatAction;
@@ -730,7 +811,7 @@ namespace EducationalProduct.Classes
             public static class NumberPoints
             {
                 
-                public const string FamilyNameScore = "Mistral";
+                public static byte[] FamilyNameScore = Properties.Resources.PressStart2P_Regular;
                 public static int SizeResult { get; set; }
                 public static readonly SolidBrush CustomBrush = new SolidBrush(Color.FromArgb(118, 66, 138));
                 public static readonly FontStyle StyleResult = FontStyle.Bold;

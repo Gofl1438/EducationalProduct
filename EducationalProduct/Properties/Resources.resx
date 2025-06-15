@@ -172,9 +172,6 @@
   <data name="btnPlayStartRuleScene" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnPlayStartRuleScene.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="OpeningTitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OpeningTitle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="BlueButtonLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BlueButtonLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -222,9 +219,6 @@
   </data>
   <data name="CharacterRuleCollectPuzzleScene" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CharacterRuleCollectPuzzleScene.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btnStartPlayOpening" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnStartPlayOpening.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MT3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MT3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -283,17 +277,26 @@
   <data name="RepeatButtonWin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RepeatButtonWin.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="backgroundExitMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backgroundExitMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="btnClosedOpening" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnClosedOpening.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnQuestion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnQuestion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="btnStartPlayOpening" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnStartPlayOpening.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="MenuExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="NoExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NoExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OpeningTitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OpeningTitle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="YesExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\YesExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

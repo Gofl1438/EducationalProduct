@@ -67,6 +67,8 @@ namespace EducationalProduct.Classes
             TotalElement.BtnClosed.PositionOy = (int)(CanvasProduct.Height * 0.02f);
             TotalElement.BtnQuestion.PositionOx = (int)(CanvasProduct.Width * 0.02f);
             TotalElement.BtnQuestion.PositionOy = (int)(CanvasProduct.Height * 0.02f);
+            TotalElement.BackgroundMenuExit.Height = CanvasProduct.Height;
+            TotalElement.BackgroundMenuExit.Width = CanvasProduct.Width;
         }
         private static void InitializeOpeningScene()
         {
@@ -232,9 +234,18 @@ namespace EducationalProduct.Classes
             DodgeMeteorites.NumberPoints.heightRectangleResult = (int)(CanvasProduct.Height * 0.10f);
             DodgeMeteorites.NumberPoints.SizeResult = (int)(MinValueCanvas * 0.04f);
         }
-
         public static class TotalElement
         {
+            public static class BackgroundMenuExit
+            {
+                public static readonly Bitmap Sprite = Properties.Resources.backgroundExitMenu;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
             public static class BtnClosed
             {
                 public static readonly Bitmap Sprite = Properties.Resources.btnClosedOpening;
@@ -705,7 +716,7 @@ namespace EducationalProduct.Classes
         public static class RepeatAction
         {
             public static readonly int FrequencyGameOver = 13;
-            public static readonly int MaxQuntitySequence = 5;
+            public static readonly int MaxQuntitySequence = 1;
             public static class Background
             {
                 public static readonly Bitmap Sprite = Properties.Resources.BackgroundRepeatAction;

@@ -79,17 +79,11 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.TotalElement.BtnClosed.PositionOx, GameConfig.TotalElement.BtnClosed.PositionOy),
                 new Size(GameConfig.TotalElement.BtnClosed.Width, GameConfig.TotalElement.BtnClosed.Height)).Contains(e.Location))
             {
-                if (StateExitMenu.CurrentStateMenuExitRuleDodgeMeteoritesScene)
-                {
-                    ManagerUI.TotalElementsMenuExit.Clear();
-                    StateExitMenu.CurrentStateMenuExitRuleDodgeMeteoritesScene = false;
-                    CanvasRuleDodgeMeteoritesScene.Invalidate();
-                }
-                else
+                if (!StateExitMenu.CurrentStateMenuExitRuleDodgeMeteoritesScene)
                 {
                     ManagerUI.AddTotalElementsMenuExit();
-                    StateExitMenu.CurrentStateMenuExitRuleDodgeMeteoritesScene = true;
                     CanvasRuleDodgeMeteoritesScene.Invalidate();
+                    StateExitMenu.CurrentStateMenuExitRuleDodgeMeteoritesScene = true;
                 }
             }
 

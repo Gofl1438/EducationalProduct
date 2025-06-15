@@ -217,13 +217,9 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.TotalElement.BtnClosed.PositionOx, GameConfig.TotalElement.BtnClosed.PositionOy),
                 new Size(GameConfig.TotalElement.BtnClosed.Width, GameConfig.TotalElement.BtnClosed.Height)).Contains(e.Location))
             {
-                if (StateExitMenu.СurrentStateMenuExitRepeatAction)
+                if (!StateExitMenu.СurrentStateMenuExitRepeatAction)
                 {
-                    ManagerUI.TotalElementsMenuExit.Clear();
-                    StateExitMenu.СurrentStateMenuExitRepeatAction = false;
-                }
-                else
-                {
+                    ManagerSound.DeleteActivePlayersRepeatAction();
                     ManagerUI.AddTotalElementsMenuExit();
                     CanvasRepeatAction.Invalidate();
                     StateExitMenu.СurrentStateMenuExitRepeatAction = true;

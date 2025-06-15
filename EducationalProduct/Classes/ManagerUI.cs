@@ -45,6 +45,10 @@ namespace EducationalProduct.Classes
         public static void AddTotalElementsMenuExit()
         {
             TotalElementsMenuExit.Clear();
+            ElementUI backgroundMenuExit = new ElementUI(GameConfig.TotalElement.BackgroundMenuExit.Sprite,
+                GameConfig.TotalElement.BackgroundMenuExit.Size,
+                GameConfig.TotalElement.BackgroundMenuExit.Point
+                );
             ElementUI menuExit = new ElementUI(GameConfig.TotalElement.MenuExit.Sprite,
                 GameConfig.TotalElement.MenuExit.Size,
                 GameConfig.TotalElement.MenuExit.Point
@@ -57,6 +61,7 @@ namespace EducationalProduct.Classes
                 GameConfig.TotalElement.ButtonYes.Size,
                 GameConfig.TotalElement.ButtonYes.Point
                 );
+            TotalElementsMenuExit.Add(backgroundMenuExit);
             TotalElementsMenuExit.Add(menuExit);
             TotalElementsMenuExit.Add(buttonNo);
             TotalElementsMenuExit.Add(buttonYes);

@@ -316,13 +316,9 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.TotalElement.BtnClosed.PositionOx, GameConfig.TotalElement.BtnClosed.PositionOy),
                 new Size(GameConfig.TotalElement.BtnClosed.Width, GameConfig.TotalElement.BtnClosed.Height)).Contains(e.Location))
             {
-                if (StateExitMenu.СurrentStateMenuExitDodgeMeteorites)
+                if (!StateExitMenu.СurrentStateMenuExitDodgeMeteorites)
                 {
-                    ManagerUI.TotalElementsMenuExit.Clear();
-                    StateExitMenu.СurrentStateMenuExitDodgeMeteorites = false;
-                }
-                else
-                {
+                    ManagerSound.DeleteActivePlayersDodgeMeteorite();
                     ManagerUI.AddTotalElementsMenuExit();
                     CanvasDodgeMeteorites.Invalidate();
                     StateExitMenu.СurrentStateMenuExitDodgeMeteorites = true;
@@ -359,6 +355,11 @@ namespace EducationalProduct
             {
                 ManagerUI.TotalElementsMenuExit.Clear();
                 StateExitMenu.СurrentStateMenuExitDodgeMeteorites = false;
+                using (var player = new SoundPlayer(Properties.Resources.DodgeMeteoriteSoundLight))
+                {
+                    ManagerSound.activePlayersDodgeMeteorite.Add(player);
+                    player.PlayLooping();
+                }
             }
         }
     }

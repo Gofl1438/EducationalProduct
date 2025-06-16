@@ -297,7 +297,7 @@ namespace EducationalProduct
                     OpeningScene.Opacity = opacity;
                     System.Threading.Thread.Sleep(16);
                 }
-                this.Hide();
+                this.Close();
                 ManagerButtonRepeat.DeleteManagerButtonRepeat();
                 ManagerUI.RepeatActionElements.Clear();
                 ManagerUI.TotalElementsMenuExit.Clear();

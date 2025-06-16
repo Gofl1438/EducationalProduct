@@ -263,7 +263,7 @@ namespace EducationalProduct
                     OpeningScene.Opacity = opacity;
                     System.Threading.Thread.Sleep(16);
                 }
-                this.Hide();
+                this.Close();
                 ManagerUI.ColleсtPuzzleElements.Clear();
                 StateTransitonScene.IsTransitonColleсtPuzzle = false;
                 ManagerUI.TotalElementsMenuExit.Clear();

@@ -898,7 +898,7 @@ namespace EducationalProduct.Classes
             }
             public static class Bone
             {
-                public static readonly int DefaultQuantityBone = 12;
+                public static readonly int DefaultQuantityBone = 1;
                 public static readonly float MinSpeed = 2.0f;
                 public static readonly float MaxSpeed = 8.0f;
                 public static class Big
@@ -1033,7 +1033,7 @@ namespace EducationalProduct.Classes
             {
                 public static readonly Bitmap Sprite = GameResources.Meteorite;
                 public static readonly float SpeedOy = 8.0f;
-                public static readonly int DefaultQuantityMeteorites = 20;
+                public static readonly int DefaultQuantityMeteorites = 0;
                 public static int Height { get; set; }
                 public static int Width { get; set; }
 

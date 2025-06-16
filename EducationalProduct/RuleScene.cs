@@ -114,7 +114,7 @@ namespace EducationalProduct
                     System.Threading.Thread.Sleep(16);
                     CanvasRuleScene.Invalidate();
                 }
-                this.Hide();
+                this.Close();
                 ManagerUI.TotalElementsMenuExit.Clear();
                 ManagerUI.BtnClosedElement.Clear();
                 ManagerUI.RuleElements.Clear();

@@ -42,7 +42,7 @@ namespace EducationalProduct.Classes
             activePlayersCatchBones.Clear();
         }
 
-        public static void DeleteActivePlayersDodgeMeteorite()
+        public static void DeleteActivePlayersDodgeMeteorites()
         {
             foreach (var player in activePlayersDodgeMeteorite)
             {

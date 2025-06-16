@@ -1,4 +1,4 @@
-﻿using EducationalProduct.Classes;
+using EducationalProduct.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +22,7 @@ namespace EducationalProduct
             startGame = false;
             InitializeComponent();
             СalibrationSize();
-            ManagerUI.AddTotalElements();
+            ManagerUI.AddBtnClosedElement();
             ManagerUI.AddRuleDodgeMeteoritesElements();
             this.Invalidate();
         }
@@ -40,9 +40,9 @@ namespace EducationalProduct
         {
             Graphics g = e.Graphics;
 
-            for (int i = 0; i < ManagerUI.TotalElements.Count; i++)
+            for (int i = 0; i < ManagerUI.BtnClosedElement.Count; i++)
             {
-                ManagerUI.TotalElements[i].DrawSprite(g);
+                ManagerUI.BtnClosedElement[i].DrawSprite(g);
             }
             for (int i = 0; i < ManagerUI.RuleDodgeMeteoritesElements.Count; i++)
             {
@@ -78,6 +78,7 @@ namespace EducationalProduct
                     System.Threading.Thread.Sleep(16);
                 }
                 this.Hide();
+                ManagerUI.BtnClosedElement.Clear();
                 ManagerUI.RuleDodgeMeteoritesElements.Clear();
                 dodgeMeteorites.FormClosed += (s, args) => { this.Close(); };
             }
@@ -116,6 +117,7 @@ namespace EducationalProduct
                 }
                 this.Hide();
                 ManagerUI.TotalElementsMenuExit.Clear();
+                ManagerUI.BtnClosedElement.Clear();
                 ManagerUI.RuleDodgeMeteoritesElements.Clear();
                 OpeningScene.FormClosed += (s, args) => { this.Close(); };
             }

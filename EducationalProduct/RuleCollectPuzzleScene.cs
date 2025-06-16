@@ -22,7 +22,7 @@ namespace EducationalProduct
             startGame = false;
             InitializeComponent();
             СalibrationSize();
-            ManagerUI.AddTotalElements();
+            ManagerUI.AddBtnClosedElement();
             ManagerUI.AddRuleCollectPuzzleElements();
             this.Invalidate();
         }
@@ -40,9 +40,9 @@ namespace EducationalProduct
         {
             Graphics g = e.Graphics;
 
-            for (int i = 0; i < ManagerUI.TotalElements.Count; i++)
+            for (int i = 0; i < ManagerUI.BtnClosedElement.Count; i++)
             {
-                ManagerUI.TotalElements[i].DrawSprite(g);
+                ManagerUI.BtnClosedElement[i].DrawSprite(g);
             }
             for (int i = 0; i < ManagerUI.RuleCollectPuzzleElements.Count; i++)
             {
@@ -78,6 +78,7 @@ namespace EducationalProduct
                     System.Threading.Thread.Sleep(16);
                 }
                 this.Hide();
+                ManagerUI.BtnClosedElement.Clear();
                 ManagerUI.RuleCollectPuzzleElements.Clear();
                 collectPuzzle.FormClosed += (s, args) => { this.Close(); };
             }
@@ -115,6 +116,7 @@ namespace EducationalProduct
                 }
                 this.Hide();
                 ManagerUI.TotalElementsMenuExit.Clear();
+                ManagerUI.BtnClosedElement.Clear();
                 ManagerUI.RuleCollectPuzzleElements.Clear();
                 OpeningScene.FormClosed += (s, args) => { this.Close(); };
             }

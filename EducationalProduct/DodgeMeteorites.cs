@@ -382,7 +382,7 @@ namespace EducationalProduct
                     OpeningScene.Opacity = opacity;
                     System.Threading.Thread.Sleep(16);
                 }
-                this.Close();
+                this.Hide();
                 rocket = null;
                 ManagerUI.DodgeMeteoritesElementsBd.Clear();
                 ManagerUI.DodgeMeteoritesElementsBn.Clear();

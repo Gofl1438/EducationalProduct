@@ -16,6 +16,7 @@ namespace EducationalProduct.Classes
     {
         private Transform _transform;
         private Transform _defaultTransform;
+        private Transform _normalTransform;
         private PuzzlesType Type;
         public bool IsDragging;
         private PointF dragOffset;
@@ -38,9 +39,21 @@ namespace EducationalProduct.Classes
                 }
             }
         }
+        public Transform NormalTransform
+        {
+            get => _normalTransform;
+            set
+            {
+                if (_normalTransform == null)
+                {
+                    _normalTransform = value ?? throw new ArgumentNullException(nameof(value));
+                }
+            }
+        }
         public PhysicsPuzzle(Transform transform, GameConfig.PuzzlesType type)
         {
             Transform = transform;
+            NormalTransform = transform.Clone();
             Type = type;
             defaultTransform = transform.Clone();
         }

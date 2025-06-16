@@ -116,7 +116,7 @@ namespace EducationalProduct
                     System.Threading.Thread.Sleep(16);
                     CanvasRuleDodgeMeteoritesScene.Invalidate();
                 }
-                this.Close();
+                this.Hide();
                 ManagerUI.TotalElementsMenuExit.Clear();
                 ManagerUI.BtnClosedElement.Clear();
                 ManagerUI.RuleDodgeMeteoritesElements.Clear();

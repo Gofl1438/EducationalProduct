@@ -243,7 +243,7 @@ namespace EducationalProduct
                     OpeningScene.Opacity = opacity;
                     System.Threading.Thread.Sleep(16);
                 }
-                this.Close();
+                this.Hide();
                 ManagerUI.CatchBonesElements.Clear();
                 ManagerUI.TotalElementsMenuExit.Clear();
                 ManagerSound.DeleteActivePlayersCatchBones();

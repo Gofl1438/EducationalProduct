@@ -20,18 +20,16 @@ namespace EducationalProduct.Classes
 
         public static void AddDefaultButtonsRepeat()
         {
-            ButtonRepeatType[] buttonRepeatTypes = (ButtonRepeatType[])Enum.GetValues(typeof(ButtonRepeatType));
-
-            for (int i = 0; i < buttonRepeatTypes.Length; i++)
-            {
-                ButtonRepeat buttonRepeat = new ButtonRepeat(i, buttonRepeatTypes[i]);
-                ButtonRepeat.Add(buttonRepeat);
-            }
+            OffButtonActive();
+            ButtonRepeat.Clear();
+            ButtonRepeat.AddRange(CashMiniGame.GetButtonRepeat());
         }
 
         public static void DeleteManagerButtonRepeat()
         {
+            OffButtonActive();
             _currentSequence.Clear();
+            _buttonDelayCts.Dispose();
             ButtonRepeat.Clear();
         }
         public static async Task NewSequence()
@@ -53,7 +51,13 @@ namespace EducationalProduct.Classes
                 }
             }
         }
-
+        public static void OffButtonActive()
+        {
+            foreach (var button in ButtonRepeat)
+            {
+                button.IsActiveInSequence = false;
+            }
+        }
         public static async Task PlaySequence(CancellationToken cancellationToken = default)
         {
             IsPlayingSequence = true;

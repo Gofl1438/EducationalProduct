@@ -79,6 +79,7 @@ namespace EducationalProduct
                     ManagerUI.ColleсtPuzzleElements.Clear();
                     StateTransitonScene.IsTransitonColleсtPuzzle = false;
                     ManagerSound.DeleteActivePlayersColleсtPuzzle();
+                    ManagerPuzzle.SolidRocketPuzzles.Clear();
                     ruleDodgeMeteoritesScene.FormClosed += (s, args) => { this.Close(); };
                 }
             }
@@ -263,7 +264,8 @@ namespace EducationalProduct
                     OpeningScene.Opacity = opacity;
                     System.Threading.Thread.Sleep(16);
                 }
-                this.Close();
+                this.Hide();
+                ManagerPuzzle.SolidRocketPuzzles.Clear();
                 ManagerUI.ColleсtPuzzleElements.Clear();
                 StateTransitonScene.IsTransitonColleсtPuzzle = false;
                 ManagerUI.TotalElementsMenuExit.Clear();

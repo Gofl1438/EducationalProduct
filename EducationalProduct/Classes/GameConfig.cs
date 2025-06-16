@@ -1033,7 +1033,7 @@ namespace EducationalProduct.Classes
             {
                 public static readonly Bitmap Sprite = GameResources.Meteorite;
                 public static readonly float SpeedOy = 8.0f;
-                public static readonly int DefaultQuantityMeteorites = 0;
+                public static readonly int DefaultQuantityMeteorites = 5;
                 public static int Height { get; set; }
                 public static int Width { get; set; }
 

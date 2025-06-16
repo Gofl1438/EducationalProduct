@@ -12,8 +12,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using static EducationalProduct.Classes.GameConfig.RepeatAction.NumberPoints;
-
 namespace EducationalProduct
 {
     public partial class RepeatAction : Form
@@ -28,6 +26,8 @@ namespace EducationalProduct
             InitializeComponent();
             StateRepeatButton.Init();
             StateTransitonScene.Init();
+            StateRuleMenu.Init();
+            StateExitMenu.Init();
             СalibrationSize();
             ManagerUI.AddRepeatActionElements();
             ManagerUI.AddTotalElements();
@@ -162,33 +162,12 @@ namespace EducationalProduct
 
         private void DrawResult(Graphics g)
         {
-            RectangleF rectangleResult = new RectangleF(
-                PointRectangleResult,
-                SizerRectangleResult
-            );
-            StringFormat format = new StringFormat
-            {
-                Alignment = StringAlignment.Center,
-                LineAlignment = StringAlignment.Center
-            };
-
-            byte[] fontData = FamilyNameScore;
-            IntPtr fontPtr = Marshal.AllocCoTaskMem(fontData.Length);
-            Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
-            PrivateFontCollection pfc = new PrivateFontCollection();
-            pfc.AddMemoryFont(fontPtr, fontData.Length);
-
             string text = $"{StateRepeatButton.СurrentQuntitySequence} из {GameConfig.RepeatAction.MaxQuntitySequence }";
-            Font font = new Font(pfc.Families[0], SizeResult, StyleResult);
+            Font font = new Font(GameConfig.NumberPointsRepeatButton.pfc.Families[0], GameConfig.NumberPointsRepeatButton.SizeResult, GameConfig.NumberPointsRepeatButton.StyleResult);
 
-
-            RectangleF shadowRect = rectangleResult;
-            shadowRect.Offset(3, 3);
-            using (Brush shadowBrush = new SolidBrush(Color.FromArgb(100, 255, 255, 255)))
-            {
-                g.DrawString(text, font, shadowBrush, shadowRect, format);
-            }
-            g.DrawString(text, font, CustomBrush, rectangleResult, format);
+            g.DrawString(text, font, GameConfig.NumberPointsRepeatButton.shadowBrush, GameConfig.NumberPointsRepeatButton.shadowRect, GameConfig.NumberPointsRepeatButton.format);
+            
+            g.DrawString(text, font, GameConfig.NumberPointsRepeatButton.CustomBrush, GameConfig.NumberPointsRepeatButton.rectangleResult, GameConfig.NumberPointsRepeatButton.format);
 
             font.Dispose();
         }
@@ -256,6 +235,9 @@ namespace EducationalProduct
                     if (StateRepeatButton.IsPlayingSequence)
                     {
                         StateRepeatButton.ErorClickButton = true;
+                        StateRepeatButton.cts.Cancel();
+                        StateRepeatButton.cts.Dispose();
+                        StateRepeatButton.cts = new CancellationTokenSource();
                     }
                 }
             }
@@ -271,7 +253,7 @@ namespace EducationalProduct
                 if (StateRepeatButton.ErorClickButton)
                 {
                     StateRepeatButton.ErorClickButton = false;
-                    ManagerButtonRepeat.PlaySequence();
+                    ManagerButtonRepeat.PlaySequence(StateRepeatButton.cts.Token);
                 }
             }
         }
@@ -291,6 +273,9 @@ namespace EducationalProduct
                     if (StateRepeatButton.IsPlayingSequence)
                     {
                         StateRepeatButton.ErorClickButton = true;
+                        StateRepeatButton.cts.Cancel();
+                        StateRepeatButton.cts.Dispose();
+                        StateRepeatButton.cts = new CancellationTokenSource();
                     }
                 }
             }
@@ -329,7 +314,7 @@ namespace EducationalProduct
                 if (StateRepeatButton.ErorClickButton)
                 {
                     StateRepeatButton.ErorClickButton = false;
-                    ManagerButtonRepeat.PlaySequence();
+                    ManagerButtonRepeat.PlaySequence(StateRepeatButton.cts.Token);
                 }
             }
         }

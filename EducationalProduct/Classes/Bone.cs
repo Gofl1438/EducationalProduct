@@ -11,7 +11,6 @@ namespace EducationalProduct.Classes
     {
         public GameConfig.BonesType Type { get; set; }
         public PhysicsBone Physics { get; set; }
-        public bool IsCheckHit { get; set; }
         public bool IsTouchedUser { get; set; }
 
         public Bone(PointF position, GameConfig.BonesType type)

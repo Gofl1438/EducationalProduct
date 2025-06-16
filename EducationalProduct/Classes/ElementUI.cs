@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EducationalProduct.Classes
 {
-    public class ElementUI : GameObject
+    public class ElementUI : GameObject 
     {
         public float RotationAngle { get; set; }
 

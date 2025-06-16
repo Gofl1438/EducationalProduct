@@ -113,6 +113,16 @@ namespace EducationalProduct.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BackgroundEnd {
+            get {
+                object obj = ResourceManager.GetObject("BackgroundEnd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap backgroundExitMenu {
             get {
                 object obj = ResourceManager.GetObject("backgroundExitMenu", resourceCulture);
@@ -206,6 +216,16 @@ namespace EducationalProduct.Properties {
         internal static System.Drawing.Bitmap btnStartPlayOpening {
             get {
                 object obj = ResourceManager.GetObject("btnStartPlayOpening", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnToStart {
+            get {
+                object obj = ResourceManager.GetObject("btnToStart", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -697,6 +717,16 @@ namespace EducationalProduct.Properties {
         internal static System.Drawing.Bitmap txtDodgeMeteorites3 {
             get {
                 object obj = ResourceManager.GetObject("txtDodgeMeteorites3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtEnd {
+            get {
+                object obj = ResourceManager.GetObject("txtEnd", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

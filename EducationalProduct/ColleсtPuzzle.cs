@@ -24,6 +24,8 @@ namespace EducationalProduct
         {
             InitializeComponent();
             StateCollectPuzzle.Init();
+            StateRuleMenu.Init();
+            StateExitMenu.Init();
             СalibrationSize();
             ManagerUI.AddColleсtPuzzleElements();
             ManagerUI.AddTotalElements();
@@ -77,6 +79,7 @@ namespace EducationalProduct
                     ManagerUI.ColleсtPuzzleElements.Clear();
                     StateTransitonScene.IsTransitonColleсtPuzzle = false;
                     ManagerSound.DeleteActivePlayersColleсtPuzzle();
+                    ManagerPuzzle.SolidRocketPuzzles.Clear();
                     ruleDodgeMeteoritesScene.FormClosed += (s, args) => { this.Close(); };
                 }
             }
@@ -149,9 +152,9 @@ namespace EducationalProduct
 
             if (StateRuleMenu.СurrentStateMenuRuleCollectPuzzle) return;
 
-            if (StateRepeatButton.СurrentStateMenuClick)
+            if (StateCollectPuzzle.СurrentStateMenuClick)
             {
-                StateRepeatButton.СurrentStateMenuClick = false;
+                StateCollectPuzzle.СurrentStateMenuClick = false;
                 return;
             }
 
@@ -214,7 +217,7 @@ namespace EducationalProduct
                     ManagerSound.DeleteActivePlayersColleсtPuzzle();
                     CanvasColleсtPuzzle.Invalidate();
                     StateRuleMenu.СurrentStateMenuRuleCollectPuzzle = true;
-                    StateCatchBones.СurrentStateMenuClick = true;
+                    StateCollectPuzzle.СurrentStateMenuClick = true;
                 }
             }
 
@@ -225,7 +228,7 @@ namespace EducationalProduct
             {
                 ManagerUI.RuleElementsColleсtPuzzle.Clear();
                 StateRuleMenu.СurrentStateMenuRuleCollectPuzzle = false;
-                StateCatchBones.СurrentStateMenuClick = true;
+                StateCollectPuzzle.СurrentStateMenuClick = true;
             }
         }
 
@@ -240,7 +243,7 @@ namespace EducationalProduct
                     ManagerUI.AddTotalElementsMenuExit();
                     CanvasColleсtPuzzle.Invalidate();
                     StateExitMenu.СurrentStateMenuExitCollectPuzzle = true;
-                    StateCatchBones.СurrentStateMenuClick = true;
+                    StateCollectPuzzle.СurrentStateMenuClick = true;
                 }
             }
 
@@ -249,7 +252,7 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonYes.PositionOx, GameConfig.TotalElement.ButtonYes.PositionOy),
                 new Size(GameConfig.TotalElement.ButtonYes.Width, GameConfig.TotalElement.ButtonYes.Height)).Contains(e.Location))
             {
-                StateCatchBones.СurrentStateMenuClick = true;
+                StateCollectPuzzle.СurrentStateMenuClick = true;
                 StateExitMenu.СurrentStateMenuExitCollectPuzzle = false;
                 timer.Stop();
                 OpeningScene OpeningScene = new OpeningScene();
@@ -262,6 +265,7 @@ namespace EducationalProduct
                     System.Threading.Thread.Sleep(16);
                 }
                 this.Hide();
+                ManagerPuzzle.SolidRocketPuzzles.Clear();
                 ManagerUI.ColleсtPuzzleElements.Clear();
                 StateTransitonScene.IsTransitonColleсtPuzzle = false;
                 ManagerUI.TotalElementsMenuExit.Clear();
@@ -273,7 +277,7 @@ namespace EducationalProduct
                 new Size(GameConfig.TotalElement.ButtonNo.Width, GameConfig.TotalElement.ButtonNo.Height)).Contains(e.Location))
             {
                 ManagerUI.TotalElementsMenuExit.Clear();
-                StateCatchBones.СurrentStateMenuClick = true;
+                StateCollectPuzzle.СurrentStateMenuClick = true;
                 StateExitMenu.СurrentStateMenuExitCollectPuzzle = false;
             }
         }

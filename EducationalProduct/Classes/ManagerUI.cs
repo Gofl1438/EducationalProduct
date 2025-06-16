@@ -113,11 +113,13 @@ namespace EducationalProduct.Classes
         public static void AddTotalElements()
         {
             TotalElements.Clear();
-            ElementUI btnClosed = new ElementUI(GameConfig.TotalElement.BtnClosed.Sprite,
+            ElementUI btnClosed = new ElementUI(
+                GameConfig.TotalElement.BtnClosed.Sprite,
                 GameConfig.TotalElement.BtnClosed.Size,
                 GameConfig.TotalElement.BtnClosed.Point
                 );
-            ElementUI btnQuestion = new ElementUI(GameConfig.TotalElement.BtnQuestion.Sprite,
+            ElementUI btnQuestion = new ElementUI(
+                GameConfig.TotalElement.BtnQuestion.Sprite,
                 GameConfig.TotalElement.BtnQuestion.Size,
                 GameConfig.TotalElement.BtnQuestion.Point
                 );
@@ -138,19 +140,23 @@ namespace EducationalProduct.Classes
         public static void AddTotalElementsMenuExit()
         {
             TotalElementsMenuExit.Clear();
-            ElementUI backgroundMenuExit = new ElementUI(GameConfig.TotalElement.BackgroundMenuExit.Sprite,
+            ElementUI backgroundMenuExit = new ElementUI(
+                GameConfig.TotalElement.BackgroundMenuExit.Sprite,
                 GameConfig.TotalElement.BackgroundMenuExit.Size,
                 GameConfig.TotalElement.BackgroundMenuExit.Point
                 );
-            ElementUI menuExit = new ElementUI(GameConfig.TotalElement.MenuExit.Sprite,
+            ElementUI menuExit = new ElementUI(
+                GameConfig.TotalElement.MenuExit.Sprite,
                 GameConfig.TotalElement.MenuExit.Size,
                 GameConfig.TotalElement.MenuExit.Point
                 );
-            ElementUI buttonNo = new ElementUI(GameConfig.TotalElement.ButtonNo.Sprite,
+            ElementUI buttonNo = new ElementUI(
+                GameConfig.TotalElement.ButtonNo.Sprite,
                 GameConfig.TotalElement.ButtonNo.Size,
                 GameConfig.TotalElement.ButtonNo.Point
                 );
-            ElementUI buttonYes = new ElementUI(GameConfig.TotalElement.ButtonYes.Sprite,
+            ElementUI buttonYes = new ElementUI(
+                GameConfig.TotalElement.ButtonYes.Sprite,
                 GameConfig.TotalElement.ButtonYes.Size,
                 GameConfig.TotalElement.ButtonYes.Point
                 );
@@ -164,16 +170,19 @@ namespace EducationalProduct.Classes
         public static void AddOpeningElements()
         {
             OpeningElements.Clear();
-            ElementUI rocket = new ElementUI(GameConfig.OpeningScene.Rocket.Sprite,
+            ElementUI rocket = new ElementUI(
+                GameConfig.OpeningScene.Rocket.Sprite,
                 GameConfig.OpeningScene.Rocket.Size,
                 GameConfig.OpeningScene.Rocket.Point,
                 GameConfig.OpeningScene.Rocket.RotationAngle
                 );
-            ElementUI title = new ElementUI(GameConfig.OpeningScene.Title.Sprite,
+            ElementUI title = new ElementUI(
+                GameConfig.OpeningScene.Title.Sprite,
                 GameConfig.OpeningScene.Title.Size,
                 GameConfig.OpeningScene.Title.Point
                 );
-            ElementUI btnStartPlay = new ElementUI(GameConfig.OpeningScene.BtnStartPlay.Sprite,
+            ElementUI btnStartPlay = new ElementUI(
+                GameConfig.OpeningScene.BtnStartPlay.Sprite,
                 GameConfig.OpeningScene.BtnStartPlay.Size,
                 GameConfig.OpeningScene.BtnStartPlay.Point
                 );
@@ -186,15 +195,18 @@ namespace EducationalProduct.Classes
         public static void AddRuleElements()
         {
             RuleElements.Clear();
-            ElementUI character = new ElementUI(GameConfig.RuleScene.Character.Sprite,
+            ElementUI character = new ElementUI(
+                GameConfig.RuleScene.Character.Sprite,
                 GameConfig.RuleScene.Character.Size,
                 GameConfig.RuleScene.Character.Point
                 );
-            ElementUI btnStartPlay = new ElementUI(GameConfig.RuleScene.BtnStartPlay.Sprite,
+            ElementUI btnStartPlay = new ElementUI(
+                GameConfig.RuleScene.BtnStartPlay.Sprite,
                 GameConfig.RuleScene.BtnStartPlay.Size,
                 GameConfig.RuleScene.BtnStartPlay.Point
                 );
-            ElementUI txtRuleScene = new ElementUI(GameConfig.RuleScene.TxtRuleScene.Sprite,
+            ElementUI txtRuleScene = new ElementUI(
+                GameConfig.RuleScene.TxtRuleScene.Sprite,
                 GameConfig.RuleScene.TxtRuleScene.Size,
                 GameConfig.RuleScene.TxtRuleScene.Point
                 );
@@ -206,92 +218,178 @@ namespace EducationalProduct.Classes
         public static void AddRuleRepeatActionElements()
         {
             RuleRepeatActionElements.Clear();
-            ElementUI character = new ElementUI(GameConfig.RuleRepeatActionScene.Character.Sprite,
+            ElementUI character = new ElementUI(
+                GameConfig.RuleRepeatActionScene.Character.Sprite,
                 GameConfig.RuleRepeatActionScene.Character.Size,
                 GameConfig.RuleRepeatActionScene.Character.Point
                 );
-            ElementUI btnStartPlay = new ElementUI(GameConfig.RuleRepeatActionScene.BtnStartPlay.Sprite,
+            ElementUI btnStartPlay = new ElementUI(
+                GameConfig.RuleRepeatActionScene.BtnStartPlay.Sprite,
                 GameConfig.RuleScene.BtnStartPlay.Size,
                 GameConfig.RuleScene.BtnStartPlay.Point
                 );
-            ElementUI txtRuleRepeatActionScene = new ElementUI(GameConfig.RuleRepeatActionScene.TxtRuleRepeatActionScene.Sprite,
-                GameConfig.RuleRepeatActionScene.TxtRuleRepeatActionScene.Size,
-                GameConfig.RuleRepeatActionScene.TxtRuleRepeatActionScene.Point
+            ElementUI btnNextPlay = new ElementUI(
+                GameConfig.RuleRepeatActionScene.BtnNextPlay.Sprite,
+                GameConfig.RuleRepeatActionScene.BtnNextPlay.Size,
+                GameConfig.RuleRepeatActionScene.BtnNextPlay.Point
+                );
+            ElementUI txtRuleRepeatActionScene1 = new ElementUI(
+                GameConfig.RuleRepeatActionScene.TxtRuleRepeatActionScene1.Sprite,
+                GameConfig.RuleRepeatActionScene.TxtRuleRepeatActionScene1.Size,
+                GameConfig.RuleRepeatActionScene.TxtRuleRepeatActionScene1.Point
+                );
+            ElementUI txtRuleRepeatActionScene2 = new ElementUI(
+                GameConfig.RuleRepeatActionScene.TxtRuleRepeatActionScene2.Sprite,
+                GameConfig.RuleRepeatActionScene.TxtRuleRepeatActionScene2.Size,
+                GameConfig.RuleRepeatActionScene.TxtRuleRepeatActionScene2.Point
+                );
+            ElementUI txtRuleRepeatActionScene3 = new ElementUI(
+                GameConfig.RuleRepeatActionScene.TxtRuleRepeatActionScene3.Sprite,
+                GameConfig.RuleRepeatActionScene.TxtRuleRepeatActionScene3.Size,
+                GameConfig.RuleRepeatActionScene.TxtRuleRepeatActionScene3.Point
                 );
             RuleRepeatActionElements.Add(character);
             RuleRepeatActionElements.Add(btnStartPlay);
-            RuleRepeatActionElements.Add(txtRuleRepeatActionScene);
+            RuleRepeatActionElements.Add(btnNextPlay);
+            RuleRepeatActionElements.Add(txtRuleRepeatActionScene1);
+            RuleRepeatActionElements.Add(txtRuleRepeatActionScene2);
+            RuleRepeatActionElements.Add(txtRuleRepeatActionScene3);
         }
 
         public static void AddRuleCatchBonesElements()
         {
             RuleCatchBonesElements.Clear();
-            ElementUI character = new ElementUI(GameConfig.RuleCatchBonesScene.Character.Sprite,
+            ElementUI character = new ElementUI(
+                GameConfig.RuleCatchBonesScene.Character.Sprite,
                 GameConfig.RuleCatchBonesScene.Character.Size,
                 GameConfig.RuleCatchBonesScene.Character.Point
                 );
-            ElementUI btnStartPlay = new ElementUI(GameConfig.RuleCatchBonesScene.BtnStartPlay.Sprite,
+            ElementUI btnStartPlay = new ElementUI(
+                GameConfig.RuleCatchBonesScene.BtnStartPlay.Sprite,
                 GameConfig.RuleScene.BtnStartPlay.Size,
                 GameConfig.RuleScene.BtnStartPlay.Point
                 );
-            ElementUI txtRuleCatchBonesScene = new ElementUI(GameConfig.RuleCatchBonesScene.TxtRuleCatchBonesScene.Sprite,
-                GameConfig.RuleCatchBonesScene.TxtRuleCatchBonesScene.Size,
-                GameConfig.RuleCatchBonesScene.TxtRuleCatchBonesScene.Point
+            ElementUI btnNextPlay = new ElementUI(
+                GameConfig.RuleCatchBonesScene.BtnNextPlay.Sprite,
+                GameConfig.RuleCatchBonesScene.BtnNextPlay.Size,
+                GameConfig.RuleCatchBonesScene.BtnNextPlay.Point
+                );
+            ElementUI txtRuleCatchBonesScene1 = new ElementUI(
+                GameConfig.RuleCatchBonesScene.TxtRuleCatchBonesScene1.Sprite,
+                GameConfig.RuleCatchBonesScene.TxtRuleCatchBonesScene1.Size,
+                GameConfig.RuleCatchBonesScene.TxtRuleCatchBonesScene1.Point
+                );
+            ElementUI txtRuleCatchBonesScene2 = new ElementUI(
+                GameConfig.RuleCatchBonesScene.TxtRuleCatchBonesScene2.Sprite,
+                GameConfig.RuleCatchBonesScene.TxtRuleCatchBonesScene2.Size,
+                GameConfig.RuleCatchBonesScene.TxtRuleCatchBonesScene2.Point
+                );
+            ElementUI txtRuleCatchBonesScene3 = new ElementUI(
+                GameConfig.RuleCatchBonesScene.TxtRuleCatchBonesScene3.Sprite,
+                GameConfig.RuleCatchBonesScene.TxtRuleCatchBonesScene3.Size,
+                GameConfig.RuleCatchBonesScene.TxtRuleCatchBonesScene3.Point
                 );
             RuleCatchBonesElements.Add(character);
             RuleCatchBonesElements.Add(btnStartPlay);
-            RuleCatchBonesElements.Add(txtRuleCatchBonesScene);
+            RuleCatchBonesElements.Add(btnNextPlay);
+            RuleCatchBonesElements.Add(txtRuleCatchBonesScene1);
+            RuleCatchBonesElements.Add(txtRuleCatchBonesScene2);
+            RuleCatchBonesElements.Add(txtRuleCatchBonesScene3);
         }
 
         public static void AddRuleCollectPuzzleElements()
         {
             RuleCollectPuzzleElements.Clear();
-            ElementUI character = new ElementUI(GameConfig.RuleCollectPuzzleScene.Character.Sprite,
+            ElementUI character = new ElementUI(
+                GameConfig.RuleCollectPuzzleScene.Character.Sprite,
                 GameConfig.RuleCollectPuzzleScene.Character.Size,
                 GameConfig.RuleCollectPuzzleScene.Character.Point
                 );
-            ElementUI btnStartPlay = new ElementUI(GameConfig.RuleCollectPuzzleScene.BtnStartPlay.Sprite,
+            ElementUI btnStartPlay = new ElementUI(
+                GameConfig.RuleCollectPuzzleScene.BtnStartPlay.Sprite,
                 GameConfig.RuleScene.BtnStartPlay.Size,
                 GameConfig.RuleScene.BtnStartPlay.Point
                 );
-            ElementUI txtRuleCollectPuzzleScene = new ElementUI(GameConfig.RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene.Sprite,
-                GameConfig.RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene.Size,
-                GameConfig.RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene.Point
+            ElementUI btnNextPlay = new ElementUI(
+                GameConfig.RuleCollectPuzzleScene.BtnNextPlay.Sprite,
+                GameConfig.RuleCollectPuzzleScene.BtnNextPlay.Size,
+                GameConfig.RuleCollectPuzzleScene.BtnNextPlay.Point
+                );
+            ElementUI txtRuleCollectPuzzleScene1 = new ElementUI(
+                GameConfig.RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene1.Sprite,
+                GameConfig.RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene1.Size,
+                GameConfig.RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene1.Point
+                );
+            ElementUI txtRuleCollectPuzzleScene2 = new ElementUI(
+                GameConfig.RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene2.Sprite,
+                GameConfig.RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene2.Size,
+                GameConfig.RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene2.Point
+                );
+            ElementUI txtRuleCollectPuzzleScene3 = new ElementUI(
+                GameConfig.RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene3.Sprite,
+                GameConfig.RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene3.Size,
+                GameConfig.RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene3.Point
                 );
             RuleCollectPuzzleElements.Add(character);
             RuleCollectPuzzleElements.Add(btnStartPlay);
-            RuleCollectPuzzleElements.Add(txtRuleCollectPuzzleScene);
+            RuleCollectPuzzleElements.Add(btnNextPlay);
+            RuleCollectPuzzleElements.Add(txtRuleCollectPuzzleScene1);
+            RuleCollectPuzzleElements.Add(txtRuleCollectPuzzleScene2);
+            RuleCollectPuzzleElements.Add(txtRuleCollectPuzzleScene3);
         }
 
         public static void AddRuleDodgeMeteoritesElements()
         {
             RuleDodgeMeteoritesElements.Clear();
-            ElementUI character = new ElementUI(GameConfig.RuleDodgeMeteoritesScene.Character.Sprite,
+            ElementUI character = new ElementUI(
+                GameConfig.RuleDodgeMeteoritesScene.Character.Sprite,
                 GameConfig.RuleDodgeMeteoritesScene.Character.Size,
                 GameConfig.RuleDodgeMeteoritesScene.Character.Point
                 );
-            ElementUI btnStartPlay = new ElementUI(GameConfig.RuleDodgeMeteoritesScene.BtnStartPlay.Sprite,
+            ElementUI btnStartPlay = new ElementUI(
+                GameConfig.RuleDodgeMeteoritesScene.BtnStartPlay.Sprite,
                 GameConfig.RuleScene.BtnStartPlay.Size,
                 GameConfig.RuleScene.BtnStartPlay.Point
                 );
-            ElementUI txtRuleDodgeMeteoritesScene = new ElementUI(GameConfig.RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene.Sprite,
-                GameConfig.RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene.Size,
-                GameConfig.RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene.Point
+            ElementUI btnNextPlay = new ElementUI(
+                GameConfig.RuleDodgeMeteoritesScene.BtnNextPlay.Sprite,
+                GameConfig.RuleDodgeMeteoritesScene.BtnNextPlay.Size,
+                GameConfig.RuleDodgeMeteoritesScene.BtnNextPlay.Point
+                );
+            ElementUI txtRuleDodgeMeteoritesScene1 = new ElementUI(
+                GameConfig.RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene1.Sprite,
+                GameConfig.RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene1.Size,
+                GameConfig.RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene1.Point
+                );
+            ElementUI txtRuleDodgeMeteoritesScene2 = new ElementUI(
+                GameConfig.RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene2.Sprite,
+                GameConfig.RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene2.Size,
+                GameConfig.RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene2.Point
+                );
+            ElementUI txtRuleDodgeMeteoritesScene3 = new ElementUI(
+                GameConfig.RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene3.Sprite,
+                GameConfig.RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene3.Size,
+                GameConfig.RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene3.Point
                 );
             RuleDodgeMeteoritesElements.Add(character);
             RuleDodgeMeteoritesElements.Add(btnStartPlay);
-            RuleDodgeMeteoritesElements.Add(txtRuleDodgeMeteoritesScene);
+            RuleDodgeMeteoritesElements.Add(btnNextPlay);
+            RuleDodgeMeteoritesElements.Add(txtRuleDodgeMeteoritesScene1);
+            RuleDodgeMeteoritesElements.Add(txtRuleDodgeMeteoritesScene2);
+            RuleDodgeMeteoritesElements.Add(txtRuleDodgeMeteoritesScene3);
         }
 
 
         public static void AddCatchBonesElements()
         {
             CatchBonesElements.Clear();
-            ElementUI character = new ElementUI(GameConfig.CatchBones.Character.Sprite,
+            ElementUI character = new ElementUI(
+                GameConfig.CatchBones.Character.Sprite,
                 GameConfig.CatchBones.Character.Size,
                 GameConfig.CatchBones.Character.Point 
                 );
-            ElementUI background = new ElementUI(GameConfig.CatchBones.Background.Sprite,
+            ElementUI background = new ElementUI(
+                GameConfig.CatchBones.Background.Sprite,
                 GameConfig.CatchBones.Background.Size,
                 GameConfig.CatchBones.Background.Point
                 );
@@ -303,15 +401,18 @@ namespace EducationalProduct.Classes
         {
             DodgeMeteoritesElementsBd.Clear();
             DodgeMeteoritesElementsBn.Clear();
-            ElementUI background = new ElementUI(GameConfig.DodgeMeteorites.Background.Sprite,
+            ElementUI background = new ElementUI(
+                GameConfig.DodgeMeteorites.Background.Sprite,
                 GameConfig.DodgeMeteorites.Background.Size,
                 GameConfig.DodgeMeteorites.Background.Point
                 );
-            ElementUI buttonLeft = new ElementUI(GameConfig.DodgeMeteorites.ButtonMove.Left.Sprite,
+            ElementUI buttonLeft = new ElementUI(
+                GameConfig.DodgeMeteorites.ButtonMove.Left.Sprite,
                 GameConfig.DodgeMeteorites.ButtonMove.Left.Size,
                 GameConfig.DodgeMeteorites.ButtonMove.Left.Point
                 );
-            ElementUI buttonRight = new ElementUI(GameConfig.DodgeMeteorites.ButtonMove.Right.Sprite,
+            ElementUI buttonRight = new ElementUI(
+                GameConfig.DodgeMeteorites.ButtonMove.Right.Sprite,
                 GameConfig.DodgeMeteorites.ButtonMove.Right.Size,
                 GameConfig.DodgeMeteorites.ButtonMove.Right.Point
                 );
@@ -323,7 +424,8 @@ namespace EducationalProduct.Classes
         public static void AddRepeatActionElements()
         {
             RepeatActionElements.Clear();
-            ElementUI background = new ElementUI(GameConfig.RepeatAction.Background.Sprite,
+            ElementUI background = new ElementUI(
+                GameConfig.RepeatAction.Background.Sprite,
                 GameConfig.RepeatAction.Background.Size,
                 GameConfig.RepeatAction.Background.Point
                 );
@@ -333,11 +435,13 @@ namespace EducationalProduct.Classes
         public static void AddColleсtPuzzleElements()
         {
             ColleсtPuzzleElements.Clear();
-            ElementUI background = new ElementUI(GameConfig.ColleсtPuzzle.Background.Sprite,
+            ElementUI background = new ElementUI(
+                GameConfig.ColleсtPuzzle.Background.Sprite,
                 GameConfig.ColleсtPuzzle.Background.Size,
                 GameConfig.ColleсtPuzzle.Background.Point
                 );
-            ElementUI shadow = new ElementUI(GameConfig.ColleсtPuzzle.Puzzle.Shadow.Sprite,
+            ElementUI shadow = new ElementUI(
+                GameConfig.ColleсtPuzzle.Puzzle.Shadow.Sprite,
                 GameConfig.ColleсtPuzzle.Puzzle.Shadow.Size,
                 GameConfig.ColleсtPuzzle.Puzzle.Shadow.Point
                 );

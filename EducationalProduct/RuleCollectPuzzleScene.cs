@@ -13,9 +13,13 @@ namespace EducationalProduct
 {
     public partial class RuleCollectPuzzleScene : Form
     {
+        int countNext;
+        bool startGame;
         Rectangle workingArea;
         public RuleCollectPuzzleScene()
         {
+            countNext = 0;
+            startGame = false;
             InitializeComponent();
             СalibrationSize();
             ManagerUI.AddBtnClosedElement();
@@ -42,6 +46,9 @@ namespace EducationalProduct
             }
             for (int i = 0; i < ManagerUI.RuleCollectPuzzleElements.Count; i++)
             {
+                if (DialogManager.UpdateNextBtn(startGame, i) || DialogManager.UpdateDialog(countNext, i))
+                    continue;
+
                 ManagerUI.RuleCollectPuzzleElements[i].DrawSprite(g);
             }
             for (int i = 0; i < ManagerUI.TotalElementsMenuExit.Count; i++)
@@ -53,12 +60,14 @@ namespace EducationalProduct
         private void RuleCCollectPuzzleScene_MouseDown(object sender, MouseEventArgs e)
         {
             CheckMouseDownExit(e);
+            CheckMouseDownNext(e);
 
-            if (StateExitMenu.CurrentStateMenuExitRuleCollectPuzzleScene) return;
+            if (StateExitMenu.CurrentStateMenuExitRuleCollectPuzzleScene || StateNextBtn.CurrentNextBtnExitRuleCollectPuzzleScene) return;
 
-                if (new RectangleF(new PointF(GameConfig.RuleCollectPuzzleScene.BtnStartPlay.PositionOx, GameConfig.RuleCollectPuzzleScene.BtnStartPlay.PositionOy),
+            if (new RectangleF(new PointF(GameConfig.RuleCollectPuzzleScene.BtnStartPlay.PositionOx, GameConfig.RuleCollectPuzzleScene.BtnStartPlay.PositionOy),
             new Size(GameConfig.RuleCollectPuzzleScene.BtnStartPlay.Width, GameConfig.RuleCollectPuzzleScene.BtnStartPlay.Height)).Contains(e.Location))
             {
+                StateNextBtn.CurrentNextBtnExitRuleCollectPuzzleScene = true;
                 ColleсtPuzzle collectPuzzle = new ColleсtPuzzle();
                 collectPuzzle.Opacity = 0;
                 collectPuzzle.Show();
@@ -94,6 +103,7 @@ namespace EducationalProduct
                 new Size(GameConfig.TotalElement.ButtonYes.Width, GameConfig.TotalElement.ButtonYes.Height)).Contains(e.Location))
             {
                 StateExitMenu.CurrentStateMenuExitRuleCollectPuzzleScene = false;
+                StateNextBtn.CurrentNextBtnExitRuleCollectPuzzleScene = true;
                 OpeningScene OpeningScene = new OpeningScene();
                 OpeningScene.Opacity = 0;
                 OpeningScene.Show();
@@ -116,6 +126,28 @@ namespace EducationalProduct
             {
                 ManagerUI.TotalElementsMenuExit.Clear();
                 StateExitMenu.CurrentStateMenuExitRuleCollectPuzzleScene = false;
+                CanvasRuleCollectPuzzleScene.Invalidate();
+            }
+        }
+        private void CheckMouseDownNext(MouseEventArgs e)
+        {
+            if (new RectangleF(new PointF(GameConfig.RuleCollectPuzzleScene.BtnNextPlay.PositionOx, GameConfig.RuleCollectPuzzleScene.BtnNextPlay.PositionOy),
+            new Size(GameConfig.RuleCollectPuzzleScene.BtnNextPlay.Width, GameConfig.RuleCollectPuzzleScene.BtnNextPlay.Height)).Contains(e.Location))
+            {
+                if (!startGame)
+                {
+                    countNext++;
+
+                    if (countNext == 2)
+                    {
+                        startGame = true;
+                    }
+                }
+                else
+                {
+                    StateNextBtn.CurrentNextBtnExitRuleCollectPuzzleScene = false;
+                }
+
                 CanvasRuleCollectPuzzleScene.Invalidate();
             }
         }

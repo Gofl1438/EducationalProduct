@@ -77,8 +77,8 @@ namespace EducationalProduct.Classes
         }
         private static void InitializeOpeningScene()
         {
-            OpeningScene.Rocket.Height = (int)(CanvasProduct.Height * 0.55f);
             OpeningScene.Rocket.Width = (int)(CanvasProduct.Width * 0.47f);
+            OpeningScene.Rocket.Height = (int)(OpeningScene.Rocket.Width * 0.62f);
             OpeningScene.Rocket.PositionOx = (int)(CanvasProduct.Width * 0.53f);
             OpeningScene.Rocket.PositionOy = (int)(CanvasProduct.Height * 0.31f);
 
@@ -87,168 +87,168 @@ namespace EducationalProduct.Classes
             OpeningScene.Title.PositionOx = (CanvasProduct.Width - OpeningScene.Title.Width) / 2;
             OpeningScene.Title.PositionOy = (int)(CanvasProduct.Height * 0.12f);
 
-            OpeningScene.BtnStartPlay.Height = (int)(CanvasProduct.Height * 0.169f);
             OpeningScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.24f);
+            OpeningScene.BtnStartPlay.Height = (int)(OpeningScene.BtnStartPlay.Width * 0.386f);
             OpeningScene.BtnStartPlay.PositionOx = (CanvasProduct.Width - OpeningScene.BtnStartPlay.Width) / 2;
             OpeningScene.BtnStartPlay.PositionOy = (int)(CanvasProduct.Height * 0.415f);
         }
         private static void InitializeRuleScene()
         {
-            int MinValueCanvas = Math.Min(CanvasProduct.Height, CanvasProduct.Width);
-            RuleScene.Character.Width = (int)(MinValueCanvas * 0.785f);
+            RuleScene.Character.Width = (int)(CanvasProduct.Width * 0.40f);
             RuleScene.Character.Height = RuleScene.Character.Width;
             RuleScene.Character.PositionOy = CanvasProduct.Height - RuleScene.Character.Height;
 
             RuleScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.19f);
-            RuleScene.BtnStartPlay.Height = (int)(CanvasProduct.Height * 0.11f);
-            RuleScene.BtnStartPlay.PositionOx = CanvasProduct.Width * 0.56f;
-            RuleScene.BtnStartPlay.PositionOy = CanvasProduct.Height * 0.763f;
+            RuleScene.BtnStartPlay.Height = (int)(RuleScene.BtnStartPlay.Width * 0.386f);
+            RuleScene.BtnStartPlay.PositionOy = CanvasProduct.Height * 0.8f;
 
             RuleScene.TxtRuleScene.Width = (int)(CanvasProduct.Width * 0.5468f);
-            RuleScene.TxtRuleScene.Height = (int)(CanvasProduct.Height * 0.625f);
+            RuleScene.TxtRuleScene.Height = (int)(RuleScene.TxtRuleScene.Width * 0.59f);
             RuleScene.TxtRuleScene.PositionOx = CanvasProduct.Width * 0.39f;
-            RuleScene.TxtRuleScene.PositionOy = CanvasProduct.Height * 0.069f;
+            RuleScene.TxtRuleScene.PositionOy = RuleScene.BtnStartPlay.PositionOy - RuleScene.TxtRuleScene.Height - RuleScene.BtnStartPlay.Height * 0.3f;
+
+            RuleScene.BtnStartPlay.PositionOx = RuleScene.TxtRuleScene.PositionOx + (RuleScene.TxtRuleScene.Width - RuleScene.BtnStartPlay.Width) / 2;
         }
         private static void InitializeEndScene()
         {
-            int MinValueCanvas = Math.Min(CanvasProduct.Height, CanvasProduct.Width);
-            EndScene.Character.Width = (int)(MinValueCanvas * 0.785f);
-            EndScene.Character.Height = EndScene.Character.Width;
+            EndScene.Character.Width = (int)(CanvasProduct.Width * 0.40f);
+            EndScene.Character.Height = RuleScene.Character.Width;
             EndScene.Character.PositionOy = CanvasProduct.Height - RuleScene.Character.Height;
 
             EndScene.BtnToStart.Width = (int)(CanvasProduct.Width * 0.19f);
-            EndScene.BtnToStart.Height = (int)(CanvasProduct.Height * 0.11f);
-            EndScene.BtnToStart.PositionOx = CanvasProduct.Width * 0.56f;
-            EndScene.BtnToStart.PositionOy = CanvasProduct.Height * 0.763f;
+            EndScene.BtnToStart.Height = (int)(EndScene.BtnToStart.Width * 0.386f);
+            EndScene.BtnToStart.PositionOy = CanvasProduct.Height * 0.8f;
 
             EndScene.TxtEndScene.Width = (int)(CanvasProduct.Width * 0.5468f);
-            EndScene.TxtEndScene.Height = (int)(CanvasProduct.Height * 0.625f);
+            EndScene.TxtEndScene.Height = (int)(RuleScene.TxtRuleScene.Width * 0.46f);
             EndScene.TxtEndScene.PositionOx = CanvasProduct.Width * 0.39f;
-            EndScene.TxtEndScene.PositionOy = CanvasProduct.Height * 0.069f;
+            EndScene.TxtEndScene.PositionOy = EndScene.BtnToStart.PositionOy - EndScene.TxtEndScene.Height - EndScene.BtnToStart.Height * 0.3f;
+
+            EndScene.BtnToStart.PositionOx = EndScene.TxtEndScene.PositionOx + (EndScene.TxtEndScene.Width - EndScene.BtnToStart.Width) / 2;
         }
         private static void InitializeRuleRepeatActionScene()
         {
-            RuleRepeatActionScene.Character.Height = (int)(CanvasProduct.Height * 0.807);
             RuleRepeatActionScene.Character.Width = (int)(CanvasProduct.Width * 0.357);
+            RuleRepeatActionScene.Character.Height = (int)(RuleRepeatActionScene.Character.Width * 1.08f);
             RuleRepeatActionScene.Character.PositionOy = (int)(CanvasProduct.Height - RuleRepeatActionScene.Character.Height);
 
             RuleRepeatActionScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.19f);
-            RuleRepeatActionScene.BtnStartPlay.Height = (int)(CanvasProduct.Height * 0.11f);
+            RuleRepeatActionScene.BtnStartPlay.Height = (int)(RuleRepeatActionScene.BtnStartPlay.Width * 0.386f);
             RuleRepeatActionScene.BtnStartPlay.PositionOx = CanvasProduct.Width * 0.56f;
-            RuleRepeatActionScene.BtnStartPlay.PositionOy = CanvasProduct.Height * 0.763f;
+            RuleRepeatActionScene.BtnStartPlay.PositionOy = CanvasProduct.Height * 0.8f;
 
             RuleRepeatActionScene.BtnNextPlay.Width = (int)(CanvasProduct.Width * 0.19f);
-            RuleRepeatActionScene.BtnNextPlay.Height = (int)(CanvasProduct.Height * 0.11f);
+            RuleRepeatActionScene.BtnNextPlay.Height = (int)(RuleRepeatActionScene.BtnNextPlay.Width * 0.386f);
             RuleRepeatActionScene.BtnNextPlay.PositionOx = CanvasProduct.Width * 0.56f;
-            RuleRepeatActionScene.BtnNextPlay.PositionOy = CanvasProduct.Height * 0.763f;
+            RuleRepeatActionScene.BtnNextPlay.PositionOy = CanvasProduct.Height * 0.8f;
 
             RuleRepeatActionScene.TxtRuleRepeatActionScene1.Width = (int)(CanvasProduct.Width * 0.5468f);
-            RuleRepeatActionScene.TxtRuleRepeatActionScene1.Height = (int)(CanvasProduct.Height * 0.625f);
+            RuleRepeatActionScene.TxtRuleRepeatActionScene1.Height = (int)(RuleRepeatActionScene.TxtRuleRepeatActionScene1.Width * 0.53f);
             RuleRepeatActionScene.TxtRuleRepeatActionScene1.PositionOx = CanvasProduct.Width * 0.39f;
-            RuleRepeatActionScene.TxtRuleRepeatActionScene1.PositionOy = CanvasProduct.Height * 0.069f;
+            RuleRepeatActionScene.TxtRuleRepeatActionScene1.PositionOy = RuleRepeatActionScene.BtnNextPlay.PositionOy - RuleRepeatActionScene.TxtRuleRepeatActionScene1.Height - RuleRepeatActionScene.BtnNextPlay.Height * 0.3f;
 
             RuleRepeatActionScene.TxtRuleRepeatActionScene2.Width = (int)(CanvasProduct.Width * 0.5468f);
-            RuleRepeatActionScene.TxtRuleRepeatActionScene2.Height = (int)(CanvasProduct.Height * 0.625f);
+            RuleRepeatActionScene.TxtRuleRepeatActionScene2.Height = (int)(RuleRepeatActionScene.TxtRuleRepeatActionScene2.Width * 0.609f);
             RuleRepeatActionScene.TxtRuleRepeatActionScene2.PositionOx = CanvasProduct.Width * 0.39f;
-            RuleRepeatActionScene.TxtRuleRepeatActionScene2.PositionOy = CanvasProduct.Height * 0.069f;
+            RuleRepeatActionScene.TxtRuleRepeatActionScene2.PositionOy = RuleRepeatActionScene.BtnNextPlay.PositionOy - RuleRepeatActionScene.TxtRuleRepeatActionScene2.Height - RuleRepeatActionScene.BtnNextPlay.Height * 0.3f;
 
             RuleRepeatActionScene.TxtRuleRepeatActionScene3.Width = (int)(CanvasProduct.Width * 0.5468f);
-            RuleRepeatActionScene.TxtRuleRepeatActionScene3.Height = (int)(CanvasProduct.Height * 0.625f);
+            RuleRepeatActionScene.TxtRuleRepeatActionScene3.Height = (int)(RuleRepeatActionScene.TxtRuleRepeatActionScene3.Width * 0.445f);
             RuleRepeatActionScene.TxtRuleRepeatActionScene3.PositionOx = CanvasProduct.Width * 0.39f;
-            RuleRepeatActionScene.TxtRuleRepeatActionScene3.PositionOy = CanvasProduct.Height * 0.069f;
+            RuleRepeatActionScene.TxtRuleRepeatActionScene3.PositionOy = RuleRepeatActionScene.BtnNextPlay.PositionOy - RuleRepeatActionScene.TxtRuleRepeatActionScene3.Height - RuleRepeatActionScene.BtnNextPlay.Height * 0.3f;
         }
         private static void InitializeRuleCatchBonesScene()
         {
-            RuleCatchBonesScene.Character.Height = (int)(CanvasProduct.Height * 0.807);
-            RuleCatchBonesScene.Character.Width = (int)(CanvasProduct.Width * 0.357);
+            RuleCatchBonesScene.Character.Width = (int)(CanvasProduct.Width * 0.35);
+            RuleCatchBonesScene.Character.Height = (int)(RuleCatchBonesScene.Character.Width * 0.64);   
             RuleCatchBonesScene.Character.PositionOy = (int)(CanvasProduct.Height - RuleCatchBonesScene.Character.Height);
 
             RuleCatchBonesScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.19f);
-            RuleCatchBonesScene.BtnStartPlay.Height = (int)(CanvasProduct.Height * 0.11f);
+            RuleCatchBonesScene.BtnStartPlay.Height = (int)(RuleCatchBonesScene.BtnStartPlay.Width * 0.386f);
             RuleCatchBonesScene.BtnStartPlay.PositionOx = CanvasProduct.Width * 0.56f;
-            RuleCatchBonesScene.BtnStartPlay.PositionOy = CanvasProduct.Height * 0.763f;
+            RuleCatchBonesScene.BtnStartPlay.PositionOy = CanvasProduct.Height * 0.8f;
 
             RuleCatchBonesScene.BtnNextPlay.Width = (int)(CanvasProduct.Width * 0.19f);
-            RuleCatchBonesScene.BtnNextPlay.Height = (int)(CanvasProduct.Height * 0.11f);
+            RuleCatchBonesScene.BtnNextPlay.Height = (int)(RuleCatchBonesScene.BtnNextPlay.Width * 0.386f);
             RuleCatchBonesScene.BtnNextPlay.PositionOx = CanvasProduct.Width * 0.56f;
-            RuleCatchBonesScene.BtnNextPlay.PositionOy = CanvasProduct.Height * 0.763f;
+            RuleCatchBonesScene.BtnNextPlay.PositionOy = CanvasProduct.Height * 0.8f;
 
             RuleCatchBonesScene.TxtRuleCatchBonesScene1.Width = (int)(CanvasProduct.Width * 0.5468f);
-            RuleCatchBonesScene.TxtRuleCatchBonesScene1.Height = (int)(CanvasProduct.Height * 0.625f);
-            RuleCatchBonesScene.TxtRuleCatchBonesScene1.PositionOx = CanvasProduct.Width * 0.39f;
-            RuleCatchBonesScene.TxtRuleCatchBonesScene1.PositionOy = CanvasProduct.Height * 0.069f;
+            RuleCatchBonesScene.TxtRuleCatchBonesScene1.Height = (int)(RuleCatchBonesScene.TxtRuleCatchBonesScene1.Width * 0.413f);
+            RuleCatchBonesScene.TxtRuleCatchBonesScene1.PositionOx = CanvasProduct.Width * 0.413f;
+            RuleCatchBonesScene.TxtRuleCatchBonesScene1.PositionOy = RuleCatchBonesScene.BtnNextPlay.PositionOy - RuleCatchBonesScene.TxtRuleCatchBonesScene1.Height - RuleCatchBonesScene.BtnNextPlay.Height * 0.3f;
 
             RuleCatchBonesScene.TxtRuleCatchBonesScene2.Width = (int)(CanvasProduct.Width * 0.5468f);
-            RuleCatchBonesScene.TxtRuleCatchBonesScene2.Height = (int)(CanvasProduct.Height * 0.625f);
+            RuleCatchBonesScene.TxtRuleCatchBonesScene2.Height = (int)(RuleCatchBonesScene.TxtRuleCatchBonesScene2.Width * 0.488f);
             RuleCatchBonesScene.TxtRuleCatchBonesScene2.PositionOx = CanvasProduct.Width * 0.39f;
-            RuleCatchBonesScene.TxtRuleCatchBonesScene2.PositionOy = CanvasProduct.Height * 0.069f;
+            RuleCatchBonesScene.TxtRuleCatchBonesScene2.PositionOy = RuleCatchBonesScene.BtnNextPlay.PositionOy - RuleCatchBonesScene.TxtRuleCatchBonesScene2.Height - RuleCatchBonesScene.BtnNextPlay.Height * 0.3f;
 
             RuleCatchBonesScene.TxtRuleCatchBonesScene3.Width = (int)(CanvasProduct.Width * 0.5468f);
-            RuleCatchBonesScene.TxtRuleCatchBonesScene3.Height = (int)(CanvasProduct.Height * 0.625f);
+            RuleCatchBonesScene.TxtRuleCatchBonesScene3.Height = (int)(RuleCatchBonesScene.TxtRuleCatchBonesScene3.Width * 0.536f);
             RuleCatchBonesScene.TxtRuleCatchBonesScene3.PositionOx = CanvasProduct.Width * 0.39f;
-            RuleCatchBonesScene.TxtRuleCatchBonesScene3.PositionOy = CanvasProduct.Height * 0.069f;
+            RuleCatchBonesScene.TxtRuleCatchBonesScene3.PositionOy = RuleCatchBonesScene.BtnNextPlay.PositionOy - RuleCatchBonesScene.TxtRuleCatchBonesScene3.Height - RuleCatchBonesScene.BtnNextPlay.Height * 0.3f;
         }
         private static void InitializeRuleCollectPuzzleScene()
         {
-            RuleCollectPuzzleScene.Character.Height = (int)(CanvasProduct.Height * 0.807);
             RuleCollectPuzzleScene.Character.Width = (int)(CanvasProduct.Width * 0.357);
+            RuleCollectPuzzleScene.Character.Height = RuleCollectPuzzleScene.Character.Width;
             RuleCollectPuzzleScene.Character.PositionOy = (int)(CanvasProduct.Height - RuleCollectPuzzleScene.Character.Height);
 
             RuleCollectPuzzleScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.19f);
-            RuleCollectPuzzleScene.BtnStartPlay.Height = (int)(CanvasProduct.Height * 0.11f);
+            RuleCollectPuzzleScene.BtnStartPlay.Height = (int)(RuleCollectPuzzleScene.BtnStartPlay.Width * 0.386f);
             RuleCollectPuzzleScene.BtnStartPlay.PositionOx = CanvasProduct.Width * 0.56f;
-            RuleCollectPuzzleScene.BtnStartPlay.PositionOy = CanvasProduct.Height * 0.763f;
+            RuleCollectPuzzleScene.BtnStartPlay.PositionOy = CanvasProduct.Height * 0.8f;
 
             RuleCollectPuzzleScene.BtnNextPlay.Width = (int)(CanvasProduct.Width * 0.19f);
-            RuleCollectPuzzleScene.BtnNextPlay.Height = (int)(CanvasProduct.Height * 0.11f);
+            RuleCollectPuzzleScene.BtnNextPlay.Height = (int)(RuleCollectPuzzleScene.BtnNextPlay.Width * 0.386f);
             RuleCollectPuzzleScene.BtnNextPlay.PositionOx = CanvasProduct.Width * 0.56f;
-            RuleCollectPuzzleScene.BtnNextPlay.PositionOy = CanvasProduct.Height * 0.763f;
+            RuleCollectPuzzleScene.BtnNextPlay.PositionOy = CanvasProduct.Height * 0.8f;
 
             RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene1.Width = (int)(CanvasProduct.Width * 0.5468f);
-            RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene1.Height = (int)(CanvasProduct.Height * 0.625f);
+            RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene1.Height = (int)(RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene1.Width * 0.403f);
             RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene1.PositionOx = CanvasProduct.Width * 0.39f;
-            RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene1.PositionOy = CanvasProduct.Height * 0.069f;
+            RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene1.PositionOy = RuleCollectPuzzleScene.BtnNextPlay.PositionOy - RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene1.Height - RuleCollectPuzzleScene.BtnNextPlay.Height * 0.3f;
 
             RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene2.Width = (int)(CanvasProduct.Width * 0.5468f);
-            RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene2.Height = (int)(CanvasProduct.Height * 0.625f);
+            RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene2.Height = (int)(RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene2.Width * 0.47f);
             RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene2.PositionOx = CanvasProduct.Width * 0.39f;
-            RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene2.PositionOy = CanvasProduct.Height * 0.069f;
+            RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene2.PositionOy = RuleCollectPuzzleScene.BtnNextPlay.PositionOy - RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene2.Height - RuleCollectPuzzleScene.BtnNextPlay.Height * 0.3f;
 
             RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene3.Width = (int)(CanvasProduct.Width * 0.5468f);
-            RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene3.Height = (int)(CanvasProduct.Height * 0.625f);
+            RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene3.Height = (int)(RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene3.Width * 0.28f);
             RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene3.PositionOx = CanvasProduct.Width * 0.39f;
-            RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene3.PositionOy = CanvasProduct.Height * 0.069f;
+            RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene3.PositionOy = RuleCollectPuzzleScene.BtnNextPlay.PositionOy - RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene3.Height - RuleCollectPuzzleScene.BtnNextPlay.Height * 0.3f;
         }
         private static void InitializeRuleDodgeMeteoritesScene()
         {
-            RuleDodgeMeteoritesScene.Character.Height = (int)(CanvasProduct.Height * 0.807);
-            RuleDodgeMeteoritesScene.Character.Width = (int)(CanvasProduct.Width * 0.357);
+            RuleDodgeMeteoritesScene.Character.Width = (int)(CanvasProduct.Width * 0.42);
+            RuleDodgeMeteoritesScene.Character.Height = RuleDodgeMeteoritesScene.Character.Width;
             RuleDodgeMeteoritesScene.Character.PositionOy = (int)(CanvasProduct.Height - RuleDodgeMeteoritesScene.Character.Height);
 
             RuleDodgeMeteoritesScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.19f);
-            RuleDodgeMeteoritesScene.BtnStartPlay.Height = (int)(CanvasProduct.Height * 0.11f);
+            RuleDodgeMeteoritesScene.BtnStartPlay.Height = (int)(RuleDodgeMeteoritesScene.BtnStartPlay.Width * 0.386f);
             RuleDodgeMeteoritesScene.BtnStartPlay.PositionOx = CanvasProduct.Width * 0.56f;
-            RuleDodgeMeteoritesScene.BtnStartPlay.PositionOy = CanvasProduct.Height * 0.763f;
+            RuleDodgeMeteoritesScene.BtnStartPlay.PositionOy = CanvasProduct.Height * 0.8f;
 
             RuleDodgeMeteoritesScene.BtnNextPlay.Width = (int)(CanvasProduct.Width * 0.19f);
-            RuleDodgeMeteoritesScene.BtnNextPlay.Height = (int)(CanvasProduct.Height * 0.11f);
+            RuleDodgeMeteoritesScene.BtnNextPlay.Height = (int)(RuleDodgeMeteoritesScene.BtnNextPlay.Width * 0.386f);
             RuleDodgeMeteoritesScene.BtnNextPlay.PositionOx = CanvasProduct.Width * 0.56f;
-            RuleDodgeMeteoritesScene.BtnNextPlay.PositionOy = CanvasProduct.Height * 0.763f;
+            RuleDodgeMeteoritesScene.BtnNextPlay.PositionOy = CanvasProduct.Height * 0.8f;
 
             RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene1.Width = (int)(CanvasProduct.Width * 0.5468f);
-            RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene1.Height = (int)(CanvasProduct.Height * 0.625f);
+            RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene1.Height = (int)(RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene1.Width * 0.44f);
             RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene1.PositionOx = CanvasProduct.Width * 0.39f;
-            RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene1.PositionOy = CanvasProduct.Height * 0.069f;
+            RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene1.PositionOy = RuleDodgeMeteoritesScene.BtnNextPlay.PositionOy - RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene1.Height - RuleDodgeMeteoritesScene.BtnNextPlay.Height * 0.3f;
 
             RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene2.Width = (int)(CanvasProduct.Width * 0.5468f);
-            RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene2.Height = (int)(CanvasProduct.Height * 0.625f);
+            RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene2.Height = (int)(RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene2.Width * 0.34f);
             RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene2.PositionOx = CanvasProduct.Width * 0.39f;
-            RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene2.PositionOy = CanvasProduct.Height * 0.069f;
+            RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene2.PositionOy = RuleDodgeMeteoritesScene.BtnNextPlay.PositionOy - RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene2.Height - RuleDodgeMeteoritesScene.BtnNextPlay.Height * 0.3f;
 
             RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene3.Width = (int)(CanvasProduct.Width * 0.5468f);
-            RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene3.Height = (int)(CanvasProduct.Height * 0.625f);
+            RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene3.Height = (int)(RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene3.Width * 0.33f);
             RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene3.PositionOx = CanvasProduct.Width * 0.39f;
-            RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene3.PositionOy = CanvasProduct.Height * 0.069f;
+            RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene3.PositionOy = RuleDodgeMeteoritesScene.BtnNextPlay.PositionOy - RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene3.Height - RuleDodgeMeteoritesScene.BtnNextPlay.Height * 0.3f;
         }
         private static void InitializeColleсtPuzzle()
         {

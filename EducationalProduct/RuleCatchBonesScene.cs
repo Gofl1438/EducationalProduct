@@ -44,35 +44,10 @@ namespace EducationalProduct
             }
             for (int i = 0; i < ManagerUI.RuleCatchBonesElements.Count; i++)
             {
-                //Пропуск кнопки Начать
-                if (!startGame && (i == 1))
-                { 
+                if (DialogManager.UpdateNextBtn(startGame, i) || DialogManager.UpdateDialog(countNext,i))
                     continue;
-                }
-                //Пропуск кнопки Далее
-                if (startGame && (i == 2))
-                {
-                    continue;
-                }
-
-                //Пропуск 2 и 3 диалога
-                if ((countNext == 0 && (i == 4)) || (countNext == 0 && (i == 5)))
-                {
-                    continue;
-                }
-                //Пропуск 1 и 3 диалога
-                else if (((countNext == 1) && (i == 3)) || ((countNext == 1) && (i == 5)))
-                {
-                    continue;
-                }
-                //Пропуск 1 и 2 диалога
-                else if (((countNext == 2) && (i == 3)) || ((countNext == 2) && (i == 4)))
-                {
-                    continue;
-                }
 
                 ManagerUI.RuleCatchBonesElements[i].DrawSprite(g);
-
             }
             for (int i = 0; i < ManagerUI.TotalElementsMenuExit.Count; i++)
             {
@@ -90,6 +65,7 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.RuleCatchBonesScene.BtnStartPlay.PositionOx, GameConfig.RuleCatchBonesScene.BtnStartPlay.PositionOy),
             new Size(GameConfig.RuleCatchBonesScene.BtnStartPlay.Width, GameConfig.RuleCatchBonesScene.BtnStartPlay.Height)).Contains(e.Location))
             {
+                StateNextBtn.CurrentNextBtnExitRuleCatchBonesScene = true;
                 CatchBones catchBones = new CatchBones();
                 catchBones.Opacity = 0;
                 catchBones.Show();

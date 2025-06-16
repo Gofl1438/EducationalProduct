@@ -190,11 +190,11 @@ namespace EducationalProduct.Classes
             RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene2.Width = (int)(CanvasProduct.Width * 0.5468f);
             RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene2.Height = (int)(CanvasProduct.Height * 0.625f);
             RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene2.PositionOx = CanvasProduct.Width * 0.39f;
-            RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene2.Width = (int)(CanvasProduct.Width * 0.5468f);
+            RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene2.PositionOy = CanvasProduct.Height * 0.069f;
 
+            RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene3.Width = (int)(CanvasProduct.Width * 0.5468f);
             RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene3.Height = (int)(CanvasProduct.Height * 0.625f);
             RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene3.PositionOx = CanvasProduct.Width * 0.39f;
-            RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene3.PositionOy = CanvasProduct.Height * 0.069f;
             RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene3.PositionOy = CanvasProduct.Height * 0.069f;
         }
         private static void InitializeRuleDodgeMeteoritesScene()
@@ -221,11 +221,11 @@ namespace EducationalProduct.Classes
             RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene2.Width = (int)(CanvasProduct.Width * 0.5468f);
             RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene2.Height = (int)(CanvasProduct.Height * 0.625f);
             RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene2.PositionOx = CanvasProduct.Width * 0.39f;
-            RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene2.Width = (int)(CanvasProduct.Width * 0.5468f);
+            RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene2.PositionOy = CanvasProduct.Height * 0.069f;
 
+            RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene3.Width = (int)(CanvasProduct.Width * 0.5468f);
             RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene3.Height = (int)(CanvasProduct.Height * 0.625f);
             RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene3.PositionOx = CanvasProduct.Width * 0.39f;
-            RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene3.PositionOy = CanvasProduct.Height * 0.069f;
             RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene3.PositionOy = CanvasProduct.Height * 0.069f;
         }
         private static void InitializeColleсtPuzzle()

@@ -18,6 +18,7 @@ namespace EducationalProduct
         public RuleScene()
         {
             InitializeComponent();
+            StateExitMenu.Init();
             СalibrationSize();
             ManagerUI.AddBtnClosedElement();
             ManagerUI.AddRuleElements();

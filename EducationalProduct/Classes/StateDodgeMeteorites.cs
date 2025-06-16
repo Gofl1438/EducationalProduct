@@ -12,6 +12,7 @@ namespace EducationalProduct.Classes
         public static bool IsRocketDisappear;
         public static bool IsNotCallGameOverAwait;
         public static bool RocketSoundPlayer;
+        public static bool СurrentStateMenuClick;
 
         public static void Init()
         {
@@ -19,6 +20,7 @@ namespace EducationalProduct.Classes
             IsRocketDisappear = false;
             IsNotCallGameOverAwait = false;
             RocketSoundPlayer = false;
+            СurrentStateMenuClick = false;
         }
     }
 

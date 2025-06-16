@@ -8,14 +8,27 @@ namespace EducationalProduct.Classes
 {
     public static class StateExitMenu
     {
-        public static bool СurrentStateMenuExitCatchBones = false;
-        public static bool СurrentStateMenuExitCollectPuzzle = false;
-        public static bool СurrentStateMenuExitDodgeMeteorites = false;
-        public static bool СurrentStateMenuExitRepeatAction = false;
-        public static bool CurrentStateMenuExitRuleCatchBonesScene = false;
-        public static bool CurrentStateMenuExitRuleCollectPuzzleScene = false;
-        public static bool CurrentStateMenuExitRuleDodgeMeteoritesScene = false;
-        public static bool CurrentStateMenuExitRuleRepeatActionScene = false;
-        public static bool CurrentStateMenuExitRuleScene = false;
+        public static bool СurrentStateMenuExitCatchBones;
+        public static bool СurrentStateMenuExitCollectPuzzle;
+        public static bool СurrentStateMenuExitDodgeMeteorites;
+        public static bool СurrentStateMenuExitRepeatAction;
+        public static bool CurrentStateMenuExitRuleCatchBonesScene;
+        public static bool CurrentStateMenuExitRuleCollectPuzzleScene;
+        public static bool CurrentStateMenuExitRuleDodgeMeteoritesScene;
+        public static bool CurrentStateMenuExitRuleRepeatActionScene;
+        public static bool CurrentStateMenuExitRuleScene;
+
+        public static void Init()
+        {
+            СurrentStateMenuExitCatchBones = false;
+            СurrentStateMenuExitCollectPuzzle = false;
+            СurrentStateMenuExitDodgeMeteorites = false;
+            СurrentStateMenuExitRepeatAction = false;
+            CurrentStateMenuExitRuleCatchBonesScene = false;
+            CurrentStateMenuExitRuleCollectPuzzleScene = false;
+            CurrentStateMenuExitRuleDodgeMeteoritesScene = false;
+            CurrentStateMenuExitRuleRepeatActionScene = false;
+            CurrentStateMenuExitRuleScene = false;
+    }
     }
 }

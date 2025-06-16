@@ -21,6 +21,7 @@ namespace EducationalProduct
             countNext = 0;
             startGame = false;
             InitializeComponent();
+            StateExitMenu.Init();
             СalibrationSize();
             ManagerUI.AddBtnClosedElement();
             ManagerUI.AddRuleCollectPuzzleElements();

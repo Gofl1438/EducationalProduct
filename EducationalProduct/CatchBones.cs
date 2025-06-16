@@ -25,6 +25,8 @@ namespace EducationalProduct
         {
             InitializeComponent();
             StateCatchBones.Init();
+            StateRuleMenu.Init();
+            StateExitMenu.Init();
             СalibrationSize();
             ManagerBone.AddDefaultQuantityBones();
             ManagerUI.AddCatchBonesElements();
@@ -183,9 +185,9 @@ namespace EducationalProduct
 
             if (StateRuleMenu.СurrentStateMenuRuleCatchBones) return;
 
-            if (StateRepeatButton.СurrentStateMenuClick)
+            if (StateCatchBones.СurrentStateMenuClick)
             {
-                StateRepeatButton.СurrentStateMenuClick = false;
+                StateCatchBones.СurrentStateMenuClick = false;
                 return;
             }
 

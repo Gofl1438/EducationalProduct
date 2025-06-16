@@ -28,6 +28,8 @@ namespace EducationalProduct
             InitializeComponent();
             StateRepeatButton.Init();
             StateTransitonScene.Init();
+            StateRuleMenu.Init();
+            StateExitMenu.Init();
             СalibrationSize();
             ManagerUI.AddRepeatActionElements();
             ManagerUI.AddTotalElements();
@@ -256,6 +258,9 @@ namespace EducationalProduct
                     if (StateRepeatButton.IsPlayingSequence)
                     {
                         StateRepeatButton.ErorClickButton = true;
+                        StateRepeatButton.cts.Cancel();
+                        StateRepeatButton.cts.Dispose();
+                        StateRepeatButton.cts = new CancellationTokenSource();
                     }
                 }
             }
@@ -271,7 +276,7 @@ namespace EducationalProduct
                 if (StateRepeatButton.ErorClickButton)
                 {
                     StateRepeatButton.ErorClickButton = false;
-                    ManagerButtonRepeat.PlaySequence();
+                    ManagerButtonRepeat.PlaySequence(StateRepeatButton.cts.Token);
                 }
             }
         }
@@ -291,6 +296,9 @@ namespace EducationalProduct
                     if (StateRepeatButton.IsPlayingSequence)
                     {
                         StateRepeatButton.ErorClickButton = true;
+                        StateRepeatButton.cts.Cancel();
+                        StateRepeatButton.cts.Dispose();
+                        StateRepeatButton.cts = new CancellationTokenSource();
                     }
                 }
             }
@@ -329,7 +337,7 @@ namespace EducationalProduct
                 if (StateRepeatButton.ErorClickButton)
                 {
                     StateRepeatButton.ErorClickButton = false;
-                    ManagerButtonRepeat.PlaySequence();
+                    ManagerButtonRepeat.PlaySequence(StateRepeatButton.cts.Token);
                 }
             }
         }

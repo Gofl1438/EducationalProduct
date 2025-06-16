@@ -32,6 +32,8 @@ namespace EducationalProduct
         {
             InitializeComponent();
             StateDodgeMeteorites.Init();
+            StateRuleMenu.Init();
+            StateExitMenu.Init();
             СalibrationSize();
             ManagerUI.AddDodgeMeteoritesElements();
             ManagerUI.AddTotalElements();
@@ -297,9 +299,9 @@ namespace EducationalProduct
 
             if (StateExitMenu.СurrentStateMenuExitDodgeMeteorites) return;
 
-            if (StateRepeatButton.СurrentStateMenuClick)
+            if (StateDodgeMeteorites.СurrentStateMenuClick)
             {
-                StateRepeatButton.СurrentStateMenuClick = false;
+                StateDodgeMeteorites.СurrentStateMenuClick = false;
                 return;
             }
 
@@ -350,7 +352,7 @@ namespace EducationalProduct
                     ManagerSound.DeleteActivePlayersDodgeMeteorites();
                     CanvasDodgeMeteorites.Invalidate();
                     StateRuleMenu.СurrentStateMenuRuleDodgeMeteorites = true;
-                    StateCatchBones.СurrentStateMenuClick = true;
+                    StateDodgeMeteorites.СurrentStateMenuClick = true;
                 }
             }
 
@@ -361,7 +363,7 @@ namespace EducationalProduct
             {
                 ManagerUI.RuleElementsDodgeMeteorites.Clear();
                 StateRuleMenu.СurrentStateMenuRuleDodgeMeteorites = false;
-                StateCatchBones.СurrentStateMenuClick = true;
+                StateDodgeMeteorites.СurrentStateMenuClick = true;
                 using (var player = new SoundPlayer(Properties.Resources.DodgeMeteoriteSoundLight))
                 {
                     ManagerSound.activePlayersDodgeMeteorite.Add(player);
@@ -380,7 +382,7 @@ namespace EducationalProduct
                     ManagerSound.DeleteActivePlayersDodgeMeteorites();
                     ManagerUI.AddTotalElementsMenuExit();
                     CanvasDodgeMeteorites.Invalidate();
-                    StateCatchBones.СurrentStateMenuClick = true;
+                    StateDodgeMeteorites.СurrentStateMenuClick = true;
                     StateExitMenu.СurrentStateMenuExitDodgeMeteorites = true;
                 }
             }
@@ -390,7 +392,7 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonYes.PositionOx, GameConfig.TotalElement.ButtonYes.PositionOy),
                 new Size(GameConfig.TotalElement.ButtonYes.Width, GameConfig.TotalElement.ButtonYes.Height)).Contains(e.Location))
             {
-                StateCatchBones.СurrentStateMenuClick = true;
+                StateDodgeMeteorites.СurrentStateMenuClick = true;
                 StateExitMenu.СurrentStateMenuExitDodgeMeteorites = false;
                 timer.Stop();
                 OpeningScene OpeningScene = new OpeningScene();
@@ -415,7 +417,7 @@ namespace EducationalProduct
                 new Size(GameConfig.TotalElement.ButtonNo.Width, GameConfig.TotalElement.ButtonNo.Height)).Contains(e.Location))
             {
                 ManagerUI.TotalElementsMenuExit.Clear();
-                StateCatchBones.СurrentStateMenuClick = true;
+                StateDodgeMeteorites.СurrentStateMenuClick = true;
                 StateExitMenu.СurrentStateMenuExitDodgeMeteorites = false;
                 using (var player = new SoundPlayer(Properties.Resources.DodgeMeteoriteSoundLight))
                 {

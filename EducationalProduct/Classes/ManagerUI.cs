@@ -379,7 +379,6 @@ namespace EducationalProduct.Classes
             RuleDodgeMeteoritesElements.Add(txtRuleDodgeMeteoritesScene3);
         }
 
-
         public static void AddCatchBonesElements()
         {
             CatchBonesElements.Clear();

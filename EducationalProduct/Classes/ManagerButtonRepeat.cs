@@ -40,7 +40,7 @@ namespace EducationalProduct.Classes
 
             int randomButtonId = random.Next(0, ButtonRepeat.Count);
             _currentSequence.Add(randomButtonId);
-            await PlaySequence();
+            await PlaySequence(StateRepeatButton.cts.Token);
         }
 
         public static void ChangeButtonConditionEnd()
@@ -54,27 +54,45 @@ namespace EducationalProduct.Classes
             }
         }
 
-        public static async Task PlaySequence()
+        public static async Task PlaySequence(CancellationToken cancellationToken = default)
         {
             IsPlayingSequence = true;
-            foreach (var buttonId in _currentSequence)
+            try
             {
-                if (StateRepeatButton.ErorClickButton)
+                foreach (var buttonId in _currentSequence)
                 {
-                    return;
-                }
-                await Task.Delay(1000);
-                ButtonRepeat[buttonId].IsActiveInSequence = true;
-                using (var player = new SoundPlayer(Properties.Resources.RepeatButtonClick))
-                {
-                    ManagerSound.activePlayersRepeatAction.Add(player);
-                    player.Play();
-                }
-                await Task.Delay(1000);
+                    cancellationToken.ThrowIfCancellationRequested();
+                    if (StateRepeatButton.ErorClickButton)
+                    {
+                        ButtonRepeat[buttonId].IsActiveInSequence = false;
+                        IsPlayingSequence = false;
+                        return;
+                    }
 
-                ButtonRepeat[buttonId].IsActiveInSequence = false;
+                    await Task.Delay(1000, cancellationToken);
+
+                    ButtonRepeat[buttonId].IsActiveInSequence = true;
+                    using (var player = new SoundPlayer(Properties.Resources.RepeatButtonClick))
+                    {
+                        ManagerSound.activePlayersRepeatAction.Add(player);
+                        player.Play();
+                    }
+
+                    await Task.Delay(1000, cancellationToken);
+                    ButtonRepeat[buttonId].IsActiveInSequence = false;
+                }
             }
-            IsPlayingSequence = false;
+            catch (OperationCanceledException)
+            {
+            }
+            finally
+            {
+                foreach (var button in ButtonRepeat)
+                {
+                    button.IsActiveInSequence = false;
+                }
+                IsPlayingSequence = false;
+            }
         }
 
         public static async Task PressButton(int buttonId)

@@ -90,8 +90,6 @@ namespace EducationalProduct
                     System.Threading.Thread.Sleep(16);
                 }
                 this.Hide();
-                ManagerUI.BtnClosedElement.Clear();
-                ManagerUI.RuleRepeatActionElements.Clear();
                 repeatAction.FormClosed += (s, args) => { this.Close(); };
             }
         }

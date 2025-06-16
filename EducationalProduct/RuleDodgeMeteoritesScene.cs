@@ -13,6 +13,8 @@ namespace EducationalProduct
 {
     public partial class RuleDodgeMeteoritesScene : Form
     {
+        int countNext = 0;
+        bool startGame = false;
         Rectangle workingArea;
         public RuleDodgeMeteoritesScene()
         {
@@ -42,6 +44,9 @@ namespace EducationalProduct
             }
             for (int i = 0; i < ManagerUI.RuleDodgeMeteoritesElements.Count; i++)
             {
+                if (DialogManager.UpdateNextBtn(startGame, i) || DialogManager.UpdateDialog(countNext, i))
+                    continue;
+
                 ManagerUI.RuleDodgeMeteoritesElements[i].DrawSprite(g);
             }
             for (int i = 0; i < ManagerUI.TotalElementsMenuExit.Count; i++)
@@ -53,12 +58,14 @@ namespace EducationalProduct
         private void RuleDodgeMeteoritesScene_MouseDown(object sender, MouseEventArgs e)
         {
             CheckMouseDownExit(e);
+            CheckMouseDownNext(e);
 
-            if (StateExitMenu.CurrentStateMenuExitRuleDodgeMeteoritesScene) return;
+            if (StateExitMenu.CurrentStateMenuExitRuleDodgeMeteoritesScene || StateNextBtn.CurrentNextBtnExitRuleDodgeMeteoritesScene) return;
 
             if (new RectangleF(new PointF(GameConfig.RuleDodgeMeteoritesScene.BtnStartPlay.PositionOx, GameConfig.RuleDodgeMeteoritesScene.BtnStartPlay.PositionOy),
             new Size(GameConfig.RuleDodgeMeteoritesScene.BtnStartPlay.Width, GameConfig.RuleDodgeMeteoritesScene.BtnStartPlay.Height)).Contains(e.Location))
             {
+                StateNextBtn.CurrentNextBtnExitRuleDodgeMeteoritesScene = true;
                 DodgeMeteorites dodgeMeteorites = new DodgeMeteorites();
                 dodgeMeteorites.Opacity = 0;
                 dodgeMeteorites.Show();
@@ -92,6 +99,7 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonYes.PositionOx, GameConfig.TotalElement.ButtonYes.PositionOy),
                 new Size(GameConfig.TotalElement.ButtonYes.Width, GameConfig.TotalElement.ButtonYes.Height)).Contains(e.Location))
             {
+                StateNextBtn.CurrentNextBtnExitRuleDodgeMeteoritesScene = true;
                 StateExitMenu.CurrentStateMenuExitRuleDodgeMeteoritesScene = false;
                 OpeningScene OpeningScene = new OpeningScene();
                 OpeningScene.Opacity = 0;
@@ -113,6 +121,29 @@ namespace EducationalProduct
             {
                 ManagerUI.TotalElementsMenuExit.Clear();
                 StateExitMenu.CurrentStateMenuExitRuleDodgeMeteoritesScene = false;
+                CanvasRuleDodgeMeteoritesScene.Invalidate();
+            }
+        }
+
+        private void CheckMouseDownNext(MouseEventArgs e)
+        {
+            if (new RectangleF(new PointF(GameConfig.RuleDodgeMeteoritesScene.BtnNextPlay.PositionOx, GameConfig.RuleDodgeMeteoritesScene.BtnNextPlay.PositionOy),
+            new Size(GameConfig.RuleDodgeMeteoritesScene.BtnNextPlay.Width, GameConfig.RuleDodgeMeteoritesScene.BtnNextPlay.Height)).Contains(e.Location))
+            {
+                if (!startGame)
+                {
+                    countNext++;
+
+                    if (countNext == 2)
+                    {
+                        startGame = true;
+                    }
+                }
+                else
+                {
+                    StateNextBtn.CurrentNextBtnExitRuleDodgeMeteoritesScene = false;
+                }
+
                 CanvasRuleDodgeMeteoritesScene.Invalidate();
             }
         }

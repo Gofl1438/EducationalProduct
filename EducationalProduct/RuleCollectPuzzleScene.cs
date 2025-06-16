@@ -60,12 +60,12 @@ namespace EducationalProduct
             CheckMouseDownExit(e);
             CheckMouseDownNext(e);
 
-            if (StateExitMenu.CurrentStateMenuExitRuleCollectPuzzleScene || StateNextBtn.CurrentNextBtnExitRuleCatchBonesScene) return;
+            if (StateExitMenu.CurrentStateMenuExitRuleCollectPuzzleScene || StateNextBtn.CurrentNextBtnExitRuleCollectPuzzleScene) return;
 
             if (new RectangleF(new PointF(GameConfig.RuleCollectPuzzleScene.BtnStartPlay.PositionOx, GameConfig.RuleCollectPuzzleScene.BtnStartPlay.PositionOy),
             new Size(GameConfig.RuleCollectPuzzleScene.BtnStartPlay.Width, GameConfig.RuleCollectPuzzleScene.BtnStartPlay.Height)).Contains(e.Location))
             {
-                StateNextBtn.CurrentNextBtnExitRuleCatchBonesScene = true;
+                StateNextBtn.CurrentNextBtnExitRuleCollectPuzzleScene = true;
                 ColleсtPuzzle collectPuzzle = new ColleсtPuzzle();
                 collectPuzzle.Opacity = 0;
                 collectPuzzle.Show();
@@ -99,6 +99,7 @@ namespace EducationalProduct
                 new Size(GameConfig.TotalElement.ButtonYes.Width, GameConfig.TotalElement.ButtonYes.Height)).Contains(e.Location))
             {
                 StateExitMenu.CurrentStateMenuExitRuleCollectPuzzleScene = false;
+                StateNextBtn.CurrentNextBtnExitRuleCollectPuzzleScene = true;
                 OpeningScene OpeningScene = new OpeningScene();
                 OpeningScene.Opacity = 0;
                 OpeningScene.Show();
@@ -124,8 +125,8 @@ namespace EducationalProduct
         }
         private void CheckMouseDownNext(MouseEventArgs e)
         {
-            if (new RectangleF(new PointF(GameConfig.RuleCatchBonesScene.BtnNextPlay.PositionOx, GameConfig.RuleCatchBonesScene.BtnNextPlay.PositionOy),
-            new Size(GameConfig.RuleCatchBonesScene.BtnNextPlay.Width, GameConfig.RuleCatchBonesScene.BtnNextPlay.Height)).Contains(e.Location))
+            if (new RectangleF(new PointF(GameConfig.RuleCollectPuzzleScene.BtnNextPlay.PositionOx, GameConfig.RuleCollectPuzzleScene.BtnNextPlay.PositionOy),
+            new Size(GameConfig.RuleCollectPuzzleScene.BtnNextPlay.Width, GameConfig.RuleCollectPuzzleScene.BtnNextPlay.Height)).Contains(e.Location))
             {
                 if (!startGame)
                 {
@@ -138,7 +139,7 @@ namespace EducationalProduct
                 }
                 else
                 {
-                    StateNextBtn.CurrentNextBtnExitRuleCatchBonesScene = false;
+                    StateNextBtn.CurrentNextBtnExitRuleCollectPuzzleScene = false;
                 }
 
                 CanvasRuleCollectPuzzleScene.Invalidate();

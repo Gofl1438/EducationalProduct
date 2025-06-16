@@ -98,6 +98,7 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonYes.PositionOx, GameConfig.TotalElement.ButtonYes.PositionOy),
                 new Size(GameConfig.TotalElement.ButtonYes.Width, GameConfig.TotalElement.ButtonYes.Height)).Contains(e.Location))
             {
+                StateNextBtn.CurrentNextBtnExitRuleCatchBonesScene = true;
                 StateExitMenu.CurrentStateMenuExitRuleCatchBonesScene = false;
                 OpeningScene OpeningScene = new OpeningScene();
                 OpeningScene.Opacity = 0;

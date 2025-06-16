@@ -13,11 +13,13 @@ namespace EducationalProduct
 {
     public partial class RuleCatchBonesScene : Form
     {
-        int countNext = 0;
-        bool startGame = false;
+        int countNext;
+        bool startGame;
         Rectangle workingArea;
         public RuleCatchBonesScene()
         {
+            countNext = 0;
+            startGame = false;
             InitializeComponent();
             СalibrationSize();
             ManagerUI.AddTotalElements();
@@ -76,6 +78,7 @@ namespace EducationalProduct
                     System.Threading.Thread.Sleep(16);
                 }
                 this.Hide();
+                ManagerUI.RuleCatchBonesElements.Clear();
                 catchBones.FormClosed += (s, args) => { this.Close(); };
             }
         }
@@ -112,6 +115,7 @@ namespace EducationalProduct
                 }
                 this.Hide();
                 ManagerUI.TotalElementsMenuExit.Clear();
+                ManagerUI.RuleCatchBonesElements.Clear();
                 OpeningScene.FormClosed += (s, args) => { this.Close(); };
             }
 

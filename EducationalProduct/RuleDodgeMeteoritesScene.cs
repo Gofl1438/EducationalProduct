@@ -13,11 +13,13 @@ namespace EducationalProduct
 {
     public partial class RuleDodgeMeteoritesScene : Form
     {
-        int countNext = 0;
-        bool startGame = false;
+        int countNext;
+        bool startGame;
         Rectangle workingArea;
         public RuleDodgeMeteoritesScene()
         {
+            countNext = 0;
+            startGame = false;
             InitializeComponent();
             СalibrationSize();
             ManagerUI.AddTotalElements();
@@ -76,6 +78,7 @@ namespace EducationalProduct
                     System.Threading.Thread.Sleep(16);
                 }
                 this.Hide();
+                ManagerUI.RuleDodgeMeteoritesElements.Clear();
                 dodgeMeteorites.FormClosed += (s, args) => { this.Close(); };
             }
         }
@@ -113,6 +116,7 @@ namespace EducationalProduct
                 }
                 this.Hide();
                 ManagerUI.TotalElementsMenuExit.Clear();
+                ManagerUI.RuleDodgeMeteoritesElements.Clear();
                 OpeningScene.FormClosed += (s, args) => { this.Close(); };
             }
 

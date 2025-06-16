@@ -13,7 +13,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static EducationalProduct.Classes.GameConfig.DodgeMeteorites;
-using static EducationalProduct.Classes.GameConfig.DodgeMeteorites.NumberPoints;
 
 namespace EducationalProduct
 {
@@ -238,33 +237,12 @@ namespace EducationalProduct
 
         private void DrawResult(Graphics g)
         {
-            RectangleF rectangleResult = new RectangleF(
-                PointRectangleResult,
-                SizerRectangleResult
-            );
-
-            StringFormat format = new StringFormat
-            {
-                Alignment = StringAlignment.Center,
-                LineAlignment = StringAlignment.Center
-            };
-
-            byte[] fontData = FamilyNameScore;
-            IntPtr fontPtr = Marshal.AllocCoTaskMem(fontData.Length);
-            Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
-            PrivateFontCollection pfc = new PrivateFontCollection();
-            pfc.AddMemoryFont(fontPtr, fontData.Length);
-
             string text = $"{StateDodgeMeteorites.CurrentСompletedMeteorites} из {GameConfig.DodgeMeteorites.Meteorite.DefaultQuantityMeteorites}";
-            Font font = new Font(pfc.Families[0], SizeResult, StyleResult);
+            Font font = new Font(GameConfig.NumberPointsDodgeMeteorites.pfc.Families[0], GameConfig.NumberPointsDodgeMeteorites.SizeResult, GameConfig.NumberPointsDodgeMeteorites.StyleResult);
 
-            RectangleF shadowRect = rectangleResult;
-            shadowRect.Offset(3, 3);
-            using (Brush shadowBrush = new SolidBrush(Color.FromArgb(100, Color.Black)))
-            {
-                g.DrawString(text, font, shadowBrush, shadowRect, format);
-            }
-            g.DrawString(text, font, CustomBrush, rectangleResult, format);
+            g.DrawString(text, font, GameConfig.NumberPointsDodgeMeteorites.shadowBrush, GameConfig.NumberPointsDodgeMeteorites.shadowRect, GameConfig.NumberPointsDodgeMeteorites.format);
+
+            g.DrawString(text, font, GameConfig.NumberPointsDodgeMeteorites.CustomBrush, GameConfig.NumberPointsDodgeMeteorites.rectangleResult, GameConfig.NumberPointsDodgeMeteorites.format);
 
             font.Dispose();
         }

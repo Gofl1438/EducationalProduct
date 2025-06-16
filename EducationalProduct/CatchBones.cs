@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static EducationalProduct.Classes.GameConfig.CatchBones.NumberPoints;
 
 namespace EducationalProduct
 {
@@ -137,34 +136,12 @@ namespace EducationalProduct
 
         private void DrawResult(Graphics g)
         {
-            RectangleF rectangleResult = new RectangleF(
-                PointRectangleResult,
-                SizerRectangleResult
-            );
-
-            StringFormat format = new StringFormat
-            {
-                Alignment = StringAlignment.Center,
-                LineAlignment = StringAlignment.Center
-            };
-
-
-            byte[] fontData = FamilyNameScore;
-            IntPtr fontPtr = Marshal.AllocCoTaskMem(fontData.Length);
-            Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
-            PrivateFontCollection pfc = new PrivateFontCollection();
-            pfc.AddMemoryFont(fontPtr, fontData.Length);
-
             string text = $"{StateCatchBones.СurrentQuntityBones} из {GameConfig.CatchBones.Bone.DefaultQuantityBone}";
-            Font font = new Font(pfc.Families[0], SizeResult, StyleResult);
+            Font font = new Font(GameConfig.NumberPointsCatchBones.pfc.Families[0], GameConfig.NumberPointsCatchBones.SizeResult, GameConfig.NumberPointsCatchBones.StyleResult);
 
-            RectangleF shadowRect = rectangleResult;
-            shadowRect.Offset(3, 3);
-            using (Brush shadowBrush = new SolidBrush(Color.FromArgb(100, Color.Black)))
-            {
-                g.DrawString(text, font, shadowBrush, shadowRect, format);
-            }
-            g.DrawString(text, font, CustomBrush, rectangleResult, format);
+            g.DrawString(text, font, GameConfig.NumberPointsCatchBones.shadowBrush, GameConfig.NumberPointsCatchBones.shadowRect, GameConfig.NumberPointsCatchBones.format);
+
+            g.DrawString(text, font, GameConfig.NumberPointsCatchBones.CustomBrush, GameConfig.NumberPointsCatchBones.rectangleResult, GameConfig.NumberPointsCatchBones.format);
 
             font.Dispose();
         }

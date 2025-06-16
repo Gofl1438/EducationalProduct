@@ -157,7 +157,26 @@ namespace EducationalProduct.Classes
                 GameConfig.RuleScene.TxtRuleScene.Point
                 );
         }
-
+      
+        public static class EndElements
+        {
+            public static readonly ElementUI character = new ElementUI(
+                GameConfig.EndScene.Character.Sprite,
+                GameConfig.EndScene.Character.Size,
+                GameConfig.EndScene.Character.Point
+                );
+            public static readonly ElementUI btnToStart = new ElementUI(
+                GameConfig.EndScene.BtnToStart.Sprite,
+                GameConfig.EndScene.BtnToStart.Size,
+                GameConfig.EndScene.BtnToStart.Point
+                );
+            public static readonly ElementUI txtEndScene = new ElementUI(
+                GameConfig.EndScene.TxtEndScene.Sprite,
+                GameConfig.EndScene.TxtEndScene.Size,
+                GameConfig.EndScene.TxtEndScene.Point
+                );
+        }
+      
         public static class RuleRepeatActionElements
         {
             public static readonly ElementUI character = new ElementUI(

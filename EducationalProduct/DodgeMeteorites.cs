@@ -177,13 +177,13 @@ namespace EducationalProduct
                         if (StateTransitonScene.IsTransitonDodgeMeteoritesAwait)
                         {
                             timer.Stop();
-                            OpeningScene RepeatAction = new OpeningScene(); //указать нужную сцену//
-                            RepeatAction.Opacity = 0;
-                            RepeatAction.Show();
-                            RepeatAction.Refresh();
+                            EndScene endScene = new EndScene(); //указать нужную сцену//
+                            endScene.Opacity = 0;
+                            endScene.Show();
+                            endScene.Refresh();
                             for (double opacity = 0; opacity <= 1; opacity += 0.1)
                             {
-                                RepeatAction.Opacity = opacity;
+                                endScene.Opacity = opacity;
                                 System.Threading.Thread.Sleep(16);
                             }
                             this.Hide();
@@ -191,7 +191,7 @@ namespace EducationalProduct
                             ManagerUI.DodgeMeteoritesElementsBd.Clear();
                             ManagerUI.DodgeMeteoritesElementsBn.Clear();
                             ManagerSound.DeleteActivePlayersDodgeMeteorites();
-                            RepeatAction.FormClosed += (s, args) => { this.Close(); };
+                            endScene.FormClosed += (s, args) => { this.Close(); };
                         }
                     }
                 }

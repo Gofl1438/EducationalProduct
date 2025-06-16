@@ -38,6 +38,7 @@ namespace EducationalProduct.Classes
             InitializeCatchBones();
             InitializeOpeningScene();
             InitializeRuleScene();
+            InitializeEndScene();
             InitializeRuleRepeatActionScene();
             InitializeRuleCatchBonesScene();
             InitializeRuleCollectPuzzleScene();
@@ -107,6 +108,23 @@ namespace EducationalProduct.Classes
             RuleScene.TxtRuleScene.Height = (int)(CanvasProduct.Height * 0.625f);
             RuleScene.TxtRuleScene.PositionOx = CanvasProduct.Width * 0.39f;
             RuleScene.TxtRuleScene.PositionOy = CanvasProduct.Height * 0.069f;
+        }
+        private static void InitializeEndScene()
+        {
+            int MinValueCanvas = Math.Min(CanvasProduct.Height, CanvasProduct.Width);
+            EndScene.Character.Width = (int)(MinValueCanvas * 0.785f);
+            EndScene.Character.Height = EndScene.Character.Width;
+            EndScene.Character.PositionOy = CanvasProduct.Height - RuleScene.Character.Height;
+
+            EndScene.BtnToStart.Width = (int)(CanvasProduct.Width * 0.19f);
+            EndScene.BtnToStart.Height = (int)(CanvasProduct.Height * 0.11f);
+            EndScene.BtnToStart.PositionOx = CanvasProduct.Width * 0.56f;
+            EndScene.BtnToStart.PositionOy = CanvasProduct.Height * 0.763f;
+
+            EndScene.TxtEndScene.Width = (int)(CanvasProduct.Width * 0.5468f);
+            EndScene.TxtEndScene.Height = (int)(CanvasProduct.Height * 0.625f);
+            EndScene.TxtEndScene.PositionOx = CanvasProduct.Width * 0.39f;
+            EndScene.TxtEndScene.PositionOy = CanvasProduct.Height * 0.069f;
         }
         private static void InitializeRuleRepeatActionScene()
         {
@@ -342,7 +360,6 @@ namespace EducationalProduct.Classes
             NumberPointsRepeatButton.pfc = pfc;
             NumberPointsRepeatButton.shadowRect = shadowRect;
         }
-
         public static void InitializeFontDodgeMeteorites()
         {
             int MinValueCanvas = Math.Min(CanvasProduct.Height, CanvasProduct.Width);
@@ -614,6 +631,39 @@ namespace EducationalProduct.Classes
             public static class TxtRuleScene
             {
                 public static readonly Bitmap Sprite = GameResources.txtRuleScene;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+        }
+        public static class EndScene
+        {
+            public static class Character
+            {
+                public static readonly Bitmap Sprite = GameResources.СharacterRuleScene;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class BtnToStart
+            {
+                public static readonly Bitmap Sprite = GameResources.btnToStart;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class TxtEndScene
+            {
+                public static readonly Bitmap Sprite = GameResources.txtEnd;
                 public static int Height { get; set; }
                 public static int Width { get; set; }
                 public static float PositionOx { get; set; }

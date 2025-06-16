@@ -69,6 +69,8 @@ namespace EducationalProduct.Classes
         public static readonly Bitmap YellowButtonGray = Properties.Resources.YellowButtonGray;
         public static readonly Bitmap GreenButtonLight = Properties.Resources.GreenButtonLight;
         public static readonly Bitmap GreenButtonGray = Properties.Resources.GreenButtonGray;
-
+        public static readonly Bitmap BackgroundEnd = Properties.Resources.BackgroundEnd;
+        public static readonly Bitmap txtEnd = Properties.Resources.txtEnd;
+        public static readonly Bitmap btnToStart = Properties.Resources.btnToStart;
     }
 }

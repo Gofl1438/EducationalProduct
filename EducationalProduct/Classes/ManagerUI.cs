@@ -19,6 +19,7 @@ namespace EducationalProduct.Classes
         public static List<ElementUI> TotalElementsMenuExit { get; } = new List<ElementUI>();
         public static List<ElementUI> OpeningElements { get; } = new List<ElementUI>();
         public static List<ElementUI> RuleElements { get; } = new List<ElementUI>();
+        public static List<ElementUI> EndElements { get; } = new List<ElementUI>();
         public static List<ElementUI> RuleRepeatActionElements { get; } = new List<ElementUI>();
         public static List<ElementUI> RuleCatchBonesElements { get; } = new List<ElementUI>();
         public static List<ElementUI> RuleCollectPuzzleElements { get; } = new List<ElementUI>();
@@ -102,6 +103,14 @@ namespace EducationalProduct.Classes
             RuleElements.Add(CashElementUI.RuleElements.character);
             RuleElements.Add(CashElementUI.RuleElements.btnStartPlay);
             RuleElements.Add(CashElementUI.RuleElements.txtRuleScene);
+        }
+
+        public static void AddEndElements()
+        {
+            EndElements.Clear();
+            EndElements.Add(CashElementUI.EndElements.character);
+            EndElements.Add(CashElementUI.EndElements.btnToStart);
+            EndElements.Add(CashElementUI.EndElements.txtEndScene);
         }
 
         public static void AddRuleRepeatActionElements()

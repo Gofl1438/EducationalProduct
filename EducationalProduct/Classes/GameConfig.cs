@@ -360,7 +360,6 @@ namespace EducationalProduct.Classes
             NumberPointsRepeatButton.pfc = pfc;
             NumberPointsRepeatButton.shadowRect = shadowRect;
         }
-
         public static void InitializeFontDodgeMeteorites()
         {
             int MinValueCanvas = Math.Min(CanvasProduct.Height, CanvasProduct.Width);
@@ -415,6 +414,7 @@ namespace EducationalProduct.Classes
             public static PrivateFontCollection pfc { get; set; }
             public static RectangleF shadowRect { get; set; }
         }
+
         public static class NumberPointsRepeatButton
         {
             public static byte[] FamilyNameScore = Properties.Resources.PressStart2P_Regular;

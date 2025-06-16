@@ -157,7 +157,7 @@ namespace EducationalProduct.Classes
                 GameConfig.RuleScene.TxtRuleScene.Point
                 );
         }
-
+      
         public static class EndElements
         {
             public static readonly ElementUI character = new ElementUI(
@@ -176,7 +176,7 @@ namespace EducationalProduct.Classes
                 GameConfig.EndScene.TxtEndScene.Point
                 );
         }
-
+      
         public static class RuleRepeatActionElements
         {
             public static readonly ElementUI character = new ElementUI(

@@ -34,12 +34,13 @@
             // 
             // CanvasRuleRepeatActionScene
             // 
-            CanvasRuleRepeatActionScene.BackgroundImage = Properties.Resources.Background;
             CanvasRuleRepeatActionScene.Dock = DockStyle.Fill;
+            CanvasRuleRepeatActionScene.Image = Properties.Resources.Background;
             CanvasRuleRepeatActionScene.Location = new Point(0, 0);
             CanvasRuleRepeatActionScene.Margin = new Padding(0);
             CanvasRuleRepeatActionScene.Name = "CanvasRuleRepeatActionScene";
-            CanvasRuleRepeatActionScene.Size = new Size(1189, 500);
+            CanvasRuleRepeatActionScene.Size = new Size(1359, 667);
+            CanvasRuleRepeatActionScene.SizeMode = PictureBoxSizeMode.StretchImage;
             CanvasRuleRepeatActionScene.TabIndex = 1;
             CanvasRuleRepeatActionScene.TabStop = false;
             CanvasRuleRepeatActionScene.Paint += RuleRepeatActionScene_Paint;
@@ -47,10 +48,11 @@
             // 
             // RuleRepeatActionScene
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1189, 500);
+            ClientSize = new Size(1359, 667);
             Controls.Add(CanvasRuleRepeatActionScene);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "RuleRepeatActionScene";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RuleRepeatAction";

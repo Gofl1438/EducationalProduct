@@ -24,7 +24,7 @@ namespace EducationalProduct
         Bitmap _cachedButtonUI;
         System.Windows.Forms.Timer timer;
         Rectangle workingArea;
-        private bool IsLeftButtonPressed = false;
+        private bool IsButtonPressed = false;
         private bool IsMouseOverLeftButton = false;
         private bool IsMouseOverRightButton = false;
         public DodgeMeteorites()
@@ -145,13 +145,10 @@ namespace EducationalProduct
                 {
                     ManagerDodgeMeteorites.Meteorites[i].Physics.MoveOyMeteorite();
                 }
-                if (IsLeftButtonPressed)
-                {
                     if (IsMouseOverLeftButton)
                         rocket.Physics.MoveOxLeft();
                     else if (IsMouseOverRightButton)
                         rocket.Physics.MoveOxRight();
-                }
                 ManagerDodgeMeteorites.DeleteMeteorites();
                 СompletedMeteorites();
                 CanvasDodgeMeteorites.Invalidate();
@@ -294,20 +291,12 @@ namespace EducationalProduct
                 StateDodgeMeteorites.СurrentStateMenuClick = false;
                 return;
             }
-
-            if (e.Button == MouseButtons.Left)
-            {
-                IsLeftButtonPressed = true;
-                CheckMouseOverButtons(e.Location);
-            }
-
-
+            CheckMouseOverButtons(e.Location);
         }
+
         private void CanvasDodgeMeteorites_MouseUp(object sender, MouseEventArgs e)
         {
             if (StateExitMenu.СurrentStateMenuExitDodgeMeteorites) return;
-
-            IsLeftButtonPressed = false;
             IsMouseOverLeftButton = false;
             IsMouseOverRightButton = false;
         }
@@ -315,7 +304,6 @@ namespace EducationalProduct
         {
             if (StateExitMenu.СurrentStateMenuExitDodgeMeteorites) return;
 
-            if (!IsLeftButtonPressed) return;
             CheckMouseOverButtons(e.Location);
         }
         private void CheckMouseOverButtons(Point mousePos)

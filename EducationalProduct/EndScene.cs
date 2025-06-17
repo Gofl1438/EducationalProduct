@@ -45,19 +45,33 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.EndScene.BtnToStart.PositionOx, GameConfig.EndScene.BtnToStart.PositionOy),
                 new Size(GameConfig.EndScene.BtnToStart.Width, GameConfig.EndScene.BtnToStart.Height)).Contains(e.Location))
             {
-                OpeningScene openingScene = new OpeningScene();
-                openingScene.Opacity = 0;
-                openingScene.Show();
-                openingScene.Refresh();
-                for (double opacity = 0; opacity <= 1; opacity += 0.1)
+                if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
                 {
-                    openingScene.Opacity = opacity;
-                    System.Threading.Thread.Sleep(16);
+                    mainForm.Opacity = 0;
+                    mainForm.Show();
+                    mainForm.Refresh();
+                    for (double opacity = 0; opacity <= 1; opacity += 0.1)
+                    {
+                        mainForm.Opacity = opacity;
+                        System.Threading.Thread.Sleep(16);
+                        CanvasEndScene.Invalidate();
+                    }
+                    ManagerUI.EndElements.Clear();
+                    this.Hide();
+                    this.Dispose();
                 }
-                this.Hide();
-                ManagerUI.EndElements.Clear();
-                openingScene.FormClosed += (s, args) => { this.Close(); };
             }
+        }
+
+        private void EndScene_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+            this.Dispose();
+            if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
+            {
+                mainForm.Dispose();
+            }
+            Application.Exit();
         }
     }
 }

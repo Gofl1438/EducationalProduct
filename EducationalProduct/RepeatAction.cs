@@ -123,6 +123,8 @@ namespace EducationalProduct
                     if (StateTransitonScene.IsTransitonRepeatButtonAwait)
                     {
                         timer.Stop();
+                        timer.Tick -= Update;
+                        timer.Dispose();
                         RuleCatchBonesScene ruleCatchBonesScene = new RuleCatchBonesScene(); //указать нужную сцену//
                         ruleCatchBonesScene.Opacity = 0;
                         ruleCatchBonesScene.Show();
@@ -131,12 +133,14 @@ namespace EducationalProduct
                         {
                             ruleCatchBonesScene.Opacity = opacity;
                             System.Threading.Thread.Sleep(16);
-                        }
-                        this.Hide();
+                        };
                         ManagerButtonRepeat.DeleteManagerButtonRepeat();
                         ManagerUI.RepeatActionElements.Clear();
                         ManagerSound.DeleteActivePlayersRepeatAction();
-                        ruleCatchBonesScene.FormClosed += (s, args) => { this.Close(); };
+                        _cachedButtonUI.Dispose();
+                        _cachedBackground.Dispose();
+                        this.Hide();
+                        this.Dispose();
                     }
                 }
                 CanvasRepeatAction.Invalidate();
@@ -162,14 +166,13 @@ namespace EducationalProduct
 
         private void DrawResult(Graphics g)
         {
-            string text = $"{StateRepeatButton.СurrentQuntitySequence} из {GameConfig.RepeatAction.MaxQuntitySequence }";
-            Font font = new Font(GameConfig.NumberPointsRepeatButton.pfc.Families[0], GameConfig.NumberPointsRepeatButton.SizeResult, GameConfig.NumberPointsRepeatButton.StyleResult);
+            string text = $"{StateRepeatButton.СurrentQuntitySequence} из {GameConfig.RepeatAction.MaxQuntitySequence}";
+            using (Font font = new Font(GameConfig.NumberPointsRepeatButton.pfc.Families[0], GameConfig.NumberPointsRepeatButton.SizeResult, GameConfig.NumberPointsRepeatButton.StyleResult))
+            {
+                g.DrawString(text, font, GameConfig.NumberPointsRepeatButton.shadowBrush, GameConfig.NumberPointsRepeatButton.shadowRect, GameConfig.NumberPointsRepeatButton.format);
 
-            g.DrawString(text, font, GameConfig.NumberPointsRepeatButton.shadowBrush, GameConfig.NumberPointsRepeatButton.shadowRect, GameConfig.NumberPointsRepeatButton.format);
-            
-            g.DrawString(text, font, GameConfig.NumberPointsRepeatButton.CustomBrush, GameConfig.NumberPointsRepeatButton.rectangleResult, GameConfig.NumberPointsRepeatButton.format);
-
-            font.Dispose();
+                g.DrawString(text, font, GameConfig.NumberPointsRepeatButton.CustomBrush, GameConfig.NumberPointsRepeatButton.rectangleResult, GameConfig.NumberPointsRepeatButton.format);
+            }
         }
 
         private void CanvasRepeatAction_MouseDown(object sender, MouseEventArgs e)
@@ -288,21 +291,28 @@ namespace EducationalProduct
                 StateRepeatButton.СurrentStateMenuClick = true;
                 StateExitMenu.СurrentStateMenuExitRepeatAction = false;
                 timer.Stop();
-                OpeningScene OpeningScene = new OpeningScene();
-                OpeningScene.Opacity = 0;
-                OpeningScene.Show();
-                OpeningScene.Refresh();
-                for (double opacity = 0; opacity <= 1; opacity += 0.1)
+                timer.Tick -= Update;
+                timer.Dispose();
+                if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
                 {
-                    OpeningScene.Opacity = opacity;
-                    System.Threading.Thread.Sleep(16);
+                    mainForm.Opacity = 0;
+                    mainForm.Show();
+                    mainForm.Refresh();
+                    for (double opacity = 0; opacity <= 1; opacity += 0.1)
+                    {
+                        mainForm.Opacity = opacity;
+                        System.Threading.Thread.Sleep(16);
+                        CanvasRepeatAction.Invalidate();
+                    }
+                    ManagerButtonRepeat.DeleteManagerButtonRepeat();
+                    ManagerUI.RepeatActionElements.Clear();
+                    ManagerUI.TotalElementsMenuExit.Clear();
+                    ManagerSound.DeleteActivePlayersRepeatAction();
+                    _cachedButtonUI.Dispose();
+                    _cachedBackground.Dispose();
+                    this.Hide();
+                    this.Dispose();
                 }
-                this.Hide();
-                ManagerButtonRepeat.DeleteManagerButtonRepeat();
-                ManagerUI.RepeatActionElements.Clear();
-                ManagerUI.TotalElementsMenuExit.Clear();
-                ManagerSound.DeleteActivePlayersRepeatAction();
-                OpeningScene.FormClosed += (s, args) => { this.Close(); };
             }
 
             if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonNo.PositionOx, GameConfig.TotalElement.ButtonNo.PositionOy),
@@ -317,6 +327,22 @@ namespace EducationalProduct
                     ManagerButtonRepeat.PlaySequence(StateRepeatButton.cts.Token);
                 }
             }
+        }
+
+        private void RepeatAction_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _cachedButtonUI.Dispose();
+            _cachedBackground.Dispose();
+            timer.Stop();
+            timer.Tick -= Update;
+            timer.Dispose();
+            this.Hide();
+            this.Dispose();
+            if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
+            {
+                mainForm.Dispose();
+            }
+            Application.Exit();
         }
     }
 }

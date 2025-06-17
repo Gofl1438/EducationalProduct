@@ -56,6 +56,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RuleScene";
             WindowState = FormWindowState.Maximized;
+            FormClosed += RuleScene_FormClosed;
             ((System.ComponentModel.ISupportInitialize)CanvasRuleScene).EndInit();
             ResumeLayout(false);
         }

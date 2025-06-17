@@ -7,7 +7,7 @@ using static EducationalProduct.Classes.GameConfig.ColleсtPuzzle.Puzzle.SolidRo
 
 namespace EducationalProduct.Classes
 {
-    public class SolidRocketPuzzle : GameObject
+    public class SolidRocketPuzzle : GameObject, IDisposable
     {
         private float SpeedOx;
         private float Acceleration;
@@ -24,6 +24,12 @@ namespace EducationalProduct.Classes
         {
             Transform.Position.X += SpeedOx;
             SpeedOx += Acceleration;
+        }
+
+        public void Dispose()
+        {
+            Sprite = null;
+            Transform = null;
         }
     }
 }

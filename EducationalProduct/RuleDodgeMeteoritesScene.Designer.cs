@@ -55,6 +55,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RuleDodgeMeteoritesScene";
             WindowState = FormWindowState.Maximized;
+            FormClosed += RuleDodgeMeteoritesScene_FormClosed;
             ((System.ComponentModel.ISupportInitialize)CanvasRuleDodgeMeteoritesScene).EndInit();
             ResumeLayout(false);
         }

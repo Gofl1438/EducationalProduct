@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EducationalProduct.Classes
 {
-    public class Meteorite : GameObject
+    public class Meteorite : GameObject, IDisposable
     {
         public PhysicsMeteorite Physics { get; set; }
         public bool СompletedMeteorites { get; set; }
@@ -17,6 +17,13 @@ namespace EducationalProduct.Classes
             Sprite = GameConfig.DodgeMeteorites.Meteorite.Sprite;
             Physics = new PhysicsMeteorite(Transform);
             IsVisible = true;
+        }
+
+        public void Dispose()
+        {
+            Sprite = null;
+            Physics = null;
+            Transform = null;
         }
     }
 }

@@ -55,6 +55,7 @@
             Name = "CatchBones";
             Text = "CatchBones";
             WindowState = FormWindowState.Maximized;
+            FormClosed += CatchBones_FormClosed;
             ((System.ComponentModel.ISupportInitialize)CanvasCatchBones).EndInit();
             ResumeLayout(false);
         }

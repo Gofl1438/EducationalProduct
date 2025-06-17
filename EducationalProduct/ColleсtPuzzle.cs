@@ -66,6 +66,8 @@ namespace EducationalProduct
                 if (StateTransitonScene.IsTransitonColleсtPuzzleAwait) //указать нужную сцену//
                 {
                     timer.Stop();
+                    timer.Tick -= Update;
+                    timer.Dispose();
                     RuleDodgeMeteoritesScene ruleDodgeMeteoritesScene = new RuleDodgeMeteoritesScene();
                     ruleDodgeMeteoritesScene.Opacity = 0;
                     ruleDodgeMeteoritesScene.Show();
@@ -75,12 +77,15 @@ namespace EducationalProduct
                         ruleDodgeMeteoritesScene.Opacity = opacity;
                         System.Threading.Thread.Sleep(16);
                     }
-                    this.Hide();
                     ManagerUI.ColleсtPuzzleElements.Clear();
                     StateTransitonScene.IsTransitonColleсtPuzzle = false;
                     ManagerSound.DeleteActivePlayersColleсtPuzzle();
                     ManagerPuzzle.SolidRocketPuzzles.Clear();
-                    ruleDodgeMeteoritesScene.FormClosed += (s, args) => { this.Close(); };
+                    ManagerPuzzle.Dispose();
+                    _cachedBackground.Dispose();
+                    _cachedButtonUI.Dispose();
+                    this.Hide();
+                    this.Dispose();
                 }
             }
         }
@@ -255,22 +260,30 @@ namespace EducationalProduct
                 StateCollectPuzzle.СurrentStateMenuClick = true;
                 StateExitMenu.СurrentStateMenuExitCollectPuzzle = false;
                 timer.Stop();
-                OpeningScene OpeningScene = new OpeningScene();
-                OpeningScene.Opacity = 0;
-                OpeningScene.Show();
-                OpeningScene.Refresh();
-                for (double opacity = 0; opacity <= 1; opacity += 0.1)
+                timer.Tick -= Update;
+                timer.Dispose();
+                if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
                 {
-                    OpeningScene.Opacity = opacity;
-                    System.Threading.Thread.Sleep(16);
+                    mainForm.Opacity = 0;
+                    mainForm.Show();
+                    mainForm.Refresh();
+                    for (double opacity = 0; opacity <= 1; opacity += 0.1)
+                    {
+                        mainForm.Opacity = opacity;
+                        System.Threading.Thread.Sleep(16);
+                        CanvasColleсtPuzzle.Invalidate();
+                    }
+                    ManagerPuzzle.SolidRocketPuzzles.Clear();
+                    ManagerUI.ColleсtPuzzleElements.Clear();
+                    StateTransitonScene.IsTransitonColleсtPuzzle = false;
+                    ManagerUI.TotalElementsMenuExit.Clear();
+                    ManagerSound.DeleteActivePlayersColleсtPuzzle();
+                    ManagerPuzzle.Dispose();
+                    _cachedBackground.Dispose();
+                    _cachedButtonUI.Dispose();
+                    this.Hide();
+                    this.Dispose();
                 }
-                this.Hide();
-                ManagerPuzzle.SolidRocketPuzzles.Clear();
-                ManagerUI.ColleсtPuzzleElements.Clear();
-                StateTransitonScene.IsTransitonColleсtPuzzle = false;
-                ManagerUI.TotalElementsMenuExit.Clear();
-                ManagerSound.DeleteActivePlayersColleсtPuzzle();
-                OpeningScene.FormClosed += (s, args) => { this.Close(); };
             }
 
             if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonNo.PositionOx, GameConfig.TotalElement.ButtonNo.PositionOy),
@@ -280,6 +293,23 @@ namespace EducationalProduct
                 StateCollectPuzzle.СurrentStateMenuClick = true;
                 StateExitMenu.СurrentStateMenuExitCollectPuzzle = false;
             }
+        }
+
+        private void ColleсtPuzzle_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ManagerPuzzle.Dispose();
+            _cachedBackground.Dispose();
+            _cachedButtonUI.Dispose();
+            timer.Stop();
+            timer.Tick -= Update;
+            timer.Dispose();
+            this.Hide();
+            this.Dispose();
+            if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
+            {
+                mainForm.Dispose();
+            }
+            Application.Exit();
         }
     }
 }

@@ -47,16 +47,18 @@ namespace EducationalProduct
             {
                 RuleScene ruleScene = new RuleScene();
                 ruleScene.Opacity = 0;
+
+                ruleScene.FormClosed += (s, args) => { this.Close(); };
+
                 ruleScene.Show();
                 ruleScene.Refresh();
+
                 for (double opacity = 0; opacity <= 1; opacity += 0.1)
                 {
                     ruleScene.Opacity = opacity;
                     System.Threading.Thread.Sleep(16);
                 }
                 this.Hide();
-                ManagerUI.OpeningElements.Clear();
-                ruleScene.FormClosed += (s, args) => {this.Close();};
             }
         }
     }

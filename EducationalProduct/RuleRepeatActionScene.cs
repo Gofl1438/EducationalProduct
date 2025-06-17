@@ -89,8 +89,9 @@ namespace EducationalProduct
                     repeatAction.Opacity = opacity;
                     System.Threading.Thread.Sleep(16);
                 }
+                _cachedBackground.Dispose();
                 this.Hide();
-                repeatAction.FormClosed += (s, args) => { this.Close(); };
+                this.Dispose();
             }
         }
 
@@ -114,21 +115,24 @@ namespace EducationalProduct
             {
                 StateNextBtn.CurrentNextBtnExitRuleRepeatActionScene = true;
                 StateExitMenu.CurrentStateMenuExitRuleRepeatActionScene = false;
-                OpeningScene OpeningScene = new OpeningScene();
-                OpeningScene.Opacity = 0;
-                OpeningScene.Show();
-                OpeningScene.Refresh();
-                for (double opacity = 0; opacity <= 1; opacity += 0.1)
+                if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
                 {
-                    OpeningScene.Opacity = opacity;
-                    System.Threading.Thread.Sleep(16);
-                    CanvasRuleRepeatActionScene.Invalidate();
+                    mainForm.Opacity = 0;
+                    mainForm.Show();
+                    mainForm.Refresh();
+                    for (double opacity = 0; opacity <= 1; opacity += 0.1)
+                    {
+                        mainForm.Opacity = opacity;
+                        System.Threading.Thread.Sleep(16);
+                        CanvasRuleRepeatActionScene.Invalidate();
+                    }
+                    ManagerUI.TotalElementsMenuExit.Clear();
+                    ManagerUI.BtnClosedElement.Clear();
+                    ManagerUI.RuleRepeatActionElements.Clear();
+                    _cachedBackground.Dispose();
+                    this.Hide();
+                    this.Dispose();
                 }
-                this.Hide();
-                ManagerUI.TotalElementsMenuExit.Clear();
-                ManagerUI.BtnClosedElement.Clear();
-                ManagerUI.RuleRepeatActionElements.Clear();
-                OpeningScene.FormClosed += (s, args) => { this.Close(); };
             }
 
             if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonNo.PositionOx, GameConfig.TotalElement.ButtonNo.PositionOy),
@@ -161,6 +165,18 @@ namespace EducationalProduct
 
                 CanvasRuleRepeatActionScene.Invalidate();
             }
+        }
+
+        private void RuleRepeatActionScene_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _cachedBackground.Dispose();
+            this.Hide();
+            this.Dispose();
+            if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
+            {
+                mainForm.Dispose();
+            }
+            Application.Exit();
         }
     }
 }

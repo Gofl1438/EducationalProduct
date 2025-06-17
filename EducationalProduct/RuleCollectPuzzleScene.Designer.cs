@@ -55,6 +55,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RuleCollectPuzzleScene";
             WindowState = FormWindowState.Maximized;
+            FormClosed += RuleCollectPuzzleScene_FormClosed;
             ((System.ComponentModel.ISupportInitialize)CanvasRuleCollectPuzzleScene).EndInit();
             ResumeLayout(false);
         }

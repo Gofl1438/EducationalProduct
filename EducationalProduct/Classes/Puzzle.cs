@@ -10,7 +10,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EducationalProduct.Classes
 {
-    public class Puzzle : GameObject
+    public class Puzzle : GameObject, IDisposable
     {
         public GameConfig.PuzzlesType Type { get; set; }
         public PhysicsPuzzle Physics { get; set; }
@@ -21,6 +21,13 @@ namespace EducationalProduct.Classes
             Type = type;
             SetBoneAppearance();
             Physics = new PhysicsPuzzle(Transform, type);
+        }
+
+        public void Dispose()
+        {
+            Sprite = null;
+            Physics = null;
+            Transform = null;
         }
 
         private void SetBoneAppearance()

@@ -7,7 +7,7 @@ using static EducationalProduct.Classes.GameConfig.CatchBones.Bone;
 
 namespace EducationalProduct.Classes
 {
-    public class Bone : GameObject
+    public class Bone : GameObject, IDisposable
     {
         public GameConfig.BonesType Type { get; set; }
         public PhysicsBone Physics { get; set; }
@@ -18,6 +18,14 @@ namespace EducationalProduct.Classes
             Type = type;
             SetBoneAppearance(position);
             Physics = new PhysicsBone(Transform, type);
+        }
+
+        public void Dispose()
+        {
+            Sprite = null;
+            Physics = null;
+            Transform = null;
+            Physics = null;
         }
 
         public void SetBoneAppearance(PointF position)

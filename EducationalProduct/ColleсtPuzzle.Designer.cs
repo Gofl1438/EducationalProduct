@@ -57,6 +57,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ColleсtPuzzle";
             WindowState = FormWindowState.Maximized;
+            FormClosed += ColleсtPuzzle_FormClosed;
             ((System.ComponentModel.ISupportInitialize)CanvasColleсtPuzzle).EndInit();
             ResumeLayout(false);
         }

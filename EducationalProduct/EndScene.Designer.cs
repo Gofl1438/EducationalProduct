@@ -55,6 +55,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "EndScene";
             WindowState = FormWindowState.Maximized;
+            FormClosed += EndScene_FormClosed;
             ((System.ComponentModel.ISupportInitialize)CanvasEndScene).EndInit();
             ResumeLayout(false);
         }

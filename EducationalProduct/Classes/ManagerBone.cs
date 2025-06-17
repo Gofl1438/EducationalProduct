@@ -30,6 +30,14 @@ namespace EducationalProduct.Classes
             }
         }
 
+        public static void Dispose()
+        {
+            foreach (Bone bone in Bones)
+            {
+                bone.Dispose();
+            }
+        }
+
         public static void ApplyPhysicsCollideMoveBone()
         {
             foreach (Bone bone in Bones)

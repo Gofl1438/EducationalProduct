@@ -25,6 +25,18 @@ namespace EducationalProduct.Classes
             }
         }
 
+        public static void Dispose()
+        {
+            foreach (var type in Puzzles)
+            {
+                type.Dispose();
+            }
+            foreach (var type in SolidRocketPuzzles)
+            {
+                type.Dispose();
+            }
+        }
+
         public static void ApplyPhysics()
         {
             if (!CheckCorrectPoisiton())
@@ -38,6 +50,10 @@ namespace EducationalProduct.Classes
             if (StateCollectPuzzle.countFreePuzzles == 0 && !StateCollectPuzzle.rocketLaunch)
             {
                 StateCollectPuzzle.rocketLaunch = true;
+                foreach (var type in Puzzles)
+                {
+                    type.Dispose();
+                }
                 Puzzles.Clear();
                 SolidRocketPuzzles.Add(new SolidRocketPuzzle());
                 using (var player = new SoundPlayer(Properties.Resources.CollectPuzzleSingleRocketTakeoff))
@@ -62,6 +78,7 @@ namespace EducationalProduct.Classes
             {
                 if (SolidRocketPuzzles[i].Transform.Position.X >= CanvasProduct.Width)
                 {
+                    SolidRocketPuzzles[i].Dispose();
                     SolidRocketPuzzles.Clear();
                     StateTransitonScene.IsTransitonColleсtPuzzle = true;
                 }

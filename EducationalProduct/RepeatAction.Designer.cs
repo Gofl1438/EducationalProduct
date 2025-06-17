@@ -54,6 +54,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RepeatAction";
             WindowState = FormWindowState.Maximized;
+            FormClosed += RepeatAction_FormClosed;
             ((System.ComponentModel.ISupportInitialize)CanvasRepeatAction).EndInit();
             ResumeLayout(false);
         }

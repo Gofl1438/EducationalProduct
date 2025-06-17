@@ -60,6 +60,8 @@ namespace EducationalProduct
                 if (StateTransitonScene.IsTransitonCatchBonesAwait)
                 {
                     timer.Stop();
+                    timer.Tick -= Update;
+                    timer.Dispose();
                     RuleCollectPuzzleScene ruleCollectPuzzleScene = new RuleCollectPuzzleScene(); //указать нужную сцену//
                     ruleCollectPuzzleScene.Opacity = 0;
                     ruleCollectPuzzleScene.Show();
@@ -69,10 +71,13 @@ namespace EducationalProduct
                         ruleCollectPuzzleScene.Opacity = opacity;
                         System.Threading.Thread.Sleep(16);
                     }
-                    this.Hide();
                     ManagerUI.CatchBonesElements.Clear();
                     ManagerSound.DeleteActivePlayersCatchBones();
-                    ruleCollectPuzzleScene.FormClosed += (s, args) => { this.Close(); };
+                    _cachedBackground.Dispose();
+                    _cachedButtonUI.Dispose();
+                    ManagerBone.Dispose();
+                    this.Hide();
+                    this.Dispose();
                 }
             }
         }
@@ -234,20 +239,28 @@ namespace EducationalProduct
                 StateCatchBones.СurrentStateMenuClick = true;
                 StateExitMenu.СurrentStateMenuExitCatchBones = false;
                 timer.Stop();
-                OpeningScene OpeningScene = new OpeningScene();
-                OpeningScene.Opacity = 0;
-                OpeningScene.Show();
-                OpeningScene.Refresh();
-                for (double opacity = 0; opacity <= 1; opacity += 0.1)
+                timer.Tick -= Update;
+                timer.Dispose();
+                if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
                 {
-                    OpeningScene.Opacity = opacity;
-                    System.Threading.Thread.Sleep(16);
+                    mainForm.Opacity = 0;
+                    mainForm.Show();
+                    mainForm.Refresh();
+                    for (double opacity = 0; opacity <= 1; opacity += 0.1)
+                    {
+                        mainForm.Opacity = opacity;
+                        System.Threading.Thread.Sleep(16);
+                        CanvasCatchBones.Invalidate();
+                    }
+                    ManagerUI.CatchBonesElements.Clear();
+                    ManagerUI.TotalElementsMenuExit.Clear();
+                    ManagerSound.DeleteActivePlayersCatchBones();
+                    _cachedBackground.Dispose();
+                    _cachedButtonUI.Dispose();
+                    ManagerBone.Dispose();
+                    this.Hide();
+                    this.Dispose();
                 }
-                this.Hide();
-                ManagerUI.CatchBonesElements.Clear();
-                ManagerUI.TotalElementsMenuExit.Clear();
-                ManagerSound.DeleteActivePlayersCatchBones();
-                OpeningScene.FormClosed += (s, args) => { this.Close(); };
             }
 
             if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonNo.PositionOx, GameConfig.TotalElement.ButtonNo.PositionOy),
@@ -257,6 +270,23 @@ namespace EducationalProduct
                 StateExitMenu.СurrentStateMenuExitCatchBones = false;
                 StateCatchBones.СurrentStateMenuClick = true;
             }
+        }
+
+        private void CatchBones_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ManagerBone.Dispose();
+            _cachedBackground.Dispose();
+            _cachedButtonUI.Dispose();
+            timer.Stop();
+            timer.Tick -= Update;
+            timer.Dispose();
+            this.Hide();
+            this.Dispose();
+            if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
+            {
+                mainForm.Dispose();
+            }
+            Application.Exit();
         }
     }
 

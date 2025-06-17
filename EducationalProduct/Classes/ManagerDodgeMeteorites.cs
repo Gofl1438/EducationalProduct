@@ -12,6 +12,13 @@ namespace EducationalProduct.Classes
         private static Random random = new Random();
         public static List<Meteorite> Meteorites = new List<Meteorite>();
         
+        public static void Dispose()
+        {
+            foreach (var met in Meteorites)
+            {
+                met.Dispose();
+            }
+        }
         public static void AddMeteoritesNormal()
         {
             Meteorites.Clear();

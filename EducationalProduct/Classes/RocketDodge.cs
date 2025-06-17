@@ -8,7 +8,7 @@ using static EducationalProduct.Classes.GameConfig.DodgeMeteorites.Rocket;
 
 namespace EducationalProduct.Classes
 {
-    public class RocketDodge : GameObject
+    public class RocketDodge : GameObject, IDisposable
     {
         public PhysicsRocket Physics { get; set; }
         public bool IsVisible { get; set; }
@@ -20,6 +20,13 @@ namespace EducationalProduct.Classes
             Sprite = GameConfig.DodgeMeteorites.Rocket.Sprite;
             Physics = new PhysicsRocket(Transform);
             IsVisible = true;
+        }
+
+        public void Dispose()
+        {
+            Sprite = null;
+            Physics = null;
+            Transform = null;
         }
     }
 }

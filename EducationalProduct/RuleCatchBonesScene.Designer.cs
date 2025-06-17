@@ -55,6 +55,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RuleCatchBonesScene";
             WindowState = FormWindowState.Maximized;
+            FormClosed += RuleCatchBonesScene_FormClosed;
             ((System.ComponentModel.ISupportInitialize)CanvasRuleCatchBonesScene).EndInit();
             ResumeLayout(false);
         }

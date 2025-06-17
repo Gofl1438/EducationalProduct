@@ -177,6 +177,8 @@ namespace EducationalProduct
                         if (StateTransitonScene.IsTransitonDodgeMeteoritesAwait)
                         {
                             timer.Stop();
+                            timer.Tick -= Update;
+                            timer.Dispose();
                             EndScene endScene = new EndScene(); //указать нужную сцену//
                             endScene.Opacity = 0;
                             endScene.Show();
@@ -186,12 +188,16 @@ namespace EducationalProduct
                                 endScene.Opacity = opacity;
                                 System.Threading.Thread.Sleep(16);
                             }
-                            this.Hide();
-                            rocket = null;
+                            rocket.Dispose();
                             ManagerUI.DodgeMeteoritesElementsBd.Clear();
                             ManagerUI.DodgeMeteoritesElementsBn.Clear();
                             ManagerSound.DeleteActivePlayersDodgeMeteorites();
-                            endScene.FormClosed += (s, args) => { this.Close(); };
+                            _cachedBackground.Dispose();
+                            _cachedButton.Dispose();
+                            _cachedButtonUI.Dispose();
+                            ManagerDodgeMeteorites.Dispose();
+                            this.Hide();
+                            this.Dispose();
                         }
                     }
                 }
@@ -238,15 +244,14 @@ namespace EducationalProduct
         private void DrawResult(Graphics g)
         {
             string text = $"{StateDodgeMeteorites.CurrentСompletedMeteorites} из {GameConfig.DodgeMeteorites.Meteorite.DefaultQuantityMeteorites}";
-            Font font = new Font(GameConfig.NumberPointsDodgeMeteorites.pfc.Families[0], GameConfig.NumberPointsDodgeMeteorites.SizeResult, GameConfig.NumberPointsDodgeMeteorites.StyleResult);
+            using (Font font = new Font(GameConfig.NumberPointsDodgeMeteorites.pfc.Families[0], GameConfig.NumberPointsDodgeMeteorites.SizeResult, GameConfig.NumberPointsDodgeMeteorites.StyleResult))
+            {
+                g.DrawString(text, font, GameConfig.NumberPointsDodgeMeteorites.shadowBrush, GameConfig.NumberPointsDodgeMeteorites.shadowRect, GameConfig.NumberPointsDodgeMeteorites.format);
 
-            g.DrawString(text, font, GameConfig.NumberPointsDodgeMeteorites.shadowBrush, GameConfig.NumberPointsDodgeMeteorites.shadowRect, GameConfig.NumberPointsDodgeMeteorites.format);
-
-            g.DrawString(text, font, GameConfig.NumberPointsDodgeMeteorites.CustomBrush, GameConfig.NumberPointsDodgeMeteorites.rectangleResult, GameConfig.NumberPointsDodgeMeteorites.format);
-
-            font.Dispose();
+                g.DrawString(text, font, GameConfig.NumberPointsDodgeMeteorites.CustomBrush, GameConfig.NumberPointsDodgeMeteorites.rectangleResult, GameConfig.NumberPointsDodgeMeteorites.format);
+            }
         }
-        
+
         private void СompletedMeteorites()
         {
             for (int i = 0; i < ManagerDodgeMeteorites.Meteorites.Count; i++)
@@ -255,7 +260,7 @@ namespace EducationalProduct
                 if (meteorites.Transform.Position.Y > rocket.Transform.Position.Y + Rocket.Height
                     && !meteorites.СompletedMeteorites)
                 {
-                    StateDodgeMeteorites.CurrentСompletedMeteorites++; 
+                    StateDodgeMeteorites.CurrentСompletedMeteorites++;
                     ManagerDodgeMeteorites.Meteorites[i].СompletedMeteorites = true;
                 }
             }
@@ -373,22 +378,31 @@ namespace EducationalProduct
                 StateDodgeMeteorites.СurrentStateMenuClick = true;
                 StateExitMenu.СurrentStateMenuExitDodgeMeteorites = false;
                 timer.Stop();
-                OpeningScene OpeningScene = new OpeningScene();
-                OpeningScene.Opacity = 0;
-                OpeningScene.Show();
-                OpeningScene.Refresh();
-                for (double opacity = 0; opacity <= 1; opacity += 0.1)
+                timer.Tick -= Update;
+                timer.Dispose();
+                if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
                 {
-                    OpeningScene.Opacity = opacity;
-                    System.Threading.Thread.Sleep(16);
+                    mainForm.Opacity = 0;
+                    mainForm.Show();
+                    mainForm.Refresh();
+                    for (double opacity = 0; opacity <= 1; opacity += 0.1)
+                    {
+                        mainForm.Opacity = opacity;
+                        System.Threading.Thread.Sleep(16);
+                        CanvasDodgeMeteorites.Invalidate();
+                    }
+                    rocket.Dispose();
+                    ManagerUI.DodgeMeteoritesElementsBd.Clear();
+                    ManagerUI.DodgeMeteoritesElementsBn.Clear();
+                    ManagerUI.TotalElementsMenuExit.Clear();
+                    ManagerSound.DeleteActivePlayersDodgeMeteorites();
+                    _cachedBackground.Dispose();
+                    _cachedButton.Dispose();
+                    _cachedButtonUI.Dispose();
+                    ManagerDodgeMeteorites.Dispose();
+                    this.Hide();
+                    this.Dispose();
                 }
-                this.Hide();
-                rocket = null;
-                ManagerUI.DodgeMeteoritesElementsBd.Clear();
-                ManagerUI.DodgeMeteoritesElementsBn.Clear();
-                ManagerUI.TotalElementsMenuExit.Clear();
-                ManagerSound.DeleteActivePlayersDodgeMeteorites();
-                OpeningScene.FormClosed += (s, args) => { this.Close(); };
             }
 
             if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonNo.PositionOx, GameConfig.TotalElement.ButtonNo.PositionOy),
@@ -403,6 +417,25 @@ namespace EducationalProduct
                     player.PlayLooping();
                 }
             }
+        }
+
+        private void DodgeMeteorites_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ManagerDodgeMeteorites.Dispose();
+            rocket.Dispose();
+            timer.Stop();
+            timer.Tick -= Update;
+            timer.Dispose();
+            _cachedBackground.Dispose();
+            _cachedButton.Dispose();
+            _cachedButtonUI.Dispose();
+            this.Hide();
+            this.Dispose();
+            if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
+            {
+                mainForm.Dispose();
+            }
+            Application.Exit();
         }
     }
 }

@@ -10,10 +10,12 @@ namespace EducationalProduct.Classes
     {
         public static int СurrentQuntityBones;
         public static bool СurrentStateMenuClick;
+        public static bool SingleView;
         public static void Init()
         {
             СurrentQuntityBones = 0;
             СurrentStateMenuClick = false;
+            SingleView = false;
         }
     }
 }

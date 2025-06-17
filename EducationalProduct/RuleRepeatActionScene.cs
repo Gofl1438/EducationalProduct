@@ -89,6 +89,9 @@ namespace EducationalProduct
                     repeatAction.Opacity = opacity;
                     System.Threading.Thread.Sleep(16);
                 }
+                ManagerUI.TotalElementsMenuExit.Clear();
+                ManagerUI.BtnClosedElement.Clear();
+                ManagerUI.RuleRepeatActionElements.Clear();
                 _cachedBackground.Dispose();
                 this.Hide();
                 this.Dispose();

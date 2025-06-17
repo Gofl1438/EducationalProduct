@@ -99,6 +99,11 @@ namespace EducationalProduct
             {
                 if (!StateTransitonScene.IsNotCallRepeatActionAwaitOpening)
                 {
+                    if (!StateRepeatButton.SingleView)
+                    {
+                        MenuRuleCkeck();
+                        StateRepeatButton.SingleView = true;
+                    }
                     AwaitOpening();
                     StateTransitonScene.IsNotCallRepeatActionAwaitOpening = true;
                 }
@@ -134,6 +139,7 @@ namespace EducationalProduct
                             ruleCatchBonesScene.Opacity = opacity;
                             System.Threading.Thread.Sleep(16);
                         };
+                        ManagerButtonRepeat.Dispose();
                         ManagerButtonRepeat.DeleteManagerButtonRepeat();
                         ManagerUI.RepeatActionElements.Clear();
                         ManagerSound.DeleteActivePlayersRepeatAction();
@@ -160,7 +166,7 @@ namespace EducationalProduct
 
         private async Task AwaitOpening()
         {
-            await Task.Delay(500);
+            await Task.Delay(300);
             StateTransitonScene.IsTransitonRepeatActionAwaitOpening = true;
         }
 
@@ -197,7 +203,7 @@ namespace EducationalProduct
                 return;
             }
 
-            if (!StateRepeatButton.IsPlayingSequence && !StateRepeatButton.IsSceneGameOver && !StateRepeatButton.IsSceneWinGame)
+            if (!StateRepeatButton.IsPlayingSequence && !StateRepeatButton.IsSceneGameOver && !StateRepeatButton.IsSceneWinGame && !StateRepeatButton.PressButtonAnimation)
             {
                 for (int i = 0; i < ManagerButtonRepeat.ButtonRepeat.Count; i++)
                 {
@@ -261,6 +267,21 @@ namespace EducationalProduct
             }
         }
 
+        private void MenuRuleCkeck()
+        {
+            ManagerUI.AddRuleElementsRepeatAction();
+            ManagerSound.DeleteActivePlayersRepeatAction();
+            CanvasRepeatAction.Invalidate();
+            StateRuleMenu.СurrentStateMenuRuleRepeatAction = true;
+            StateRepeatButton.СurrentStateMenuClick = true;
+            if (StateRepeatButton.IsPlayingSequence)
+            {
+                StateRepeatButton.ErorClickButton = true;
+                StateRepeatButton.cts.Cancel();
+                StateRepeatButton.cts.Dispose();
+                StateRepeatButton.cts = new CancellationTokenSource();
+            }
+        }
         private void CheckMouseDownExit(MouseEventArgs e)
         {
             if (new RectangleF(new PointF(GameConfig.TotalElement.BtnClosed.PositionOx, GameConfig.TotalElement.BtnClosed.PositionOy),
@@ -304,6 +325,7 @@ namespace EducationalProduct
                         System.Threading.Thread.Sleep(16);
                         CanvasRepeatAction.Invalidate();
                     }
+                    ManagerButtonRepeat.Dispose();
                     ManagerButtonRepeat.DeleteManagerButtonRepeat();
                     ManagerUI.RepeatActionElements.Clear();
                     ManagerUI.TotalElementsMenuExit.Clear();
@@ -331,6 +353,7 @@ namespace EducationalProduct
 
         private void RepeatAction_FormClosed(object sender, FormClosedEventArgs e)
         {
+            ManagerButtonRepeat.Dispose();
             _cachedButtonUI.Dispose();
             _cachedBackground.Dispose();
             timer.Stop();

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using static EducationalProduct.Classes.GameConfig;
 using static EducationalProduct.Classes.GameConfig.CatchBones;
 using static EducationalProduct.Classes.GameConfig.CatchBones.Bone;
+using static System.Windows.Forms.Design.AxImporter;
 
 
 namespace EducationalProduct.Classes
@@ -15,12 +16,26 @@ namespace EducationalProduct.Classes
     public static class ManagerBone
     {
         public static List<Bone> Bones = new List<Bone>();
+        private static Random rand = new Random();
 
         public static void AddDefaultQuantityBones()
         {
-            Bones.Clear();
-            Bones.AddRange(CashMiniGame.GetBones());
-        } 
+            BonesType[] bonesTypes = (BonesType[])Enum.GetValues(typeof(BonesType));
+            float posOx = 0;
+            float posOy = GameConfig.CanvasProduct.HeightBlockBone;
+            while (Bones.Count < GameConfig.CatchBones.Bone.DefaultQuantityBone)
+            {
+                int index = rand.Next(0, bonesTypes.Length);
+                posOx += GameConfig.CanvasProduct.WidthBlockBone;
+                if (posOx > GameConfig.CanvasProduct.Width)
+                {
+                    posOx = GameConfig.CanvasProduct.WidthBlockBone;
+                    posOy += GameConfig.CanvasProduct.HeightBlockBone;
+                }
+                PointF position = GetRandomPosition(posOx, posOy, bonesTypes[index]);
+                Bones.Add(new Bone(position, bonesTypes[index]));
+            }
+        }
 
         public static void ApplyPhysicsMoveBone()
         {
@@ -60,6 +75,32 @@ namespace EducationalProduct.Classes
                     Bones.RemoveAt(i);
                 }
             }
-        } 
+        }
+
+        private static PointF GetRandomPosition(float posOx, float posOy, BonesType bonesType)
+        {
+            Size size = BonesSizeType(bonesType);
+            float startPosOx = posOx - CanvasProduct.WidthBlockBone;
+            float endPosOx = posOx - size.Width;
+            float startPosOy = posOy - CanvasProduct.HeightBlockBone;
+            float endPosOy = posOy - size.Height;
+
+            float newPosOx = startPosOx + rand.NextSingle() * (endPosOx - startPosOx);
+            float newPosOy = startPosOy + rand.NextSingle() * (endPosOy - startPosOy);
+
+            return new PointF(newPosOx, newPosOy);
+        }
+
+        private static Size BonesSizeType(BonesType bonesType)
+        {
+            if (bonesType == BonesType.Orange || bonesType == BonesType.Red)
+            {
+                return Big.Size;
+            }
+            else
+            {
+                return Small.Size;
+            }
+        }
     }
 }

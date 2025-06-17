@@ -43,6 +43,12 @@ namespace EducationalProduct
 
             if (StateRuleMenu.СurrentStateMenuRuleCatchBones) return;
 
+            if (!StateCatchBones.SingleView)
+            {
+                MenuRuleCheck();
+                StateCatchBones.SingleView = true;
+            }
+
             foreach (Bone bone in ManagerBone.Bones)
             {
                 bone.Physics.MoveBone();
@@ -71,11 +77,11 @@ namespace EducationalProduct
                         ruleCollectPuzzleScene.Opacity = opacity;
                         System.Threading.Thread.Sleep(16);
                     }
+                    ManagerBone.Dispose();
                     ManagerUI.CatchBonesElements.Clear();
                     ManagerSound.DeleteActivePlayersCatchBones();
                     _cachedBackground.Dispose();
                     _cachedButtonUI.Dispose();
-                    ManagerBone.Dispose();
                     this.Hide();
                     this.Dispose();
                 }
@@ -163,6 +169,12 @@ namespace EducationalProduct
                 CheckMouseDownExit(e);
             }
 
+            if (!StateCatchBones.SingleView)
+            {
+                MenuRuleCheck();
+                StateCatchBones.SingleView = true;
+            }
+
             if (StateExitMenu.СurrentStateMenuExitCatchBones) return;
 
             if (StateRuleMenu.СurrentStateMenuRuleCatchBones) return;
@@ -197,11 +209,7 @@ namespace EducationalProduct
             {
                 if (!StateRuleMenu.СurrentStateMenuRuleCatchBones)
                 {
-                    ManagerUI.AddRuleElementsCatchBones();
-                    ManagerSound.DeleteActivePlayersCatchBones();
-                    CanvasCatchBones.Invalidate();
-                    StateRuleMenu.СurrentStateMenuRuleCatchBones = true;
-                    StateCatchBones.СurrentStateMenuClick = true;
+                    MenuRuleCheck();
                 }
             }
 
@@ -214,6 +222,14 @@ namespace EducationalProduct
                 StateRuleMenu.СurrentStateMenuRuleCatchBones = false;
                 StateCatchBones.СurrentStateMenuClick = true;
             }
+        }
+        private void MenuRuleCheck()
+        {
+            ManagerUI.AddRuleElementsCatchBones();
+            ManagerSound.DeleteActivePlayersCatchBones();
+            CanvasCatchBones.Invalidate();
+            StateRuleMenu.СurrentStateMenuRuleCatchBones = true;
+            StateCatchBones.СurrentStateMenuClick = true;
         }
 
         private void CheckMouseDownExit(MouseEventArgs e)
@@ -252,12 +268,12 @@ namespace EducationalProduct
                         System.Threading.Thread.Sleep(16);
                         CanvasCatchBones.Invalidate();
                     }
+                    ManagerBone.Dispose();
                     ManagerUI.CatchBonesElements.Clear();
                     ManagerUI.TotalElementsMenuExit.Clear();
                     ManagerSound.DeleteActivePlayersCatchBones();
                     _cachedBackground.Dispose();
                     _cachedButtonUI.Dispose();
-                    ManagerBone.Dispose();
                     this.Hide();
                     this.Dispose();
                 }

@@ -17,6 +17,7 @@ namespace EducationalProduct.Classes
         public static bool PressButtonAnimation;
         public static bool СurrentStateMenuClick;
         public static bool ErorClickButton;
+        public static bool SingleView;
         public static CancellationTokenSource cts;
 
         public static void Init()
@@ -30,6 +31,7 @@ namespace EducationalProduct.Classes
             PressButtonAnimation = false;
             СurrentStateMenuClick = false;
             ErorClickButton = false;
+            SingleView = false;
             cts = new CancellationTokenSource();
         }
     }

@@ -9,7 +9,7 @@ using static EducationalProduct.Classes.GameConfig.RepeatAction.Button;
 
 namespace EducationalProduct.Classes
 {
-    public class ButtonRepeat : GameObject
+    public class ButtonRepeat : GameObject, IDisposable
     {
         public GameConfig.ButtonRepeatType Type { get; set; }
         public Bitmap SpritePressed;
@@ -20,6 +20,13 @@ namespace EducationalProduct.Classes
             Id = id;
             Type = type;
             SetButtonActionAppearance();
+        }
+
+        public void Dispose()
+        {
+            Sprite = null;
+            SpritePressed = null;
+            Transform = null;
         }
 
         private void SetButtonActionAppearance()

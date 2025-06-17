@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Media;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading.Tasks;
 using static EducationalProduct.Classes.GameConfig;
+using static EducationalProduct.Classes.GameConfig.DodgeMeteorites;
 using static EducationalProduct.Classes.StateRepeatButton;
 
 namespace EducationalProduct.Classes
@@ -17,25 +19,35 @@ namespace EducationalProduct.Classes
         public static List<ButtonRepeat> ButtonRepeat = new List<ButtonRepeat>();
         private static CancellationTokenSource _buttonDelayCts = new CancellationTokenSource();
         private static List<int> _currentSequence = new List<int>();
+        private static Random random = new Random();
 
         public static void AddDefaultButtonsRepeat()
         {
-            OffButtonActive();
-            ButtonRepeat.Clear();
-            ButtonRepeat.AddRange(CashMiniGame.GetButtonRepeat());
-        }
+            ButtonRepeatType[] buttonRepeatTypes = (ButtonRepeatType[])Enum.GetValues(typeof(ButtonRepeatType));
 
+            for (int i = 0; i < buttonRepeatTypes.Length; i++)
+            {
+                ButtonRepeat buttonRepeat = new ButtonRepeat(i, buttonRepeatTypes[i]);
+                ButtonRepeat.Add(buttonRepeat);
+            }
+        }
+        public static void Dispose()
+        {
+            foreach (var bt in ButtonRepeat)
+            {
+                bt.Dispose();
+            }
+        }
+        
         public static void DeleteManagerButtonRepeat()
         {
-            OffButtonActive();
+
             _currentSequence.Clear();
-            _buttonDelayCts.Dispose();
             ButtonRepeat.Clear();
         }
+
         public static async Task NewSequence()
         {
-            var random = new Random();
-
             int randomButtonId = random.Next(0, ButtonRepeat.Count);
             _currentSequence.Add(randomButtonId);
             await PlaySequence(StateRepeatButton.cts.Token);
@@ -51,13 +63,7 @@ namespace EducationalProduct.Classes
                 }
             }
         }
-        public static void OffButtonActive()
-        {
-            foreach (var button in ButtonRepeat)
-            {
-                button.IsActiveInSequence = false;
-            }
-        }
+
         public static async Task PlaySequence(CancellationToken cancellationToken = default)
         {
             IsPlayingSequence = true;
@@ -106,7 +112,6 @@ namespace EducationalProduct.Classes
                 StateRepeatButton.PressButtonAnimation = true;
                 await Task.Delay(500, _buttonDelayCts.Token);
                 ButtonRepeat[buttonId].IsActiveInSequence = false;
-                await Task.Delay(500, _buttonDelayCts.Token);
                 StateRepeatButton.PressButtonAnimation = false;
             }
         }

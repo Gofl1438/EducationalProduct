@@ -19,7 +19,7 @@ namespace EducationalProduct.Classes
                 );
             Sprite = GameConfig.DodgeMeteorites.Rocket.Sprite;
             Physics = new PhysicsRocket(Transform);
-            IsVisible = true;
+            IsVisible = true; 
         }
 
         public void Dispose()

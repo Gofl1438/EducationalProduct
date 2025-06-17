@@ -138,8 +138,6 @@ namespace EducationalProduct
         private void RuleScene_FormClosed(object sender, FormClosedEventArgs e)
         {
             _cachedBackground.Dispose();
-            this.Hide();
-            this.Dispose();
             if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
             {
                 mainForm.Dispose();

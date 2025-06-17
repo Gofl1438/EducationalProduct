@@ -11,12 +11,13 @@ namespace EducationalProduct.Classes
         public static int countFreePuzzles;
         public static bool rocketLaunch;
         public static bool СurrentStateMenuClick;
-
+        public static bool SingleView;
         public static void Init()
         {
             countFreePuzzles = 0;
             rocketLaunch = false;
             СurrentStateMenuClick = false;
+            SingleView = false;
         }
     }
 }

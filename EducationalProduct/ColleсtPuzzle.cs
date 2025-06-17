@@ -51,6 +51,12 @@ namespace EducationalProduct
 
             if (StateRuleMenu.СurrentStateMenuRuleCollectPuzzle) return;
 
+            if (!StateCollectPuzzle.SingleView)
+            {
+                MenuRuleCheck();
+                StateCollectPuzzle.SingleView = true;
+            }
+
             if (!StateTransitonScene.IsTransitonColleсtPuzzle)
             {
                 ManagerPuzzle.ApplyPhysics();
@@ -77,11 +83,11 @@ namespace EducationalProduct
                         ruleDodgeMeteoritesScene.Opacity = opacity;
                         System.Threading.Thread.Sleep(16);
                     }
+                    ManagerPuzzle.Dispose();
                     ManagerUI.ColleсtPuzzleElements.Clear();
                     StateTransitonScene.IsTransitonColleсtPuzzle = false;
                     ManagerSound.DeleteActivePlayersColleсtPuzzle();
                     ManagerPuzzle.SolidRocketPuzzles.Clear();
-                    ManagerPuzzle.Dispose();
                     _cachedBackground.Dispose();
                     _cachedButtonUI.Dispose();
                     this.Hide();
@@ -218,11 +224,7 @@ namespace EducationalProduct
             {
                 if (!StateRuleMenu.СurrentStateMenuRuleCollectPuzzle)
                 {
-                    ManagerUI.AddRuleElementsColleсtPuzzle();
-                    ManagerSound.DeleteActivePlayersColleсtPuzzle();
-                    CanvasColleсtPuzzle.Invalidate();
-                    StateRuleMenu.СurrentStateMenuRuleCollectPuzzle = true;
-                    StateCollectPuzzle.СurrentStateMenuClick = true;
+                    MenuRuleCheck();
                 }
             }
 
@@ -235,6 +237,15 @@ namespace EducationalProduct
                 StateRuleMenu.СurrentStateMenuRuleCollectPuzzle = false;
                 StateCollectPuzzle.СurrentStateMenuClick = true;
             }
+        }
+
+        private void MenuRuleCheck()
+        {
+            ManagerUI.AddRuleElementsColleсtPuzzle();
+            ManagerSound.DeleteActivePlayersColleсtPuzzle();
+            CanvasColleсtPuzzle.Invalidate();
+            StateRuleMenu.СurrentStateMenuRuleCollectPuzzle = true;
+            StateCollectPuzzle.СurrentStateMenuClick = true;
         }
 
         private void CheckMouseDownExit(MouseEventArgs e)
@@ -273,12 +284,12 @@ namespace EducationalProduct
                         System.Threading.Thread.Sleep(16);
                         CanvasColleсtPuzzle.Invalidate();
                     }
+                    ManagerPuzzle.Dispose();
                     ManagerPuzzle.SolidRocketPuzzles.Clear();
                     ManagerUI.ColleсtPuzzleElements.Clear();
                     StateTransitonScene.IsTransitonColleсtPuzzle = false;
                     ManagerUI.TotalElementsMenuExit.Clear();
                     ManagerSound.DeleteActivePlayersColleсtPuzzle();
-                    ManagerPuzzle.Dispose();
                     _cachedBackground.Dispose();
                     _cachedButtonUI.Dispose();
                     this.Hide();

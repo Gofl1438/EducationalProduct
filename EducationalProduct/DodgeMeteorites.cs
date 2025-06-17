@@ -124,6 +124,13 @@ namespace EducationalProduct
             if (StateRuleMenu.СurrentStateMenuRuleDodgeMeteorites) return;
 
             rocket.Physics.CheckCollideWithMeteorites();
+
+            if (!StateDodgeMeteorites.SingleView)
+            {
+                MenuRuleCheck();
+                StateDodgeMeteorites.SingleView = true;
+            }
+
             if (rocket.Physics.IsWasHit)
             {
                 if (!StateDodgeMeteorites.IsNotCallGameOverAwait)
@@ -189,13 +196,13 @@ namespace EducationalProduct
                                 System.Threading.Thread.Sleep(16);
                             }
                             rocket.Dispose();
+                            ManagerDodgeMeteorites.Dispose();
                             ManagerUI.DodgeMeteoritesElementsBd.Clear();
                             ManagerUI.DodgeMeteoritesElementsBn.Clear();
                             ManagerSound.DeleteActivePlayersDodgeMeteorites();
                             _cachedBackground.Dispose();
                             _cachedButton.Dispose();
                             _cachedButtonUI.Dispose();
-                            ManagerDodgeMeteorites.Dispose();
                             this.Hide();
                             this.Dispose();
                         }
@@ -355,6 +362,15 @@ namespace EducationalProduct
             }
         }
 
+        private void MenuRuleCheck()
+        {
+            ManagerUI.AddRuleElementsDodgeMeteorites();
+            ManagerSound.DeleteActivePlayersDodgeMeteorites();
+            CanvasDodgeMeteorites.Invalidate();
+            StateRuleMenu.СurrentStateMenuRuleDodgeMeteorites = true;
+            StateDodgeMeteorites.СurrentStateMenuClick = true;
+        }
+
         private void CheckMouseDownExit(MouseEventArgs e)
         {
             if (new RectangleF(new PointF(GameConfig.TotalElement.BtnClosed.PositionOx, GameConfig.TotalElement.BtnClosed.PositionOy),
@@ -392,6 +408,7 @@ namespace EducationalProduct
                         CanvasDodgeMeteorites.Invalidate();
                     }
                     rocket.Dispose();
+                    ManagerDodgeMeteorites.Dispose();
                     ManagerUI.DodgeMeteoritesElementsBd.Clear();
                     ManagerUI.DodgeMeteoritesElementsBn.Clear();
                     ManagerUI.TotalElementsMenuExit.Clear();
@@ -399,7 +416,6 @@ namespace EducationalProduct
                     _cachedBackground.Dispose();
                     _cachedButton.Dispose();
                     _cachedButtonUI.Dispose();
-                    ManagerDodgeMeteorites.Dispose();
                     this.Hide();
                     this.Dispose();
                 }

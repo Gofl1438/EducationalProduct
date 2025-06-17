@@ -349,7 +349,7 @@ namespace EducationalProduct.Classes
             int MinValueCanvas = Math.Min(CanvasProduct.Height, CanvasProduct.Width);
             NumberPointsRepeatButton.WidthRectangleResult = CanvasProduct.Width;
             NumberPointsRepeatButton.HeightRectangleResult = (int)(CanvasProduct.Height * 0.25f);
-            NumberPointsRepeatButton.SizeResult = (int)(MinValueCanvas * 0.03f);
+            NumberPointsRepeatButton.SizeResult = (int)(TotalElement.BtnQuestion.Height * 0.3f);
             IntPtr fontPtr = Marshal.AllocCoTaskMem(NumberPointsRepeatButton.FamilyNameScore.Length);
             Marshal.Copy(NumberPointsRepeatButton.FamilyNameScore, 0, fontPtr, NumberPointsRepeatButton.FamilyNameScore.Length);
             PrivateFontCollection pfc = new PrivateFontCollection();
@@ -365,7 +365,7 @@ namespace EducationalProduct.Classes
             int MinValueCanvas = Math.Min(CanvasProduct.Height, CanvasProduct.Width);
             NumberPointsDodgeMeteorites.WidthRectangleResult = CanvasProduct.Width;
             NumberPointsDodgeMeteorites.HeightRectangleResult = (int)(CanvasProduct.Height * 0.10f);
-            NumberPointsDodgeMeteorites.SizeResult = (int)(MinValueCanvas * 0.03f);
+            NumberPointsDodgeMeteorites.SizeResult = (int)(TotalElement.BtnQuestion.Height * 0.3f);
             IntPtr fontPtr = Marshal.AllocCoTaskMem(NumberPointsDodgeMeteorites.FamilyNameScore.Length);
             Marshal.Copy(NumberPointsDodgeMeteorites.FamilyNameScore, 0, fontPtr, NumberPointsDodgeMeteorites.FamilyNameScore.Length);
             PrivateFontCollection pfc = new PrivateFontCollection();
@@ -382,7 +382,7 @@ namespace EducationalProduct.Classes
             int MinValueCanvas = Math.Min(CanvasProduct.Height, CanvasProduct.Width);
             NumberPointsCatchBones.WidthRectangleResult = CanvasProduct.Width;
             NumberPointsCatchBones.HeightRectangleResult = (int)(CanvasProduct.Height * 0.1f);
-            NumberPointsCatchBones.SizeResult = (int)(MinValueCanvas * 0.03f);
+            NumberPointsCatchBones.SizeResult = (int)(TotalElement.BtnQuestion.Height * 0.3f);
             IntPtr fontPtr = Marshal.AllocCoTaskMem(NumberPointsCatchBones.FamilyNameScore.Length);
             Marshal.Copy(NumberPointsCatchBones.FamilyNameScore, 0, fontPtr, NumberPointsCatchBones.FamilyNameScore.Length);
             PrivateFontCollection pfc = new PrivateFontCollection();
@@ -418,7 +418,7 @@ namespace EducationalProduct.Classes
         public static class NumberPointsRepeatButton
         {
             public static byte[] FamilyNameScore = Properties.Resources.PressStart2P_Regular;
-            public static int SizeResult { get; set; } = 20;
+            public static int SizeResult { get; set; }
             public static readonly SolidBrush CustomBrush = new SolidBrush(Color.FromArgb(118, 66, 138));
             public static readonly Brush shadowBrush = new SolidBrush(Color.FromArgb(100, 255, 255, 255));
             public static readonly FontStyle StyleResult = FontStyle.Bold;
@@ -948,7 +948,7 @@ namespace EducationalProduct.Classes
             }
             public static class Bone
             {
-                public static readonly int DefaultQuantityBone = 16;
+                public static readonly int DefaultQuantityBone = 12;
                 public static readonly float MinSpeed = 2.0f;
                 public static readonly float MaxSpeed = 8.0f;
                 public static class Big

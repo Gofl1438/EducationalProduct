@@ -34,12 +34,13 @@
             // 
             // CanvasRuleDodgeMeteoritesScene
             // 
-            CanvasRuleDodgeMeteoritesScene.BackgroundImage = Properties.Resources.Background;
             CanvasRuleDodgeMeteoritesScene.Dock = DockStyle.Fill;
+            CanvasRuleDodgeMeteoritesScene.Image = Properties.Resources.Background;
             CanvasRuleDodgeMeteoritesScene.Location = new Point(0, 0);
             CanvasRuleDodgeMeteoritesScene.Margin = new Padding(0);
             CanvasRuleDodgeMeteoritesScene.Name = "CanvasRuleDodgeMeteoritesScene";
-            CanvasRuleDodgeMeteoritesScene.Size = new Size(800, 450);
+            CanvasRuleDodgeMeteoritesScene.Size = new Size(914, 600);
+            CanvasRuleDodgeMeteoritesScene.SizeMode = PictureBoxSizeMode.StretchImage;
             CanvasRuleDodgeMeteoritesScene.TabIndex = 4;
             CanvasRuleDodgeMeteoritesScene.TabStop = false;
             CanvasRuleDodgeMeteoritesScene.Paint += RuleDodgeMeteoritesScene_Paint;
@@ -47,10 +48,11 @@
             // 
             // RuleDodgeMeteoritesScene
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(CanvasRuleDodgeMeteoritesScene);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "RuleDodgeMeteoritesScene";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RuleDodgeMeteoritesScene";

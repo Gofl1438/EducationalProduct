@@ -34,12 +34,13 @@
             // 
             // CanvasRuleCollectPuzzleScene
             // 
-            CanvasRuleCollectPuzzleScene.BackgroundImage = Properties.Resources.Background;
             CanvasRuleCollectPuzzleScene.Dock = DockStyle.Fill;
+            CanvasRuleCollectPuzzleScene.Image = Properties.Resources.Background;
             CanvasRuleCollectPuzzleScene.Location = new Point(0, 0);
             CanvasRuleCollectPuzzleScene.Margin = new Padding(0);
             CanvasRuleCollectPuzzleScene.Name = "CanvasRuleCollectPuzzleScene";
-            CanvasRuleCollectPuzzleScene.Size = new Size(800, 450);
+            CanvasRuleCollectPuzzleScene.Size = new Size(914, 600);
+            CanvasRuleCollectPuzzleScene.SizeMode = PictureBoxSizeMode.StretchImage;
             CanvasRuleCollectPuzzleScene.TabIndex = 3;
             CanvasRuleCollectPuzzleScene.TabStop = false;
             CanvasRuleCollectPuzzleScene.Paint += RuleCollectPuzzleScene_Paint;
@@ -47,10 +48,11 @@
             // 
             // RuleCollectPuzzleScene
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(CanvasRuleCollectPuzzleScene);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "RuleCollectPuzzleScene";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RuleCollectPuzzleScene";

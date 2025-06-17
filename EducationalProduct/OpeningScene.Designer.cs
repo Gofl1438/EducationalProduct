@@ -34,12 +34,13 @@
             // 
             // CanvasOpeningScene
             // 
-            CanvasOpeningScene.BackgroundImage = Properties.Resources.Background;
             CanvasOpeningScene.Dock = DockStyle.Fill;
+            CanvasOpeningScene.Image = Properties.Resources.Background;
             CanvasOpeningScene.Location = new Point(0, 0);
             CanvasOpeningScene.Margin = new Padding(0);
             CanvasOpeningScene.Name = "CanvasOpeningScene";
-            CanvasOpeningScene.Size = new Size(1279, 571);
+            CanvasOpeningScene.Size = new Size(1462, 761);
+            CanvasOpeningScene.SizeMode = PictureBoxSizeMode.StretchImage;
             CanvasOpeningScene.TabIndex = 0;
             CanvasOpeningScene.TabStop = false;
             CanvasOpeningScene.Paint += OpeningScene_Paint;
@@ -47,12 +48,13 @@
             // 
             // OpeningScene
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonFace;
-            ClientSize = new Size(1279, 571);
+            ClientSize = new Size(1462, 761);
             Controls.Add(CanvasOpeningScene);
             DoubleBuffered = true;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "OpeningScene";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "OpeningScene";

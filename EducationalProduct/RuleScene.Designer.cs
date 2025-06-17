@@ -34,12 +34,13 @@
             // 
             // CanvasRuleScene
             // 
-            CanvasRuleScene.BackgroundImage = Properties.Resources.Background;
             CanvasRuleScene.Dock = DockStyle.Fill;
+            CanvasRuleScene.Image = Properties.Resources.Background;
             CanvasRuleScene.Location = new Point(0, 0);
             CanvasRuleScene.Margin = new Padding(0);
             CanvasRuleScene.Name = "CanvasRuleScene";
-            CanvasRuleScene.Size = new Size(1201, 539);
+            CanvasRuleScene.Size = new Size(1373, 719);
+            CanvasRuleScene.SizeMode = PictureBoxSizeMode.StretchImage;
             CanvasRuleScene.TabIndex = 0;
             CanvasRuleScene.TabStop = false;
             CanvasRuleScene.Paint += RuleScene_Paint;
@@ -47,11 +48,12 @@
             // 
             // RuleScene
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1201, 539);
+            ClientSize = new Size(1373, 719);
             Controls.Add(CanvasRuleScene);
             DoubleBuffered = true;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "RuleScene";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RuleScene";

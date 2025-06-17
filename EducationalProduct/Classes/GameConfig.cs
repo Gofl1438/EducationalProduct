@@ -159,8 +159,8 @@ namespace EducationalProduct.Classes
         }
         private static void InitializeRuleCatchBonesScene()
         {
-            RuleCatchBonesScene.Character.Width = (int)(CanvasProduct.Width * 0.35);
-            RuleCatchBonesScene.Character.Height = (int)(RuleCatchBonesScene.Character.Width * 0.64);   
+            RuleCatchBonesScene.Character.Width = (int)(CanvasProduct.Width * 0.4);
+            RuleCatchBonesScene.Character.Height = (int)(RuleCatchBonesScene.Character.Width * 0.69);   
             RuleCatchBonesScene.Character.PositionOy = (int)(CanvasProduct.Height - RuleCatchBonesScene.Character.Height);
 
             RuleCatchBonesScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.19f);
@@ -190,8 +190,8 @@ namespace EducationalProduct.Classes
         }
         private static void InitializeRuleCollectPuzzleScene()
         {
-            RuleCollectPuzzleScene.Character.Width = (int)(CanvasProduct.Width * 0.357);
-            RuleCollectPuzzleScene.Character.Height = RuleCollectPuzzleScene.Character.Width;
+            RuleCollectPuzzleScene.Character.Width = (int)(CanvasProduct.Width * 0.357f);
+            RuleCollectPuzzleScene.Character.Height = (int)(RuleCollectPuzzleScene.Character.Width * 0.95f);
             RuleCollectPuzzleScene.Character.PositionOy = (int)(CanvasProduct.Height - RuleCollectPuzzleScene.Character.Height);
 
             RuleCollectPuzzleScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.19f);
@@ -221,8 +221,8 @@ namespace EducationalProduct.Classes
         }
         private static void InitializeRuleDodgeMeteoritesScene()
         {
-            RuleDodgeMeteoritesScene.Character.Width = (int)(CanvasProduct.Width * 0.42);
-            RuleDodgeMeteoritesScene.Character.Height = RuleDodgeMeteoritesScene.Character.Width;
+            RuleDodgeMeteoritesScene.Character.Width = (int)(CanvasProduct.Width * 0.47f);
+            RuleDodgeMeteoritesScene.Character.Height = (int)(RuleDodgeMeteoritesScene.Character.Width * 0.82f);
             RuleDodgeMeteoritesScene.Character.PositionOy = (int)(CanvasProduct.Height - RuleDodgeMeteoritesScene.Character.Height);
 
             RuleDodgeMeteoritesScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.19f);
@@ -293,10 +293,10 @@ namespace EducationalProduct.Classes
             CatchBones.Character.Width = (int)(CanvasProduct.Width * 0.24f);
             CatchBones.Character.Height = (int)(CanvasProduct.Height * 0.4f);
             CatchBones.Character.PositionOy = CanvasProduct.Height - CatchBones.Character.Height;
-            CatchBones.Bone.Big.Width = (int)(MinValueCanvas / CatchBones.Bone.DefaultQuantityBone * 1.2f);
-            CatchBones.Bone.Big.Height = (int)(MinValueCanvas / CatchBones.Bone.DefaultQuantityBone * 1.2f);
-            CatchBones.Bone.Small.Width = (int)(MinValueCanvas / CatchBones.Bone.DefaultQuantityBone * 0.8f);
-            CatchBones.Bone.Small.Height = (int)(MinValueCanvas / CatchBones.Bone.DefaultQuantityBone * 0.8f);
+            CatchBones.Bone.Big.Width = (int)(MinValueCanvas / CatchBones.Bone.DefaultQuantityBone * 1.4f);
+            CatchBones.Bone.Big.Height = (int)(MinValueCanvas / CatchBones.Bone.DefaultQuantityBone * 1.4f);
+            CatchBones.Bone.Small.Width = (int)(MinValueCanvas / CatchBones.Bone.DefaultQuantityBone * 0.9f);
+            CatchBones.Bone.Small.Height = (int)(MinValueCanvas / CatchBones.Bone.DefaultQuantityBone * 0.9f);
         }
         private static void InitializeDodgeMeteorites()
         {
@@ -948,7 +948,7 @@ namespace EducationalProduct.Classes
             }
             public static class Bone
             {
-                public static readonly int DefaultQuantityBone = 1;
+                public static readonly int DefaultQuantityBone = 16;
                 public static readonly float MinSpeed = 2.0f;
                 public static readonly float MaxSpeed = 8.0f;
                 public static class Big
@@ -1116,7 +1116,7 @@ namespace EducationalProduct.Classes
         public static class RepeatAction
         {
             public static readonly int FrequencyGameOver = 13;
-            public static readonly int MaxQuntitySequence = 1;
+            public static readonly int MaxQuntitySequence = 5;
             public static class Background
             {
                 public static readonly Bitmap Sprite = GameResources.BackgroundRepeatAction;

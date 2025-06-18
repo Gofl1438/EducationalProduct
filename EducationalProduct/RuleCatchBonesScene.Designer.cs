@@ -39,7 +39,7 @@
             CanvasRuleCatchBonesScene.Location = new Point(0, 0);
             CanvasRuleCatchBonesScene.Margin = new Padding(0);
             CanvasRuleCatchBonesScene.Name = "CanvasRuleCatchBonesScene";
-            CanvasRuleCatchBonesScene.Size = new Size(914, 600);
+            CanvasRuleCatchBonesScene.Size = new Size(800, 450);
             CanvasRuleCatchBonesScene.SizeMode = PictureBoxSizeMode.StretchImage;
             CanvasRuleCatchBonesScene.TabIndex = 2;
             CanvasRuleCatchBonesScene.TabStop = false;
@@ -48,11 +48,11 @@
             // 
             // RuleCatchBonesScene
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 450);
             Controls.Add(CanvasRuleCatchBonesScene);
-            Margin = new Padding(3, 4, 3, 4);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "RuleCatchBonesScene";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RuleCatchBonesScene";

@@ -24,7 +24,7 @@ namespace EducationalProduct
 
         private void СalibrationSize()
         {
-            workingArea = Screen.FromControl(this).WorkingArea;
+            workingArea = Screen.PrimaryScreen.Bounds;
             this.Height = workingArea.Height;
             this.Width = workingArea.Width;
             this.MinimumSize = new Size(workingArea.Width, workingArea.Height);

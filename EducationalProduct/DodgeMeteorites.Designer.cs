@@ -43,7 +43,6 @@
             CanvasDodgeMeteorites.TabStop = false;
             CanvasDodgeMeteorites.Paint += OnRepaint;
             CanvasDodgeMeteorites.MouseDown += CanvasDodgeMeteorites_MouseDown;
-            CanvasDodgeMeteorites.MouseMove += CanvasDodgeMeteorites_MouseMove;
             CanvasDodgeMeteorites.MouseUp += CanvasDodgeMeteorites_MouseUp;
             // 
             // DodgeMeteorites
@@ -53,6 +52,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(CanvasDodgeMeteorites);
             DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "DodgeMeteorites";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DodgeMeteorites";

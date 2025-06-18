@@ -31,7 +31,7 @@ namespace EducationalProduct
 
         private void СalibrationSize()
         {
-            workingArea = Screen.FromControl(this).WorkingArea;
+            workingArea = Screen.PrimaryScreen.Bounds;
             this.Height = workingArea.Height;
             this.Width = workingArea.Width;
             this.MinimumSize = new Size(workingArea.Width, workingArea.Height);
@@ -108,6 +108,7 @@ namespace EducationalProduct
                 StateExitMenu.CurrentStateMenuExitRuleCatchBonesScene = false;
                 if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
                 {
+                    ManagerUI.TotalElementsMenuExit.Clear();
                     mainForm.Opacity = 0;
                     mainForm.Show();
                     mainForm.Refresh();
@@ -117,7 +118,6 @@ namespace EducationalProduct
                         System.Threading.Thread.Sleep(16);
                         CanvasRuleCatchBonesScene.Invalidate();
                     }
-                    ManagerUI.TotalElementsMenuExit.Clear();
                     ManagerUI.BtnClosedElement.Clear();
                     this.Hide();
                     this.Dispose();

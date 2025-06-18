@@ -39,7 +39,7 @@ namespace EducationalProduct
 
         private void СalibrationSize()
         {
-            workingArea = Screen.FromControl(this).WorkingArea;
+            workingArea = Screen.PrimaryScreen.Bounds;
             this.Height = workingArea.Height;
             this.Width = workingArea.Width;
             this.MinimumSize = new Size(workingArea.Width, workingArea.Height);
@@ -275,6 +275,7 @@ namespace EducationalProduct
                 timer.Dispose();
                 if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
                 {
+                    ManagerUI.TotalElementsMenuExit.Clear();
                     mainForm.Opacity = 0;
                     mainForm.Show();
                     mainForm.Refresh();
@@ -288,7 +289,6 @@ namespace EducationalProduct
                     ManagerPuzzle.SolidRocketPuzzles.Clear();
                     ManagerUI.ColleсtPuzzleElements.Clear();
                     StateTransitonScene.IsTransitonColleсtPuzzle = false;
-                    ManagerUI.TotalElementsMenuExit.Clear();
                     ManagerSound.DeleteActivePlayersColleсtPuzzle();
                     _cachedBackground.Dispose();
                     _cachedButtonUI.Dispose();

@@ -96,7 +96,7 @@ namespace EducationalProduct
 
         private void СalibrationSize()
         {
-            workingArea = Screen.FromControl(this).WorkingArea;
+            workingArea = Screen.PrimaryScreen.Bounds;
             this.Height = workingArea.Height;
             this.Width = workingArea.Width;
             this.MinimumSize = new Size(workingArea.Width, workingArea.Height);
@@ -259,6 +259,7 @@ namespace EducationalProduct
                 timer.Dispose();
                 if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
                 {
+                    ManagerUI.TotalElementsMenuExit.Clear();
                     mainForm.Opacity = 0;
                     mainForm.Show();
                     mainForm.Refresh();
@@ -270,7 +271,6 @@ namespace EducationalProduct
                     }
                     ManagerBone.Dispose();
                     ManagerUI.CatchBonesElements.Clear();
-                    ManagerUI.TotalElementsMenuExit.Clear();
                     ManagerSound.DeleteActivePlayersCatchBones();
                     _cachedBackground.Dispose();
                     _cachedButtonUI.Dispose();

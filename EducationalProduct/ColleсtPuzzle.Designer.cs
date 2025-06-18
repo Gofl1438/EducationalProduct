@@ -53,6 +53,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(CanvasColleсtPuzzle);
             DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "ColleсtPuzzle";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ColleсtPuzzle";

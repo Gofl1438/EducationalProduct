@@ -165,6 +165,8 @@
   </data>
   <data name="RuleRepeatButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RuleRepeatButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RuleCatchBones" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RuleCatchBones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="txtDodgeMeteorites2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\txtDodgeMeteorites2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -213,7 +215,6 @@
   </data>
   <data name="btnQuestion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnQuestion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="BlueButtonGray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BlueButtonGray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -426,5 +427,17 @@
   </data>
   <data name="success" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\success.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="backgroundExitMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backgroundExitMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnClosed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnClosed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PlayAgainGameMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PlayAgainGameMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DodgeMeteoriteSoundLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DodgeMeteoriteSoundLight.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

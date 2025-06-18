@@ -193,6 +193,16 @@ namespace EducationalProduct.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btnClosed {
+            get {
+                object obj = ResourceManager.GetObject("btnClosed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnClosedOpening {
             get {
                 object obj = ResourceManager.GetObject("btnClosedOpening", resourceCulture);
@@ -450,6 +460,16 @@ namespace EducationalProduct.Properties {
         internal static System.Drawing.Bitmap OrangeBoneSmall {
             get {
                 object obj = ResourceManager.GetObject("OrangeBoneSmall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PlayAgainGameMenu {
+            get {
+                object obj = ResourceManager.GetObject("PlayAgainGameMenu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

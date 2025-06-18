@@ -39,7 +39,7 @@
             CanvasEndScene.Location = new Point(0, 0);
             CanvasEndScene.Margin = new Padding(0);
             CanvasEndScene.Name = "CanvasEndScene";
-            CanvasEndScene.Size = new Size(914, 600);
+            CanvasEndScene.Size = new Size(800, 450);
             CanvasEndScene.SizeMode = PictureBoxSizeMode.StretchImage;
             CanvasEndScene.TabIndex = 4;
             CanvasEndScene.TabStop = false;
@@ -48,11 +48,11 @@
             // 
             // EndScene
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 450);
             Controls.Add(CanvasEndScene);
-            Margin = new Padding(3, 4, 3, 4);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "EndScene";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "EndScene";

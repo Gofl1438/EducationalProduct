@@ -52,6 +52,7 @@
             ClientSize = new Size(982, 393);
             Controls.Add(CanvasCatchBones);
             DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "CatchBones";
             Text = "CatchBones";
             WindowState = FormWindowState.Maximized;

@@ -52,6 +52,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(CanvasDodgeMeteorites);
             DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "DodgeMeteorites";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DodgeMeteorites";

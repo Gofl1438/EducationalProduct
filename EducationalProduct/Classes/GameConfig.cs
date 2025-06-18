@@ -279,6 +279,7 @@ namespace EducationalProduct.Classes
             ColleсtPuzzle.Puzzle.TopLeft.PositionOy = (int)(CanvasProduct.Height * 0.53f);
             ColleсtPuzzle.Puzzle.TopRight.PositionOx = (int)(CanvasProduct.Width * 0.15f);
             ColleсtPuzzle.Puzzle.TopRight.PositionOy = (int)(CanvasProduct.Height * 0.15f);
+            ColleсtPuzzle.Puzzle.snapThreshold = ColleсtPuzzle.Puzzle.HeightDetail * 0.1f;
         }
         private static void InitializeRepeatAction()
         {
@@ -1016,7 +1017,7 @@ namespace EducationalProduct.Classes
             {
                 public static int HeightDetail { get; set; }
                 public static int WidthDetail { get; set; }
-                public static readonly float snapThreshold = 30f;
+                public static float snapThreshold { get; set; }
                 public static class Shadow
                 {
                     public static readonly Bitmap Sprite = GameResources.ShadowPuzzle;

@@ -50,6 +50,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(CanvasRepeatAction);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "RepeatAction";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RepeatAction";

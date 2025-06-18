@@ -72,5 +72,32 @@ namespace EducationalProduct.Classes
         public static readonly Bitmap BackgroundEnd = Properties.Resources.BackgroundEnd;
         public static readonly Bitmap txtEnd = Properties.Resources.txtEnd;
         public static readonly Bitmap btnToStart = Properties.Resources.btnToStart;
+        public static readonly Bitmap BackgroundTest = Properties.Resources.BackGroundTest;
+        public static readonly Bitmap btnAnswer = Properties.Resources.btnAnswer;
+        public static readonly Bitmap txtTestAnswerRepeatAction1 = Properties.Resources.txtTestAnswerRepeatAction1;
+        public static readonly Bitmap txtTestAnswerRepeatAction2 = Properties.Resources.txtTestAnswerRepeatAction2;
+        public static readonly Bitmap txtTestAnswerRepeatAction3 = Properties.Resources.txtTestAnswerRepeatAction3;
+        public static readonly Bitmap txtTestAnswerRepeatAction4 = Properties.Resources.txtTestAnswerRepeatAction4;
+        public static readonly Bitmap txtTestQuestionRepeatAction = Properties.Resources.txtTestQuestionRepeatAction;
+        public static readonly Bitmap txtTestTipRepeatAction = Properties.Resources.txtTestTipRepeatAction;
+        public static readonly Bitmap txtTestAnswerCatchBones1 = Properties.Resources.txtTestAnswerCatchBones1;
+        public static readonly Bitmap txtTestAnswerCatchBones2 = Properties.Resources.txtTestAnswerCatchBones2;
+        public static readonly Bitmap txtTestAnswerCatchBones3 = Properties.Resources.txtTestAnswerCatchBones3;
+        public static readonly Bitmap txtTestAnswerCatchBones4 = Properties.Resources.txtTestAnswerCatchBones4;
+        public static readonly Bitmap txtTestQuestionCatchBones = Properties.Resources.txtTestQuestionCatchBones;
+        public static readonly Bitmap txtTestTipCatchBones = Properties.Resources.txtTestTipCatchBones;
+        public static readonly Bitmap txtTestAnswerCollectPuzzle1 = Properties.Resources.txtTestAnswerCollectPuzzle1;
+        public static readonly Bitmap txtTestAnswerCollectPuzzle2 = Properties.Resources.txtTestAnswerCollectPuzzle2;
+        public static readonly Bitmap txtTestAnswerCollectPuzzle3 = Properties.Resources.txtTestAnswerCollectPuzzle3;
+        public static readonly Bitmap txtTestAnswerCollectPuzzle4 = Properties.Resources.txtTestAnswerCollectPuzzle4;
+        public static readonly Bitmap txtTestQuestionCollectPuzzle = Properties.Resources.txtTestQuestionCollectPuzzle;
+        public static readonly Bitmap txtTestTipCollectPuzzle = Properties.Resources.txtTestTipCollectPuzzle;
+        public static readonly Bitmap txtTestAnswerDodgeMeteorites1 = Properties.Resources.txtTestAnswerDodgeMeteorites1;
+        public static readonly Bitmap txtTestAnswerDodgeMeteorites2 = Properties.Resources.txtTestAnswerDodgeMeteorites2;
+        public static readonly Bitmap txtTestAnswerDodgeMeteorites3 = Properties.Resources.txtTestAnswerDodgeMeteorites3;
+        public static readonly Bitmap txtTestAnswerDodgeMeteorites4 = Properties.Resources.txtTestAnswerDodgeMeteorites4;
+        public static readonly Bitmap txtTestQuestionDodgeMeteorites = Properties.Resources.txtTestQuestionDodgeMeteorites;
+        public static readonly Bitmap txtTestTipDodgeMeteorites = Properties.Resources.txtTestTipDodgeMeteorites;
+        public static readonly Bitmap Success = Properties.Resources.success;
     }
 }

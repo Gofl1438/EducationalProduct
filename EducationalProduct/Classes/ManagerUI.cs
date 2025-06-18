@@ -33,6 +33,11 @@ namespace EducationalProduct.Classes
         public static List<ElementUI> RuleElementsRepeatAction { get; } = new List<ElementUI>();
         public static List<ElementUI> RuleElementsColleсtPuzzle { get; } = new List<ElementUI>();
         public static List<ElementUI> RuleElementsCatchBones { get; } = new List<ElementUI>();
+        public static List<ElementUI> TestInterfaceElements { get; } = new List<ElementUI>();
+        public static List<ElementUI> TestRepeatActionElements { get; } = new List<ElementUI>();
+        public static List<ElementUI> TestCatchBonesElements { get; } = new List<ElementUI>();
+        public static List<ElementUI> TestCollectPuzzleElements { get; } = new List<ElementUI>();
+        public static List<ElementUI> TestDodgeMeteoritesElements { get; } = new List<ElementUI>();
 
 
         public static void AddRuleElementsDodgeMeteorites()
@@ -71,13 +76,11 @@ namespace EducationalProduct.Classes
             TotalElements.Add(CashElementUI.TotalElements.btnQuestion);
             TotalElements.Add(CashElementUI.TotalElements.btnClosed);
         }
-
         public static void AddBtnClosedElement()
         {
             BtnClosedElement.Clear();
             BtnClosedElement.Add(CashElementUI.BtnClosedElement.btnClosed);
         }
-
         public static void AddTotalElementsMenuExit()
         {
             TotalElementsMenuExit.Clear();
@@ -95,8 +98,6 @@ namespace EducationalProduct.Classes
             OpeningElements.Add(CashElementUI.OpeningElements.title);
             OpeningElements.Add(CashElementUI.OpeningElements.btnStartPlay);
         }
-
-
         public static void AddRuleElements()
         {
             RuleElements.Clear();
@@ -104,7 +105,6 @@ namespace EducationalProduct.Classes
             RuleElements.Add(CashElementUI.RuleElements.btnStartPlay);
             RuleElements.Add(CashElementUI.RuleElements.txtRuleScene);
         }
-
         public static void AddEndElements()
         {
             EndElements.Clear();
@@ -112,6 +112,7 @@ namespace EducationalProduct.Classes
             EndElements.Add(CashElementUI.EndElements.btnToStart);
             EndElements.Add(CashElementUI.EndElements.txtEndScene);
         }
+
 
         public static void AddRuleRepeatActionElements()
         {
@@ -123,7 +124,6 @@ namespace EducationalProduct.Classes
             RuleRepeatActionElements.Add(CashElementUI.RuleRepeatActionElements.txtRuleRepeatActionScene2);
             RuleRepeatActionElements.Add(CashElementUI.RuleRepeatActionElements.txtRuleRepeatActionScene3);
         }
-
         public static void AddRuleCatchBonesElements()
         {
             RuleCatchBonesElements.Clear();
@@ -134,7 +134,6 @@ namespace EducationalProduct.Classes
             RuleCatchBonesElements.Add(CashElementUI.RuleCatchBonesElements.txtRuleCatchBonesScene2);
             RuleCatchBonesElements.Add(CashElementUI.RuleCatchBonesElements.txtRuleCatchBonesScene3);
         }
-
         public static void AddRuleCollectPuzzleElements()
         {
             RuleCollectPuzzleElements.Clear();
@@ -145,7 +144,6 @@ namespace EducationalProduct.Classes
             RuleCollectPuzzleElements.Add(CashElementUI.RuleCollectPuzzleElements.txtRuleCollectPuzzleScene2);
             RuleCollectPuzzleElements.Add(CashElementUI.RuleCollectPuzzleElements.txtRuleCollectPuzzleScene3);
         }
-
         public static void AddRuleDodgeMeteoritesElements()
         {
             RuleDodgeMeteoritesElements.Clear();
@@ -157,13 +155,13 @@ namespace EducationalProduct.Classes
             RuleDodgeMeteoritesElements.Add(CashElementUI.RuleDodgeMeteoritesElements.txtRuleDodgeMeteoritesScene3);
         }
 
+
         public static void AddCatchBonesElements()
         {
             CatchBonesElements.Clear();
             CatchBonesElements.Add(CashElementUI.CatchBonesElements.background);
             CatchBonesElements.Add(CashElementUI.CatchBonesElements.character);
         }
-
         public static void AddDodgeMeteoritesElements()
         {
             DodgeMeteoritesElementsBd.Clear();
@@ -172,18 +170,67 @@ namespace EducationalProduct.Classes
             DodgeMeteoritesElementsBn.Add(CashElementUI.DodgeMeteoritesElements.buttonLeft);
             DodgeMeteoritesElementsBn.Add(CashElementUI.DodgeMeteoritesElements.buttonRight);
         }
-
         public static void AddRepeatActionElements()
         {
             RepeatActionElements.Clear();
             RepeatActionElements.Add(CashElementUI.RepeatActionElements.background);
         }
-
         public static void AddColleсtPuzzleElements()
         {
             ColleсtPuzzleElements.Clear();
             ColleсtPuzzleElements.Add(CashElementUI.ColleсtPuzzleElements.background);
             ColleсtPuzzleElements.Add(CashElementUI.ColleсtPuzzleElements.shadow);
+        }
+
+
+        public static void AddTestInterfaceElements()
+        {
+            TestInterfaceElements.Clear();
+            TestInterfaceElements.Add(CashElementUI.TestInterfaceElements.character);
+            TestInterfaceElements.Add(CashElementUI.TestInterfaceElements.btnAnswer);
+            TestInterfaceElements.Add(CashElementUI.TestInterfaceElements.btnNextPlay);
+            TestInterfaceElements.Add(CashElementUI.TestInterfaceElements.backgroundTest);
+            TestInterfaceElements.Add(CashElementUI.TestInterfaceElements.success);
+        }
+        public static void AddTestRepeatAction()
+        {
+            TestRepeatActionElements.Clear();
+            TestRepeatActionElements.Add(CashElementUI.TestRepeatActionElements.question);
+            TestRepeatActionElements.Add(CashElementUI.TestRepeatActionElements.tip);
+            TestRepeatActionElements.Add(CashElementUI.TestRepeatActionElements.answer1);
+            TestRepeatActionElements.Add(CashElementUI.TestRepeatActionElements.answer2);
+            TestRepeatActionElements.Add(CashElementUI.TestRepeatActionElements.answer3);
+            TestRepeatActionElements.Add(CashElementUI.TestRepeatActionElements.answer4);
+        }
+        public static void AddTestCatchBones()
+        {
+            TestCatchBonesElements.Clear();
+            TestCatchBonesElements.Add(CashElementUI.TestCatchBonesElements.question);
+            TestCatchBonesElements.Add(CashElementUI.TestCatchBonesElements.tip);
+            TestCatchBonesElements.Add(CashElementUI.TestCatchBonesElements.answer1);
+            TestCatchBonesElements.Add(CashElementUI.TestCatchBonesElements.answer2);
+            TestCatchBonesElements.Add(CashElementUI.TestCatchBonesElements.answer3);
+            TestCatchBonesElements.Add(CashElementUI.TestCatchBonesElements.answer4);
+        }
+        public static void AddTestCollectPuzzle()
+        {
+            TestCollectPuzzleElements.Clear();
+            TestCollectPuzzleElements.Add(CashElementUI.TestCollectPuzzleElements.question);
+            TestCollectPuzzleElements.Add(CashElementUI.TestCollectPuzzleElements.tip);
+            TestCollectPuzzleElements.Add(CashElementUI.TestCollectPuzzleElements.answer1);
+            TestCollectPuzzleElements.Add(CashElementUI.TestCollectPuzzleElements.answer2);
+            TestCollectPuzzleElements.Add(CashElementUI.TestCollectPuzzleElements.answer3);
+            TestCollectPuzzleElements.Add(CashElementUI.TestCollectPuzzleElements.answer4);
+        }
+        public static void AddTestDodgeMeteorites()
+        {
+            TestDodgeMeteoritesElements.Clear();
+            TestDodgeMeteoritesElements.Add(CashElementUI.TestDodgeMeteoritesElements.question);
+            TestDodgeMeteoritesElements.Add(CashElementUI.TestDodgeMeteoritesElements.tip);
+            TestDodgeMeteoritesElements.Add(CashElementUI.TestDodgeMeteoritesElements.answer1);
+            TestDodgeMeteoritesElements.Add(CashElementUI.TestDodgeMeteoritesElements.answer2);
+            TestDodgeMeteoritesElements.Add(CashElementUI.TestDodgeMeteoritesElements.answer3);
+            TestDodgeMeteoritesElements.Add(CashElementUI.TestDodgeMeteoritesElements.answer4);
         }
     }
 }

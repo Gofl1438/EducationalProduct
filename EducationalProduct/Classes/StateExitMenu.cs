@@ -17,6 +17,7 @@ namespace EducationalProduct.Classes
         public static bool CurrentStateMenuExitRuleDodgeMeteoritesScene;
         public static bool CurrentStateMenuExitRuleRepeatActionScene;
         public static bool CurrentStateMenuExitRuleScene;
+        public static bool CurrentStateMenuExitTestScene;
 
         public static void Init()
         {
@@ -29,6 +30,7 @@ namespace EducationalProduct.Classes
             CurrentStateMenuExitRuleDodgeMeteoritesScene = false;
             CurrentStateMenuExitRuleRepeatActionScene = false;
             CurrentStateMenuExitRuleScene = false;
-    }
+            CurrentStateMenuExitTestScene = false;
+        }
     }
 }

@@ -130,13 +130,13 @@ namespace EducationalProduct
                         timer.Stop();
                         timer.Tick -= Update;
                         timer.Dispose();
-                        RuleCatchBonesScene ruleCatchBonesScene = new RuleCatchBonesScene(); //указать нужную сцену//
-                        ruleCatchBonesScene.Opacity = 0;
-                        ruleCatchBonesScene.Show();
-                        ruleCatchBonesScene.Refresh();
+                        TestScene testScene = new TestScene(); //указать нужную сцену//
+                        testScene.Opacity = 0;
+                        testScene.Show();
+                        testScene.Refresh();
                         for (double opacity = 0; opacity <= 1; opacity += 0.1)
                         {
-                            ruleCatchBonesScene.Opacity = opacity;
+                            testScene.Opacity = opacity;
                             System.Threading.Thread.Sleep(16);
                         };
                         ManagerButtonRepeat.Dispose();

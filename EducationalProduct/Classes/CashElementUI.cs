@@ -176,7 +176,7 @@ namespace EducationalProduct.Classes
                 GameConfig.EndScene.TxtEndScene.Point
                 );
         }
-      
+
         public static class RuleRepeatActionElements
         {
             public static readonly ElementUI character = new ElementUI(
@@ -366,6 +366,168 @@ namespace EducationalProduct.Classes
                 GameConfig.ColleсtPuzzle.Puzzle.Shadow.Sprite,
                 GameConfig.ColleсtPuzzle.Puzzle.Shadow.Size,
                 GameConfig.ColleсtPuzzle.Puzzle.Shadow.Point
+                );
+        }
+
+        public static class TestInterfaceElements
+        {
+            public static readonly ElementUI character = new ElementUI(
+                GameConfig.TestInterface.Character.Sprite,
+                GameConfig.TestInterface.Character.Size,
+                GameConfig.TestInterface.Character.Point
+                );
+            public static readonly ElementUI btnAnswer = new ElementUI(
+                GameConfig.TestInterface.BtnAnswer.Sprite,
+                GameConfig.TestInterface.BtnAnswer.Size,
+                GameConfig.TestInterface.BtnAnswer.Point
+                );
+            public static readonly ElementUI btnNextPlay = new ElementUI(
+                GameConfig.TestInterface.BtnNextPlay.Sprite,
+                GameConfig.TestInterface.BtnNextPlay.Size,
+                GameConfig.TestInterface.BtnNextPlay.Point
+                );
+            public static readonly ElementUI backgroundTest = new ElementUI(
+                GameConfig.TestInterface.BackgroundTest.Sprite,
+                GameConfig.TestInterface.BackgroundTest.Size,
+                GameConfig.TestInterface.BackgroundTest.Point
+                );
+            public static readonly ElementUI success = new ElementUI(
+                GameConfig.TestInterface.Success.Sprite,
+                GameConfig.TestInterface.Success.Size,
+                GameConfig.TestInterface.Success.Point
+                );
+
+        }
+        public static class TestRepeatActionElements
+        {
+            public static readonly ElementUI question = new ElementUI(
+                GameConfig.TestRepeatAction.Question.Sprite,
+                GameConfig.TestRepeatAction.Question.Size,
+                GameConfig.TestRepeatAction.Question.Point
+                );
+            public static readonly ElementUI tip = new ElementUI(
+                GameConfig.TestRepeatAction.Tip.Sprite,
+                GameConfig.TestRepeatAction.Tip.Size,
+                GameConfig.TestRepeatAction.Tip.Point
+                );
+            public static readonly ElementUI answer1 = new ElementUI(
+                GameConfig.TestRepeatAction.Answer1.Sprite,
+                GameConfig.TestRepeatAction.Answer1.Size,
+                GameConfig.TestRepeatAction.Answer1.Point
+                );
+            public static readonly ElementUI answer2 = new ElementUI(
+                GameConfig.TestRepeatAction.Answer2.Sprite,
+                GameConfig.TestRepeatAction.Answer2.Size,
+                GameConfig.TestRepeatAction.Answer2.Point
+                );
+            public static readonly ElementUI answer3 = new ElementUI(
+                GameConfig.TestRepeatAction.Answer3.Sprite,
+                GameConfig.TestRepeatAction.Answer3.Size,
+                GameConfig.TestRepeatAction.Answer3.Point
+                );
+            public static readonly ElementUI answer4 = new ElementUI(
+                GameConfig.TestRepeatAction.Answer4.Sprite,
+                GameConfig.TestRepeatAction.Answer4.Size,
+                GameConfig.TestRepeatAction.Answer4.Point
+                );
+        }
+        public static class TestCatchBonesElements
+        {
+            public static readonly ElementUI question = new ElementUI(
+                GameConfig.TestCatchBones.Question.Sprite,
+                GameConfig.TestCatchBones.Question.Size,
+                GameConfig.TestCatchBones.Question.Point
+                );
+            public static readonly ElementUI tip = new ElementUI(
+                GameConfig.TestCatchBones.Tip.Sprite,
+                GameConfig.TestCatchBones.Tip.Size,
+                GameConfig.TestCatchBones.Tip.Point
+                );
+            public static readonly ElementUI answer1 = new ElementUI(
+                GameConfig.TestCatchBones.Answer1.Sprite,
+                GameConfig.TestCatchBones.Answer1.Size,
+                GameConfig.TestCatchBones.Answer1.Point
+                );
+            public static readonly ElementUI answer2 = new ElementUI(
+                GameConfig.TestCatchBones.Answer2.Sprite,
+                GameConfig.TestCatchBones.Answer2.Size,
+                GameConfig.TestCatchBones.Answer2.Point
+                );
+            public static readonly ElementUI answer3 = new ElementUI(
+                GameConfig.TestCatchBones.Answer3.Sprite,
+                GameConfig.TestCatchBones.Answer3.Size,
+                GameConfig.TestCatchBones.Answer3.Point
+                );
+            public static readonly ElementUI answer4 = new ElementUI(
+                GameConfig.TestCatchBones.Answer4.Sprite,
+                GameConfig.TestCatchBones.Answer4.Size,
+                GameConfig.TestCatchBones.Answer4.Point
+                );
+        }
+        public static class TestCollectPuzzleElements
+        {
+            public static readonly ElementUI question = new ElementUI(
+                GameConfig.TestCollectPuzzle.Question.Sprite,
+                GameConfig.TestCollectPuzzle.Question.Size,
+                GameConfig.TestCollectPuzzle.Question.Point
+                );
+            public static readonly ElementUI tip = new ElementUI(
+                GameConfig.TestCollectPuzzle.Tip.Sprite,
+                GameConfig.TestCollectPuzzle.Tip.Size,
+                GameConfig.TestCollectPuzzle.Tip.Point
+                );
+            public static readonly ElementUI answer1 = new ElementUI(
+                GameConfig.TestCollectPuzzle.Answer1.Sprite,
+                GameConfig.TestCollectPuzzle.Answer1.Size,
+                GameConfig.TestCollectPuzzle.Answer1.Point
+                );
+            public static readonly ElementUI answer2 = new ElementUI(
+                GameConfig.TestCollectPuzzle.Answer2.Sprite,
+                GameConfig.TestCollectPuzzle.Answer2.Size,
+                GameConfig.TestCollectPuzzle.Answer2.Point
+                );
+            public static readonly ElementUI answer3 = new ElementUI(
+                GameConfig.TestCollectPuzzle.Answer3.Sprite,
+                GameConfig.TestCollectPuzzle.Answer3.Size,
+                GameConfig.TestCollectPuzzle.Answer3.Point
+                );
+            public static readonly ElementUI answer4 = new ElementUI(
+                GameConfig.TestCollectPuzzle.Answer4.Sprite,
+                GameConfig.TestCollectPuzzle.Answer4.Size,
+                GameConfig.TestCollectPuzzle.Answer4.Point
+                );
+        }
+        public static class TestDodgeMeteoritesElements
+        {
+            public static readonly ElementUI question = new ElementUI(
+                GameConfig.TestDodgeMeteorites.Question.Sprite,
+                GameConfig.TestDodgeMeteorites.Question.Size,
+                GameConfig.TestDodgeMeteorites.Question.Point
+                );
+            public static readonly ElementUI tip = new ElementUI(
+                GameConfig.TestDodgeMeteorites.Tip.Sprite,
+                GameConfig.TestDodgeMeteorites.Tip.Size,
+                GameConfig.TestDodgeMeteorites.Tip.Point
+                );
+            public static readonly ElementUI answer1 = new ElementUI(
+                GameConfig.TestDodgeMeteorites.Answer1.Sprite,
+                GameConfig.TestDodgeMeteorites.Answer1.Size,
+                GameConfig.TestDodgeMeteorites.Answer1.Point
+                );
+            public static readonly ElementUI answer2 = new ElementUI(
+                GameConfig.TestDodgeMeteorites.Answer2.Sprite,
+                GameConfig.TestDodgeMeteorites.Answer2.Size,
+                GameConfig.TestDodgeMeteorites.Answer2.Point
+                );
+            public static readonly ElementUI answer3 = new ElementUI(
+                GameConfig.TestDodgeMeteorites.Answer3.Sprite,
+                GameConfig.TestDodgeMeteorites.Answer3.Size,
+                GameConfig.TestDodgeMeteorites.Answer3.Point
+                );
+            public static readonly ElementUI answer4 = new ElementUI(
+                GameConfig.TestDodgeMeteorites.Answer4.Sprite,
+                GameConfig.TestDodgeMeteorites.Answer4.Size,
+                GameConfig.TestDodgeMeteorites.Answer4.Point
                 );
         }
     }

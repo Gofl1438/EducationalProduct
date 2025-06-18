@@ -22,6 +22,7 @@ namespace EducationalProduct
             startGame = false;
             InitializeComponent();
             StateExitMenu.Init();
+            StateCurrentScene.Init();
             СalibrationSize();
             ManagerUI.AddBtnClosedElement();
             ManagerUI.AddRuleDodgeMeteoritesElements();
@@ -69,6 +70,7 @@ namespace EducationalProduct
             new Size(GameConfig.RuleDodgeMeteoritesScene.BtnStartPlay.Width, GameConfig.RuleDodgeMeteoritesScene.BtnStartPlay.Height)).Contains(e.Location))
             {
                 StateNextBtn.CurrentNextBtnExitRuleDodgeMeteoritesScene = true;
+                StateCurrentScene.DodgeMeteoritesScene = true;
                 DodgeMeteorites dodgeMeteorites = new DodgeMeteorites();
                 dodgeMeteorites.Opacity = 0;
                 dodgeMeteorites.Show();

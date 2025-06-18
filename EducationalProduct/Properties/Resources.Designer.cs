@@ -143,6 +143,16 @@ namespace EducationalProduct.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BackGroundTest {
+            get {
+                object obj = ResourceManager.GetObject("BackGroundTest", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlueButtonGray {
             get {
                 object obj = ResourceManager.GetObject("BlueButtonGray", resourceCulture);
@@ -156,6 +166,16 @@ namespace EducationalProduct.Properties {
         internal static System.Drawing.Bitmap BlueButtonLight {
             get {
                 object obj = ResourceManager.GetObject("BlueButtonLight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnAnswer {
+            get {
+                object obj = ResourceManager.GetObject("btnAnswer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -654,6 +674,16 @@ namespace EducationalProduct.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap success {
+            get {
+                object obj = ResourceManager.GetObject("success", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap txtCatchBones1 {
             get {
                 object obj = ResourceManager.GetObject("txtCatchBones1", resourceCulture);
@@ -787,6 +817,246 @@ namespace EducationalProduct.Properties {
         internal static System.Drawing.Bitmap txtRuleScene {
             get {
                 object obj = ResourceManager.GetObject("txtRuleScene", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestAnswerCatchBones1 {
+            get {
+                object obj = ResourceManager.GetObject("txtTestAnswerCatchBones1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestAnswerCatchBones2 {
+            get {
+                object obj = ResourceManager.GetObject("txtTestAnswerCatchBones2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestAnswerCatchBones3 {
+            get {
+                object obj = ResourceManager.GetObject("txtTestAnswerCatchBones3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestAnswerCatchBones4 {
+            get {
+                object obj = ResourceManager.GetObject("txtTestAnswerCatchBones4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestAnswerCollectPuzzle1 {
+            get {
+                object obj = ResourceManager.GetObject("txtTestAnswerCollectPuzzle1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestAnswerCollectPuzzle2 {
+            get {
+                object obj = ResourceManager.GetObject("txtTestAnswerCollectPuzzle2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestAnswerCollectPuzzle3 {
+            get {
+                object obj = ResourceManager.GetObject("txtTestAnswerCollectPuzzle3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestAnswerCollectPuzzle4 {
+            get {
+                object obj = ResourceManager.GetObject("txtTestAnswerCollectPuzzle4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestAnswerDodgeMeteorites1 {
+            get {
+                object obj = ResourceManager.GetObject("txtTestAnswerDodgeMeteorites1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestAnswerDodgeMeteorites2 {
+            get {
+                object obj = ResourceManager.GetObject("txtTestAnswerDodgeMeteorites2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestAnswerDodgeMeteorites3 {
+            get {
+                object obj = ResourceManager.GetObject("txtTestAnswerDodgeMeteorites3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestAnswerDodgeMeteorites4 {
+            get {
+                object obj = ResourceManager.GetObject("txtTestAnswerDodgeMeteorites4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestAnswerRepeatAction1 {
+            get {
+                object obj = ResourceManager.GetObject("txtTestAnswerRepeatAction1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestAnswerRepeatAction2 {
+            get {
+                object obj = ResourceManager.GetObject("txtTestAnswerRepeatAction2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestAnswerRepeatAction3 {
+            get {
+                object obj = ResourceManager.GetObject("txtTestAnswerRepeatAction3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestAnswerRepeatAction4 {
+            get {
+                object obj = ResourceManager.GetObject("txtTestAnswerRepeatAction4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestQuestionCatchBones {
+            get {
+                object obj = ResourceManager.GetObject("txtTestQuestionCatchBones", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestQuestionCollectPuzzle {
+            get {
+                object obj = ResourceManager.GetObject("txtTestQuestionCollectPuzzle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestQuestionDodgeMeteorites {
+            get {
+                object obj = ResourceManager.GetObject("txtTestQuestionDodgeMeteorites", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestQuestionRepeatAction {
+            get {
+                object obj = ResourceManager.GetObject("txtTestQuestionRepeatAction", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestTipCatchBones {
+            get {
+                object obj = ResourceManager.GetObject("txtTestTipCatchBones", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestTipCollectPuzzle {
+            get {
+                object obj = ResourceManager.GetObject("txtTestTipCollectPuzzle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestTipDodgeMeteorites {
+            get {
+                object obj = ResourceManager.GetObject("txtTestTipDodgeMeteorites", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtTestTipRepeatAction {
+            get {
+                object obj = ResourceManager.GetObject("txtTestTipRepeatAction", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

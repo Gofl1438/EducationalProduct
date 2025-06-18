@@ -47,6 +47,11 @@ namespace EducationalProduct.Classes
             InitializeFontRepeatButton();
             InitializeFontDodgeMeteorites();
             InitializeFontCatchBones();
+            InitializeTestInterface();
+            InitializeTestRepeatAction();
+            InitializeTestCatchBones();
+            InitializeTestCollectPuzzle();
+            InitializeTestDodgeMeteorites();
         }
 
         private static void InitializeTotalElement()
@@ -75,6 +80,7 @@ namespace EducationalProduct.Classes
             TotalElement.BackgroundMenuExit.Height = CanvasProduct.Height;
             TotalElement.BackgroundMenuExit.Width = CanvasProduct.Width;
         }
+
         private static void InitializeOpeningScene()
         {
             int MinValueCanvas = Math.Min(CanvasProduct.Height, CanvasProduct.Width);
@@ -105,8 +111,8 @@ namespace EducationalProduct.Classes
         }
         private static void InitializeRuleScene()
         {
-            RuleScene.Character.Width = (int)(CanvasProduct.Width * 0.40f);
-            RuleScene.Character.Height = RuleScene.Character.Width;
+            RuleScene.Character.Width = (int)(CanvasProduct.Width * 0.36f);
+            RuleScene.Character.Height = (int)(RuleScene.Character.Width * 1.17f);
             RuleScene.Character.PositionOy = CanvasProduct.Height - RuleScene.Character.Height;
 
             RuleScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.19f);
@@ -122,8 +128,8 @@ namespace EducationalProduct.Classes
         }
         private static void InitializeEndScene()
         {
-            EndScene.Character.Width = (int)(CanvasProduct.Width * 0.40f);
-            EndScene.Character.Height = RuleScene.Character.Width;
+            EndScene.Character.Width = (int)(CanvasProduct.Width * 0.36f);
+            EndScene.Character.Height = (int)(EndScene.Character.Width * 1.17f);
             EndScene.Character.PositionOy = CanvasProduct.Height - RuleScene.Character.Height;
 
             EndScene.BtnToStart.Width = (int)(CanvasProduct.Width * 0.19f);
@@ -137,6 +143,7 @@ namespace EducationalProduct.Classes
 
             EndScene.BtnToStart.PositionOx = EndScene.TxtEndScene.PositionOx + (EndScene.TxtEndScene.Width - EndScene.BtnToStart.Width) / 2;
         }
+
         private static void InitializeRuleRepeatActionScene()
         {
             RuleRepeatActionScene.Character.Width = (int)(CanvasProduct.Width * 0.357);
@@ -261,6 +268,7 @@ namespace EducationalProduct.Classes
             RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene3.PositionOx = CanvasProduct.Width * 0.39f;
             RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene3.PositionOy = RuleDodgeMeteoritesScene.BtnNextPlay.PositionOy - RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene3.Height - RuleDodgeMeteoritesScene.BtnNextPlay.Height * 0.3f;
         }
+
         private static void InitializeColleсtPuzzle()
         {
             ColleсtPuzzle.Background.Width = CanvasProduct.Width;
@@ -356,6 +364,7 @@ namespace EducationalProduct.Classes
             RuleInfScene.RuleDodgeMeteorite.PositionOy = RuleInfScene.ButtonApply.PositionOy - RuleInfScene.RuleDodgeMeteorite.Height - (int)(CanvasProduct.Height * 0.03f);
 
         }
+
         public static void InitializeFontRepeatButton()
         {
             int MinValueCanvas = Math.Min(CanvasProduct.Height, CanvasProduct.Width);
@@ -388,7 +397,6 @@ namespace EducationalProduct.Classes
             NumberPointsDodgeMeteorites.pfc = pfc;
             NumberPointsDodgeMeteorites.shadowRect = shadowRect;
         }
-
         public static void InitializeFontCatchBones()
         {
             int MinValueCanvas = Math.Min(CanvasProduct.Height, CanvasProduct.Width);
@@ -404,6 +412,161 @@ namespace EducationalProduct.Classes
             NumberPointsCatchBones.fontPtr = fontPtr;
             NumberPointsCatchBones.pfc = pfc;
             NumberPointsCatchBones.shadowRect = shadowRect;
+        }
+
+        private static void InitializeTestInterface()
+        {
+            TestInterface.Character.Width = (int)(CanvasProduct.Width * 0.36f);
+            TestInterface.Character.Height = (int)(TestInterface.Character.Width * 1.17f);
+            TestInterface.Character.PositionOy = CanvasProduct.Height - TestInterface.Character.Height;
+
+            TestInterface.BtnAnswer.Width = (int)(CanvasProduct.Width * 0.15f);
+            TestInterface.BtnAnswer.Height = (int)(TestInterface.BtnAnswer.Width * 0.346f);
+            TestInterface.BtnAnswer.PositionOx = CanvasProduct.Width * 0.8f;
+            TestInterface.BtnAnswer.PositionOy = CanvasProduct.Height * 0.85f;
+
+            TestInterface.BtnNextPlay.Width = (int)(CanvasProduct.Width * 0.15f);
+            TestInterface.BtnNextPlay.Height = (int)(TestInterface.BtnAnswer.Width * 0.346f);
+            TestInterface.BtnNextPlay.PositionOx = CanvasProduct.Width * 0.8f;
+            TestInterface.BtnNextPlay.PositionOy = CanvasProduct.Height * 0.85f;
+
+            TestInterface.BackgroundTest.Width = (int)(CanvasProduct.Width * 0.6f);
+            TestInterface.BackgroundTest.Height = (int)(TestInterface.BackgroundTest.Width * 0.4f);
+            TestInterface.BackgroundTest.PositionOx = CanvasProduct.Width * 0.35f;
+            TestInterface.BackgroundTest.PositionOy = CanvasProduct.Height - TestInterface.BackgroundTest.Height - CanvasProduct.Height * 0.3f;
+
+            TestInterface.Success.Width = (int)(CanvasProduct.Width * 0.3f);
+            TestInterface.Success.Height = (int)(TestInterface.Success.Width * 0.095f);
+            TestInterface.Success.PositionOx = CanvasProduct.Width * 0.4f;
+            TestInterface.Success.PositionOy = CanvasProduct.Height * 0.85f;
+        }
+        private static void InitializeTestRepeatAction()
+        {
+            TestRepeatAction.Question.Width = (int)(CanvasProduct.Width * 0.3f);
+            TestRepeatAction.Question.Height = (int)(TestRepeatAction.Question.Width * 0.18f);
+            TestRepeatAction.Question.PositionOx = CanvasProduct.Width * 0.5f;
+            TestRepeatAction.Question.PositionOy = CanvasProduct.Height - TestRepeatAction.Question.Height - CanvasProduct.Height * 0.8f;
+
+            TestRepeatAction.Tip.Width = (int)(CanvasProduct.Width * 0.4f);
+            TestRepeatAction.Tip.Height = (int)(TestRepeatAction.Tip.Width * 0.134f);
+            TestRepeatAction.Tip.PositionOx = CanvasProduct.Width * 0.37f;
+            TestRepeatAction.Tip.PositionOy = CanvasProduct.Height * 0.85f;
+
+            TestRepeatAction.Answer1.Width = (int)(CanvasProduct.Width * 0.55f);
+            TestRepeatAction.Answer1.Height = (int)(TestRepeatAction.Answer1.Width * 0.062f);
+            TestRepeatAction.Answer1.PositionOx = CanvasProduct.Width * 0.375f;
+            TestRepeatAction.Answer1.PositionOy = CanvasProduct.Height - TestRepeatAction.Answer1.Height - CanvasProduct.Height * 0.64f;
+
+            TestRepeatAction.Answer2.Width = (int)(CanvasProduct.Width * 0.55f);
+            TestRepeatAction.Answer2.Height = (int)(TestRepeatAction.Answer2.Width * 0.062f);
+            TestRepeatAction.Answer2.PositionOx = CanvasProduct.Width * 0.375f;
+            TestRepeatAction.Answer2.PositionOy = CanvasProduct.Height - TestRepeatAction.Answer2.Height - CanvasProduct.Height * 0.54f;
+
+            TestRepeatAction.Answer3.Width = (int)(CanvasProduct.Width * 0.55f);
+            TestRepeatAction.Answer3.Height = (int)(TestRepeatAction.Answer3.Width * 0.062f);
+            TestRepeatAction.Answer3.PositionOx = CanvasProduct.Width * 0.375f;
+            TestRepeatAction.Answer3.PositionOy = CanvasProduct.Height - TestRepeatAction.Answer3.Height - CanvasProduct.Height * 0.44f;
+
+            TestRepeatAction.Answer4.Width = (int)(CanvasProduct.Width * 0.55f);
+            TestRepeatAction.Answer4.Height = (int)(TestRepeatAction.Answer4.Width * 0.062f);
+            TestRepeatAction.Answer4.PositionOx = CanvasProduct.Width * 0.375f;
+            TestRepeatAction.Answer4.PositionOy = CanvasProduct.Height - TestRepeatAction.Answer4.Height - CanvasProduct.Height * 0.34f;
+        }
+        private static void InitializeTestCatchBones()
+        {
+            TestCatchBones.Question.Width = (int)(CanvasProduct.Width * 0.3f);
+            TestCatchBones.Question.Height = (int)(TestCatchBones.Question.Width * 0.18f);
+            TestCatchBones.Question.PositionOx = CanvasProduct.Width * 0.5f;
+            TestCatchBones.Question.PositionOy = CanvasProduct.Height - TestCatchBones.Question.Height - CanvasProduct.Height * 0.8f;
+
+            TestCatchBones.Tip.Width = (int)(CanvasProduct.Width * 0.4f);
+            TestCatchBones.Tip.Height = (int)(TestCatchBones.Tip.Width * 0.134f);
+            TestCatchBones.Tip.PositionOx = CanvasProduct.Width * 0.37f;
+            TestCatchBones.Tip.PositionOy = CanvasProduct.Height * 0.85f;
+
+            TestCatchBones.Answer1.Width = (int)(CanvasProduct.Width * 0.55f);
+            TestCatchBones.Answer1.Height = (int)(TestCatchBones.Answer1.Width * 0.062f);
+            TestCatchBones.Answer1.PositionOx = CanvasProduct.Width * 0.375f;
+            TestCatchBones.Answer1.PositionOy = CanvasProduct.Height - TestCatchBones.Answer1.Height - CanvasProduct.Height * 0.64f;
+
+            TestCatchBones.Answer2.Width = (int)(CanvasProduct.Width * 0.55f);
+            TestCatchBones.Answer2.Height = (int)(TestCatchBones.Answer2.Width * 0.062f);
+            TestCatchBones.Answer2.PositionOx = CanvasProduct.Width * 0.375f;
+            TestCatchBones.Answer2.PositionOy = CanvasProduct.Height - TestCatchBones.Answer2.Height - CanvasProduct.Height * 0.54f;
+
+            TestCatchBones.Answer3.Width = (int)(CanvasProduct.Width * 0.55f);
+            TestCatchBones.Answer3.Height = (int)(TestCatchBones.Answer3.Width * 0.062f);
+            TestCatchBones.Answer3.PositionOx = CanvasProduct.Width * 0.375f;
+            TestCatchBones.Answer3.PositionOy = CanvasProduct.Height - TestCatchBones.Answer3.Height - CanvasProduct.Height * 0.44f;
+
+            TestCatchBones.Answer4.Width = (int)(CanvasProduct.Width * 0.55f);
+            TestCatchBones.Answer4.Height = (int)(TestCatchBones.Answer4.Width * 0.062f);
+            TestCatchBones.Answer4.PositionOx = CanvasProduct.Width * 0.375f;
+            TestCatchBones.Answer4.PositionOy = CanvasProduct.Height - TestCatchBones.Answer4.Height - CanvasProduct.Height * 0.34f;
+        }
+        private static void InitializeTestCollectPuzzle()
+        {
+            TestCollectPuzzle.Question.Width = (int)(CanvasProduct.Width * 0.3f);
+            TestCollectPuzzle.Question.Height = (int)(TestCollectPuzzle.Question.Width * 0.18f);
+            TestCollectPuzzle.Question.PositionOx = CanvasProduct.Width * 0.5f;
+            TestCollectPuzzle.Question.PositionOy = CanvasProduct.Height - TestCollectPuzzle.Question.Height - CanvasProduct.Height * 0.8f;
+
+            TestCollectPuzzle.Tip.Width = (int)(CanvasProduct.Width * 0.4f);
+            TestCollectPuzzle.Tip.Height = (int)(TestCollectPuzzle.Tip.Width * 0.134f);
+            TestCollectPuzzle.Tip.PositionOx = CanvasProduct.Width * 0.37f;
+            TestCollectPuzzle.Tip.PositionOy = CanvasProduct.Height * 0.85f;
+
+            TestCollectPuzzle.Answer1.Width = (int)(CanvasProduct.Width * 0.55f);
+            TestCollectPuzzle.Answer1.Height = (int)(TestCollectPuzzle.Answer1.Width * 0.062f);
+            TestCollectPuzzle.Answer1.PositionOx = CanvasProduct.Width * 0.375f;
+            TestCollectPuzzle.Answer1.PositionOy = CanvasProduct.Height - TestCollectPuzzle.Answer1.Height - CanvasProduct.Height * 0.64f;
+
+            TestCollectPuzzle.Answer2.Width = (int)(CanvasProduct.Width * 0.55f);
+            TestCollectPuzzle.Answer2.Height = (int)(TestCollectPuzzle.Answer2.Width * 0.062f);
+            TestCollectPuzzle.Answer2.PositionOx = CanvasProduct.Width * 0.375f;
+            TestCollectPuzzle.Answer2.PositionOy = CanvasProduct.Height - TestCollectPuzzle.Answer2.Height - CanvasProduct.Height * 0.54f;
+
+            TestCollectPuzzle.Answer3.Width = (int)(CanvasProduct.Width * 0.55f);
+            TestCollectPuzzle.Answer3.Height = (int)(TestCollectPuzzle.Answer3.Width * 0.062f);
+            TestCollectPuzzle.Answer3.PositionOx = CanvasProduct.Width * 0.375f;
+            TestCollectPuzzle.Answer3.PositionOy = CanvasProduct.Height - TestCollectPuzzle.Answer3.Height - CanvasProduct.Height * 0.44f;
+
+            TestCollectPuzzle.Answer4.Width = (int)(CanvasProduct.Width * 0.55f);
+            TestCollectPuzzle.Answer4.Height = (int)(TestCollectPuzzle.Answer4.Width * 0.062f);
+            TestCollectPuzzle.Answer4.PositionOx = CanvasProduct.Width * 0.375f;
+            TestCollectPuzzle.Answer4.PositionOy = CanvasProduct.Height - TestCollectPuzzle.Answer4.Height - CanvasProduct.Height * 0.34f;
+        }
+        private static void InitializeTestDodgeMeteorites()
+        {
+            TestDodgeMeteorites.Question.Width = (int)(CanvasProduct.Width * 0.3f);
+            TestDodgeMeteorites.Question.Height = (int)(TestDodgeMeteorites.Question.Width * 0.18f);
+            TestDodgeMeteorites.Question.PositionOx = CanvasProduct.Width * 0.5f;
+            TestDodgeMeteorites.Question.PositionOy = CanvasProduct.Height - TestDodgeMeteorites.Question.Height - CanvasProduct.Height * 0.8f;
+
+            TestDodgeMeteorites.Tip.Width = (int)(CanvasProduct.Width * 0.4f);
+            TestDodgeMeteorites.Tip.Height = (int)(TestDodgeMeteorites.Tip.Width * 0.134f);
+            TestDodgeMeteorites.Tip.PositionOx = CanvasProduct.Width * 0.37f;
+            TestDodgeMeteorites.Tip.PositionOy = CanvasProduct.Height * 0.85f;
+
+            TestDodgeMeteorites.Answer1.Width = (int)(CanvasProduct.Width * 0.55f);
+            TestDodgeMeteorites.Answer1.Height = (int)(TestDodgeMeteorites.Answer1.Width * 0.062f);
+            TestDodgeMeteorites.Answer1.PositionOx = CanvasProduct.Width * 0.375f;
+            TestDodgeMeteorites.Answer1.PositionOy = CanvasProduct.Height - TestDodgeMeteorites.Answer1.Height - CanvasProduct.Height * 0.64f;
+
+            TestDodgeMeteorites.Answer2.Width = (int)(CanvasProduct.Width * 0.55f);
+            TestDodgeMeteorites.Answer2.Height = (int)(TestDodgeMeteorites.Answer2.Width * 0.062f);
+            TestDodgeMeteorites.Answer2.PositionOx = CanvasProduct.Width * 0.375f;
+            TestDodgeMeteorites.Answer2.PositionOy = CanvasProduct.Height - TestDodgeMeteorites.Answer2.Height - CanvasProduct.Height * 0.54f;
+
+            TestDodgeMeteorites.Answer3.Width = (int)(CanvasProduct.Width * 0.55f);
+            TestDodgeMeteorites.Answer3.Height = (int)(TestDodgeMeteorites.Answer3.Width * 0.062f);
+            TestDodgeMeteorites.Answer3.PositionOx = CanvasProduct.Width * 0.375f;
+            TestDodgeMeteorites.Answer3.PositionOy = CanvasProduct.Height - TestDodgeMeteorites.Answer3.Height - CanvasProduct.Height * 0.44f;
+
+            TestDodgeMeteorites.Answer4.Width = (int)(CanvasProduct.Width * 0.55f);
+            TestDodgeMeteorites.Answer4.Height = (int)(TestDodgeMeteorites.Answer4.Width * 0.062f);
+            TestDodgeMeteorites.Answer4.PositionOx = CanvasProduct.Width * 0.375f;
+            TestDodgeMeteorites.Answer4.PositionOy = CanvasProduct.Height - TestDodgeMeteorites.Answer4.Height - CanvasProduct.Height * 0.34f;
         }
 
         public static class NumberPointsCatchBones
@@ -584,6 +747,7 @@ namespace EducationalProduct.Classes
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
         }
+
         public static class OpeningScene
         {
             public static class Rocket
@@ -704,6 +868,7 @@ namespace EducationalProduct.Classes
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
         }
+
         public static class RuleRepeatActionScene
         {
             public static class Character
@@ -956,6 +1121,7 @@ namespace EducationalProduct.Classes
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
         }
+
         public static class CatchBones
         {
             public static class Character
@@ -980,7 +1146,7 @@ namespace EducationalProduct.Classes
             }
             public static class Bone
             {
-                public static readonly int DefaultQuantityBone = 12;
+                public static readonly int DefaultQuantityBone = 2;
                 public static readonly float MinSpeed = 2.0f;
                 public static readonly float MaxSpeed = 8.0f;
                 public static class Big
@@ -1148,7 +1314,7 @@ namespace EducationalProduct.Classes
         public static class RepeatAction
         {
             public static readonly int FrequencyGameOver = 13;
-            public static readonly int MaxQuntitySequence = 5;
+            public static readonly int MaxQuntitySequence = 1;
             public static class Background
             {
                 public static readonly Bitmap Sprite = GameResources.BackgroundRepeatAction;
@@ -1200,6 +1366,312 @@ namespace EducationalProduct.Classes
                     public static Size Size => new Size(Width, Height);
                     public static PointF Point => new PointF(PositionOx, PositionOy);
                 }
+            }
+        }
+
+        public static class TestInterface
+        {
+            public static class Character
+            {
+                public static readonly Bitmap Sprite = GameResources.СharacterRuleScene;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class BtnAnswer
+            {
+                public static readonly Bitmap Sprite = GameResources.btnAnswer;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class BackgroundTest
+            {
+                public static readonly Bitmap Sprite = GameResources.BackgroundTest;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class BtnNextPlay
+            {
+                public static readonly Bitmap Sprite = GameResources.btnNextPlay;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Success
+            {
+                public static readonly Bitmap Sprite = GameResources.Success;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+        }
+        public static class TestRepeatAction
+        {
+            public static class Question
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestQuestionRepeatAction;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Answer1
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestAnswerRepeatAction1;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Answer2
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestAnswerRepeatAction2;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Answer3
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestAnswerRepeatAction3;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Answer4
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestAnswerRepeatAction4;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Tip
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestTipRepeatAction;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+        }
+        public static class TestCatchBones
+        {
+            public static class Question
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestQuestionCatchBones;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Answer1
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestAnswerCatchBones1;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Answer2
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestAnswerCatchBones2;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Answer3
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestAnswerCatchBones3;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Answer4
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestAnswerCatchBones4;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Tip
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestTipCatchBones;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+        }
+        public static class TestCollectPuzzle
+        {
+            public static class Question
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestQuestionCollectPuzzle;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Answer1
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestAnswerCollectPuzzle1;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Answer2
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestAnswerCollectPuzzle2;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Answer3
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestAnswerCollectPuzzle3;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Answer4
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestAnswerCollectPuzzle4;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Tip
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestTipCollectPuzzle;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+        }
+        public static class TestDodgeMeteorites
+        {
+            public static class Question
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestQuestionDodgeMeteorites;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Answer1
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestAnswerDodgeMeteorites1;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Answer2
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestAnswerDodgeMeteorites2;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Answer3
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestAnswerDodgeMeteorites3;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Answer4
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestAnswerDodgeMeteorites4;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Tip
+            {
+                public static readonly Bitmap Sprite = GameResources.txtTestTipDodgeMeteorites;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
             }
         }
     }

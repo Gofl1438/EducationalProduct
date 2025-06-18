@@ -22,6 +22,7 @@ namespace EducationalProduct
             startGame = false;
             InitializeComponent();
             StateExitMenu.Init();
+            StateCurrentScene.Init();
             СalibrationSize();
             ManagerUI.AddBtnClosedElement();
             ManagerUI.AddRuleCatchBonesElements();
@@ -69,6 +70,7 @@ namespace EducationalProduct
             new Size(GameConfig.RuleCatchBonesScene.BtnStartPlay.Width, GameConfig.RuleCatchBonesScene.BtnStartPlay.Height)).Contains(e.Location))
             {
                 StateNextBtn.CurrentNextBtnExitRuleCatchBonesScene = true;
+                StateCurrentScene.CatchBonesScene = true;
                 CatchBones catchBones = new CatchBones();
                 catchBones.Opacity = 0;
                 catchBones.Show();

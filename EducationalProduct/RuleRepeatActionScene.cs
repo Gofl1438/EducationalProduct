@@ -23,6 +23,7 @@ namespace EducationalProduct
             startGame = false;
             InitializeComponent();
             StateExitMenu.Init();
+            StateCurrentScene.Init();
             СalibrationSize();
             ManagerUI.AddBtnClosedElement();
             ManagerUI.AddRuleRepeatActionElements();
@@ -80,6 +81,7 @@ namespace EducationalProduct
             new Size(GameConfig.RuleRepeatActionScene.BtnStartPlay.Width, GameConfig.RuleRepeatActionScene.BtnStartPlay.Height)).Contains(e.Location))
             {
                 StateNextBtn.CurrentNextBtnExitRuleRepeatActionScene = true;
+                StateCurrentScene.RepeatActionScene = true;
                 RepeatAction repeatAction = new RepeatAction();
                 repeatAction.Opacity = 0;
                 repeatAction.Show();

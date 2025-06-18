@@ -74,13 +74,13 @@ namespace EducationalProduct
                     timer.Stop();
                     timer.Tick -= Update;
                     timer.Dispose();
-                    RuleDodgeMeteoritesScene ruleDodgeMeteoritesScene = new RuleDodgeMeteoritesScene();
-                    ruleDodgeMeteoritesScene.Opacity = 0;
-                    ruleDodgeMeteoritesScene.Show();
-                    ruleDodgeMeteoritesScene.Refresh();
+                    TestScene testScene = new TestScene();
+                    testScene.Opacity = 0;
+                    testScene.Show();
+                    testScene.Refresh();
                     for (double opacity = 0; opacity <= 1; opacity += 0.1)
                     {
-                        ruleDodgeMeteoritesScene.Opacity = opacity;
+                        testScene.Opacity = opacity;
                         System.Threading.Thread.Sleep(16);
                     }
                     ManagerPuzzle.Dispose();

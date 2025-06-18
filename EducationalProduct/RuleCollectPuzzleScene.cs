@@ -22,6 +22,7 @@ namespace EducationalProduct
             startGame = false;
             InitializeComponent();
             StateExitMenu.Init();
+            StateCurrentScene.Init();
             СalibrationSize();
             ManagerUI.AddBtnClosedElement();
             ManagerUI.AddRuleCollectPuzzleElements();
@@ -69,6 +70,7 @@ namespace EducationalProduct
             new Size(GameConfig.RuleCollectPuzzleScene.BtnStartPlay.Width, GameConfig.RuleCollectPuzzleScene.BtnStartPlay.Height)).Contains(e.Location))
             {
                 StateNextBtn.CurrentNextBtnExitRuleCollectPuzzleScene = true;
+                StateCurrentScene.CollectPuzzleScene = true;
                 ColleсtPuzzle collectPuzzle = new ColleсtPuzzle();
                 collectPuzzle.Opacity = 0;
                 collectPuzzle.Show();

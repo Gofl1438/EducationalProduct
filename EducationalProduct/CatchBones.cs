@@ -68,13 +68,13 @@ namespace EducationalProduct
                     timer.Stop();
                     timer.Tick -= Update;
                     timer.Dispose();
-                    RuleCollectPuzzleScene ruleCollectPuzzleScene = new RuleCollectPuzzleScene(); //указать нужную сцену//
-                    ruleCollectPuzzleScene.Opacity = 0;
-                    ruleCollectPuzzleScene.Show();
-                    ruleCollectPuzzleScene.Refresh();
+                    TestScene testScene = new TestScene(); //указать нужную сцену//
+                    testScene.Opacity = 0;
+                    testScene.Show();
+                    testScene.Refresh();
                     for (double opacity = 0; opacity <= 1; opacity += 0.1)
                     {
-                        ruleCollectPuzzleScene.Opacity = opacity;
+                        testScene.Opacity = opacity;
                         System.Threading.Thread.Sleep(16);
                     }
                     ManagerBone.Dispose();

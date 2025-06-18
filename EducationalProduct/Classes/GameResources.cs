@@ -21,12 +21,12 @@ namespace EducationalProduct.Classes
         public static readonly Bitmap YesExit = Properties.Resources.YesExit;
         public static readonly Bitmap OpeningRocket = Properties.Resources.OpeningRocket;
         public static readonly Bitmap OpeningTitle = Properties.Resources.OpeningTitle;
-        public static readonly Bitmap btnStartPlayOpening = Properties.Resources.btnStartPlayOpening;
+        public static readonly Bitmap btnPlayStart = Properties.Resources.btnPlayStart;
         public static readonly Bitmap СharacterRuleScene = Properties.Resources.СharacterRuleScene;
-        public static readonly Bitmap btnPlayStartRuleScene = Properties.Resources.btnPlayStartRuleScene;
         public static readonly Bitmap txtRuleScene = Properties.Resources.txtRuleScene;
         public static readonly Bitmap CharacterRuleRepeatActionScene = Properties.Resources.CharacterRuleRepeatActionScene;
         public static readonly Bitmap btnNextPlay = Properties.Resources.btnNextPlay;
+        public static readonly Bitmap btnBackPlay = Properties.Resources.btnBack;
         public static readonly Bitmap txtRepeatAction1 = Properties.Resources.txtRepeatAction1;
         public static readonly Bitmap txtRepeatAction2 = Properties.Resources.txtRepeatAction2;
         public static readonly Bitmap txtRepeatAction3 = Properties.Resources.txtRepeatAction3;

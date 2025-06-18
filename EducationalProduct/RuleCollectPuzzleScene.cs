@@ -48,7 +48,7 @@ namespace EducationalProduct
             }
             for (int i = 0; i < ManagerUI.RuleCollectPuzzleElements.Count; i++)
             {
-                if (DialogManager.UpdateNextBtn(startGame, i) || DialogManager.UpdateDialog(countNext, i))
+                if (DialogManager.UpdateNextBtn(startGame, i) || DialogManager.UpdateDialog(countNext, i) || DialogManager.UpdateBackBtn(countNext, i))
                     continue;
 
                 ManagerUI.RuleCollectPuzzleElements[i].DrawSprite(g);
@@ -63,13 +63,14 @@ namespace EducationalProduct
         {
             CheckMouseDownExit(e);
             CheckMouseDownNext(e);
+            CheckMouseDownBack(e);
 
-            if (StateExitMenu.CurrentStateMenuExitRuleCollectPuzzleScene || StateNextBtn.CurrentNextBtnExitRuleCollectPuzzleScene) return;
+            if (StateExitMenu.CurrentStateMenuExitRuleCollectPuzzleScene || StateNextBtn.CurrentNextBtnRuleCollectPuzzleScene) return;
 
             if (new RectangleF(new PointF(GameConfig.RuleCollectPuzzleScene.BtnStartPlay.PositionOx, GameConfig.RuleCollectPuzzleScene.BtnStartPlay.PositionOy),
             new Size(GameConfig.RuleCollectPuzzleScene.BtnStartPlay.Width, GameConfig.RuleCollectPuzzleScene.BtnStartPlay.Height)).Contains(e.Location))
             {
-                StateNextBtn.CurrentNextBtnExitRuleCollectPuzzleScene = true;
+                StateNextBtn.CurrentNextBtnRuleCollectPuzzleScene = true;
                 StateCurrentScene.CollectPuzzleScene = true;
                 ColleсtPuzzle collectPuzzle = new ColleсtPuzzle();
                 collectPuzzle.Opacity = 0;
@@ -106,7 +107,7 @@ namespace EducationalProduct
                 new Size(GameConfig.TotalElement.ButtonYes.Width, GameConfig.TotalElement.ButtonYes.Height)).Contains(e.Location))
             {
                 StateExitMenu.CurrentStateMenuExitRuleCollectPuzzleScene = false;
-                StateNextBtn.CurrentNextBtnExitRuleCollectPuzzleScene = true;
+                StateNextBtn.CurrentNextBtnRuleCollectPuzzleScene = true;
                 if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
                 {
                     ManagerUI.TotalElementsMenuExit.Clear();
@@ -150,10 +151,26 @@ namespace EducationalProduct
                 }
                 else
                 {
-                    StateNextBtn.CurrentNextBtnExitRuleCollectPuzzleScene = false;
+                    StateNextBtn.CurrentNextBtnRuleCollectPuzzleScene = false;
                 }
 
                 CanvasRuleCollectPuzzleScene.Invalidate();
+            }
+        }
+        private void CheckMouseDownBack(MouseEventArgs e)
+        {
+            if (new RectangleF(new PointF(GameConfig.RuleCollectPuzzleScene.BtnBackPlay.PositionOx, GameConfig.RuleCollectPuzzleScene.BtnBackPlay.PositionOy),
+            new Size(GameConfig.RuleCollectPuzzleScene.BtnBackPlay.Width, GameConfig.RuleCollectPuzzleScene.BtnBackPlay.Height)).Contains(e.Location))
+            {
+                if (countNext > 0)
+                {
+                    countNext--;
+                    startGame = false;
+
+                    StateBackBtn.CurrentBackBtnRuleRepeatActionScene = false;
+
+                    CanvasRuleCollectPuzzleScene.Invalidate();
+                }
             }
         }
 

@@ -117,14 +117,13 @@ namespace EducationalProduct.Classes
 
             RuleScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.19f);
             RuleScene.BtnStartPlay.Height = (int)(RuleScene.BtnStartPlay.Width * 0.386f);
+            RuleScene.BtnStartPlay.PositionOx = RuleScene.TxtRuleScene.PositionOx + (RuleScene.TxtRuleScene.Width - RuleScene.BtnStartPlay.Width) / 2;
             RuleScene.BtnStartPlay.PositionOy = CanvasProduct.Height * 0.8f;
 
             RuleScene.TxtRuleScene.Width = (int)(CanvasProduct.Width * 0.5468f);
             RuleScene.TxtRuleScene.Height = (int)(RuleScene.TxtRuleScene.Width * 0.59f);
             RuleScene.TxtRuleScene.PositionOx = CanvasProduct.Width * 0.39f;
             RuleScene.TxtRuleScene.PositionOy = RuleScene.BtnStartPlay.PositionOy - RuleScene.TxtRuleScene.Height - RuleScene.BtnStartPlay.Height * 0.3f;
-
-            RuleScene.BtnStartPlay.PositionOx = RuleScene.TxtRuleScene.PositionOx + (RuleScene.TxtRuleScene.Width - RuleScene.BtnStartPlay.Width) / 2;
         }
         private static void InitializeEndScene()
         {
@@ -152,12 +151,17 @@ namespace EducationalProduct.Classes
 
             RuleRepeatActionScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.19f);
             RuleRepeatActionScene.BtnStartPlay.Height = (int)(RuleRepeatActionScene.BtnStartPlay.Width * 0.386f);
-            RuleRepeatActionScene.BtnStartPlay.PositionOx = CanvasProduct.Width * 0.56f;
+            RuleRepeatActionScene.BtnStartPlay.PositionOx = CanvasProduct.Width * 0.7f;
             RuleRepeatActionScene.BtnStartPlay.PositionOy = CanvasProduct.Height * 0.8f;
+
+            RuleRepeatActionScene.BtnBackPlay.Width = (int)(CanvasProduct.Width * 0.19f);
+            RuleRepeatActionScene.BtnBackPlay.Height = (int)(RuleRepeatActionScene.BtnBackPlay.Width * 0.386f);
+            RuleRepeatActionScene.BtnBackPlay.PositionOx = CanvasProduct.Width * 0.42f;
+            RuleRepeatActionScene.BtnBackPlay.PositionOy = CanvasProduct.Height * 0.8f;
 
             RuleRepeatActionScene.BtnNextPlay.Width = (int)(CanvasProduct.Width * 0.19f);
             RuleRepeatActionScene.BtnNextPlay.Height = (int)(RuleRepeatActionScene.BtnNextPlay.Width * 0.386f);
-            RuleRepeatActionScene.BtnNextPlay.PositionOx = CanvasProduct.Width * 0.56f;
+            RuleRepeatActionScene.BtnNextPlay.PositionOx = CanvasProduct.Width * 0.7f;
             RuleRepeatActionScene.BtnNextPlay.PositionOy = CanvasProduct.Height * 0.8f;
 
             RuleRepeatActionScene.TxtRuleRepeatActionScene1.Width = (int)(CanvasProduct.Width * 0.5468f);
@@ -183,12 +187,17 @@ namespace EducationalProduct.Classes
 
             RuleCatchBonesScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.19f);
             RuleCatchBonesScene.BtnStartPlay.Height = (int)(RuleCatchBonesScene.BtnStartPlay.Width * 0.386f);
-            RuleCatchBonesScene.BtnStartPlay.PositionOx = CanvasProduct.Width * 0.56f;
+            RuleCatchBonesScene.BtnStartPlay.PositionOx = CanvasProduct.Width * 0.7f;
             RuleCatchBonesScene.BtnStartPlay.PositionOy = CanvasProduct.Height * 0.8f;
+
+            RuleCatchBonesScene.BtnBackPlay.Width = (int)(CanvasProduct.Width * 0.19f);
+            RuleCatchBonesScene.BtnBackPlay.Height = (int)(RuleCatchBonesScene.BtnBackPlay.Width * 0.386f);
+            RuleCatchBonesScene.BtnBackPlay.PositionOx = CanvasProduct.Width * 0.42f;
+            RuleCatchBonesScene.BtnBackPlay.PositionOy = CanvasProduct.Height * 0.8f;
 
             RuleCatchBonesScene.BtnNextPlay.Width = (int)(CanvasProduct.Width * 0.19f);
             RuleCatchBonesScene.BtnNextPlay.Height = (int)(RuleCatchBonesScene.BtnNextPlay.Width * 0.386f);
-            RuleCatchBonesScene.BtnNextPlay.PositionOx = CanvasProduct.Width * 0.56f;
+            RuleCatchBonesScene.BtnNextPlay.PositionOx = CanvasProduct.Width * 0.7f;
             RuleCatchBonesScene.BtnNextPlay.PositionOy = CanvasProduct.Height * 0.8f;
 
             RuleCatchBonesScene.TxtRuleCatchBonesScene1.Width = (int)(CanvasProduct.Width * 0.5468f);
@@ -214,12 +223,17 @@ namespace EducationalProduct.Classes
 
             RuleCollectPuzzleScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.19f);
             RuleCollectPuzzleScene.BtnStartPlay.Height = (int)(RuleCollectPuzzleScene.BtnStartPlay.Width * 0.386f);
-            RuleCollectPuzzleScene.BtnStartPlay.PositionOx = CanvasProduct.Width * 0.56f;
+            RuleCollectPuzzleScene.BtnStartPlay.PositionOx = CanvasProduct.Width * 0.7f;
             RuleCollectPuzzleScene.BtnStartPlay.PositionOy = CanvasProduct.Height * 0.8f;
+
+            RuleCollectPuzzleScene.BtnBackPlay.Width = (int)(CanvasProduct.Width * 0.19f);
+            RuleCollectPuzzleScene.BtnBackPlay.Height = (int)(RuleCollectPuzzleScene.BtnBackPlay.Width * 0.386f);
+            RuleCollectPuzzleScene.BtnBackPlay.PositionOx = CanvasProduct.Width * 0.42f;
+            RuleCollectPuzzleScene.BtnBackPlay.PositionOy = CanvasProduct.Height * 0.8f;
 
             RuleCollectPuzzleScene.BtnNextPlay.Width = (int)(CanvasProduct.Width * 0.19f);
             RuleCollectPuzzleScene.BtnNextPlay.Height = (int)(RuleCollectPuzzleScene.BtnNextPlay.Width * 0.386f);
-            RuleCollectPuzzleScene.BtnNextPlay.PositionOx = CanvasProduct.Width * 0.56f;
+            RuleCollectPuzzleScene.BtnNextPlay.PositionOx = CanvasProduct.Width * 0.7f;
             RuleCollectPuzzleScene.BtnNextPlay.PositionOy = CanvasProduct.Height * 0.8f;
 
             RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene1.Width = (int)(CanvasProduct.Width * 0.5468f);
@@ -245,12 +259,17 @@ namespace EducationalProduct.Classes
 
             RuleDodgeMeteoritesScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.19f);
             RuleDodgeMeteoritesScene.BtnStartPlay.Height = (int)(RuleDodgeMeteoritesScene.BtnStartPlay.Width * 0.386f);
-            RuleDodgeMeteoritesScene.BtnStartPlay.PositionOx = CanvasProduct.Width * 0.56f;
+            RuleDodgeMeteoritesScene.BtnStartPlay.PositionOx = CanvasProduct.Width * 0.7f;
             RuleDodgeMeteoritesScene.BtnStartPlay.PositionOy = CanvasProduct.Height * 0.8f;
+
+            RuleDodgeMeteoritesScene.BtnBackPlay.Width = (int)(CanvasProduct.Width * 0.19f);
+            RuleDodgeMeteoritesScene.BtnBackPlay.Height = (int)(RuleDodgeMeteoritesScene.BtnBackPlay.Width * 0.386f);
+            RuleDodgeMeteoritesScene.BtnBackPlay.PositionOx = CanvasProduct.Width * 0.42f;
+            RuleDodgeMeteoritesScene.BtnBackPlay.PositionOy = CanvasProduct.Height * 0.8f;
 
             RuleDodgeMeteoritesScene.BtnNextPlay.Width = (int)(CanvasProduct.Width * 0.19f);
             RuleDodgeMeteoritesScene.BtnNextPlay.Height = (int)(RuleDodgeMeteoritesScene.BtnNextPlay.Width * 0.386f);
-            RuleDodgeMeteoritesScene.BtnNextPlay.PositionOx = CanvasProduct.Width * 0.56f;
+            RuleDodgeMeteoritesScene.BtnNextPlay.PositionOx = CanvasProduct.Width * 0.7f;
             RuleDodgeMeteoritesScene.BtnNextPlay.PositionOy = CanvasProduct.Height * 0.8f;
 
             RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene1.Width = (int)(CanvasProduct.Width * 0.5468f);
@@ -421,12 +440,12 @@ namespace EducationalProduct.Classes
             TestInterface.Character.PositionOy = CanvasProduct.Height - TestInterface.Character.Height;
 
             TestInterface.BtnAnswer.Width = (int)(CanvasProduct.Width * 0.15f);
-            TestInterface.BtnAnswer.Height = (int)(TestInterface.BtnAnswer.Width * 0.346f);
+            TestInterface.BtnAnswer.Height = (int)(TestInterface.BtnAnswer.Width * 0.386f);
             TestInterface.BtnAnswer.PositionOx = CanvasProduct.Width * 0.8f;
             TestInterface.BtnAnswer.PositionOy = CanvasProduct.Height * 0.85f;
 
             TestInterface.BtnNextPlay.Width = (int)(CanvasProduct.Width * 0.15f);
-            TestInterface.BtnNextPlay.Height = (int)(TestInterface.BtnAnswer.Width * 0.346f);
+            TestInterface.BtnNextPlay.Height = (int)(TestInterface.BtnAnswer.Width * 0.386f);
             TestInterface.BtnNextPlay.PositionOx = CanvasProduct.Width * 0.8f;
             TestInterface.BtnNextPlay.PositionOy = CanvasProduct.Height * 0.85f;
 
@@ -773,7 +792,7 @@ namespace EducationalProduct.Classes
             }
             public static class BtnStartPlay
             {
-                public static readonly Bitmap Sprite = GameResources.btnStartPlayOpening;
+                public static readonly Bitmap Sprite = GameResources.btnPlayStart;
                 public static int Height { get; set; }
                 public static int Width { get; set; }
                 public static float PositionOx { get; set; }
@@ -816,7 +835,7 @@ namespace EducationalProduct.Classes
             }
             public static class BtnStartPlay
             {
-                public static readonly Bitmap Sprite = GameResources.btnPlayStartRuleScene;
+                public static readonly Bitmap Sprite = GameResources.btnPlayStart;
                 public static int Height { get; set; }
                 public static int Width { get; set; }
                 public static float PositionOx { get; set; }
@@ -883,7 +902,17 @@ namespace EducationalProduct.Classes
             }
             public static class BtnStartPlay
             {
-                public static readonly Bitmap Sprite = GameResources.btnPlayStartRuleScene;
+                public static readonly Bitmap Sprite = GameResources.btnPlayStart;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class BtnBackPlay
+            {
+                public static readonly Bitmap Sprite = GameResources.btnBackPlay;
                 public static int Height { get; set; }
                 public static int Width { get; set; }
                 public static float PositionOx { get; set; }
@@ -946,7 +975,17 @@ namespace EducationalProduct.Classes
             }
             public static class BtnStartPlay
             {
-                public static readonly Bitmap Sprite = GameResources.btnPlayStartRuleScene;
+                public static readonly Bitmap Sprite = GameResources.btnPlayStart;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class BtnBackPlay
+            {
+                public static readonly Bitmap Sprite = GameResources.btnBackPlay;
                 public static int Height { get; set; }
                 public static int Width { get; set; }
                 public static float PositionOx { get; set; }
@@ -1009,7 +1048,17 @@ namespace EducationalProduct.Classes
             }
             public static class BtnStartPlay
             {
-                public static readonly Bitmap Sprite = GameResources.btnPlayStartRuleScene;
+                public static readonly Bitmap Sprite = GameResources.btnPlayStart;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class BtnBackPlay
+            {
+                public static readonly Bitmap Sprite = GameResources.btnBackPlay;
                 public static int Height { get; set; }
                 public static int Width { get; set; }
                 public static float PositionOx { get; set; }
@@ -1072,7 +1121,17 @@ namespace EducationalProduct.Classes
             }
             public static class BtnStartPlay
             {
-                public static readonly Bitmap Sprite = GameResources.btnPlayStartRuleScene;
+                public static readonly Bitmap Sprite = GameResources.btnPlayStart;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class BtnBackPlay
+            {
+                public static readonly Bitmap Sprite = GameResources.btnBackPlay;
                 public static int Height { get; set; }
                 public static int Width { get; set; }
                 public static float PositionOx { get; set; }
@@ -1281,7 +1340,7 @@ namespace EducationalProduct.Classes
             {
                 public static readonly Bitmap Sprite = GameResources.Meteorite;
                 public static readonly float SpeedOy = 8.0f;
-                public static readonly int DefaultQuantityMeteorites = 15;
+                public static readonly int DefaultQuantityMeteorites = 1;
                 public static int Height { get; set; }
                 public static int Width { get; set; }
 

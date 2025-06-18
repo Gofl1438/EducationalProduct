@@ -46,7 +46,7 @@ namespace EducationalProduct
             g.DrawImage(_cachedBackground, 0, 0);
             for (int i = 0; i < ManagerUI.RuleRepeatActionElements.Count; i++)
             {
-                if (DialogManager.UpdateNextBtn(startGame, i) || DialogManager.UpdateDialog(countNext, i))
+                if (DialogManager.UpdateNextBtn(startGame, i) || DialogManager.UpdateDialog(countNext, i) || DialogManager.UpdateBackBtn(countNext, i))
                     continue;
 
                 ManagerUI.RuleRepeatActionElements[i].DrawSprite(g);
@@ -74,13 +74,15 @@ namespace EducationalProduct
         {
             CheckMouseDownExit(e);
             CheckMouseDownNext(e);
+            CheckMouseDownBack(e);
 
-            if (StateExitMenu.CurrentStateMenuExitRuleRepeatActionScene || StateNextBtn.CurrentNextBtnExitRuleRepeatActionScene) return;
+            if (StateExitMenu.CurrentStateMenuExitRuleRepeatActionScene || StateNextBtn.CurrentNextBtnRuleRepeatActionScene) return;
 
             if (new RectangleF(new PointF(GameConfig.RuleRepeatActionScene.BtnStartPlay.PositionOx, GameConfig.RuleRepeatActionScene.BtnStartPlay.PositionOy),
             new Size(GameConfig.RuleRepeatActionScene.BtnStartPlay.Width, GameConfig.RuleRepeatActionScene.BtnStartPlay.Height)).Contains(e.Location))
             {
-                StateNextBtn.CurrentNextBtnExitRuleRepeatActionScene = true;
+                StateNextBtn.CurrentNextBtnRuleRepeatActionScene = true;
+                StateBackBtn.CurrentBackBtnRuleRepeatActionScene = true;
                 StateCurrentScene.RepeatActionScene = true;
                 RepeatAction repeatAction = new RepeatAction();
                 repeatAction.Opacity = 0;
@@ -118,7 +120,7 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonYes.PositionOx, GameConfig.TotalElement.ButtonYes.PositionOy),
                 new Size(GameConfig.TotalElement.ButtonYes.Width, GameConfig.TotalElement.ButtonYes.Height)).Contains(e.Location))
             {
-                StateNextBtn.CurrentNextBtnExitRuleRepeatActionScene = true;
+                StateNextBtn.CurrentNextBtnRuleRepeatActionScene = true;
                 StateExitMenu.CurrentStateMenuExitRuleRepeatActionScene = false;
                 if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
                 {
@@ -165,10 +167,27 @@ namespace EducationalProduct
                 }
                 else
                 {
-                    StateNextBtn.CurrentNextBtnExitRuleRepeatActionScene = false;
+                    StateNextBtn.CurrentNextBtnRuleRepeatActionScene = false;
                 }
 
                 CanvasRuleRepeatActionScene.Invalidate();
+            }
+        }
+
+        private void CheckMouseDownBack(MouseEventArgs e)
+        {
+            if (new RectangleF(new PointF(GameConfig.RuleRepeatActionScene.BtnBackPlay.PositionOx, GameConfig.RuleRepeatActionScene.BtnBackPlay.PositionOy),
+            new Size(GameConfig.RuleRepeatActionScene.BtnBackPlay.Width, GameConfig.RuleRepeatActionScene.BtnBackPlay.Height)).Contains(e.Location))
+            {
+                if (countNext > 0)
+                {
+                    countNext--;
+                    startGame = false;
+
+                    StateBackBtn.CurrentBackBtnRuleRepeatActionScene = false;
+
+                    CanvasRuleRepeatActionScene.Invalidate();
+                }
             }
         }
 

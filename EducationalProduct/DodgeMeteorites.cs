@@ -27,6 +27,9 @@ namespace EducationalProduct
         private bool IsButtonPressed = false;
         private bool IsMouseOverLeftButton = false;
         private bool IsMouseOverRightButton = false;
+        private bool _touchActive;
+        private Point _lastTouchPos;
+
         public DodgeMeteorites()
         {
             InitializeComponent();
@@ -38,11 +41,7 @@ namespace EducationalProduct
             ManagerUI.AddTotalElements();
             DrawElementsUI();
             ManagerDodgeMeteorites.AddMeteoritesNormal();
-            using (var player = new SoundPlayer(Properties.Resources.DodgeMeteoriteSoundLight))
-            {
-                ManagerSound.activePlayersDodgeMeteorite.Add(player);
-                player.PlayLooping();
-            }
+            this.SetStyle(ControlStyles.EnableNotifyMessage, true);
             rocket = new RocketDodge();
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 14;
@@ -145,10 +144,10 @@ namespace EducationalProduct
                 {
                     ManagerDodgeMeteorites.Meteorites[i].Physics.MoveOyMeteorite();
                 }
-                    if (IsMouseOverLeftButton)
-                        rocket.Physics.MoveOxLeft();
-                    else if (IsMouseOverRightButton)
-                        rocket.Physics.MoveOxRight();
+                if (IsMouseOverLeftButton)
+                    rocket.Physics.MoveOxLeft();
+                else if (IsMouseOverRightButton)
+                    rocket.Physics.MoveOxRight();
                 ManagerDodgeMeteorites.DeleteMeteorites();
                 СompletedMeteorites();
                 CanvasDodgeMeteorites.Invalidate();
@@ -206,7 +205,73 @@ namespace EducationalProduct
                     }
                 }
             }
+            if (_touchActive || SystemInformation.MouseButtonsSwapped)
+            {
+                CheckTouchControls();
+            }
         }
+
+        private void CheckTouchControls()
+        {
+            var currentPos = CanvasDodgeMeteorites.PointToClient(Cursor.Position);
+
+            if (currentPos != _lastTouchPos)
+            {
+                _lastTouchPos = currentPos;
+                CheckMouseOverButtons(currentPos);
+            }
+        }
+
+        private void CanvasDodgeMeteorites_MouseDown(object sender, MouseEventArgs e)
+        {
+            _touchActive = true;
+            _lastTouchPos = e.Location;
+
+            if (!StateExitMenu.СurrentStateMenuExitDodgeMeteorites)
+            {
+                CheckMouseDownRule(e);
+            }
+
+            if (!StateRuleMenu.СurrentStateMenuRuleDodgeMeteorites)
+            {
+                CheckMouseDownExit(e);
+            }
+
+            if (StateRuleMenu.СurrentStateMenuRuleDodgeMeteorites) return;
+
+            if (StateExitMenu.СurrentStateMenuExitDodgeMeteorites) return;
+
+            if (StateDodgeMeteorites.СurrentStateMenuClick)
+            {
+                StateDodgeMeteorites.СurrentStateMenuClick = false;
+                return;
+            }
+            CheckMouseOverButtons(e.Location);
+        }
+
+        private void CanvasDodgeMeteorites_MouseUp(object sender, MouseEventArgs e)
+        {
+            _touchActive = false;
+
+            if (StateExitMenu.СurrentStateMenuExitDodgeMeteorites) return;
+
+            IsMouseOverLeftButton = false;
+            IsMouseOverRightButton = false;
+        }
+
+
+        private void CheckMouseOverButtons(Point mousePos)
+        {
+            IsMouseOverLeftButton = new RectangleF(
+                new PointF(ButtonMove.Left.PositionOx, ButtonMove.Left.PositionOy),
+                new Size(ButtonMove.Width, ButtonMove.Height)
+            ).Contains(mousePos);
+            IsMouseOverRightButton = new RectangleF(
+                new PointF(ButtonMove.Right.PositionOx, ButtonMove.Right.PositionOy),
+                new Size(ButtonMove.Width, ButtonMove.Height)
+            ).Contains(mousePos);
+        }
+
         private async Task Await()
         {
             await Task.Delay(1500);
@@ -268,55 +333,6 @@ namespace EducationalProduct
                     ManagerDodgeMeteorites.Meteorites[i].СompletedMeteorites = true;
                 }
             }
-        }
-
-        private void CanvasDodgeMeteorites_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (!StateExitMenu.СurrentStateMenuExitDodgeMeteorites)
-            {
-                CheckMouseDownRule(e);
-            }
-
-            if (!StateRuleMenu.СurrentStateMenuRuleDodgeMeteorites)
-            {
-                CheckMouseDownExit(e);
-            }
-
-            if (StateRuleMenu.СurrentStateMenuRuleDodgeMeteorites) return;
-
-            if (StateExitMenu.СurrentStateMenuExitDodgeMeteorites) return;
-
-            if (StateDodgeMeteorites.СurrentStateMenuClick)
-            {
-                StateDodgeMeteorites.СurrentStateMenuClick = false;
-                return;
-            }
-            CheckMouseOverButtons(e.Location);
-        }
-
-        private void CanvasDodgeMeteorites_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (StateExitMenu.СurrentStateMenuExitDodgeMeteorites) return;
-            IsMouseOverLeftButton = false;
-            IsMouseOverRightButton = false;
-
-            var centerX = CanvasDodgeMeteorites.Left + (CanvasDodgeMeteorites.Width / 2);
-            var centerY = CanvasDodgeMeteorites.Top + (int)(ButtonMove.Left.PositionOy + ButtonMove.Height / 2);
-
-            Cursor.Position = new Point(centerX, centerY);
-        }
-
-
-        private void CheckMouseOverButtons(Point mousePos)
-        {
-            IsMouseOverLeftButton = new RectangleF(
-                new PointF(ButtonMove.Left.PositionOx, ButtonMove.Left.PositionOy),
-                new Size(ButtonMove.Width, ButtonMove.Height)
-            ).Contains(mousePos);
-            IsMouseOverRightButton = new RectangleF(
-                new PointF(ButtonMove.Right.PositionOx, ButtonMove.Right.PositionOy),
-                new Size(ButtonMove.Width, ButtonMove.Height)
-            ).Contains(mousePos);
         }
 
         private void CheckMouseDownRule(MouseEventArgs e)

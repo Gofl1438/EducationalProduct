@@ -181,9 +181,6 @@
   <data name="Meteorite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Meteorite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DodgeMeteoriteSoundLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DodgeMeteoriteSoundLight.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="BackgroundColleсtPuzzle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BackgroundColleсtPuzzle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -351,5 +348,8 @@
   </data>
   <data name="PlayAgainGameMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PlayAgainGameMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DodgeMeteoriteSoundLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DodgeMeteoriteSoundLight.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

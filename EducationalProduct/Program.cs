@@ -1,3 +1,5 @@
+using static EducationalProduct.Classes.GameConfig;
+
 namespace EducationalProduct
 {
     internal static class Program

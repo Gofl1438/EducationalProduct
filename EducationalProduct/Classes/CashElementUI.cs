@@ -117,6 +117,29 @@ namespace EducationalProduct.Classes
                 );
         }
 
+        public static class TotalElementsMenuExitOpeningScene
+        {
+            public static readonly ElementUI backgroundMenuExit = new ElementUI(
+                GameConfig.TotalElement.BackgroundMenuExit.Sprite,
+                GameConfig.TotalElement.BackgroundMenuExit.Size,
+                GameConfig.TotalElement.BackgroundMenuExit.Point
+                );
+            public static readonly ElementUI menuExit = new ElementUI(
+                GameConfig.OpeningScene.MenuExit.Sprite,
+                GameConfig.OpeningScene.MenuExit.Size,
+                GameConfig.OpeningScene.MenuExit.Point
+                );
+            public static readonly ElementUI buttonNo = new ElementUI(
+                GameConfig.TotalElement.ButtonNo.Sprite,
+                GameConfig.TotalElement.ButtonNo.Size,
+                GameConfig.TotalElement.ButtonNo.Point
+                );
+            public static readonly ElementUI buttonYes = new ElementUI(
+                GameConfig.TotalElement.ButtonYes.Sprite,
+                GameConfig.TotalElement.ButtonYes.Size,
+                GameConfig.TotalElement.ButtonYes.Point
+                );
+        }
 
         public static class OpeningElements
         {
@@ -135,6 +158,11 @@ namespace EducationalProduct.Classes
                 GameConfig.OpeningScene.BtnStartPlay.Sprite,
                 GameConfig.OpeningScene.BtnStartPlay.Size,
                 GameConfig.OpeningScene.BtnStartPlay.Point
+                );
+            public static readonly ElementUI btnClosed = new ElementUI(
+                GameConfig.OpeningScene.BtnClosed.Sprite,
+                GameConfig.OpeningScene.BtnClosed.Size,
+                GameConfig.OpeningScene.BtnClosed.Point
                 );
         }
 

@@ -108,6 +108,7 @@ namespace EducationalProduct
                 StateExitMenu.CurrentStateMenuExitRuleDodgeMeteoritesScene = false;
                 if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
                 {
+                    ManagerUI.TotalElementsMenuExit.Clear();
                     mainForm.Opacity = 0;
                     mainForm.Show();
                     mainForm.Refresh();
@@ -117,7 +118,6 @@ namespace EducationalProduct
                         System.Threading.Thread.Sleep(16);
                         CanvasRuleDodgeMeteoritesScene.Invalidate();
                     }
-                    ManagerUI.TotalElementsMenuExit.Clear();
                     ManagerUI.BtnClosedElement.Clear();
                     ManagerUI.RuleDodgeMeteoritesElements.Clear();
                     this.Hide();

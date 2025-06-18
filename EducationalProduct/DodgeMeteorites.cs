@@ -299,20 +299,20 @@ namespace EducationalProduct
             if (StateExitMenu.СurrentStateMenuExitDodgeMeteorites) return;
             IsMouseOverLeftButton = false;
             IsMouseOverRightButton = false;
-        }
-        private void CanvasDodgeMeteorites_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (StateExitMenu.СurrentStateMenuExitDodgeMeteorites) return;
 
-            CheckMouseOverButtons(e.Location);
+            var centerX = CanvasDodgeMeteorites.Left + (CanvasDodgeMeteorites.Width / 2);
+            var centerY = CanvasDodgeMeteorites.Top + (int)(ButtonMove.Left.PositionOy + ButtonMove.Height / 2);
+
+            Cursor.Position = new Point(centerX, centerY);
         }
+
+
         private void CheckMouseOverButtons(Point mousePos)
         {
             IsMouseOverLeftButton = new RectangleF(
                 new PointF(ButtonMove.Left.PositionOx, ButtonMove.Left.PositionOy),
                 new Size(ButtonMove.Width, ButtonMove.Height)
             ).Contains(mousePos);
-
             IsMouseOverRightButton = new RectangleF(
                 new PointF(ButtonMove.Right.PositionOx, ButtonMove.Right.PositionOy),
                 new Size(ButtonMove.Width, ButtonMove.Height)
@@ -386,6 +386,7 @@ namespace EducationalProduct
                 timer.Dispose();
                 if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
                 {
+                    ManagerUI.TotalElementsMenuExit.Clear();
                     mainForm.Opacity = 0;
                     mainForm.Show();
                     mainForm.Refresh();
@@ -399,7 +400,6 @@ namespace EducationalProduct
                     ManagerDodgeMeteorites.Dispose();
                     ManagerUI.DodgeMeteoritesElementsBd.Clear();
                     ManagerUI.DodgeMeteoritesElementsBn.Clear();
-                    ManagerUI.TotalElementsMenuExit.Clear();
                     ManagerSound.DeleteActivePlayersDodgeMeteorites();
                     _cachedBackground.Dispose();
                     _cachedButton.Dispose();

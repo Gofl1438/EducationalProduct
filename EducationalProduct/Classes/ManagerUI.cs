@@ -33,7 +33,7 @@ namespace EducationalProduct.Classes
         public static List<ElementUI> RuleElementsRepeatAction { get; } = new List<ElementUI>();
         public static List<ElementUI> RuleElementsColleсtPuzzle { get; } = new List<ElementUI>();
         public static List<ElementUI> RuleElementsCatchBones { get; } = new List<ElementUI>();
-
+        public static List<ElementUI> TotalElementsMenuExitOpeningScene { get; } = new List<ElementUI>();
 
         public static void AddRuleElementsDodgeMeteorites()
         {
@@ -78,6 +78,17 @@ namespace EducationalProduct.Classes
             BtnClosedElement.Add(CashElementUI.BtnClosedElement.btnClosed);
         }
 
+
+        public static void AddTotalElementsMenuExitOpeningScene()
+        {
+            TotalElementsMenuExitOpeningScene.Clear();
+            TotalElementsMenuExitOpeningScene.Add(CashElementUI.TotalElementsMenuExitOpeningScene.backgroundMenuExit);
+            TotalElementsMenuExitOpeningScene.Add(CashElementUI.TotalElementsMenuExitOpeningScene.menuExit);
+            TotalElementsMenuExitOpeningScene.Add(CashElementUI.TotalElementsMenuExitOpeningScene.buttonNo);
+            TotalElementsMenuExitOpeningScene.Add(CashElementUI.TotalElementsMenuExitOpeningScene.buttonYes);
+        }
+
+
         public static void AddTotalElementsMenuExit()
         {
             TotalElementsMenuExit.Clear();
@@ -94,6 +105,7 @@ namespace EducationalProduct.Classes
             OpeningElements.Add(CashElementUI.OpeningElements.rocket);
             OpeningElements.Add(CashElementUI.OpeningElements.title);
             OpeningElements.Add(CashElementUI.OpeningElements.btnStartPlay);
+            OpeningElements.Add(CashElementUI.OpeningElements.btnClosed);
         }
 
 

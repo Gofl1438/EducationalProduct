@@ -108,6 +108,7 @@ namespace EducationalProduct
                 StateExitMenu.CurrentStateMenuExitRuleScene = false;
                 if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
                 {
+                    ManagerUI.TotalElementsMenuExit.Clear();
                     mainForm.Opacity = 0;
                     mainForm.Show();
                     mainForm.Refresh();
@@ -117,10 +118,11 @@ namespace EducationalProduct
                         System.Threading.Thread.Sleep(16);
                         CanvasRuleScene.Invalidate();
                     }
-                    ManagerUI.TotalElementsMenuExit.Clear();
                     ManagerUI.BtnClosedElement.Clear();
                     ManagerUI.RuleElements.Clear();
                     _cachedBackground.Dispose();
+                    StateExitMenu.Init();
+                    StateOpeningScene.Init();
                     this.Hide();
                     this.Dispose();
                 }

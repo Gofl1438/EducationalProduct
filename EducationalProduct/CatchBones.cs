@@ -259,6 +259,7 @@ namespace EducationalProduct
                 timer.Dispose();
                 if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
                 {
+                    ManagerUI.TotalElementsMenuExit.Clear();
                     mainForm.Opacity = 0;
                     mainForm.Show();
                     mainForm.Refresh();
@@ -270,7 +271,6 @@ namespace EducationalProduct
                     }
                     ManagerBone.Dispose();
                     ManagerUI.CatchBonesElements.Clear();
-                    ManagerUI.TotalElementsMenuExit.Clear();
                     ManagerSound.DeleteActivePlayersCatchBones();
                     _cachedBackground.Dispose();
                     _cachedButtonUI.Dispose();

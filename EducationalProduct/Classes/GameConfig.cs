@@ -53,7 +53,7 @@ namespace EducationalProduct.Classes
         {
             int MinValueCanvas = Math.Min(CanvasProduct.Height, CanvasProduct.Width);
             TotalElement.MenuExit.Width = (int)(CanvasProduct.Width * 0.41f);
-            TotalElement.MenuExit.Height = (int)(TotalElement.MenuExit.Width * 0.38);
+            TotalElement.MenuExit.Height = (int)(TotalElement.MenuExit.Width * 0.36);
             TotalElement.MenuExit.PositionOx = (CanvasProduct.Width - TotalElement.MenuExit.Width) / 2;
             TotalElement.MenuExit.PositionOy = (CanvasProduct.Height - TotalElement.MenuExit.Height) / 2;
             TotalElement.ButtonNo.Width = (int)(TotalElement.MenuExit.Width * 0.22f);
@@ -77,6 +77,7 @@ namespace EducationalProduct.Classes
         }
         private static void InitializeOpeningScene()
         {
+            int MinValueCanvas = Math.Min(CanvasProduct.Height, CanvasProduct.Width);
             OpeningScene.Rocket.Width = (int)(CanvasProduct.Width * 0.47f);
             OpeningScene.Rocket.Height = (int)(OpeningScene.Rocket.Width * 0.62f);
             OpeningScene.Rocket.PositionOx = (int)(CanvasProduct.Width * 0.53f);
@@ -91,6 +92,16 @@ namespace EducationalProduct.Classes
             OpeningScene.BtnStartPlay.Height = (int)(OpeningScene.BtnStartPlay.Width * 0.386f);
             OpeningScene.BtnStartPlay.PositionOx = (CanvasProduct.Width - OpeningScene.BtnStartPlay.Width) / 2;
             OpeningScene.BtnStartPlay.PositionOy = (int)(CanvasProduct.Height * 0.415f);
+
+            OpeningScene.BtnClosed.Height = (int)(MinValueCanvas * 0.1f);
+            OpeningScene.BtnClosed.Width = (int)(MinValueCanvas * 0.1f);
+            OpeningScene.BtnClosed.PositionOx = (int)(CanvasProduct.Width - OpeningScene.BtnClosed.Width - CanvasProduct.Width * 0.02f);
+            OpeningScene.BtnClosed.PositionOy = (int)(CanvasProduct.Height * 0.02f);
+
+            OpeningScene.MenuExit.Width = (int)(CanvasProduct.Width * 0.41f);
+            OpeningScene.MenuExit.Height = (int)(OpeningScene.MenuExit.Width * 0.38);
+            OpeningScene.MenuExit.PositionOx = (CanvasProduct.Width - OpeningScene.MenuExit.Width) / 2;
+            OpeningScene.MenuExit.PositionOy = (CanvasProduct.Height - OpeningScene.MenuExit.Height) / 2;
         }
         private static void InitializeRuleScene()
         {
@@ -605,6 +616,26 @@ namespace EducationalProduct.Classes
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
+            public static class BtnClosed
+            {
+                public static readonly Bitmap Sprite = GameResources.btnClosed;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class MenuExit
+            {
+                public static readonly Bitmap Sprite = GameResources.menuExitGameOpeningScene;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
         }
         public static class RuleScene
         {
@@ -1083,7 +1114,7 @@ namespace EducationalProduct.Classes
             {
                 public static readonly Bitmap Sprite = GameResources.Meteorite;
                 public static readonly float SpeedOy = 8.0f;
-                public static readonly int DefaultQuantityMeteorites = 5;
+                public static readonly int DefaultQuantityMeteorites = 15;
                 public static int Height { get; set; }
                 public static int Width { get; set; }
 

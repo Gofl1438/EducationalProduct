@@ -43,7 +43,6 @@
             CanvasDodgeMeteorites.TabStop = false;
             CanvasDodgeMeteorites.Paint += OnRepaint;
             CanvasDodgeMeteorites.MouseDown += CanvasDodgeMeteorites_MouseDown;
-            CanvasDodgeMeteorites.MouseMove += CanvasDodgeMeteorites_MouseMove;
             CanvasDodgeMeteorites.MouseUp += CanvasDodgeMeteorites_MouseUp;
             // 
             // DodgeMeteorites

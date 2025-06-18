@@ -106,6 +106,7 @@ namespace EducationalProduct
                 StateExitMenu.CurrentStateMenuExitRuleCatchBonesScene = false;
                 if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
                 {
+                    ManagerUI.TotalElementsMenuExit.Clear();
                     mainForm.Opacity = 0;
                     mainForm.Show();
                     mainForm.Refresh();
@@ -115,7 +116,6 @@ namespace EducationalProduct
                         System.Threading.Thread.Sleep(16);
                         CanvasRuleCatchBonesScene.Invalidate();
                     }
-                    ManagerUI.TotalElementsMenuExit.Clear();
                     ManagerUI.BtnClosedElement.Clear();
                     this.Hide();
                     this.Dispose();

@@ -16,7 +16,7 @@ namespace EducationalProduct.Classes
         public static readonly Bitmap backgroundExitMenu  = Properties.Resources.backgroundExitMenu;
         public static readonly Bitmap btnClosedOpening  = Properties.Resources.btnClosedOpening;
         public static readonly Bitmap btnQuestion = Properties.Resources.btnQuestion;
-        public static readonly Bitmap MenuExit  = Properties.Resources.MenuExit;
+        public static readonly Bitmap MenuExit  = Properties.Resources.PlayAgainGameMenu;
         public static readonly Bitmap NoExit = Properties.Resources.NoExit;
         public static readonly Bitmap YesExit = Properties.Resources.YesExit;
         public static readonly Bitmap OpeningRocket = Properties.Resources.OpeningRocket;
@@ -72,5 +72,7 @@ namespace EducationalProduct.Classes
         public static readonly Bitmap BackgroundEnd = Properties.Resources.BackgroundEnd;
         public static readonly Bitmap txtEnd = Properties.Resources.txtEnd;
         public static readonly Bitmap btnToStart = Properties.Resources.btnToStart;
+        public static readonly Bitmap btnClosed = Properties.Resources.btnClosed;
+        public static readonly Bitmap menuExitGameOpeningScene = Properties.Resources.MenuExit;
     }
 }

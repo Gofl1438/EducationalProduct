@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -345,5 +345,11 @@
   </data>
   <data name="txtEnd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\txtEnd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnClosed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnClosed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PlayAgainGameMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PlayAgainGameMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

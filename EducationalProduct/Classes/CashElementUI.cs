@@ -434,11 +434,6 @@ namespace EducationalProduct.Classes
                 GameConfig.TestInterface.BtnNextPlay.Size,
                 GameConfig.TestInterface.BtnNextPlay.Point
                 );
-            public static readonly ElementUI backgroundTest = new ElementUI(
-                GameConfig.TestInterface.BackgroundTest.Sprite,
-                GameConfig.TestInterface.BackgroundTest.Size,
-                GameConfig.TestInterface.BackgroundTest.Point
-                );
             public static readonly ElementUI success = new ElementUI(
                 GameConfig.TestInterface.Success.Sprite,
                 GameConfig.TestInterface.Success.Size,

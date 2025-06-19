@@ -204,7 +204,6 @@ namespace EducationalProduct.Classes
             TestInterfaceElements.Add(CashElementUI.TestInterfaceElements.character);
             TestInterfaceElements.Add(CashElementUI.TestInterfaceElements.btnAnswer);
             TestInterfaceElements.Add(CashElementUI.TestInterfaceElements.btnNextPlay);
-            TestInterfaceElements.Add(CashElementUI.TestInterfaceElements.backgroundTest);
             TestInterfaceElements.Add(CashElementUI.TestInterfaceElements.success);
         }
         public static void AddTestRepeatAction()

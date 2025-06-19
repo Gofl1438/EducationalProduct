@@ -72,7 +72,6 @@ namespace EducationalProduct.Classes
         public static readonly Bitmap BackgroundEnd = Properties.Resources.BackgroundEnd;
         public static readonly Bitmap txtEnd = Properties.Resources.txtEnd;
         public static readonly Bitmap btnToStart = Properties.Resources.btnToStart;
-        public static readonly Bitmap BackgroundTest = Properties.Resources.BackGroundTest;
         public static readonly Bitmap btnAnswer = Properties.Resources.btnAnswer;
         public static readonly Bitmap txtTestAnswerRepeatAction1 = Properties.Resources.txtTestAnswerRepeatAction1;
         public static readonly Bitmap txtTestAnswerRepeatAction2 = Properties.Resources.txtTestAnswerRepeatAction2;

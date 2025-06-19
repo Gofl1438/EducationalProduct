@@ -145,8 +145,8 @@ namespace EducationalProduct.Classes
 
         private static void InitializeRuleRepeatActionScene()
         {
-            RuleRepeatActionScene.Character.Width = (int)(CanvasProduct.Width * 0.357);
-            RuleRepeatActionScene.Character.Height = (int)(RuleRepeatActionScene.Character.Width * 1.08f);
+            RuleRepeatActionScene.Character.Width = (int)(CanvasProduct.Width * 0.35);
+            RuleRepeatActionScene.Character.Height = (int)(RuleRepeatActionScene.Character.Width * 1.2f);
             RuleRepeatActionScene.Character.PositionOy = (int)(CanvasProduct.Height - RuleRepeatActionScene.Character.Height);
 
             RuleRepeatActionScene.BtnStartPlay.Width = (int)(CanvasProduct.Width * 0.19f);
@@ -442,17 +442,12 @@ namespace EducationalProduct.Classes
             TestInterface.BtnAnswer.Width = (int)(CanvasProduct.Width * 0.15f);
             TestInterface.BtnAnswer.Height = (int)(TestInterface.BtnAnswer.Width * 0.386f);
             TestInterface.BtnAnswer.PositionOx = CanvasProduct.Width * 0.8f;
-            TestInterface.BtnAnswer.PositionOy = CanvasProduct.Height * 0.85f;
+            TestInterface.BtnAnswer.PositionOy = CanvasProduct.Height * 0.82f;
 
             TestInterface.BtnNextPlay.Width = (int)(CanvasProduct.Width * 0.15f);
             TestInterface.BtnNextPlay.Height = (int)(TestInterface.BtnAnswer.Width * 0.386f);
             TestInterface.BtnNextPlay.PositionOx = CanvasProduct.Width * 0.8f;
-            TestInterface.BtnNextPlay.PositionOy = CanvasProduct.Height * 0.85f;
-
-            TestInterface.BackgroundTest.Width = (int)(CanvasProduct.Width * 0.6f);
-            TestInterface.BackgroundTest.Height = (int)(TestInterface.BackgroundTest.Width * 0.4f);
-            TestInterface.BackgroundTest.PositionOx = CanvasProduct.Width * 0.35f;
-            TestInterface.BackgroundTest.PositionOy = CanvasProduct.Height - TestInterface.BackgroundTest.Height - CanvasProduct.Height * 0.3f;
+            TestInterface.BtnNextPlay.PositionOy = CanvasProduct.Height * 0.82f;
 
             TestInterface.Success.Width = (int)(CanvasProduct.Width * 0.3f);
             TestInterface.Success.Height = (int)(TestInterface.Success.Width * 0.095f);
@@ -461,131 +456,131 @@ namespace EducationalProduct.Classes
         }
         private static void InitializeTestRepeatAction()
         {
-            TestRepeatAction.Question.Width = (int)(CanvasProduct.Width * 0.3f);
+            TestRepeatAction.Question.Width = (int)(CanvasProduct.Width * 0.5f);
             TestRepeatAction.Question.Height = (int)(TestRepeatAction.Question.Width * 0.18f);
-            TestRepeatAction.Question.PositionOx = CanvasProduct.Width * 0.5f;
-            TestRepeatAction.Question.PositionOy = CanvasProduct.Height - TestRepeatAction.Question.Height - CanvasProduct.Height * 0.8f;
+            TestRepeatAction.Question.PositionOx = CanvasProduct.Width * 0.4f;
+            TestRepeatAction.Question.PositionOy = CanvasProduct.Height - TestRepeatAction.Question.Height - CanvasProduct.Height * 0.7f;
 
             TestRepeatAction.Tip.Width = (int)(CanvasProduct.Width * 0.4f);
             TestRepeatAction.Tip.Height = (int)(TestRepeatAction.Tip.Width * 0.134f);
             TestRepeatAction.Tip.PositionOx = CanvasProduct.Width * 0.37f;
-            TestRepeatAction.Tip.PositionOy = CanvasProduct.Height * 0.85f;
+            TestRepeatAction.Tip.PositionOy = CanvasProduct.Height * 0.82f;
 
             TestRepeatAction.Answer1.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestRepeatAction.Answer1.Height = (int)(TestRepeatAction.Answer1.Width * 0.062f);
-            TestRepeatAction.Answer1.PositionOx = CanvasProduct.Width * 0.375f;
-            TestRepeatAction.Answer1.PositionOy = CanvasProduct.Height - TestRepeatAction.Answer1.Height - CanvasProduct.Height * 0.64f;
+            TestRepeatAction.Answer1.Height = (int)(TestRepeatAction.Answer1.Width * 0.073f);
+            TestRepeatAction.Answer1.PositionOx = CanvasProduct.Width * 0.37f;
+            TestRepeatAction.Answer1.PositionOy = CanvasProduct.Height - TestRepeatAction.Answer1.Height - CanvasProduct.Height * 0.57f;
 
             TestRepeatAction.Answer2.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestRepeatAction.Answer2.Height = (int)(TestRepeatAction.Answer2.Width * 0.062f);
-            TestRepeatAction.Answer2.PositionOx = CanvasProduct.Width * 0.375f;
-            TestRepeatAction.Answer2.PositionOy = CanvasProduct.Height - TestRepeatAction.Answer2.Height - CanvasProduct.Height * 0.54f;
+            TestRepeatAction.Answer2.Height = (int)(TestRepeatAction.Answer2.Width * 0.073f);
+            TestRepeatAction.Answer2.PositionOx = CanvasProduct.Width * 0.37f;
+            TestRepeatAction.Answer2.PositionOy = CanvasProduct.Height - TestRepeatAction.Answer2.Height - CanvasProduct.Height * 0.47f;
 
             TestRepeatAction.Answer3.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestRepeatAction.Answer3.Height = (int)(TestRepeatAction.Answer3.Width * 0.062f);
-            TestRepeatAction.Answer3.PositionOx = CanvasProduct.Width * 0.375f;
-            TestRepeatAction.Answer3.PositionOy = CanvasProduct.Height - TestRepeatAction.Answer3.Height - CanvasProduct.Height * 0.44f;
+            TestRepeatAction.Answer3.Height = (int)(TestRepeatAction.Answer3.Width * 0.073f);
+            TestRepeatAction.Answer3.PositionOx = CanvasProduct.Width * 0.37f;
+            TestRepeatAction.Answer3.PositionOy = CanvasProduct.Height - TestRepeatAction.Answer3.Height - CanvasProduct.Height * 0.37f;
 
             TestRepeatAction.Answer4.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestRepeatAction.Answer4.Height = (int)(TestRepeatAction.Answer4.Width * 0.062f);
-            TestRepeatAction.Answer4.PositionOx = CanvasProduct.Width * 0.375f;
-            TestRepeatAction.Answer4.PositionOy = CanvasProduct.Height - TestRepeatAction.Answer4.Height - CanvasProduct.Height * 0.34f;
+            TestRepeatAction.Answer4.Height = (int)(TestRepeatAction.Answer4.Width * 0.073f);
+            TestRepeatAction.Answer4.PositionOx = CanvasProduct.Width * 0.37f;
+            TestRepeatAction.Answer4.PositionOy = CanvasProduct.Height - TestRepeatAction.Answer4.Height - CanvasProduct.Height * 0.27f;
         }
         private static void InitializeTestCatchBones()
         {
-            TestCatchBones.Question.Width = (int)(CanvasProduct.Width * 0.3f);
+            TestCatchBones.Question.Width = (int)(CanvasProduct.Width * 0.5f);
             TestCatchBones.Question.Height = (int)(TestCatchBones.Question.Width * 0.18f);
-            TestCatchBones.Question.PositionOx = CanvasProduct.Width * 0.5f;
-            TestCatchBones.Question.PositionOy = CanvasProduct.Height - TestCatchBones.Question.Height - CanvasProduct.Height * 0.8f;
+            TestCatchBones.Question.PositionOx = CanvasProduct.Width * 0.4f;
+            TestCatchBones.Question.PositionOy = CanvasProduct.Height - TestCatchBones.Question.Height - CanvasProduct.Height * 0.7f;
 
             TestCatchBones.Tip.Width = (int)(CanvasProduct.Width * 0.4f);
             TestCatchBones.Tip.Height = (int)(TestCatchBones.Tip.Width * 0.134f);
             TestCatchBones.Tip.PositionOx = CanvasProduct.Width * 0.37f;
-            TestCatchBones.Tip.PositionOy = CanvasProduct.Height * 0.85f;
+            TestCatchBones.Tip.PositionOy = CanvasProduct.Height * 0.82f;
 
             TestCatchBones.Answer1.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestCatchBones.Answer1.Height = (int)(TestCatchBones.Answer1.Width * 0.062f);
-            TestCatchBones.Answer1.PositionOx = CanvasProduct.Width * 0.375f;
-            TestCatchBones.Answer1.PositionOy = CanvasProduct.Height - TestCatchBones.Answer1.Height - CanvasProduct.Height * 0.64f;
+            TestCatchBones.Answer1.Height = (int)(TestCatchBones.Answer1.Width * 0.073f);
+            TestCatchBones.Answer1.PositionOx = CanvasProduct.Width * 0.37f;
+            TestCatchBones.Answer1.PositionOy = CanvasProduct.Height - TestCatchBones.Answer1.Height - CanvasProduct.Height * 0.57f;
 
             TestCatchBones.Answer2.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestCatchBones.Answer2.Height = (int)(TestCatchBones.Answer2.Width * 0.062f);
-            TestCatchBones.Answer2.PositionOx = CanvasProduct.Width * 0.375f;
-            TestCatchBones.Answer2.PositionOy = CanvasProduct.Height - TestCatchBones.Answer2.Height - CanvasProduct.Height * 0.54f;
+            TestCatchBones.Answer2.Height = (int)(TestCatchBones.Answer2.Width * 0.073f);
+            TestCatchBones.Answer2.PositionOx = CanvasProduct.Width * 0.37f;
+            TestCatchBones.Answer2.PositionOy = CanvasProduct.Height - TestCatchBones.Answer2.Height - CanvasProduct.Height * 0.47f;
 
             TestCatchBones.Answer3.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestCatchBones.Answer3.Height = (int)(TestCatchBones.Answer3.Width * 0.062f);
-            TestCatchBones.Answer3.PositionOx = CanvasProduct.Width * 0.375f;
-            TestCatchBones.Answer3.PositionOy = CanvasProduct.Height - TestCatchBones.Answer3.Height - CanvasProduct.Height * 0.44f;
+            TestCatchBones.Answer3.Height = (int)(TestCatchBones.Answer3.Width * 0.073f);
+            TestCatchBones.Answer3.PositionOx = CanvasProduct.Width * 0.37f;
+            TestCatchBones.Answer3.PositionOy = CanvasProduct.Height - TestCatchBones.Answer3.Height - CanvasProduct.Height * 0.37f;
 
             TestCatchBones.Answer4.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestCatchBones.Answer4.Height = (int)(TestCatchBones.Answer4.Width * 0.062f);
-            TestCatchBones.Answer4.PositionOx = CanvasProduct.Width * 0.375f;
-            TestCatchBones.Answer4.PositionOy = CanvasProduct.Height - TestCatchBones.Answer4.Height - CanvasProduct.Height * 0.34f;
+            TestCatchBones.Answer4.Height = (int)(TestCatchBones.Answer4.Width * 0.073f);
+            TestCatchBones.Answer4.PositionOx = CanvasProduct.Width * 0.37f;
+            TestCatchBones.Answer4.PositionOy = CanvasProduct.Height - TestCatchBones.Answer4.Height - CanvasProduct.Height * 0.27f;
         }
         private static void InitializeTestCollectPuzzle()
         {
-            TestCollectPuzzle.Question.Width = (int)(CanvasProduct.Width * 0.3f);
+            TestCollectPuzzle.Question.Width = (int)(CanvasProduct.Width * 0.5f);
             TestCollectPuzzle.Question.Height = (int)(TestCollectPuzzle.Question.Width * 0.18f);
-            TestCollectPuzzle.Question.PositionOx = CanvasProduct.Width * 0.5f;
-            TestCollectPuzzle.Question.PositionOy = CanvasProduct.Height - TestCollectPuzzle.Question.Height - CanvasProduct.Height * 0.8f;
+            TestCollectPuzzle.Question.PositionOx = CanvasProduct.Width * 0.4f;
+            TestCollectPuzzle.Question.PositionOy = CanvasProduct.Height - TestCollectPuzzle.Question.Height - CanvasProduct.Height * 0.7f;
 
             TestCollectPuzzle.Tip.Width = (int)(CanvasProduct.Width * 0.4f);
             TestCollectPuzzle.Tip.Height = (int)(TestCollectPuzzle.Tip.Width * 0.134f);
             TestCollectPuzzle.Tip.PositionOx = CanvasProduct.Width * 0.37f;
-            TestCollectPuzzle.Tip.PositionOy = CanvasProduct.Height * 0.85f;
+            TestCollectPuzzle.Tip.PositionOy = CanvasProduct.Height * 0.82f;
 
             TestCollectPuzzle.Answer1.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestCollectPuzzle.Answer1.Height = (int)(TestCollectPuzzle.Answer1.Width * 0.062f);
-            TestCollectPuzzle.Answer1.PositionOx = CanvasProduct.Width * 0.375f;
-            TestCollectPuzzle.Answer1.PositionOy = CanvasProduct.Height - TestCollectPuzzle.Answer1.Height - CanvasProduct.Height * 0.64f;
+            TestCollectPuzzle.Answer1.Height = (int)(TestCollectPuzzle.Answer1.Width * 0.073f);
+            TestCollectPuzzle.Answer1.PositionOx = CanvasProduct.Width * 0.37f;
+            TestCollectPuzzle.Answer1.PositionOy = CanvasProduct.Height - TestCollectPuzzle.Answer1.Height - CanvasProduct.Height * 0.57f;
 
             TestCollectPuzzle.Answer2.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestCollectPuzzle.Answer2.Height = (int)(TestCollectPuzzle.Answer2.Width * 0.062f);
-            TestCollectPuzzle.Answer2.PositionOx = CanvasProduct.Width * 0.375f;
-            TestCollectPuzzle.Answer2.PositionOy = CanvasProduct.Height - TestCollectPuzzle.Answer2.Height - CanvasProduct.Height * 0.54f;
+            TestCollectPuzzle.Answer2.Height = (int)(TestCollectPuzzle.Answer2.Width * 0.073f);
+            TestCollectPuzzle.Answer2.PositionOx = CanvasProduct.Width * 0.37f;
+            TestCollectPuzzle.Answer2.PositionOy = CanvasProduct.Height - TestCollectPuzzle.Answer2.Height - CanvasProduct.Height * 0.47f;
 
             TestCollectPuzzle.Answer3.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestCollectPuzzle.Answer3.Height = (int)(TestCollectPuzzle.Answer3.Width * 0.062f);
-            TestCollectPuzzle.Answer3.PositionOx = CanvasProduct.Width * 0.375f;
-            TestCollectPuzzle.Answer3.PositionOy = CanvasProduct.Height - TestCollectPuzzle.Answer3.Height - CanvasProduct.Height * 0.44f;
+            TestCollectPuzzle.Answer3.Height = (int)(TestCollectPuzzle.Answer3.Width * 0.073f);
+            TestCollectPuzzle.Answer3.PositionOx = CanvasProduct.Width * 0.37f;
+            TestCollectPuzzle.Answer3.PositionOy = CanvasProduct.Height - TestCollectPuzzle.Answer3.Height - CanvasProduct.Height * 0.37f;
 
             TestCollectPuzzle.Answer4.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestCollectPuzzle.Answer4.Height = (int)(TestCollectPuzzle.Answer4.Width * 0.062f);
-            TestCollectPuzzle.Answer4.PositionOx = CanvasProduct.Width * 0.375f;
-            TestCollectPuzzle.Answer4.PositionOy = CanvasProduct.Height - TestCollectPuzzle.Answer4.Height - CanvasProduct.Height * 0.34f;
+            TestCollectPuzzle.Answer4.Height = (int)(TestCollectPuzzle.Answer4.Width * 0.073f);
+            TestCollectPuzzle.Answer4.PositionOx = CanvasProduct.Width * 0.37f;
+            TestCollectPuzzle.Answer4.PositionOy = CanvasProduct.Height - TestCollectPuzzle.Answer4.Height - CanvasProduct.Height * 0.27f;
         }
         private static void InitializeTestDodgeMeteorites()
         {
-            TestDodgeMeteorites.Question.Width = (int)(CanvasProduct.Width * 0.3f);
+            TestDodgeMeteorites.Question.Width = (int)(CanvasProduct.Width * 0.5f);
             TestDodgeMeteorites.Question.Height = (int)(TestDodgeMeteorites.Question.Width * 0.18f);
-            TestDodgeMeteorites.Question.PositionOx = CanvasProduct.Width * 0.5f;
-            TestDodgeMeteorites.Question.PositionOy = CanvasProduct.Height - TestDodgeMeteorites.Question.Height - CanvasProduct.Height * 0.8f;
+            TestDodgeMeteorites.Question.PositionOx = CanvasProduct.Width * 0.4f;
+            TestDodgeMeteorites.Question.PositionOy = CanvasProduct.Height - TestDodgeMeteorites.Question.Height - CanvasProduct.Height * 0.7f;
 
             TestDodgeMeteorites.Tip.Width = (int)(CanvasProduct.Width * 0.4f);
             TestDodgeMeteorites.Tip.Height = (int)(TestDodgeMeteorites.Tip.Width * 0.134f);
             TestDodgeMeteorites.Tip.PositionOx = CanvasProduct.Width * 0.37f;
-            TestDodgeMeteorites.Tip.PositionOy = CanvasProduct.Height * 0.85f;
+            TestDodgeMeteorites.Tip.PositionOy = CanvasProduct.Height * 0.82f;
 
             TestDodgeMeteorites.Answer1.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestDodgeMeteorites.Answer1.Height = (int)(TestDodgeMeteorites.Answer1.Width * 0.062f);
-            TestDodgeMeteorites.Answer1.PositionOx = CanvasProduct.Width * 0.375f;
-            TestDodgeMeteorites.Answer1.PositionOy = CanvasProduct.Height - TestDodgeMeteorites.Answer1.Height - CanvasProduct.Height * 0.64f;
+            TestDodgeMeteorites.Answer1.Height = (int)(TestDodgeMeteorites.Answer1.Width * 0.073f);
+            TestDodgeMeteorites.Answer1.PositionOx = CanvasProduct.Width * 0.37f;
+            TestDodgeMeteorites.Answer1.PositionOy = CanvasProduct.Height - TestDodgeMeteorites.Answer1.Height - CanvasProduct.Height * 0.57f;
 
             TestDodgeMeteorites.Answer2.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestDodgeMeteorites.Answer2.Height = (int)(TestDodgeMeteorites.Answer2.Width * 0.062f);
-            TestDodgeMeteorites.Answer2.PositionOx = CanvasProduct.Width * 0.375f;
-            TestDodgeMeteorites.Answer2.PositionOy = CanvasProduct.Height - TestDodgeMeteorites.Answer2.Height - CanvasProduct.Height * 0.54f;
+            TestDodgeMeteorites.Answer2.Height = (int)(TestDodgeMeteorites.Answer2.Width * 0.073f);
+            TestDodgeMeteorites.Answer2.PositionOx = CanvasProduct.Width * 0.37f;
+            TestDodgeMeteorites.Answer2.PositionOy = CanvasProduct.Height - TestDodgeMeteorites.Answer2.Height - CanvasProduct.Height * 0.47f;
 
             TestDodgeMeteorites.Answer3.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestDodgeMeteorites.Answer3.Height = (int)(TestDodgeMeteorites.Answer3.Width * 0.062f);
-            TestDodgeMeteorites.Answer3.PositionOx = CanvasProduct.Width * 0.375f;
-            TestDodgeMeteorites.Answer3.PositionOy = CanvasProduct.Height - TestDodgeMeteorites.Answer3.Height - CanvasProduct.Height * 0.44f;
+            TestDodgeMeteorites.Answer3.Height = (int)(TestDodgeMeteorites.Answer3.Width * 0.073f);
+            TestDodgeMeteorites.Answer3.PositionOx = CanvasProduct.Width * 0.37f;
+            TestDodgeMeteorites.Answer3.PositionOy = CanvasProduct.Height - TestDodgeMeteorites.Answer3.Height - CanvasProduct.Height * 0.37f;
 
             TestDodgeMeteorites.Answer4.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestDodgeMeteorites.Answer4.Height = (int)(TestDodgeMeteorites.Answer4.Width * 0.062f);
-            TestDodgeMeteorites.Answer4.PositionOx = CanvasProduct.Width * 0.375f;
-            TestDodgeMeteorites.Answer4.PositionOy = CanvasProduct.Height - TestDodgeMeteorites.Answer4.Height - CanvasProduct.Height * 0.34f;
+            TestDodgeMeteorites.Answer4.Height = (int)(TestDodgeMeteorites.Answer4.Width * 0.073f);
+            TestDodgeMeteorites.Answer4.PositionOx = CanvasProduct.Width * 0.37f;
+            TestDodgeMeteorites.Answer4.PositionOy = CanvasProduct.Height - TestDodgeMeteorites.Answer4.Height - CanvasProduct.Height * 0.27f;
         }
 
         public static class NumberPointsCatchBones
@@ -1450,16 +1445,7 @@ namespace EducationalProduct.Classes
                 public static Size Size => new Size(Width, Height);
                 public static PointF Point => new PointF(PositionOx, PositionOy);
             }
-            public static class BackgroundTest
-            {
-                public static readonly Bitmap Sprite = GameResources.BackgroundTest;
-                public static int Height { get; set; }
-                public static int Width { get; set; }
-                public static float PositionOx { get; set; }
-                public static float PositionOy { get; set; }
-                public static Size Size => new Size(Width, Height);
-                public static PointF Point => new PointF(PositionOx, PositionOy);
-            }
+            
             public static class BtnNextPlay
             {
                 public static readonly Bitmap Sprite = GameResources.btnNextPlay;

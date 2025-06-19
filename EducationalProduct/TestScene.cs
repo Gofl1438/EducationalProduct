@@ -110,7 +110,7 @@ namespace EducationalProduct
                         StateAllScene.ruleCatchBonesScene.Opacity = opacity;
                         System.Threading.Thread.Sleep(16);
                     }
-                    ManagerUI.BtnClosedElement.Clear();
+
                     StateAllScene.testScene.Dispose();
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
@@ -128,7 +128,7 @@ namespace EducationalProduct
                         StateAllScene.ruleCollectPuzzleScene.Opacity = opacity;
                         System.Threading.Thread.Sleep(16);
                     }
-                    ManagerUI.BtnClosedElement.Clear();
+
                     StateAllScene.testScene.Dispose();
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
@@ -146,7 +146,7 @@ namespace EducationalProduct
                         StateAllScene.ruleDodgeMeteoritesScene.Opacity = opacity;
                         System.Threading.Thread.Sleep(16);
                     }
-                    ManagerUI.BtnClosedElement.Clear();
+
                     StateAllScene.testScene.Dispose();
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
@@ -164,7 +164,7 @@ namespace EducationalProduct
                         StateAllScene.endScene.Opacity = opacity;
                         System.Threading.Thread.Sleep(16);
                     }
-                    ManagerUI.BtnClosedElement.Clear();
+
                     StateAllScene.testScene.Dispose();
                     GC.Collect();
                     GC.WaitForPendingFinalizers();

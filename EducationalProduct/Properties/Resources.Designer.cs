@@ -143,16 +143,6 @@ namespace EducationalProduct.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BackGroundTest {
-            get {
-                object obj = ResourceManager.GetObject("BackGroundTest", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap BlueButtonGray {
             get {
                 object obj = ResourceManager.GetObject("BlueButtonGray", resourceCulture);

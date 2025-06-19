@@ -107,6 +107,7 @@ namespace EducationalProduct.Classes
             OpeningElements.Add(CashElementUI.OpeningElements.rocket);
             OpeningElements.Add(CashElementUI.OpeningElements.title);
             OpeningElements.Add(CashElementUI.OpeningElements.btnStartPlay);
+            OpeningElements.Add(CashElementUI.OpeningElements.btnDevInfo);
             OpeningElements.Add(CashElementUI.OpeningElements.btnClosed);
         }
         public static void AddRuleElements()

@@ -159,6 +159,11 @@ namespace EducationalProduct.Classes
                 GameConfig.OpeningScene.BtnStartPlay.Size,
                 GameConfig.OpeningScene.BtnStartPlay.Point
                 );
+            public static readonly ElementUI btnDevInfo = new ElementUI(
+                GameConfig.OpeningScene.BtnDevInfo.Sprite,
+                GameConfig.OpeningScene.BtnDevInfo.Size,
+                GameConfig.OpeningScene.BtnDevInfo.Point
+                );
             public static readonly ElementUI btnClosed = new ElementUI(
                 GameConfig.OpeningScene.BtnClosed.Sprite,
                 GameConfig.OpeningScene.BtnClosed.Size,

@@ -213,6 +213,16 @@ namespace EducationalProduct.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btnDevInfo {
+            get {
+                object obj = ResourceManager.GetObject("btnDevInfo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnNextPlay {
             get {
                 object obj = ResourceManager.GetObject("btnNextPlay", resourceCulture);

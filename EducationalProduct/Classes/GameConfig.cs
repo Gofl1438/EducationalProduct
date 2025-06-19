@@ -61,22 +61,27 @@ namespace EducationalProduct.Classes
             TotalElement.MenuExit.Height = (int)(TotalElement.MenuExit.Width * 0.36);
             TotalElement.MenuExit.PositionOx = (CanvasProduct.Width - TotalElement.MenuExit.Width) / 2;
             TotalElement.MenuExit.PositionOy = (CanvasProduct.Height - TotalElement.MenuExit.Height) / 2;
+
             TotalElement.ButtonNo.Width = (int)(TotalElement.MenuExit.Width * 0.22f);
             TotalElement.ButtonNo.Height = (int)(TotalElement.MenuExit.Width * 0.22f);
             TotalElement.ButtonNo.PositionOx = TotalElement.MenuExit.PositionOx + TotalElement.MenuExit.Width - TotalElement.MenuExit.Width * 0.17f - TotalElement.ButtonNo.Width;
             TotalElement.ButtonNo.PositionOy = TotalElement.MenuExit.PositionOy + TotalElement.MenuExit.Height * 0.32f;
+
             TotalElement.ButtonYes.Width = (int)(TotalElement.MenuExit.Width * 0.22f);
             TotalElement.ButtonYes.Height = (int)(TotalElement.MenuExit.Width * 0.22f);
             TotalElement.ButtonYes.PositionOx = TotalElement.MenuExit.PositionOx + TotalElement.MenuExit.Width * 0.17f;
             TotalElement.ButtonYes.PositionOy = TotalElement.MenuExit.PositionOy + TotalElement.MenuExit.Height * 0.32f;
+
             TotalElement.BtnClosed.Height = (int)(MinValueCanvas * 0.1f);
             TotalElement.BtnClosed.Width = (int)(MinValueCanvas * 0.1f);
+            TotalElement.BtnClosed.PositionOx = (int)(CanvasProduct.Width - TotalElement.BtnClosed.Width - CanvasProduct.Width * 0.025f);
+            TotalElement.BtnClosed.PositionOy = (int)(CanvasProduct.Height * 0.02f);
+
             TotalElement.BtnQuestion.Height = (int)(MinValueCanvas * 0.1f);
             TotalElement.BtnQuestion.Width = (int)(MinValueCanvas * 0.1f);
-            TotalElement.BtnClosed.PositionOx = (int)(CanvasProduct.Width - TotalElement.BtnClosed.Width -  CanvasProduct.Width * 0.02f);
-            TotalElement.BtnClosed.PositionOy = (int)(CanvasProduct.Height * 0.02f);
             TotalElement.BtnQuestion.PositionOx = (int)(CanvasProduct.Width * 0.02f);
             TotalElement.BtnQuestion.PositionOy = (int)(CanvasProduct.Height * 0.02f);
+
             TotalElement.BackgroundMenuExit.Height = CanvasProduct.Height;
             TotalElement.BackgroundMenuExit.Width = CanvasProduct.Width;
         }
@@ -99,9 +104,14 @@ namespace EducationalProduct.Classes
             OpeningScene.BtnStartPlay.PositionOx = (CanvasProduct.Width - OpeningScene.BtnStartPlay.Width) / 2;
             OpeningScene.BtnStartPlay.PositionOy = (int)(CanvasProduct.Height * 0.415f);
 
+            OpeningScene.BtnDevInfo.Height = (int)(MinValueCanvas * 0.1f);
+            OpeningScene.BtnDevInfo.Width = (int)(MinValueCanvas * 0.1f);
+            OpeningScene.BtnDevInfo.PositionOx = (int)(CanvasProduct.Width - OpeningScene.BtnDevInfo.Width - CanvasProduct.Width * 0.92f);
+            OpeningScene.BtnDevInfo.PositionOy = (int)(CanvasProduct.Height * 0.02f);
+
             OpeningScene.BtnClosed.Height = (int)(MinValueCanvas * 0.1f);
             OpeningScene.BtnClosed.Width = (int)(MinValueCanvas * 0.1f);
-            OpeningScene.BtnClosed.PositionOx = (int)(CanvasProduct.Width - OpeningScene.BtnClosed.Width - CanvasProduct.Width * 0.02f);
+            OpeningScene.BtnClosed.PositionOx = (int)(CanvasProduct.Width - OpeningScene.BtnClosed.Width - CanvasProduct.Width * 0.025f);
             OpeningScene.BtnClosed.PositionOy = (int)(CanvasProduct.Height * 0.02f);
 
             OpeningScene.MenuExit.Width = (int)(CanvasProduct.Width * 0.41f);
@@ -788,6 +798,16 @@ namespace EducationalProduct.Classes
             public static class BtnStartPlay
             {
                 public static readonly Bitmap Sprite = GameResources.btnPlayStart;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class BtnDevInfo
+            {
+                public static readonly Bitmap Sprite = GameResources.btnDevInfo;
                 public static int Height { get; set; }
                 public static int Width { get; set; }
                 public static float PositionOx { get; set; }

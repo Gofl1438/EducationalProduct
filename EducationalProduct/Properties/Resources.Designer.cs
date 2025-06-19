@@ -744,6 +744,16 @@ namespace EducationalProduct.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap txtDevInfo {
+            get {
+                object obj = ResourceManager.GetObject("txtDevInfo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap txtDodgeMeteorites1 {
             get {
                 object obj = ResourceManager.GetObject("txtDodgeMeteorites1", resourceCulture);

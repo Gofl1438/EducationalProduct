@@ -141,8 +141,9 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.RuleCatchBonesScene.BtnNextPlay.PositionOx, GameConfig.RuleCatchBonesScene.BtnNextPlay.PositionOy),
             new Size(GameConfig.RuleCatchBonesScene.BtnNextPlay.Width, GameConfig.RuleCatchBonesScene.BtnNextPlay.Height)).Contains(e.Location))
             {
-                if (!startGame)
+                if (!startGame && !StateExitMenu.CurrentStateMenuExitRuleCatchBonesScene)
                 {
+                    StateNextBtn.CurrentNextBtnRuleCatchBonesScene = true;
                     countNext++;
 
                     if (countNext == 2)
@@ -164,7 +165,7 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.RuleCatchBonesScene.BtnBackPlay.PositionOx, GameConfig.RuleCatchBonesScene.BtnBackPlay.PositionOy),
             new Size(GameConfig.RuleCatchBonesScene.BtnBackPlay.Width, GameConfig.RuleCatchBonesScene.BtnBackPlay.Height)).Contains(e.Location))
             {
-                if (countNext > 0)
+                if (countNext > 0 && !StateExitMenu.CurrentStateMenuExitRuleCatchBonesScene)
                 {
                     countNext--;
                     startGame = false;

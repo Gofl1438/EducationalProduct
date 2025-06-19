@@ -17,6 +17,7 @@ namespace EducationalProduct.Classes
         public static List<ElementUI> TotalElements { get; } = new List<ElementUI>();
         public static List<ElementUI> BtnClosedElement { get; } = new List<ElementUI>();
         public static List<ElementUI> TotalElementsMenuExit { get; } = new List<ElementUI>();
+        public static List<ElementUI> DevInfoMenuElements { get; } = new List<ElementUI>();
         public static List<ElementUI> OpeningElements { get; } = new List<ElementUI>();
         public static List<ElementUI> RuleElements { get; } = new List<ElementUI>();
         public static List<ElementUI> EndElements { get; } = new List<ElementUI>();
@@ -89,6 +90,14 @@ namespace EducationalProduct.Classes
             TotalElementsMenuExitOpeningScene.Add(CashElementUI.TotalElementsMenuExitOpeningScene.menuExit);
             TotalElementsMenuExitOpeningScene.Add(CashElementUI.TotalElementsMenuExitOpeningScene.buttonNo);
             TotalElementsMenuExitOpeningScene.Add(CashElementUI.TotalElementsMenuExitOpeningScene.buttonYes);
+        }
+
+        public static void AddDevInfoMenuElements()
+        {
+            DevInfoMenuElements.Clear();
+            DevInfoMenuElements.Add(CashElementUI.DevInfoMenuElements.backgroundMenuExit);
+            DevInfoMenuElements.Add(CashElementUI.DevInfoMenuElements.backgroundDevInfo);
+            DevInfoMenuElements.Add(CashElementUI.DevInfoMenuElements.ButtonApply);
         }
 
         public static void AddTotalElementsMenuExit()

@@ -101,5 +101,6 @@ namespace EducationalProduct.Classes
         public static readonly Bitmap Success = Properties.Resources.success;
         public static readonly Bitmap btnClosed = Properties.Resources.btnClosed;
         public static readonly Bitmap menuExitGameOpeningScene = Properties.Resources.MenuExit;
+        public static readonly Bitmap txtDevInfo = Properties.Resources.txtDevInfo;
     }
 }

@@ -158,8 +158,9 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.RuleRepeatActionScene.BtnNextPlay.PositionOx, GameConfig.RuleRepeatActionScene.BtnNextPlay.PositionOy),
             new Size(GameConfig.RuleRepeatActionScene.BtnNextPlay.Width, GameConfig.RuleRepeatActionScene.BtnNextPlay.Height)).Contains(e.Location))
             {
-                if (!startGame)
+                if (!startGame && !StateExitMenu.CurrentStateMenuExitRuleRepeatActionScene)
                 {
+                    StateNextBtn.CurrentNextBtnRuleRepeatActionScene = true;
                     countNext++;
 
                     if (countNext == 2)
@@ -181,7 +182,7 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.RuleRepeatActionScene.BtnBackPlay.PositionOx, GameConfig.RuleRepeatActionScene.BtnBackPlay.PositionOy),
             new Size(GameConfig.RuleRepeatActionScene.BtnBackPlay.Width, GameConfig.RuleRepeatActionScene.BtnBackPlay.Height)).Contains(e.Location))
             {
-                if (countNext > 0)
+                if (countNext > 0 && !StateExitMenu.CurrentStateMenuExitRuleRepeatActionScene)
                 {
                     countNext--;
                     startGame = false;

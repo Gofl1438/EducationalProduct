@@ -117,6 +117,25 @@ namespace EducationalProduct.Classes
                 );
         }
 
+        public static class DevInfoMenuElements
+        {
+            public static readonly ElementUI backgroundMenuExit = new ElementUI(
+                GameConfig.TotalElement.BackgroundMenuExit.Sprite,
+                GameConfig.TotalElement.BackgroundMenuExit.Size,
+                GameConfig.TotalElement.BackgroundMenuExit.Point
+                );
+            public static readonly ElementUI backgroundDevInfo = new ElementUI(
+                GameConfig.DevInfoMenu.BackgroundDevInfo.Sprite,
+                GameConfig.DevInfoMenu.BackgroundDevInfo.Size,
+                GameConfig.DevInfoMenu.BackgroundDevInfo.Point
+                );
+            public static readonly ElementUI ButtonApply = new ElementUI(
+                GameConfig.DevInfoMenu.ButtonApply.Sprite,
+                GameConfig.DevInfoMenu.ButtonApply.Size,
+                GameConfig.DevInfoMenu.ButtonApply.Point
+                );
+        }
+
         public static class TotalElementsMenuExitOpeningScene
         {
             public static readonly ElementUI backgroundMenuExit = new ElementUI(

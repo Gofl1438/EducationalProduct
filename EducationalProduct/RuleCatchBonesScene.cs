@@ -72,18 +72,19 @@ namespace EducationalProduct
             {
                 StateNextBtn.CurrentNextBtnRuleCatchBonesScene = true;
                 StateCurrentScene.CatchBonesScene = true;
-                CatchBones catchBones = new CatchBones();
-                catchBones.Opacity = 0;
-                catchBones.Show();
-                catchBones.Refresh();
+                StateAllScene.catchBones = new CatchBones();
+                StateAllScene.catchBones.Opacity = 0;
+                StateAllScene.catchBones.Show();
+                StateAllScene.catchBones.Refresh();
                 for (double opacity = 0; opacity <= 1; opacity += 0.1)
                 {
-                    catchBones.Opacity = opacity;
+                    StateAllScene.catchBones.Opacity = opacity;
                     System.Threading.Thread.Sleep(16);
                 }
                 ManagerUI.BtnClosedElement.Clear();
-                this.Hide();
-                this.Dispose();
+                StateAllScene.ruleCatchBonesScene.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
             }
         }
 
@@ -120,8 +121,9 @@ namespace EducationalProduct
                         CanvasRuleCatchBonesScene.Invalidate();
                     }
                     ManagerUI.BtnClosedElement.Clear();
-                    this.Hide();
-                    this.Dispose();
+                    StateAllScene.ruleCatchBonesScene.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                 }
             }
 

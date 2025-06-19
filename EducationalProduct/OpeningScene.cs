@@ -61,17 +61,15 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.OpeningScene.BtnStartPlay.PositionOx, GameConfig.OpeningScene.BtnStartPlay.PositionOy),
                 new Size(GameConfig.OpeningScene.BtnStartPlay.Width, GameConfig.OpeningScene.BtnStartPlay.Height)).Contains(e.Location))
             {
-                RuleScene ruleScene = new RuleScene();
-                ruleScene.Opacity = 0;
+                StateAllScene.ruleScene = new RuleScene();
+                StateAllScene.ruleScene.Opacity = 0;
 
-                ruleScene.FormClosed += (s, args) => { this.Close(); };
-
-                ruleScene.Show();
-                ruleScene.Refresh();
+                StateAllScene.ruleScene.Show();
+                StateAllScene.ruleScene.Refresh();
 
                 for (double opacity = 0; opacity <= 1; opacity += 0.1)
                 {
-                    ruleScene.Opacity = opacity;
+                    StateAllScene.ruleScene.Opacity = opacity;
                     System.Threading.Thread.Sleep(16);
                 }
                 this.Hide();

@@ -73,19 +73,20 @@ namespace EducationalProduct
                 StateNextBtn.CurrentNextBtnRuleDodgeMeteoritesScene = true;
                 StateBackBtn.CurrentBackBtnRuleRepeatActionScene = true;
                 StateCurrentScene.DodgeMeteoritesScene = true;
-                DodgeMeteorites dodgeMeteorites = new DodgeMeteorites();
-                dodgeMeteorites.Opacity = 0;
-                dodgeMeteorites.Show();
-                dodgeMeteorites.Refresh();
+                StateAllScene.dodgeMeteorites = new DodgeMeteorites();
+                StateAllScene.dodgeMeteorites.Opacity = 0;
+                StateAllScene.dodgeMeteorites.Show();
+                StateAllScene.dodgeMeteorites.Refresh();
                 for (double opacity = 0; opacity <= 1; opacity += 0.1)
                 {
-                    dodgeMeteorites.Opacity = opacity;
+                    StateAllScene.dodgeMeteorites.Opacity = opacity;
                     System.Threading.Thread.Sleep(16);
                 };
                 ManagerUI.BtnClosedElement.Clear();
                 ManagerUI.RuleDodgeMeteoritesElements.Clear();
-                this.Hide();
-                this.Dispose();
+                StateAllScene.ruleDodgeMeteoritesScene.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
             }
         }
 
@@ -124,8 +125,9 @@ namespace EducationalProduct
                     }
                     ManagerUI.BtnClosedElement.Clear();
                     ManagerUI.RuleDodgeMeteoritesElements.Clear();
-                    this.Hide();
-                    this.Dispose();
+                    StateAllScene.ruleDodgeMeteoritesScene.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                 }
             }
 

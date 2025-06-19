@@ -182,13 +182,13 @@ namespace EducationalProduct
                             timer.Stop();
                             timer.Tick -= Update;
                             timer.Dispose();
-                            TestScene testScene = new TestScene(); //указать нужную сцену//
-                            testScene.Opacity = 0;
-                            testScene.Show();
-                            testScene.Refresh();
+                            StateAllScene.testScene = new TestScene(); //указать нужную сцену//
+                            StateAllScene.testScene.Opacity = 0;
+                            StateAllScene.testScene.Show();
+                            StateAllScene.testScene.Refresh();
                             for (double opacity = 0; opacity <= 1; opacity += 0.1)
                             {
-                                testScene.Opacity = opacity;
+                                StateAllScene.testScene.Opacity = opacity;
                                 System.Threading.Thread.Sleep(16);
                             }
                             rocket.Dispose();
@@ -199,8 +199,9 @@ namespace EducationalProduct
                             _cachedBackground.Dispose();
                             _cachedButton.Dispose();
                             _cachedButtonUI.Dispose();
-                            this.Hide();
-                            this.Dispose();
+                            StateAllScene.dodgeMeteorites.Dispose();
+                            GC.Collect();
+                            GC.WaitForPendingFinalizers();
                         }
                     }
                 }
@@ -420,8 +421,9 @@ namespace EducationalProduct
                     _cachedBackground.Dispose();
                     _cachedButton.Dispose();
                     _cachedButtonUI.Dispose();
-                    this.Hide();
-                    this.Dispose();
+                    StateAllScene.dodgeMeteorites.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                 }
             }
 

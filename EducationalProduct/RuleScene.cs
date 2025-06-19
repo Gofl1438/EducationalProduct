@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -70,20 +71,21 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.RuleScene.BtnStartPlay.PositionOx, GameConfig.RuleScene.BtnStartPlay.PositionOy),
             new Size(GameConfig.RuleScene.BtnStartPlay.Width, GameConfig.RuleScene.BtnStartPlay.Height)).Contains(e.Location))
             {
-                RuleRepeatActionScene ruleRepeatActionScene = new RuleRepeatActionScene();
-                ruleRepeatActionScene.Opacity = 0;
-                ruleRepeatActionScene.Show();
-                ruleRepeatActionScene.Refresh();
+                StateAllScene.ruleRepeatActionScene = new RuleRepeatActionScene();
+                StateAllScene.ruleRepeatActionScene.Opacity = 0;
+                StateAllScene.ruleRepeatActionScene.Show();
+                StateAllScene.ruleRepeatActionScene.Refresh();
                 for (double opacity = 0; opacity <= 1; opacity += 0.1)
                 {
-                    ruleRepeatActionScene.Opacity = opacity;
+                    StateAllScene.ruleRepeatActionScene.Opacity = opacity;
                     System.Threading.Thread.Sleep(16);
                 }
                 ManagerUI.BtnClosedElement.Clear();
                 ManagerUI.RuleElements.Clear();
                 _cachedBackground.Dispose();
-                this.Hide();
-                this.Dispose();
+                StateAllScene.ruleScene.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
             }
         }
 
@@ -123,8 +125,9 @@ namespace EducationalProduct
                     _cachedBackground.Dispose();
                     StateExitMenu.Init();
                     StateOpeningScene.Init();
-                    this.Hide();
-                    this.Dispose();
+                    StateAllScene.ruleScene.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                 }
             }
 

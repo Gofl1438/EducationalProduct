@@ -48,7 +48,7 @@ namespace EducationalProduct
             }
             for (int i = 0; i < ManagerUI.RuleCatchBonesElements.Count; i++)
             {
-                if (DialogManager.UpdateNextBtn(startGame, i) || DialogManager.UpdateDialog(countNext, i))
+                if (DialogManager.UpdateNextBtn(startGame, i) || DialogManager.UpdateDialog(countNext, i) || DialogManager.UpdateBackBtn(countNext, i))
                     continue;
 
                 ManagerUI.RuleCatchBonesElements[i].DrawSprite(g);
@@ -63,13 +63,14 @@ namespace EducationalProduct
         {
             CheckMouseDownExit(e);
             CheckMouseDownNext(e);
+            CheckMouseDownBack(e);
 
-            if (StateExitMenu.CurrentStateMenuExitRuleCatchBonesScene || StateNextBtn.CurrentNextBtnExitRuleCatchBonesScene) return;
+            if (StateExitMenu.CurrentStateMenuExitRuleCatchBonesScene || StateNextBtn.CurrentNextBtnRuleCatchBonesScene) return;
 
             if (new RectangleF(new PointF(GameConfig.RuleCatchBonesScene.BtnStartPlay.PositionOx, GameConfig.RuleCatchBonesScene.BtnStartPlay.PositionOy),
             new Size(GameConfig.RuleCatchBonesScene.BtnStartPlay.Width, GameConfig.RuleCatchBonesScene.BtnStartPlay.Height)).Contains(e.Location))
             {
-                StateNextBtn.CurrentNextBtnExitRuleCatchBonesScene = true;
+                StateNextBtn.CurrentNextBtnRuleCatchBonesScene = true;
                 StateCurrentScene.CatchBonesScene = true;
                 StateAllScene.catchBones = new CatchBones();
                 StateAllScene.catchBones.Opacity = 0;
@@ -105,7 +106,7 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonYes.PositionOx, GameConfig.TotalElement.ButtonYes.PositionOy),
                 new Size(GameConfig.TotalElement.ButtonYes.Width, GameConfig.TotalElement.ButtonYes.Height)).Contains(e.Location))
             {
-                StateNextBtn.CurrentNextBtnExitRuleCatchBonesScene = true;
+                StateNextBtn.CurrentNextBtnRuleCatchBonesScene = true;
                 StateExitMenu.CurrentStateMenuExitRuleCatchBonesScene = false;
                 if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
                 {
@@ -151,10 +152,27 @@ namespace EducationalProduct
                 }
                 else
                 {
-                    StateNextBtn.CurrentNextBtnExitRuleCatchBonesScene = false;
+                    StateNextBtn.CurrentNextBtnRuleCatchBonesScene = false;
                 }
 
                 CanvasRuleCatchBonesScene.Invalidate();
+            }
+        }
+
+        private void CheckMouseDownBack(MouseEventArgs e)
+        {
+            if (new RectangleF(new PointF(GameConfig.RuleCatchBonesScene.BtnBackPlay.PositionOx, GameConfig.RuleCatchBonesScene.BtnBackPlay.PositionOy),
+            new Size(GameConfig.RuleCatchBonesScene.BtnBackPlay.Width, GameConfig.RuleCatchBonesScene.BtnBackPlay.Height)).Contains(e.Location))
+            {
+                if (countNext > 0)
+                {
+                    countNext--;
+                    startGame = false;
+
+                    StateBackBtn.CurrentBackBtnRuleRepeatActionScene = false;
+
+                    CanvasRuleCatchBonesScene.Invalidate();
+                }
             }
         }
 

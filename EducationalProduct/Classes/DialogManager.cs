@@ -23,20 +23,32 @@ namespace EducationalProduct.Classes
 
             return false;
         }
+
+        public static bool UpdateBackBtn(int countNextbtn, int buttonIndex)
+        {
+            //Пропуск кнопки Назад
+            if (countNextbtn == 0 && (buttonIndex == 3))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public static bool UpdateDialog(int countNextbtn, int dialogIndex)
         {
             //Пропуск 2 и 3 диалога
-            if ((countNextbtn == 0 && (dialogIndex == 4)) || (countNextbtn == 0 && (dialogIndex == 5)))
+            if ((countNextbtn == 0 && (dialogIndex == 5)) || (countNextbtn == 0 && (dialogIndex == 6)))
             {
                 return true;
             }
             //Пропуск 1 и 3 диалога
-            else if (((countNextbtn == 1) && (dialogIndex == 3)) || ((countNextbtn == 1) && (dialogIndex == 5)))
+            else if (((countNextbtn == 1) && (dialogIndex == 4)) || ((countNextbtn == 1) && (dialogIndex == 6)))
             {
                 return true;
             }
             //Пропуск 1 и 2 диалога
-            else if (((countNextbtn == 2) && (dialogIndex == 3)) || ((countNextbtn == 2) && (dialogIndex == 4)))
+            else if (((countNextbtn == 2) && (dialogIndex == 4)) || ((countNextbtn == 2) && (dialogIndex == 5)))
             {
                 return true;
             }

@@ -8,9 +8,9 @@ namespace EducationalProduct.Classes
 {
     internal class StateNextBtn
     {
-        public static bool CurrentNextBtnExitRuleCatchBonesScene = true;
-        public static bool CurrentNextBtnExitRuleCollectPuzzleScene = true;
-        public static bool CurrentNextBtnExitRuleDodgeMeteoritesScene = true;
-        public static bool CurrentNextBtnExitRuleRepeatActionScene = true;
+        public static bool CurrentNextBtnRuleCatchBonesScene = true;
+        public static bool CurrentNextBtnRuleCollectPuzzleScene = true;
+        public static bool CurrentNextBtnRuleDodgeMeteoritesScene = true;
+        public static bool CurrentNextBtnRuleRepeatActionScene = true;
     }
 }

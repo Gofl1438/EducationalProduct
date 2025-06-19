@@ -183,6 +183,16 @@ namespace EducationalProduct.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btnBack {
+            get {
+                object obj = ResourceManager.GetObject("btnBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnBackArrow {
             get {
                 object obj = ResourceManager.GetObject("btnBackArrow", resourceCulture);
@@ -223,9 +233,9 @@ namespace EducationalProduct.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap btnPlayStartRuleScene {
+        internal static System.Drawing.Bitmap btnPlayStart {
             get {
-                object obj = ResourceManager.GetObject("btnPlayStartRuleScene", resourceCulture);
+                object obj = ResourceManager.GetObject("btnPlayStart", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -236,16 +246,6 @@ namespace EducationalProduct.Properties {
         internal static System.Drawing.Bitmap btnQuestion {
             get {
                 object obj = ResourceManager.GetObject("btnQuestion", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btnStartPlayOpening {
-            get {
-                object obj = ResourceManager.GetObject("btnStartPlayOpening", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

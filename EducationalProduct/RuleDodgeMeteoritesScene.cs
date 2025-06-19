@@ -48,7 +48,7 @@ namespace EducationalProduct
             }
             for (int i = 0; i < ManagerUI.RuleDodgeMeteoritesElements.Count; i++)
             {
-                if (DialogManager.UpdateNextBtn(startGame, i) || DialogManager.UpdateDialog(countNext, i))
+                if (DialogManager.UpdateNextBtn(startGame, i) || DialogManager.UpdateDialog(countNext, i) || DialogManager.UpdateBackBtn(countNext, i))
                     continue;
 
                 ManagerUI.RuleDodgeMeteoritesElements[i].DrawSprite(g);
@@ -63,13 +63,15 @@ namespace EducationalProduct
         {
             CheckMouseDownExit(e);
             CheckMouseDownNext(e);
+            CheckMouseDownBack(e);
 
-            if (StateExitMenu.CurrentStateMenuExitRuleDodgeMeteoritesScene || StateNextBtn.CurrentNextBtnExitRuleDodgeMeteoritesScene) return;
+            if (StateExitMenu.CurrentStateMenuExitRuleDodgeMeteoritesScene || StateNextBtn.CurrentNextBtnRuleDodgeMeteoritesScene) return;
 
             if (new RectangleF(new PointF(GameConfig.RuleDodgeMeteoritesScene.BtnStartPlay.PositionOx, GameConfig.RuleDodgeMeteoritesScene.BtnStartPlay.PositionOy),
             new Size(GameConfig.RuleDodgeMeteoritesScene.BtnStartPlay.Width, GameConfig.RuleDodgeMeteoritesScene.BtnStartPlay.Height)).Contains(e.Location))
             {
-                StateNextBtn.CurrentNextBtnExitRuleDodgeMeteoritesScene = true;
+                StateNextBtn.CurrentNextBtnRuleDodgeMeteoritesScene = true;
+                StateBackBtn.CurrentBackBtnRuleRepeatActionScene = true;
                 StateCurrentScene.DodgeMeteoritesScene = true;
                 StateAllScene.dodgeMeteorites = new DodgeMeteorites();
                 StateAllScene.dodgeMeteorites.Opacity = 0;
@@ -107,7 +109,7 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.TotalElement.ButtonYes.PositionOx, GameConfig.TotalElement.ButtonYes.PositionOy),
                 new Size(GameConfig.TotalElement.ButtonYes.Width, GameConfig.TotalElement.ButtonYes.Height)).Contains(e.Location))
             {
-                StateNextBtn.CurrentNextBtnExitRuleDodgeMeteoritesScene = true;
+                StateNextBtn.CurrentNextBtnRuleDodgeMeteoritesScene = true;
                 StateExitMenu.CurrentStateMenuExitRuleDodgeMeteoritesScene = false;
                 if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
                 {
@@ -154,10 +156,27 @@ namespace EducationalProduct
                 }
                 else
                 {
-                    StateNextBtn.CurrentNextBtnExitRuleDodgeMeteoritesScene = false;
+                    StateNextBtn.CurrentNextBtnRuleDodgeMeteoritesScene = false;
                 }
 
                 CanvasRuleDodgeMeteoritesScene.Invalidate();
+            }
+        }
+
+        private void CheckMouseDownBack(MouseEventArgs e)
+        {
+            if (new RectangleF(new PointF(GameConfig.RuleDodgeMeteoritesScene.BtnBackPlay.PositionOx, GameConfig.RuleDodgeMeteoritesScene.BtnBackPlay.PositionOy),
+            new Size(GameConfig.RuleDodgeMeteoritesScene.BtnBackPlay.Width, GameConfig.RuleDodgeMeteoritesScene.BtnBackPlay.Height)).Contains(e.Location))
+            {
+                if (countNext > 0)
+                {
+                    countNext--;
+                    startGame = false;
+
+                    StateBackBtn.CurrentBackBtnRuleRepeatActionScene = false;
+
+                    CanvasRuleDodgeMeteoritesScene.Invalidate();
+                }
             }
         }
 

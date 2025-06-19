@@ -214,13 +214,18 @@ namespace EducationalProduct.Classes
                 );
             public static readonly ElementUI btnStartPlay = new ElementUI(
                 GameConfig.RuleRepeatActionScene.BtnStartPlay.Sprite,
-                GameConfig.RuleScene.BtnStartPlay.Size,
-                GameConfig.RuleScene.BtnStartPlay.Point
+                GameConfig.RuleRepeatActionScene.BtnStartPlay.Size,
+                GameConfig.RuleRepeatActionScene.BtnStartPlay.Point
                 );
             public static readonly ElementUI btnNextPlay = new ElementUI(
                 GameConfig.RuleRepeatActionScene.BtnNextPlay.Sprite,
                 GameConfig.RuleRepeatActionScene.BtnNextPlay.Size,
                 GameConfig.RuleRepeatActionScene.BtnNextPlay.Point
+                );
+            public static readonly ElementUI btnBackPlay = new ElementUI(
+                GameConfig.RuleRepeatActionScene.BtnBackPlay.Sprite,
+                GameConfig.RuleRepeatActionScene.BtnBackPlay.Size,
+                GameConfig.RuleRepeatActionScene.BtnBackPlay.Point
                 );
             public static readonly ElementUI txtRuleRepeatActionScene1 = new ElementUI(
                 GameConfig.RuleRepeatActionScene.TxtRuleRepeatActionScene1.Sprite,
@@ -248,13 +253,18 @@ namespace EducationalProduct.Classes
                 );
             public static readonly ElementUI btnStartPlay = new ElementUI(
                 GameConfig.RuleCatchBonesScene.BtnStartPlay.Sprite,
-                GameConfig.RuleScene.BtnStartPlay.Size,
-                GameConfig.RuleScene.BtnStartPlay.Point
+                GameConfig.RuleCatchBonesScene.BtnStartPlay.Size,
+                GameConfig.RuleCatchBonesScene.BtnStartPlay.Point
                 );
             public static readonly ElementUI btnNextPlay = new ElementUI(
                 GameConfig.RuleCatchBonesScene.BtnNextPlay.Sprite,
                 GameConfig.RuleCatchBonesScene.BtnNextPlay.Size,
                 GameConfig.RuleCatchBonesScene.BtnNextPlay.Point
+                );
+            public static readonly ElementUI btnBackPlay = new ElementUI(
+                GameConfig.RuleCatchBonesScene.BtnBackPlay.Sprite,
+                GameConfig.RuleCatchBonesScene.BtnBackPlay.Size,
+                GameConfig.RuleCatchBonesScene.BtnBackPlay.Point
                 );
             public static readonly ElementUI txtRuleCatchBonesScene1 = new ElementUI(
                 GameConfig.RuleCatchBonesScene.TxtRuleCatchBonesScene1.Sprite,
@@ -282,13 +292,18 @@ namespace EducationalProduct.Classes
                 );
             public static readonly ElementUI btnStartPlay = new ElementUI(
                 GameConfig.RuleCollectPuzzleScene.BtnStartPlay.Sprite,
-                GameConfig.RuleScene.BtnStartPlay.Size,
-                GameConfig.RuleScene.BtnStartPlay.Point
+                GameConfig.RuleCollectPuzzleScene.BtnStartPlay.Size,
+                GameConfig.RuleCollectPuzzleScene.BtnStartPlay.Point
                 );
             public static readonly ElementUI btnNextPlay = new ElementUI(
                 GameConfig.RuleCollectPuzzleScene.BtnNextPlay.Sprite,
                 GameConfig.RuleCollectPuzzleScene.BtnNextPlay.Size,
                 GameConfig.RuleCollectPuzzleScene.BtnNextPlay.Point
+                );
+            public static readonly ElementUI btnBackPlay = new ElementUI(
+                GameConfig.RuleCollectPuzzleScene.BtnBackPlay.Sprite,
+                GameConfig.RuleCollectPuzzleScene.BtnBackPlay.Size,
+                GameConfig.RuleCollectPuzzleScene.BtnBackPlay.Point
                 );
             public static readonly ElementUI txtRuleCollectPuzzleScene1 = new ElementUI(
                 GameConfig.RuleCollectPuzzleScene.TxtRuleCollectPuzzleScene1.Sprite,
@@ -316,13 +331,18 @@ namespace EducationalProduct.Classes
                 );
             public static readonly ElementUI btnStartPlay = new ElementUI(
                 GameConfig.RuleDodgeMeteoritesScene.BtnStartPlay.Sprite,
-                GameConfig.RuleScene.BtnStartPlay.Size,
-                GameConfig.RuleScene.BtnStartPlay.Point
+                GameConfig.RuleDodgeMeteoritesScene.BtnStartPlay.Size,
+                GameConfig.RuleDodgeMeteoritesScene.BtnStartPlay.Point
                 );
             public static readonly ElementUI btnNextPlay = new ElementUI(
                 GameConfig.RuleDodgeMeteoritesScene.BtnNextPlay.Sprite,
                 GameConfig.RuleDodgeMeteoritesScene.BtnNextPlay.Size,
                 GameConfig.RuleDodgeMeteoritesScene.BtnNextPlay.Point
+                );
+            public static readonly ElementUI btnBackPlay = new ElementUI(
+                GameConfig.RuleDodgeMeteoritesScene.BtnBackPlay.Sprite,
+                GameConfig.RuleDodgeMeteoritesScene.BtnBackPlay.Size,
+                GameConfig.RuleDodgeMeteoritesScene.BtnBackPlay.Point
                 );
             public static readonly ElementUI txtRuleDodgeMeteoritesScene1 = new ElementUI(
                 GameConfig.RuleDodgeMeteoritesScene.TxtRuleDodgeMeteoritesScene1.Sprite,

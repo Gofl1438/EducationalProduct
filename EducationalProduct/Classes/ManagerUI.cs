@@ -131,6 +131,7 @@ namespace EducationalProduct.Classes
             RuleRepeatActionElements.Add(CashElementUI.RuleRepeatActionElements.character);
             RuleRepeatActionElements.Add(CashElementUI.RuleRepeatActionElements.btnStartPlay);
             RuleRepeatActionElements.Add(CashElementUI.RuleRepeatActionElements.btnNextPlay);
+            RuleRepeatActionElements.Add(CashElementUI.RuleRepeatActionElements.btnBackPlay);
             RuleRepeatActionElements.Add(CashElementUI.RuleRepeatActionElements.txtRuleRepeatActionScene1);
             RuleRepeatActionElements.Add(CashElementUI.RuleRepeatActionElements.txtRuleRepeatActionScene2);
             RuleRepeatActionElements.Add(CashElementUI.RuleRepeatActionElements.txtRuleRepeatActionScene3);
@@ -141,6 +142,7 @@ namespace EducationalProduct.Classes
             RuleCatchBonesElements.Add(CashElementUI.RuleCatchBonesElements.character);
             RuleCatchBonesElements.Add(CashElementUI.RuleCatchBonesElements.btnStartPlay);
             RuleCatchBonesElements.Add(CashElementUI.RuleCatchBonesElements.btnNextPlay);
+            RuleCatchBonesElements.Add(CashElementUI.RuleCatchBonesElements.btnBackPlay);
             RuleCatchBonesElements.Add(CashElementUI.RuleCatchBonesElements.txtRuleCatchBonesScene1);
             RuleCatchBonesElements.Add(CashElementUI.RuleCatchBonesElements.txtRuleCatchBonesScene2);
             RuleCatchBonesElements.Add(CashElementUI.RuleCatchBonesElements.txtRuleCatchBonesScene3);
@@ -151,6 +153,7 @@ namespace EducationalProduct.Classes
             RuleCollectPuzzleElements.Add(CashElementUI.RuleCollectPuzzleElements.character);
             RuleCollectPuzzleElements.Add(CashElementUI.RuleCollectPuzzleElements.btnStartPlay);
             RuleCollectPuzzleElements.Add(CashElementUI.RuleCollectPuzzleElements.btnNextPlay);
+            RuleCollectPuzzleElements.Add(CashElementUI.RuleCollectPuzzleElements.btnBackPlay);
             RuleCollectPuzzleElements.Add(CashElementUI.RuleCollectPuzzleElements.txtRuleCollectPuzzleScene1);
             RuleCollectPuzzleElements.Add(CashElementUI.RuleCollectPuzzleElements.txtRuleCollectPuzzleScene2);
             RuleCollectPuzzleElements.Add(CashElementUI.RuleCollectPuzzleElements.txtRuleCollectPuzzleScene3);
@@ -161,6 +164,7 @@ namespace EducationalProduct.Classes
             RuleDodgeMeteoritesElements.Add(CashElementUI.RuleDodgeMeteoritesElements.character);
             RuleDodgeMeteoritesElements.Add(CashElementUI.RuleDodgeMeteoritesElements.btnStartPlay);
             RuleDodgeMeteoritesElements.Add(CashElementUI.RuleDodgeMeteoritesElements.btnNextPlay);
+            RuleDodgeMeteoritesElements.Add(CashElementUI.RuleDodgeMeteoritesElements.btnBackPlay);
             RuleDodgeMeteoritesElements.Add(CashElementUI.RuleDodgeMeteoritesElements.txtRuleDodgeMeteoritesScene1);
             RuleDodgeMeteoritesElements.Add(CashElementUI.RuleDodgeMeteoritesElements.txtRuleDodgeMeteoritesScene2);
             RuleDodgeMeteoritesElements.Add(CashElementUI.RuleDodgeMeteoritesElements.txtRuleDodgeMeteoritesScene3);

@@ -52,6 +52,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(CanvasTestScene);
+            DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "TestScene";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Test";

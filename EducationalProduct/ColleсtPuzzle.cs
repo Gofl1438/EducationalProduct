@@ -74,13 +74,13 @@ namespace EducationalProduct
                     timer.Stop();
                     timer.Tick -= Update;
                     timer.Dispose();
-                    TestScene testScene = new TestScene();
-                    testScene.Opacity = 0;
-                    testScene.Show();
-                    testScene.Refresh();
+                    StateAllScene.testScene = new TestScene();
+                    StateAllScene.testScene.Opacity = 0;
+                    StateAllScene.testScene.Show();
+                    StateAllScene.testScene.Refresh();
                     for (double opacity = 0; opacity <= 1; opacity += 0.1)
                     {
-                        testScene.Opacity = opacity;
+                        StateAllScene.testScene.Opacity = opacity;
                         System.Threading.Thread.Sleep(16);
                     }
                     ManagerPuzzle.Dispose();
@@ -90,8 +90,9 @@ namespace EducationalProduct
                     ManagerPuzzle.SolidRocketPuzzles.Clear();
                     _cachedBackground.Dispose();
                     _cachedButtonUI.Dispose();
-                    this.Hide();
-                    this.Dispose();
+                    StateAllScene.colleсtPuzzle.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                 }
             }
         }
@@ -292,8 +293,9 @@ namespace EducationalProduct
                     ManagerSound.DeleteActivePlayersColleсtPuzzle();
                     _cachedBackground.Dispose();
                     _cachedButtonUI.Dispose();
-                    this.Hide();
-                    this.Dispose();
+                    StateAllScene.colleсtPuzzle.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                 }
             }
 

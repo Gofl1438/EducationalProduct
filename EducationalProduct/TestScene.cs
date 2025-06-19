@@ -100,70 +100,74 @@ namespace EducationalProduct
             {
                 if (StateCurrentScene.RepeatActionScene)
                 {
-                    RuleCatchBonesScene scene = new RuleCatchBonesScene();
+                    StateAllScene.ruleCatchBonesScene = new RuleCatchBonesScene();
 
-                    scene.Opacity = 0;
-                    scene.Show();
-                    scene.Refresh();
+                    StateAllScene.ruleCatchBonesScene.Opacity = 0;
+                    StateAllScene.ruleCatchBonesScene.Show();
+                    StateAllScene.ruleCatchBonesScene.Refresh();
                     for (double opacity = 0; opacity <= 1; opacity += 0.1)
                     {
-                        scene.Opacity = opacity;
+                        StateAllScene.ruleCatchBonesScene.Opacity = opacity;
                         System.Threading.Thread.Sleep(16);
                     }
                     ManagerUI.BtnClosedElement.Clear();
-                    this.Hide();
-                    this.Dispose();
+                    StateAllScene.testScene.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                 }
 
                 if (StateCurrentScene.CatchBonesScene)
                 {
-                    RuleCollectPuzzleScene scene = new RuleCollectPuzzleScene();
+                    StateAllScene.ruleCollectPuzzleScene = new RuleCollectPuzzleScene();
 
-                    scene.Opacity = 0;
-                    scene.Show();
-                    scene.Refresh();
+                    StateAllScene.ruleCollectPuzzleScene.Opacity = 0;
+                    StateAllScene.ruleCollectPuzzleScene.Show();
+                    StateAllScene.ruleCollectPuzzleScene.Refresh();
                     for (double opacity = 0; opacity <= 1; opacity += 0.1)
                     {
-                        scene.Opacity = opacity;
+                        StateAllScene.ruleCollectPuzzleScene.Opacity = opacity;
                         System.Threading.Thread.Sleep(16);
                     }
                     ManagerUI.BtnClosedElement.Clear();
-                    this.Hide();
-                    this.Dispose();
+                    StateAllScene.testScene.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                 }
 
                 if (StateCurrentScene.CollectPuzzleScene)
                 {
-                    RuleDodgeMeteoritesScene scene = new RuleDodgeMeteoritesScene();
+                    StateAllScene.ruleDodgeMeteoritesScene = new RuleDodgeMeteoritesScene();
 
-                    scene.Opacity = 0;
-                    scene.Show();
-                    scene.Refresh();
+                    StateAllScene.ruleDodgeMeteoritesScene.Opacity = 0;
+                    StateAllScene.ruleDodgeMeteoritesScene.Show();
+                    StateAllScene.ruleDodgeMeteoritesScene.Refresh();
                     for (double opacity = 0; opacity <= 1; opacity += 0.1)
                     {
-                        scene.Opacity = opacity;
+                        StateAllScene.ruleDodgeMeteoritesScene.Opacity = opacity;
                         System.Threading.Thread.Sleep(16);
                     }
                     ManagerUI.BtnClosedElement.Clear();
-                    this.Hide();
-                    this.Dispose();
+                    StateAllScene.testScene.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                 }
 
                 if (StateCurrentScene.DodgeMeteoritesScene)
                 {
-                    EndScene scene = new EndScene();
+                    StateAllScene.endScene  = new EndScene();
 
-                    scene.Opacity = 0;
-                    scene.Show();
-                    scene.Refresh();
+                    StateAllScene.endScene.Opacity = 0;
+                    StateAllScene.endScene.Show();
+                    StateAllScene.endScene.Refresh();
                     for (double opacity = 0; opacity <= 1; opacity += 0.1)
                     {
-                        scene.Opacity = opacity;
+                        StateAllScene.endScene.Opacity = opacity;
                         System.Threading.Thread.Sleep(16);
                     }
                     ManagerUI.BtnClosedElement.Clear();
-                    this.Hide();
-                    this.Dispose();
+                    StateAllScene.testScene.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                 }
             }
         }
@@ -200,8 +204,9 @@ namespace EducationalProduct
                     }
                     ManagerUI.TotalElementsMenuExit.Clear();
                     ManagerUI.BtnClosedElement.Clear();
-                    this.Hide();
-                    this.Dispose();
+                    StateAllScene.testScene.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                 }
             }
 

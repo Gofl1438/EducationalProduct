@@ -82,21 +82,22 @@ namespace EducationalProduct
             {
                 StateNextBtn.CurrentNextBtnExitRuleRepeatActionScene = true;
                 StateCurrentScene.RepeatActionScene = true;
-                RepeatAction repeatAction = new RepeatAction();
-                repeatAction.Opacity = 0;
-                repeatAction.Show();
-                repeatAction.Refresh();
+                StateAllScene.repeatAction = new RepeatAction();
+                StateAllScene.repeatAction.Opacity = 0;
+                StateAllScene.repeatAction.Show();
+                StateAllScene.repeatAction.Refresh();
                 for (double opacity = 0; opacity <= 1; opacity += 0.1)
                 {
-                    repeatAction.Opacity = opacity;
+                    StateAllScene.repeatAction.Opacity = opacity;
                     System.Threading.Thread.Sleep(16);
                 }
                 ManagerUI.TotalElementsMenuExit.Clear();
                 ManagerUI.BtnClosedElement.Clear();
                 ManagerUI.RuleRepeatActionElements.Clear();
                 _cachedBackground.Dispose();
-                this.Hide();
-                this.Dispose();
+                StateAllScene.ruleRepeatActionScene.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
             }
         }
 
@@ -135,8 +136,9 @@ namespace EducationalProduct
                     ManagerUI.BtnClosedElement.Clear();
                     ManagerUI.RuleRepeatActionElements.Clear();
                     _cachedBackground.Dispose();
-                    this.Hide();
-                    this.Dispose();
+                    StateAllScene.ruleRepeatActionScene.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                 }
             }
 

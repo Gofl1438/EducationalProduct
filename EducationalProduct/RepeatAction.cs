@@ -130,13 +130,13 @@ namespace EducationalProduct
                         timer.Stop();
                         timer.Tick -= Update;
                         timer.Dispose();
-                        TestScene testScene = new TestScene(); //указать нужную сцену//
-                        testScene.Opacity = 0;
-                        testScene.Show();
-                        testScene.Refresh();
+                        StateAllScene.testScene = new TestScene(); //указать нужную сцену//
+                        StateAllScene.testScene.Opacity = 0;
+                        StateAllScene.testScene.Show();
+                        StateAllScene.testScene.Refresh();
                         for (double opacity = 0; opacity <= 1; opacity += 0.1)
                         {
-                            testScene.Opacity = opacity;
+                            StateAllScene.testScene.Opacity = opacity;
                             System.Threading.Thread.Sleep(16);
                         };
                         ManagerButtonRepeat.Dispose();
@@ -145,8 +145,9 @@ namespace EducationalProduct
                         ManagerSound.DeleteActivePlayersRepeatAction();
                         _cachedButtonUI.Dispose();
                         _cachedBackground.Dispose();
-                        this.Hide();
-                        this.Dispose();
+                        StateAllScene.repeatAction.Dispose();
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
                     }
                 }
                 CanvasRepeatAction.Invalidate();
@@ -332,8 +333,9 @@ namespace EducationalProduct
                     ManagerSound.DeleteActivePlayersRepeatAction();
                     _cachedButtonUI.Dispose();
                     _cachedBackground.Dispose();
-                    this.Hide();
-                    this.Dispose();
+                    StateAllScene.repeatAction.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                 }
             }
 

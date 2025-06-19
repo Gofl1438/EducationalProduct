@@ -57,8 +57,9 @@ namespace EducationalProduct
                         CanvasEndScene.Invalidate();
                     }
                     ManagerUI.EndElements.Clear();
-                    this.Hide();
-                    this.Dispose();
+                    StateAllScene.endScene.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                 }
             }
         }

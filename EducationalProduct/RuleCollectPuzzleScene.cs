@@ -71,19 +71,20 @@ namespace EducationalProduct
             {
                 StateNextBtn.CurrentNextBtnExitRuleCollectPuzzleScene = true;
                 StateCurrentScene.CollectPuzzleScene = true;
-                ColleсtPuzzle collectPuzzle = new ColleсtPuzzle();
-                collectPuzzle.Opacity = 0;
-                collectPuzzle.Show();
-                collectPuzzle.Refresh();
+                StateAllScene.colleсtPuzzle = new ColleсtPuzzle();
+                StateAllScene.colleсtPuzzle.Opacity = 0;
+                StateAllScene.colleсtPuzzle.Show();
+                StateAllScene.colleсtPuzzle.Refresh();
                 for (double opacity = 0; opacity <= 1; opacity += 0.1)
                 {
-                    collectPuzzle.Opacity = opacity;
+                    StateAllScene.colleсtPuzzle.Opacity = opacity;
                     System.Threading.Thread.Sleep(16);
                 }
                 ManagerUI.BtnClosedElement.Clear();
                 ManagerUI.RuleCollectPuzzleElements.Clear();
-                this.Hide();
-                this.Dispose();
+                StateAllScene.ruleCollectPuzzleScene.Dispose();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
             }
         }
 
@@ -121,8 +122,9 @@ namespace EducationalProduct
                     }
                     ManagerUI.BtnClosedElement.Clear();
                     ManagerUI.RuleCollectPuzzleElements.Clear();
-                    this.Hide();
-                    this.Dispose();
+                    StateAllScene.ruleCollectPuzzleScene.Dispose();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                 }
             }
 

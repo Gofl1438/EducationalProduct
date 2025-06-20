@@ -253,11 +253,7 @@ namespace EducationalProduct
                 else
                     StateChooseAnswer.trueAnswer = false;
 
-                ManagerUI.AddTestAnswerBorder1();
-                ManagerUI.TestAnswerBorder2.Clear();
-                ManagerUI.TestAnswerBorder3.Clear();
-                ManagerUI.TestAnswerBorder4.Clear();
-
+                HighlightAnswer(1);
                 CanvasTestScene.Invalidate();
             }
 
@@ -271,10 +267,7 @@ namespace EducationalProduct
                 else
                     StateChooseAnswer.trueAnswer = false;
 
-                ManagerUI.AddTestAnswerBorder2();
-                ManagerUI.TestAnswerBorder1.Clear();
-                ManagerUI.TestAnswerBorder3.Clear();
-                ManagerUI.TestAnswerBorder4.Clear();
+                HighlightAnswer(2);
                 CanvasTestScene.Invalidate();
             }
 
@@ -288,10 +281,7 @@ namespace EducationalProduct
                 else
                     StateChooseAnswer.trueAnswer = false;
 
-                ManagerUI.AddTestAnswerBorder3();
-                ManagerUI.TestAnswerBorder1.Clear();
-                ManagerUI.TestAnswerBorder2.Clear();
-                ManagerUI.TestAnswerBorder4.Clear();
+                HighlightAnswer(3);
                 CanvasTestScene.Invalidate();
             }
 
@@ -305,10 +295,7 @@ namespace EducationalProduct
                 else
                     StateChooseAnswer.trueAnswer = false;
 
-                ManagerUI.AddTestAnswerBorder4();
-                ManagerUI.TestAnswerBorder1.Clear();
-                ManagerUI.TestAnswerBorder2.Clear();
-                ManagerUI.TestAnswerBorder3.Clear();
+                HighlightAnswer(4);
                 CanvasTestScene.Invalidate();
             }
         }
@@ -346,6 +333,38 @@ namespace EducationalProduct
             ManagerUI.TestAnswerBorder2.Clear();
             ManagerUI.TestAnswerBorder3.Clear();
             ManagerUI.TestAnswerBorder4.Clear();
+        }
+        private void HighlightAnswer(int answerNum)
+        {
+            if (answerNum == 1)
+            {
+                ManagerUI.AddTestAnswerBorder1();
+                ManagerUI.TestAnswerBorder2.Clear();
+                ManagerUI.TestAnswerBorder3.Clear();
+                ManagerUI.TestAnswerBorder4.Clear();
+            }
+            if (answerNum == 2)
+            {
+                ManagerUI.AddTestAnswerBorder2();
+                ManagerUI.TestAnswerBorder1.Clear();
+                ManagerUI.TestAnswerBorder3.Clear();
+                ManagerUI.TestAnswerBorder4.Clear();
+            }
+            if (answerNum == 3)
+            {
+                ManagerUI.AddTestAnswerBorder3();
+                ManagerUI.TestAnswerBorder1.Clear();
+                ManagerUI.TestAnswerBorder2.Clear();
+                ManagerUI.TestAnswerBorder4.Clear();
+            }
+            if (answerNum == 4)
+            {
+                ManagerUI.AddTestAnswerBorder4();
+                ManagerUI.TestAnswerBorder1.Clear();
+                ManagerUI.TestAnswerBorder2.Clear();
+                ManagerUI.TestAnswerBorder3.Clear();
+            }
+
         }
     }
 }

@@ -35,7 +35,7 @@
             // CanvasRuleRepeatActionScene
             // 
             CanvasRuleRepeatActionScene.Dock = DockStyle.Fill;
-            CanvasRuleRepeatActionScene.Image = Properties.Resources.Background;
+            CanvasRuleRepeatActionScene.Image = Properties.Resources.BackgroundCharacter;
             CanvasRuleRepeatActionScene.Location = new Point(0, 0);
             CanvasRuleRepeatActionScene.Margin = new Padding(0);
             CanvasRuleRepeatActionScene.Name = "CanvasRuleRepeatActionScene";

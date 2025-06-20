@@ -35,7 +35,7 @@
             // CanvasTestScene
             // 
             CanvasTestScene.Dock = DockStyle.Fill;
-            CanvasTestScene.Image = Properties.Resources.Background;
+            CanvasTestScene.Image = Properties.Resources.BackgroundCharacter;
             CanvasTestScene.Location = new Point(0, 0);
             CanvasTestScene.Margin = new Padding(0);
             CanvasTestScene.Name = "CanvasTestScene";

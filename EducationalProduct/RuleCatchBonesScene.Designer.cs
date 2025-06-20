@@ -35,7 +35,7 @@
             // CanvasRuleCatchBonesScene
             // 
             CanvasRuleCatchBonesScene.Dock = DockStyle.Fill;
-            CanvasRuleCatchBonesScene.Image = Properties.Resources.Background;
+            CanvasRuleCatchBonesScene.Image = Properties.Resources.BackgroundCharacter;
             CanvasRuleCatchBonesScene.Location = new Point(0, 0);
             CanvasRuleCatchBonesScene.Margin = new Padding(0);
             CanvasRuleCatchBonesScene.Name = "CanvasRuleCatchBonesScene";

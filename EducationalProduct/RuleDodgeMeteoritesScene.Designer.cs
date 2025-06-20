@@ -35,7 +35,7 @@
             // CanvasRuleDodgeMeteoritesScene
             // 
             CanvasRuleDodgeMeteoritesScene.Dock = DockStyle.Fill;
-            CanvasRuleDodgeMeteoritesScene.Image = Properties.Resources.Background;
+            CanvasRuleDodgeMeteoritesScene.Image = Properties.Resources.BackgroundCharacter;
             CanvasRuleDodgeMeteoritesScene.Location = new Point(0, 0);
             CanvasRuleDodgeMeteoritesScene.Margin = new Padding(0);
             CanvasRuleDodgeMeteoritesScene.Name = "CanvasRuleDodgeMeteoritesScene";

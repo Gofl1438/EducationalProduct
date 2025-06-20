@@ -364,7 +364,6 @@ namespace EducationalProduct
                 ManagerUI.TestAnswerBorder2.Clear();
                 ManagerUI.TestAnswerBorder3.Clear();
             }
-
         }
     }
 }

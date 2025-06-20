@@ -53,6 +53,7 @@ namespace EducationalProduct.Classes
             InitializeTestCatchBones();
             InitializeTestCollectPuzzle();
             InitializeTestDodgeMeteorites();
+            InitializeTestAnswerBorder();
         }
 
         private static void InitializeTotalElement()
@@ -395,7 +396,7 @@ namespace EducationalProduct.Classes
             DodgeMeteorites.Rocket.Height = (int)(MinValueCanvas * 0.35f);
             DodgeMeteorites.Rocket.HeightAntenna = (int)(DodgeMeteorites.Rocket.Height * 0.18f);
             DodgeMeteorites.Rocket.HeightWithoutFuel = (int)((DodgeMeteorites.Rocket.Height - DodgeMeteorites.Rocket.HeightAntenna) * 0.7f);
-            DodgeMeteorites.Rocket.Width = (int)(MinValueCanvas * 0.17f);
+            DodgeMeteorites.Rocket.Width = (int)(DodgeMeteorites.Rocket.Height * 0.37f);
             DodgeMeteorites.Rocket.WidthAntenna = (int)(DodgeMeteorites.Rocket.Width * 0.14f);
             DodgeMeteorites.ButtonMove.Height = (int)(MinValueCanvas * 0.15f);
             DodgeMeteorites.ButtonMove.Width = (int)(MinValueCanvas * 0.3f);
@@ -492,22 +493,22 @@ namespace EducationalProduct.Classes
             TestRepeatAction.Tip.PositionOy = CanvasProduct.Height * 0.82f;
 
             TestRepeatAction.Answer1.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestRepeatAction.Answer1.Height = (int)(TestRepeatAction.Answer1.Width * 0.073f);
+            TestRepeatAction.Answer1.Height = (int)(TestRepeatAction.Answer1.Width * 0.0686f);
             TestRepeatAction.Answer1.PositionOx = CanvasProduct.Width * 0.37f;
             TestRepeatAction.Answer1.PositionOy = CanvasProduct.Height - TestRepeatAction.Answer1.Height - CanvasProduct.Height * 0.57f;
 
             TestRepeatAction.Answer2.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestRepeatAction.Answer2.Height = (int)(TestRepeatAction.Answer2.Width * 0.073f);
+            TestRepeatAction.Answer2.Height = (int)(TestRepeatAction.Answer2.Width * 0.0686f);
             TestRepeatAction.Answer2.PositionOx = CanvasProduct.Width * 0.37f;
             TestRepeatAction.Answer2.PositionOy = CanvasProduct.Height - TestRepeatAction.Answer2.Height - CanvasProduct.Height * 0.47f;
 
             TestRepeatAction.Answer3.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestRepeatAction.Answer3.Height = (int)(TestRepeatAction.Answer3.Width * 0.073f);
+            TestRepeatAction.Answer3.Height = (int)(TestRepeatAction.Answer3.Width * 0.0686f);
             TestRepeatAction.Answer3.PositionOx = CanvasProduct.Width * 0.37f;
             TestRepeatAction.Answer3.PositionOy = CanvasProduct.Height - TestRepeatAction.Answer3.Height - CanvasProduct.Height * 0.37f;
 
             TestRepeatAction.Answer4.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestRepeatAction.Answer4.Height = (int)(TestRepeatAction.Answer4.Width * 0.073f);
+            TestRepeatAction.Answer4.Height = (int)(TestRepeatAction.Answer4.Width * 0.0686f);
             TestRepeatAction.Answer4.PositionOx = CanvasProduct.Width * 0.37f;
             TestRepeatAction.Answer4.PositionOy = CanvasProduct.Height - TestRepeatAction.Answer4.Height - CanvasProduct.Height * 0.27f;
         }
@@ -524,22 +525,22 @@ namespace EducationalProduct.Classes
             TestCatchBones.Tip.PositionOy = CanvasProduct.Height * 0.82f;
 
             TestCatchBones.Answer1.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestCatchBones.Answer1.Height = (int)(TestCatchBones.Answer1.Width * 0.073f);
+            TestCatchBones.Answer1.Height = (int)(TestCatchBones.Answer1.Width * 0.0686f);
             TestCatchBones.Answer1.PositionOx = CanvasProduct.Width * 0.37f;
             TestCatchBones.Answer1.PositionOy = CanvasProduct.Height - TestCatchBones.Answer1.Height - CanvasProduct.Height * 0.57f;
 
             TestCatchBones.Answer2.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestCatchBones.Answer2.Height = (int)(TestCatchBones.Answer2.Width * 0.073f);
+            TestCatchBones.Answer2.Height = (int)(TestCatchBones.Answer2.Width * 0.0686f);
             TestCatchBones.Answer2.PositionOx = CanvasProduct.Width * 0.37f;
             TestCatchBones.Answer2.PositionOy = CanvasProduct.Height - TestCatchBones.Answer2.Height - CanvasProduct.Height * 0.47f;
 
             TestCatchBones.Answer3.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestCatchBones.Answer3.Height = (int)(TestCatchBones.Answer3.Width * 0.073f);
+            TestCatchBones.Answer3.Height = (int)(TestCatchBones.Answer3.Width * 0.0686f);
             TestCatchBones.Answer3.PositionOx = CanvasProduct.Width * 0.37f;
             TestCatchBones.Answer3.PositionOy = CanvasProduct.Height - TestCatchBones.Answer3.Height - CanvasProduct.Height * 0.37f;
 
             TestCatchBones.Answer4.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestCatchBones.Answer4.Height = (int)(TestCatchBones.Answer4.Width * 0.073f);
+            TestCatchBones.Answer4.Height = (int)(TestCatchBones.Answer4.Width * 0.0686f);
             TestCatchBones.Answer4.PositionOx = CanvasProduct.Width * 0.37f;
             TestCatchBones.Answer4.PositionOy = CanvasProduct.Height - TestCatchBones.Answer4.Height - CanvasProduct.Height * 0.27f;
         }
@@ -556,22 +557,22 @@ namespace EducationalProduct.Classes
             TestCollectPuzzle.Tip.PositionOy = CanvasProduct.Height * 0.82f;
 
             TestCollectPuzzle.Answer1.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestCollectPuzzle.Answer1.Height = (int)(TestCollectPuzzle.Answer1.Width * 0.073f);
+            TestCollectPuzzle.Answer1.Height = (int)(TestCollectPuzzle.Answer1.Width * 0.0686f);
             TestCollectPuzzle.Answer1.PositionOx = CanvasProduct.Width * 0.37f;
             TestCollectPuzzle.Answer1.PositionOy = CanvasProduct.Height - TestCollectPuzzle.Answer1.Height - CanvasProduct.Height * 0.57f;
 
             TestCollectPuzzle.Answer2.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestCollectPuzzle.Answer2.Height = (int)(TestCollectPuzzle.Answer2.Width * 0.073f);
+            TestCollectPuzzle.Answer2.Height = (int)(TestCollectPuzzle.Answer2.Width * 0.0686f);
             TestCollectPuzzle.Answer2.PositionOx = CanvasProduct.Width * 0.37f;
             TestCollectPuzzle.Answer2.PositionOy = CanvasProduct.Height - TestCollectPuzzle.Answer2.Height - CanvasProduct.Height * 0.47f;
 
             TestCollectPuzzle.Answer3.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestCollectPuzzle.Answer3.Height = (int)(TestCollectPuzzle.Answer3.Width * 0.073f);
+            TestCollectPuzzle.Answer3.Height = (int)(TestCollectPuzzle.Answer3.Width * 0.0686f);
             TestCollectPuzzle.Answer3.PositionOx = CanvasProduct.Width * 0.37f;
             TestCollectPuzzle.Answer3.PositionOy = CanvasProduct.Height - TestCollectPuzzle.Answer3.Height - CanvasProduct.Height * 0.37f;
 
             TestCollectPuzzle.Answer4.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestCollectPuzzle.Answer4.Height = (int)(TestCollectPuzzle.Answer4.Width * 0.073f);
+            TestCollectPuzzle.Answer4.Height = (int)(TestCollectPuzzle.Answer4.Width * 0.0686f);
             TestCollectPuzzle.Answer4.PositionOx = CanvasProduct.Width * 0.37f;
             TestCollectPuzzle.Answer4.PositionOy = CanvasProduct.Height - TestCollectPuzzle.Answer4.Height - CanvasProduct.Height * 0.27f;
         }
@@ -588,24 +589,46 @@ namespace EducationalProduct.Classes
             TestDodgeMeteorites.Tip.PositionOy = CanvasProduct.Height * 0.82f;
 
             TestDodgeMeteorites.Answer1.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestDodgeMeteorites.Answer1.Height = (int)(TestDodgeMeteorites.Answer1.Width * 0.073f);
+            TestDodgeMeteorites.Answer1.Height = (int)(TestDodgeMeteorites.Answer1.Width * 0.0686f);
             TestDodgeMeteorites.Answer1.PositionOx = CanvasProduct.Width * 0.37f;
             TestDodgeMeteorites.Answer1.PositionOy = CanvasProduct.Height - TestDodgeMeteorites.Answer1.Height - CanvasProduct.Height * 0.57f;
 
             TestDodgeMeteorites.Answer2.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestDodgeMeteorites.Answer2.Height = (int)(TestDodgeMeteorites.Answer2.Width * 0.073f);
+            TestDodgeMeteorites.Answer2.Height = (int)(TestDodgeMeteorites.Answer2.Width * 0.0686f);
             TestDodgeMeteorites.Answer2.PositionOx = CanvasProduct.Width * 0.37f;
             TestDodgeMeteorites.Answer2.PositionOy = CanvasProduct.Height - TestDodgeMeteorites.Answer2.Height - CanvasProduct.Height * 0.47f;
 
             TestDodgeMeteorites.Answer3.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestDodgeMeteorites.Answer3.Height = (int)(TestDodgeMeteorites.Answer3.Width * 0.073f);
+            TestDodgeMeteorites.Answer3.Height = (int)(TestDodgeMeteorites.Answer3.Width * 0.0686f);
             TestDodgeMeteorites.Answer3.PositionOx = CanvasProduct.Width * 0.37f;
             TestDodgeMeteorites.Answer3.PositionOy = CanvasProduct.Height - TestDodgeMeteorites.Answer3.Height - CanvasProduct.Height * 0.37f;
 
             TestDodgeMeteorites.Answer4.Width = (int)(CanvasProduct.Width * 0.55f);
-            TestDodgeMeteorites.Answer4.Height = (int)(TestDodgeMeteorites.Answer4.Width * 0.073f);
+            TestDodgeMeteorites.Answer4.Height = (int)(TestDodgeMeteorites.Answer4.Width * 0.0686f);
             TestDodgeMeteorites.Answer4.PositionOx = CanvasProduct.Width * 0.37f;
             TestDodgeMeteorites.Answer4.PositionOy = CanvasProduct.Height - TestDodgeMeteorites.Answer4.Height - CanvasProduct.Height * 0.27f;
+        }
+        private static void InitializeTestAnswerBorder()
+        {
+            TestAnswerBorder.Answer1.Width = (int)(CanvasProduct.Width * 0.5555f);
+            TestAnswerBorder.Answer1.Height = (int)(TestAnswerBorder.Answer1.Width * 0.079f);
+            TestAnswerBorder.Answer1.PositionOx = CanvasProduct.Width * 0.3672f;
+            TestAnswerBorder.Answer1.PositionOy = CanvasProduct.Height - TestAnswerBorder.Answer1.Height - CanvasProduct.Height * 0.5642f;
+
+            TestAnswerBorder.Answer2.Width = (int)(CanvasProduct.Width * 0.5555f);
+            TestAnswerBorder.Answer2.Height = (int)(TestAnswerBorder.Answer2.Width * 0.079f);
+            TestAnswerBorder.Answer2.PositionOx = CanvasProduct.Width * 0.3672f;
+            TestAnswerBorder.Answer2.PositionOy = CanvasProduct.Height - TestAnswerBorder.Answer2.Height - CanvasProduct.Height * 0.4642f;
+
+            TestAnswerBorder.Answer3.Width = (int)(CanvasProduct.Width * 0.5555f);
+            TestAnswerBorder.Answer3.Height = (int)(TestAnswerBorder.Answer3.Width * 0.079f);
+            TestAnswerBorder.Answer3.PositionOx = CanvasProduct.Width * 0.3672f;
+            TestAnswerBorder.Answer3.PositionOy = CanvasProduct.Height - TestAnswerBorder.Answer3.Height - CanvasProduct.Height * 0.3642f;
+
+            TestAnswerBorder.Answer4.Width = (int)(CanvasProduct.Width * 0.5555f);
+            TestAnswerBorder.Answer4.Height = (int)(TestAnswerBorder.Answer4.Width * 0.079f);
+            TestAnswerBorder.Answer4.PositionOx = CanvasProduct.Width * 0.3672f;
+            TestAnswerBorder.Answer4.PositionOy = CanvasProduct.Height - TestAnswerBorder.Answer4.Height - CanvasProduct.Height * 0.2642f;
         }
 
         public static class NumberPointsCatchBones
@@ -1257,7 +1280,7 @@ namespace EducationalProduct.Classes
             }
             public static class Bone
             {
-                public static readonly int DefaultQuantityBone = 2;
+                public static readonly int DefaultQuantityBone = 12;
                 public static readonly float MinSpeed = 2.0f;
                 public static readonly float MaxSpeed = 8.0f;
                 public static class Big
@@ -1392,7 +1415,7 @@ namespace EducationalProduct.Classes
             {
                 public static readonly Bitmap Sprite = GameResources.Meteorite;
                 public static readonly float SpeedOy = 8.0f;
-                public static readonly int DefaultQuantityMeteorites = 1;
+                public static readonly int DefaultQuantityMeteorites = 15;
                 public static int Height { get; set; }
                 public static int Width { get; set; }
 
@@ -1425,7 +1448,7 @@ namespace EducationalProduct.Classes
         public static class RepeatAction
         {
             public static readonly int FrequencyGameOver = 13;
-            public static readonly int MaxQuntitySequence = 1;
+            public static readonly int MaxQuntitySequence = 5;
             public static class Background
             {
                 public static readonly Bitmap Sprite = GameResources.BackgroundRepeatAction;
@@ -1768,6 +1791,49 @@ namespace EducationalProduct.Classes
             public static class Tip
             {
                 public static readonly Bitmap Sprite = GameResources.txtTestTipDodgeMeteorites;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+        }
+        public static class TestAnswerBorder
+        {
+            public static class Answer1
+            {
+                public static readonly Bitmap Sprite = GameResources.answerBorder;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy;
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Answer2
+            {
+                public static readonly Bitmap Sprite = GameResources.answerBorder;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Answer3
+            {
+                public static readonly Bitmap Sprite = GameResources.answerBorder;
+                public static int Height { get; set; }
+                public static int Width { get; set; }
+                public static float PositionOx { get; set; }
+                public static float PositionOy { get; set; }
+                public static Size Size => new Size(Width, Height);
+                public static PointF Point => new PointF(PositionOx, PositionOy);
+            }
+            public static class Answer4
+            {
+                public static readonly Bitmap Sprite = GameResources.answerBorder;
                 public static int Height { get; set; }
                 public static int Width { get; set; }
                 public static float PositionOx { get; set; }

@@ -463,8 +463,32 @@ namespace EducationalProduct.Classes
                 GameConfig.TestInterface.Success.Size,
                 GameConfig.TestInterface.Success.Point
                 );
-
         }
+
+        public static class TestAnswerBorder
+        {
+            public static readonly ElementUI answer1 = new ElementUI(
+                GameConfig.TestAnswerBorder.Answer1.Sprite,
+                GameConfig.TestAnswerBorder.Answer1.Size,
+                GameConfig.TestAnswerBorder.Answer1.Point
+                );
+            public static readonly ElementUI answer2 = new ElementUI(
+                GameConfig.TestAnswerBorder.Answer2.Sprite,
+                GameConfig.TestAnswerBorder.Answer2.Size,
+                GameConfig.TestAnswerBorder.Answer2.Point
+                );
+            public static readonly ElementUI answer3 = new ElementUI(
+                GameConfig.TestAnswerBorder.Answer3.Sprite,
+                GameConfig.TestAnswerBorder.Answer3.Size,
+                GameConfig.TestAnswerBorder.Answer3.Point
+                );
+            public static readonly ElementUI answer4 = new ElementUI(
+                GameConfig.TestAnswerBorder.Answer4.Sprite,
+                GameConfig.TestAnswerBorder.Answer4.Size,
+                GameConfig.TestAnswerBorder.Answer4.Point
+                );
+        }
+
         public static class TestRepeatActionElements
         {
             public static readonly ElementUI question = new ElementUI(

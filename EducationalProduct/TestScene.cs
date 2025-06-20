@@ -58,6 +58,23 @@ namespace EducationalProduct
                 ManagerUI.TestInterfaceElements[i].DrawSprite(g);
             }
 
+            for (int i = 0; i < ManagerUI.TestAnswerBorder1.Count; i++)
+            {
+                ManagerUI.TestAnswerBorder1[i].DrawSprite(g);
+            }
+            for (int i = 0; i < ManagerUI.TestAnswerBorder2.Count; i++)
+            {
+                ManagerUI.TestAnswerBorder2[i].DrawSprite(g);
+            }
+            for (int i = 0; i < ManagerUI.TestAnswerBorder3.Count; i++)
+            {
+                ManagerUI.TestAnswerBorder3[i].DrawSprite(g);
+            }
+            for (int i = 0; i < ManagerUI.TestAnswerBorder4.Count; i++)
+            {
+                ManagerUI.TestAnswerBorder4[i].DrawSprite(g);
+            }
+
             for (int i = 0; i < ManagerUI.TestRepeatActionElements.Count; i++)
             {
                 if (((i == 1) && !StateChooseAnswer.showTip))
@@ -111,6 +128,7 @@ namespace EducationalProduct
                         System.Threading.Thread.Sleep(16);
                     }
 
+                    ClearBorder();
                     StateAllScene.testScene.Dispose();
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
@@ -129,6 +147,7 @@ namespace EducationalProduct
                         System.Threading.Thread.Sleep(16);
                     }
 
+                    ClearBorder();
                     StateAllScene.testScene.Dispose();
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
@@ -147,6 +166,7 @@ namespace EducationalProduct
                         System.Threading.Thread.Sleep(16);
                     }
 
+                    ClearBorder();
                     StateAllScene.testScene.Dispose();
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
@@ -165,6 +185,7 @@ namespace EducationalProduct
                         System.Threading.Thread.Sleep(16);
                     }
 
+                    ClearBorder();
                     StateAllScene.testScene.Dispose();
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
@@ -202,6 +223,7 @@ namespace EducationalProduct
                         System.Threading.Thread.Sleep(16);
                         CanvasTestScene.Invalidate();
                     }
+                    ClearBorder();
                     ManagerUI.TotalElementsMenuExit.Clear();
                     ManagerUI.BtnClosedElement.Clear();
                     StateAllScene.testScene.Dispose();
@@ -231,7 +253,11 @@ namespace EducationalProduct
                 else
                     StateChooseAnswer.trueAnswer = false;
 
-                //AnswerHighlight.Highlight("TRA1");
+                ManagerUI.AddTestAnswerBorder1();
+                ManagerUI.TestAnswerBorder2.Clear();
+                ManagerUI.TestAnswerBorder3.Clear();
+                ManagerUI.TestAnswerBorder4.Clear();
+
                 CanvasTestScene.Invalidate();
             }
 
@@ -245,7 +271,10 @@ namespace EducationalProduct
                 else
                     StateChooseAnswer.trueAnswer = false;
 
-                //AnswerHighlight.Highlight("TRA2");
+                ManagerUI.AddTestAnswerBorder2();
+                ManagerUI.TestAnswerBorder1.Clear();
+                ManagerUI.TestAnswerBorder3.Clear();
+                ManagerUI.TestAnswerBorder4.Clear();
                 CanvasTestScene.Invalidate();
             }
 
@@ -259,7 +288,10 @@ namespace EducationalProduct
                 else
                     StateChooseAnswer.trueAnswer = false;
 
-                //AnswerHighlight.Highlight("TRA3");
+                ManagerUI.AddTestAnswerBorder3();
+                ManagerUI.TestAnswerBorder1.Clear();
+                ManagerUI.TestAnswerBorder2.Clear();
+                ManagerUI.TestAnswerBorder4.Clear();
                 CanvasTestScene.Invalidate();
             }
 
@@ -273,7 +305,10 @@ namespace EducationalProduct
                 else
                     StateChooseAnswer.trueAnswer = false;
 
-                //AnswerHighlight.Highlight("TRA4");
+                ManagerUI.AddTestAnswerBorder4();
+                ManagerUI.TestAnswerBorder1.Clear();
+                ManagerUI.TestAnswerBorder2.Clear();
+                ManagerUI.TestAnswerBorder3.Clear();
                 CanvasTestScene.Invalidate();
             }
         }
@@ -304,6 +339,13 @@ namespace EducationalProduct
                 mainForm.Dispose();
             }
             Application.Exit();
+        }
+        private void ClearBorder()
+        {
+            ManagerUI.TestAnswerBorder1.Clear();
+            ManagerUI.TestAnswerBorder2.Clear();
+            ManagerUI.TestAnswerBorder3.Clear();
+            ManagerUI.TestAnswerBorder4.Clear();
         }
     }
 }

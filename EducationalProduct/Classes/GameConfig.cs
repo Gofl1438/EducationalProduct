@@ -172,7 +172,7 @@ namespace EducationalProduct.Classes
             RuleScene.BtnStartPlay.PositionOy = CanvasProduct.Height * 0.8f;
 
             RuleScene.TxtRuleScene.Width = (int)(CanvasProduct.Width * 0.5468f);
-            RuleScene.TxtRuleScene.Height = (int)(RuleScene.TxtRuleScene.Width * 0.59f);
+            RuleScene.TxtRuleScene.Height = (int)(RuleScene.TxtRuleScene.Width * 0.55f);
             RuleScene.TxtRuleScene.PositionOx = CanvasProduct.Width * 0.39f;
             RuleScene.TxtRuleScene.PositionOy = RuleScene.BtnStartPlay.PositionOy - RuleScene.TxtRuleScene.Height - RuleScene.BtnStartPlay.Height * 0.3f;
         }
@@ -188,7 +188,7 @@ namespace EducationalProduct.Classes
             EndScene.BtnToStart.PositionOy = CanvasProduct.Height * 0.8f;
 
             EndScene.TxtEndScene.Width = (int)(CanvasProduct.Width * 0.5468f);
-            EndScene.TxtEndScene.Height = (int)(RuleScene.TxtRuleScene.Width * 0.46f);
+            EndScene.TxtEndScene.Height = (int)(EndScene.TxtEndScene.Width * 0.52f);
             EndScene.TxtEndScene.PositionOx = CanvasProduct.Width * 0.39f;
             EndScene.TxtEndScene.PositionOy = EndScene.BtnToStart.PositionOy - EndScene.TxtEndScene.Height - EndScene.BtnToStart.Height * 0.3f;
         }

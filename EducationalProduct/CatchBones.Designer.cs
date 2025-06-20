@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CatchBones));
             CanvasCatchBones = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)CanvasCatchBones).BeginInit();
             SuspendLayout();
@@ -53,6 +54,7 @@
             Controls.Add(CanvasCatchBones);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CatchBones";
             Text = "CatchBones";
             WindowState = FormWindowState.Maximized;

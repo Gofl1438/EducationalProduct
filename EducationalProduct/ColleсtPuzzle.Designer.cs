@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ColleсtPuzzle));
             CanvasColleсtPuzzle = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)CanvasColleсtPuzzle).BeginInit();
             SuspendLayout();
@@ -54,6 +55,7 @@
             Controls.Add(CanvasColleсtPuzzle);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ColleсtPuzzle";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ColleсtPuzzle";

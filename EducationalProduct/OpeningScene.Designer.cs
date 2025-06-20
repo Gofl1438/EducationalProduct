@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OpeningScene));
             CanvasOpeningScene = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)CanvasOpeningScene).BeginInit();
             SuspendLayout();
@@ -55,6 +56,7 @@
             Controls.Add(CanvasOpeningScene);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "OpeningScene";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "OpeningScene";

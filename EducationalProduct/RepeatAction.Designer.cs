@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RepeatAction));
             CanvasRepeatAction = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)CanvasRepeatAction).BeginInit();
             SuspendLayout();
@@ -51,6 +52,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(CanvasRepeatAction);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "RepeatAction";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RepeatAction";

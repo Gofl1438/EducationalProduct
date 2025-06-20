@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestScene));
             CanvasTestScene = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)CanvasTestScene).BeginInit();
             SuspendLayout();
@@ -54,6 +55,7 @@
             Controls.Add(CanvasTestScene);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "TestScene";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Test";

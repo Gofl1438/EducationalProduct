@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RuleCollectPuzzleScene));
             CanvasRuleCollectPuzzleScene = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)CanvasRuleCollectPuzzleScene).BeginInit();
             SuspendLayout();
@@ -53,6 +54,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(CanvasRuleCollectPuzzleScene);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "RuleCollectPuzzleScene";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RuleCollectPuzzleScene";

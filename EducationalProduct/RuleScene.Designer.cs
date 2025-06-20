@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RuleScene));
             CanvasRuleScene = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)CanvasRuleScene).BeginInit();
             SuspendLayout();
@@ -54,6 +55,7 @@
             Controls.Add(CanvasRuleScene);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "RuleScene";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RuleScene";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RuleCatchBonesScene));
             CanvasRuleCatchBonesScene = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)CanvasRuleCatchBonesScene).BeginInit();
             SuspendLayout();
@@ -53,6 +54,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(CanvasRuleCatchBonesScene);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "RuleCatchBonesScene";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RuleCatchBonesScene";

@@ -14,6 +14,7 @@ namespace EducationalProduct.Classes
         public static bool chooseAnswer;
         public static bool goNext;
         public static bool answerIsGiven;
+        public static bool currentStateMenuClick;
 
         public static void Init()
         {
@@ -23,6 +24,7 @@ namespace EducationalProduct.Classes
             chooseAnswer = false;
             goNext = false;
             answerIsGiven = false;
+            currentStateMenuClick = false;
         }
     }
 }

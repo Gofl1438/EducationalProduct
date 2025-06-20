@@ -14,12 +14,14 @@ namespace EducationalProduct
 {
     public partial class OpeningScene : Form
     {
+        bool DevInfoMenuOpen;
         Rectangle workingArea;
         public OpeningScene()
         {
             InitializeComponent();
             СalibrationSize();
             ManagerUI.AddOpeningElements();
+            DevInfoMenuOpen = false;
             this.Invalidate();
         }
 
@@ -44,13 +46,19 @@ namespace EducationalProduct
             {
                 ManagerUI.TotalElementsMenuExitOpeningScene[i].DrawSprite(g);
             }
+
+            for (int i = 0; i < ManagerUI.DevInfoMenuElements.Count; i++)
+            {
+                ManagerUI.DevInfoMenuElements[i].DrawSprite(g);
+            }
         }
 
         private void OpeningScene_MouseDown(object sender, MouseEventArgs e)
         {
             CheckMouseDownExit(e);
+            CheckMouseDownDevInfoMenu(e);
 
-            if (StateExitMenu.CurrentStateMenuExitOpeningScene) return;
+            if (StateExitMenu.CurrentStateMenuExitOpeningScene || DevInfoMenuOpen) return;
 
             if (StateOpeningScene.СurrentStateMenuClick)
             {
@@ -81,7 +89,7 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.TotalElement.BtnClosed.PositionOx, GameConfig.TotalElement.BtnClosed.PositionOy),
                 new Size(GameConfig.TotalElement.BtnClosed.Width, GameConfig.TotalElement.BtnClosed.Height)).Contains(e.Location))
             {
-                if (!StateExitMenu.CurrentStateMenuExitOpeningScene)
+                if (!StateExitMenu.CurrentStateMenuExitOpeningScene && !DevInfoMenuOpen)
                 {
                     ManagerUI.AddTotalElementsMenuExitOpeningScene();
                     CanvasOpeningScene.Invalidate();
@@ -106,6 +114,35 @@ namespace EducationalProduct
                 CanvasOpeningScene.Invalidate();
                 StateOpeningScene.СurrentStateMenuClick = true;
             }
+        }
+
+        private void CheckMouseDownDevInfoMenu(MouseEventArgs e)
+        {
+            if (new RectangleF(new PointF(GameConfig.OpeningScene.BtnDevInfo.PositionOx, GameConfig.OpeningScene.BtnDevInfo.PositionOy),
+               new Size(GameConfig.OpeningScene.BtnDevInfo.Width, GameConfig.OpeningScene.BtnDevInfo.Height)).Contains(e.Location))
+            {
+                if (!DevInfoMenuOpen && !StateExitMenu.CurrentStateMenuExitOpeningScene)
+                {
+                    MenuRuleCheck();
+                }
+            }
+
+            if (!DevInfoMenuOpen) return;
+
+            if (new RectangleF(new PointF(GameConfig.DevInfoMenu.ButtonApply.PositionOx, GameConfig.DevInfoMenu.ButtonApply.PositionOy),
+                new Size(GameConfig.DevInfoMenu.ButtonApply.Width, GameConfig.DevInfoMenu.ButtonApply.Height)).Contains(e.Location))
+            {
+                ManagerUI.DevInfoMenuElements.Clear();
+                CanvasOpeningScene.Invalidate();
+                DevInfoMenuOpen = false;
+            }
+        }
+
+        private void MenuRuleCheck()
+        {
+            ManagerUI.AddDevInfoMenuElements();
+            CanvasOpeningScene.Invalidate();
+            DevInfoMenuOpen = true;
         }
     }
 }

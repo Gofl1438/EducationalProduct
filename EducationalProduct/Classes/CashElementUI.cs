@@ -117,6 +117,25 @@ namespace EducationalProduct.Classes
                 );
         }
 
+        public static class DevInfoMenuElements
+        {
+            public static readonly ElementUI backgroundMenuExit = new ElementUI(
+                GameConfig.TotalElement.BackgroundMenuExit.Sprite,
+                GameConfig.TotalElement.BackgroundMenuExit.Size,
+                GameConfig.TotalElement.BackgroundMenuExit.Point
+                );
+            public static readonly ElementUI backgroundDevInfo = new ElementUI(
+                GameConfig.DevInfoMenu.BackgroundDevInfo.Sprite,
+                GameConfig.DevInfoMenu.BackgroundDevInfo.Size,
+                GameConfig.DevInfoMenu.BackgroundDevInfo.Point
+                );
+            public static readonly ElementUI ButtonApply = new ElementUI(
+                GameConfig.DevInfoMenu.ButtonApply.Sprite,
+                GameConfig.DevInfoMenu.ButtonApply.Size,
+                GameConfig.DevInfoMenu.ButtonApply.Point
+                );
+        }
+
         public static class TotalElementsMenuExitOpeningScene
         {
             public static readonly ElementUI backgroundMenuExit = new ElementUI(
@@ -158,6 +177,11 @@ namespace EducationalProduct.Classes
                 GameConfig.OpeningScene.BtnStartPlay.Sprite,
                 GameConfig.OpeningScene.BtnStartPlay.Size,
                 GameConfig.OpeningScene.BtnStartPlay.Point
+                );
+            public static readonly ElementUI btnDevInfo = new ElementUI(
+                GameConfig.OpeningScene.BtnDevInfo.Sprite,
+                GameConfig.OpeningScene.BtnDevInfo.Size,
+                GameConfig.OpeningScene.BtnDevInfo.Point
                 );
             public static readonly ElementUI btnClosed = new ElementUI(
                 GameConfig.OpeningScene.BtnClosed.Sprite,
@@ -434,18 +458,37 @@ namespace EducationalProduct.Classes
                 GameConfig.TestInterface.BtnNextPlay.Size,
                 GameConfig.TestInterface.BtnNextPlay.Point
                 );
-            public static readonly ElementUI backgroundTest = new ElementUI(
-                GameConfig.TestInterface.BackgroundTest.Sprite,
-                GameConfig.TestInterface.BackgroundTest.Size,
-                GameConfig.TestInterface.BackgroundTest.Point
-                );
             public static readonly ElementUI success = new ElementUI(
                 GameConfig.TestInterface.Success.Sprite,
                 GameConfig.TestInterface.Success.Size,
                 GameConfig.TestInterface.Success.Point
                 );
-
         }
+
+        public static class TestAnswerBorder
+        {
+            public static readonly ElementUI answer1 = new ElementUI(
+                GameConfig.TestAnswerBorder.Answer1.Sprite,
+                GameConfig.TestAnswerBorder.Answer1.Size,
+                GameConfig.TestAnswerBorder.Answer1.Point
+                );
+            public static readonly ElementUI answer2 = new ElementUI(
+                GameConfig.TestAnswerBorder.Answer2.Sprite,
+                GameConfig.TestAnswerBorder.Answer2.Size,
+                GameConfig.TestAnswerBorder.Answer2.Point
+                );
+            public static readonly ElementUI answer3 = new ElementUI(
+                GameConfig.TestAnswerBorder.Answer3.Sprite,
+                GameConfig.TestAnswerBorder.Answer3.Size,
+                GameConfig.TestAnswerBorder.Answer3.Point
+                );
+            public static readonly ElementUI answer4 = new ElementUI(
+                GameConfig.TestAnswerBorder.Answer4.Sprite,
+                GameConfig.TestAnswerBorder.Answer4.Size,
+                GameConfig.TestAnswerBorder.Answer4.Point
+                );
+        }
+
         public static class TestRepeatActionElements
         {
             public static readonly ElementUI question = new ElementUI(

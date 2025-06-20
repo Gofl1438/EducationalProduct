@@ -22,6 +22,7 @@ namespace EducationalProduct.Classes
         public static readonly Bitmap OpeningRocket = Properties.Resources.OpeningRocket;
         public static readonly Bitmap OpeningTitle = Properties.Resources.OpeningTitle;
         public static readonly Bitmap btnPlayStart = Properties.Resources.btnPlayStart;
+        public static readonly Bitmap btnDevInfo = Properties.Resources.btnDevInfo;
         public static readonly Bitmap СharacterRuleScene = Properties.Resources.СharacterRuleScene;
         public static readonly Bitmap txtRuleScene = Properties.Resources.txtRuleScene;
         public static readonly Bitmap CharacterRuleRepeatActionScene = Properties.Resources.CharacterRuleRepeatActionScene;
@@ -72,7 +73,6 @@ namespace EducationalProduct.Classes
         public static readonly Bitmap BackgroundEnd = Properties.Resources.BackgroundEnd;
         public static readonly Bitmap txtEnd = Properties.Resources.txtEnd;
         public static readonly Bitmap btnToStart = Properties.Resources.btnToStart;
-        public static readonly Bitmap BackgroundTest = Properties.Resources.BackGroundTest;
         public static readonly Bitmap btnAnswer = Properties.Resources.btnAnswer;
         public static readonly Bitmap txtTestAnswerRepeatAction1 = Properties.Resources.txtTestAnswerRepeatAction1;
         public static readonly Bitmap txtTestAnswerRepeatAction2 = Properties.Resources.txtTestAnswerRepeatAction2;
@@ -101,5 +101,7 @@ namespace EducationalProduct.Classes
         public static readonly Bitmap Success = Properties.Resources.success;
         public static readonly Bitmap btnClosed = Properties.Resources.btnClosed;
         public static readonly Bitmap menuExitGameOpeningScene = Properties.Resources.MenuExit;
+        public static readonly Bitmap txtDevInfo = Properties.Resources.txtDevInfo;
+        public static readonly Bitmap answerBorder = Properties.Resources.answerBorder;
     }
 }

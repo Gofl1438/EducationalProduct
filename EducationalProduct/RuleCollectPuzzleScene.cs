@@ -142,8 +142,9 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.RuleCollectPuzzleScene.BtnNextPlay.PositionOx, GameConfig.RuleCollectPuzzleScene.BtnNextPlay.PositionOy),
             new Size(GameConfig.RuleCollectPuzzleScene.BtnNextPlay.Width, GameConfig.RuleCollectPuzzleScene.BtnNextPlay.Height)).Contains(e.Location))
             {
-                if (!startGame)
+                if (!startGame && !StateExitMenu.CurrentStateMenuExitRuleCollectPuzzleScene)
                 {
+                    StateNextBtn.CurrentNextBtnRuleCollectPuzzleScene = true;
                     countNext++;
 
                     if (countNext == 2)
@@ -164,7 +165,7 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.RuleCollectPuzzleScene.BtnBackPlay.PositionOx, GameConfig.RuleCollectPuzzleScene.BtnBackPlay.PositionOy),
             new Size(GameConfig.RuleCollectPuzzleScene.BtnBackPlay.Width, GameConfig.RuleCollectPuzzleScene.BtnBackPlay.Height)).Contains(e.Location))
             {
-                if (countNext > 0)
+                if (countNext > 0 && !StateExitMenu.CurrentStateMenuExitRuleCollectPuzzleScene)
                 {
                     countNext--;
                     startGame = false;

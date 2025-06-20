@@ -17,6 +17,7 @@ namespace EducationalProduct.Classes
         public static List<ElementUI> TotalElements { get; } = new List<ElementUI>();
         public static List<ElementUI> BtnClosedElement { get; } = new List<ElementUI>();
         public static List<ElementUI> TotalElementsMenuExit { get; } = new List<ElementUI>();
+        public static List<ElementUI> DevInfoMenuElements { get; } = new List<ElementUI>();
         public static List<ElementUI> OpeningElements { get; } = new List<ElementUI>();
         public static List<ElementUI> RuleElements { get; } = new List<ElementUI>();
         public static List<ElementUI> EndElements { get; } = new List<ElementUI>();
@@ -34,6 +35,10 @@ namespace EducationalProduct.Classes
         public static List<ElementUI> RuleElementsColleсtPuzzle { get; } = new List<ElementUI>();
         public static List<ElementUI> RuleElementsCatchBones { get; } = new List<ElementUI>();
         public static List<ElementUI> TestInterfaceElements { get; } = new List<ElementUI>();
+        public static List<ElementUI> TestAnswerBorder1 { get; } = new List<ElementUI>();
+        public static List<ElementUI> TestAnswerBorder2 { get; } = new List<ElementUI>();
+        public static List<ElementUI> TestAnswerBorder3 { get; } = new List<ElementUI>();
+        public static List<ElementUI> TestAnswerBorder4 { get; } = new List<ElementUI>();
         public static List<ElementUI> TestRepeatActionElements { get; } = new List<ElementUI>();
         public static List<ElementUI> TestCatchBonesElements { get; } = new List<ElementUI>();
         public static List<ElementUI> TestCollectPuzzleElements { get; } = new List<ElementUI>();
@@ -91,6 +96,14 @@ namespace EducationalProduct.Classes
             TotalElementsMenuExitOpeningScene.Add(CashElementUI.TotalElementsMenuExitOpeningScene.buttonYes);
         }
 
+        public static void AddDevInfoMenuElements()
+        {
+            DevInfoMenuElements.Clear();
+            DevInfoMenuElements.Add(CashElementUI.DevInfoMenuElements.backgroundMenuExit);
+            DevInfoMenuElements.Add(CashElementUI.DevInfoMenuElements.backgroundDevInfo);
+            DevInfoMenuElements.Add(CashElementUI.DevInfoMenuElements.ButtonApply);
+        }
+
         public static void AddTotalElementsMenuExit()
         {
             TotalElementsMenuExit.Clear();
@@ -107,6 +120,7 @@ namespace EducationalProduct.Classes
             OpeningElements.Add(CashElementUI.OpeningElements.rocket);
             OpeningElements.Add(CashElementUI.OpeningElements.title);
             OpeningElements.Add(CashElementUI.OpeningElements.btnStartPlay);
+            OpeningElements.Add(CashElementUI.OpeningElements.btnDevInfo);
             OpeningElements.Add(CashElementUI.OpeningElements.btnClosed);
         }
         public static void AddRuleElements()
@@ -204,9 +218,30 @@ namespace EducationalProduct.Classes
             TestInterfaceElements.Add(CashElementUI.TestInterfaceElements.character);
             TestInterfaceElements.Add(CashElementUI.TestInterfaceElements.btnAnswer);
             TestInterfaceElements.Add(CashElementUI.TestInterfaceElements.btnNextPlay);
-            TestInterfaceElements.Add(CashElementUI.TestInterfaceElements.backgroundTest);
             TestInterfaceElements.Add(CashElementUI.TestInterfaceElements.success);
         }
+
+        public static void AddTestAnswerBorder1()
+        {
+            TestAnswerBorder1.Clear();
+            TestAnswerBorder1.Add(CashElementUI.TestAnswerBorder.answer1);
+        }
+        public static void AddTestAnswerBorder2()
+        {
+            TestAnswerBorder2.Clear();
+            TestAnswerBorder2.Add(CashElementUI.TestAnswerBorder.answer2);
+        }
+        public static void AddTestAnswerBorder3()
+        {
+            TestAnswerBorder3.Clear();
+            TestAnswerBorder3.Add(CashElementUI.TestAnswerBorder.answer3);
+        }
+        public static void AddTestAnswerBorder4()
+        {
+            TestAnswerBorder4.Clear();
+            TestAnswerBorder4.Add(CashElementUI.TestAnswerBorder.answer4);
+        }
+
         public static void AddTestRepeatAction()
         {
             TestRepeatActionElements.Clear();

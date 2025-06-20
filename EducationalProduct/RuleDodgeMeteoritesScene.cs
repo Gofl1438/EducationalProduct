@@ -145,8 +145,9 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.RuleDodgeMeteoritesScene.BtnNextPlay.PositionOx, GameConfig.RuleDodgeMeteoritesScene.BtnNextPlay.PositionOy),
             new Size(GameConfig.RuleDodgeMeteoritesScene.BtnNextPlay.Width, GameConfig.RuleDodgeMeteoritesScene.BtnNextPlay.Height)).Contains(e.Location))
             {
-                if (!startGame)
+                if (!startGame && !StateExitMenu.CurrentStateMenuExitRuleDodgeMeteoritesScene)
                 {
+                    StateNextBtn.CurrentNextBtnRuleDodgeMeteoritesScene = true;
                     countNext++;
 
                     if (countNext == 2)
@@ -168,7 +169,7 @@ namespace EducationalProduct
             if (new RectangleF(new PointF(GameConfig.RuleDodgeMeteoritesScene.BtnBackPlay.PositionOx, GameConfig.RuleDodgeMeteoritesScene.BtnBackPlay.PositionOy),
             new Size(GameConfig.RuleDodgeMeteoritesScene.BtnBackPlay.Width, GameConfig.RuleDodgeMeteoritesScene.BtnBackPlay.Height)).Contains(e.Location))
             {
-                if (countNext > 0)
+                if (countNext > 0 && !StateExitMenu.CurrentStateMenuExitRuleDodgeMeteoritesScene)
                 {
                     countNext--;
                     startGame = false;

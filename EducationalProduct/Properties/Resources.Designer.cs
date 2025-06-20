@@ -63,6 +63,16 @@ namespace EducationalProduct.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap answerBorder {
+            get {
+                object obj = ResourceManager.GetObject("answerBorder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ApplyButton {
             get {
                 object obj = ResourceManager.GetObject("ApplyButton", resourceCulture);
@@ -143,16 +153,6 @@ namespace EducationalProduct.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BackGroundTest {
-            get {
-                object obj = ResourceManager.GetObject("BackGroundTest", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap BlueButtonGray {
             get {
                 object obj = ResourceManager.GetObject("BlueButtonGray", resourceCulture);
@@ -216,6 +216,16 @@ namespace EducationalProduct.Properties {
         internal static System.Drawing.Bitmap btnClosedOpening {
             get {
                 object obj = ResourceManager.GetObject("btnClosedOpening", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnDevInfo {
+            get {
+                object obj = ResourceManager.GetObject("btnDevInfo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -737,6 +747,16 @@ namespace EducationalProduct.Properties {
         internal static System.Drawing.Bitmap txtCollectPuzzle3 {
             get {
                 object obj = ResourceManager.GetObject("txtCollectPuzzle3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txtDevInfo {
+            get {
+                object obj = ResourceManager.GetObject("txtDevInfo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

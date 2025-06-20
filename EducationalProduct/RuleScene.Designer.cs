@@ -35,7 +35,7 @@
             // CanvasRuleScene
             // 
             CanvasRuleScene.Dock = DockStyle.Fill;
-            CanvasRuleScene.Image = Properties.Resources.Background;
+            CanvasRuleScene.Image = Properties.Resources.BackgroundCharacter;
             CanvasRuleScene.Location = new Point(0, 0);
             CanvasRuleScene.Margin = new Padding(0);
             CanvasRuleScene.Name = "CanvasRuleScene";

@@ -103,6 +103,16 @@ namespace EducationalProduct.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BackgroundCharacter {
+            get {
+                object obj = ResourceManager.GetObject("BackgroundCharacter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BackgroundColleсtPuzzle {
             get {
                 object obj = ResourceManager.GetObject("BackgroundColleсtPuzzle", resourceCulture);

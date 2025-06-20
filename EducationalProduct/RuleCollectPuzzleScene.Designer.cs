@@ -35,7 +35,7 @@
             // CanvasRuleCollectPuzzleScene
             // 
             CanvasRuleCollectPuzzleScene.Dock = DockStyle.Fill;
-            CanvasRuleCollectPuzzleScene.Image = Properties.Resources.Background;
+            CanvasRuleCollectPuzzleScene.Image = Properties.Resources.BackgroundCharacter;
             CanvasRuleCollectPuzzleScene.Location = new Point(0, 0);
             CanvasRuleCollectPuzzleScene.Margin = new Padding(0);
             CanvasRuleCollectPuzzleScene.Name = "CanvasRuleCollectPuzzleScene";

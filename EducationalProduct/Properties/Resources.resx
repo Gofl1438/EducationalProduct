@@ -118,14 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="txtCatchBones1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\txtCatchBones1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="txtTestAnswerCollectPuzzle1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\testCollectPuzzle\txtTestAnswerCollectPuzzle1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PlayAgainGameMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PlayAgainGameMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BackgroundDodgeMeteorites" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BackgroundDodgeMeteorites.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -138,9 +132,6 @@
   </data>
   <data name="txtTestTipCollectPuzzle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\testCollectPuzzle\txtTestTipCollectPuzzle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="YellowButtonGray" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\YellowButtonGray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="NoExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NoExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,20 +190,17 @@
   <data name="RedBone" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RedBone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="СharacterRuleScene" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\СharacterRuleScene.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Meteorite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Meteorite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="txtDevInfo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\txtDevInfo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="txtTestQuestionCatchBones" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\testCatchBones\txtTestQuestionCatchBones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="txtTestAnswerRepeatAction3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\testRepeatAction\txtTestAnswerRepeatAction3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btnDevInfo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnDevInfo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DodgeMeteoriteSoundLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DodgeMeteoriteSoundLight.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -222,6 +210,9 @@
   </data>
   <data name="BlueButtonGray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BlueButtonGray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="txtTestAnswerRepeatAction4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\testRepeatAction\txtTestAnswerRepeatAction4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="txtTestTipRepeatAction" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\testRepeatAction\txtTestTipRepeatAction.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -235,14 +226,11 @@
   <data name="RedButtonLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RedButtonLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="OrangeBoneSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OrangeBoneSmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="btnClosed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnClosed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DodgeMeteoriteCrashRocket" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DodgeMeteoriteCrashRocket.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnDevInfo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnDevInfo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BackgroundCatchBones" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BackgroundCatchBones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -250,8 +238,8 @@
   <data name="RuleDodgeMeteorite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RuleDodgeMeteorite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="txtDodgeMeteorites3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\txtDodgeMeteorites3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnClosedOpening" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnClosedOpening.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RuleCollectPuzzle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RuleCollectPuzzle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -277,6 +265,9 @@
   <data name="OpeningRocket" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OpeningRocket.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="OpeningTitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OpeningTitle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="txtTestAnswerCollectPuzzle4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\testCollectPuzzle\txtTestAnswerCollectPuzzle4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -289,20 +280,23 @@
   <data name="SolidRocket" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SolidRocket.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="txtTestAnswerDodgeMeteorites4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\testDodgeMeteorites\txtTestAnswerDodgeMeteorites4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="YellowButtonLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\YellowButtonLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PuzzleTopLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PuzzleTopLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="txtTestAnswerCollectPuzzle2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\testCollectPuzzle\txtTestAnswerCollectPuzzle2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RepeatButtonGameOver" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RepeatButtonGameOver.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="txtDevInfo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\txtDevInfo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RepeatButtonWin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RepeatButtonWin.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="PressStart2P_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PressStart2P-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtCollectPuzzle1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\txtCollectPuzzle1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -313,8 +307,11 @@
   <data name="btnBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="txtTestAnswerRepeatAction4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\testRepeatAction\txtTestAnswerRepeatAction4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PlayAgainGameMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PlayAgainGameMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="answerBorder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\answerBorder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GreenButtonLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GreenButtonLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -328,8 +325,8 @@
   <data name="CollectPuzzleLet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CollectPuzzleLet.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="СharacterRuleScene" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\СharacterRuleScene.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="YellowButtonGray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\YellowButtonGray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="txtTestAnswerDodgeMeteorites2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\testDodgeMeteorites\txtTestAnswerDodgeMeteorites2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -352,17 +349,23 @@
   <data name="txtTestQuestionDodgeMeteorites" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\testDodgeMeteorites\txtTestQuestionDodgeMeteorites.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BlueButtonLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlueButtonLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="CharacterRuleRepeatActionScene" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CharacterRuleRepeatActionScene.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BlueButtonLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BlueButtonLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PressStart2P_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PressStart2P-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LeftButtonDodge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LeftButtonDodge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="OpeningTitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OpeningTitle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RepeatButtonGameOver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RepeatButtonGameOver.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="RuleCatchBones" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RuleCatchBones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PuzzleTopRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PuzzleTopRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -370,8 +373,8 @@
   <data name="txtTestTipDodgeMeteorites" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\testDodgeMeteorites\txtTestTipDodgeMeteorites.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="txtTestAnswerDodgeMeteorites4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\testDodgeMeteorites\txtTestAnswerDodgeMeteorites4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="OrangeBoneSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OrangeBoneSmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="txtTestAnswerRepeatAction2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\testRepeatAction\txtTestAnswerRepeatAction2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -400,8 +403,8 @@
   <data name="RedButtonGray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RedButtonGray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PuzzleTopLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PuzzleTopLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="txtDodgeMeteorites3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\txtDodgeMeteorites3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PuzzleBottomLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PuzzleBottomLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -409,14 +412,14 @@
   <data name="txtTestTipCatchBones" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\testCatchBones\txtTestTipCatchBones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnClosedOpening" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnClosedOpening.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DodgeMeteoriteCrashRocket" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DodgeMeteoriteCrashRocket.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtTestAnswerCatchBones1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\testCatchBones\txtTestAnswerCatchBones1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RuleCatchBones" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RuleCatchBones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="txtCatchBones1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\txtCatchBones1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="txtTestAnswerCatchBones2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\testCatchBones\txtTestAnswerCatchBones2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -436,7 +439,7 @@
   <data name="CharacterRuleCatchBonesScene" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CharacterRuleCatchBonesScene.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="answerBorder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\answerBorder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BackgroundCharacter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BackgroundCharacter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

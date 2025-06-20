@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodgeMeteorites));
             CanvasDodgeMeteorites = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)CanvasDodgeMeteorites).BeginInit();
             SuspendLayout();
@@ -53,6 +54,7 @@
             Controls.Add(CanvasDodgeMeteorites);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "DodgeMeteorites";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DodgeMeteorites";

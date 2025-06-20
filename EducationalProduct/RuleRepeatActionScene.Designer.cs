@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RuleRepeatActionScene));
             CanvasRuleRepeatActionScene = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)CanvasRuleRepeatActionScene).BeginInit();
             SuspendLayout();
@@ -53,6 +54,7 @@
             ClientSize = new Size(1189, 500);
             Controls.Add(CanvasRuleRepeatActionScene);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "RuleRepeatActionScene";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RuleRepeatAction";

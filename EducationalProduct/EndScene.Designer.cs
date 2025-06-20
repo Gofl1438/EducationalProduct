@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EndScene));
             CanvasEndScene = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)CanvasEndScene).BeginInit();
             SuspendLayout();
@@ -53,6 +54,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(CanvasEndScene);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "EndScene";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "EndScene";

@@ -105,6 +105,12 @@ namespace EducationalProduct
 
             if (StateExitMenu.CurrentStateMenuExitTestScene) return;
 
+            if (StateChooseAnswer.currentStateMenuClick)
+            {
+                StateChooseAnswer.currentStateMenuClick = false;
+                return;
+            }
+
             if (!StateChooseAnswer.answerIsGiven)
             {
                 CheckMouseDownAnswer(e);
@@ -202,6 +208,7 @@ namespace EducationalProduct
                 {
                     ManagerUI.AddTotalElementsMenuExit();
                     CanvasTestScene.Invalidate();
+                    StateChooseAnswer.currentStateMenuClick = true;
                     StateExitMenu.CurrentStateMenuExitTestScene = true;
                 }
             }
@@ -212,6 +219,7 @@ namespace EducationalProduct
                 new Size(GameConfig.TotalElement.ButtonYes.Width, GameConfig.TotalElement.ButtonYes.Height)).Contains(e.Location))
             {
                 StateExitMenu.CurrentStateMenuExitTestScene = false;
+                StateChooseAnswer.currentStateMenuClick = true;
                 if (Application.OpenForms.OfType<OpeningScene>().FirstOrDefault() is OpeningScene mainForm)
                 {
                     mainForm.Opacity = 0;
@@ -236,6 +244,7 @@ namespace EducationalProduct
                 new Size(GameConfig.TotalElement.ButtonNo.Width, GameConfig.TotalElement.ButtonNo.Height)).Contains(e.Location))
             {
                 ManagerUI.TotalElementsMenuExit.Clear();
+                StateChooseAnswer.currentStateMenuClick = true;
                 StateExitMenu.CurrentStateMenuExitTestScene = false;
                 CanvasTestScene.Invalidate();
             }

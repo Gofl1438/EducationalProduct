@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RuleDodgeMeteoritesScene));
             CanvasRuleDodgeMeteoritesScene = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)CanvasRuleDodgeMeteoritesScene).BeginInit();
             SuspendLayout();
@@ -53,6 +54,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(CanvasRuleDodgeMeteoritesScene);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "RuleDodgeMeteoritesScene";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RuleDodgeMeteoritesScene";
